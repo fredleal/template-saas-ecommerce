@@ -1,7 +1,7 @@
 "use client"
 // src/app/page.tsx
 import { Button, Input, Text, Heading, Price, Badge, Icon } from '@/components/atoms'
-import { Card, ProductCard } from '@/components/molecules'
+import { Card, ProductCard, Rating } from '@/components/molecules'
 
 export default function Home() {
   return (
@@ -11,11 +11,232 @@ export default function Home() {
           Template SaaS - Design System
         </h1>
         
-        {/* NOVO: Testando Icon Component */}
+        {/* NOVO: StarIcon & Rating System */}
         <section className="mb-12">
-          <h2 className="text-2xl font-semibold mb-6">Icon System (Atom) - Novíssimo!</h2>
+          <h2 className="text-2xl font-semibold mb-6">StarIcon & Rating System - NOVO!</h2>
           
-          {/* Icon Variants */}
+          {/* StarIcon Variants */}
+          <div className="mb-8">
+            <h3 className="text-xl font-medium mb-4">StarIcon Variants</h3>
+            <div className="flex gap-6 items-center flex-wrap">
+              <div className="flex items-center gap-2">
+                <Icon name="StarIcon" size="lg" color="warning" />
+                <Text size="sm">StarIcon (outline)</Text>
+              </div>
+              <div className="flex items-center gap-2">
+                {/* Usando StarIcon direta para mostrar variant filled */}
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" className="text-yellow-500">
+                  <polygon points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26" fill="currentColor" />
+                </svg>
+                <Text size="sm">StarIcon (filled)</Text>
+              </div>
+            </div>
+          </div>
+
+          {/* Rating Component Examples */}
+          <div className="mb-8">
+            <h3 className="text-xl font-medium mb-4">Rating Component (Molecule)</h3>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl">
+              <div className="bg-white p-4 rounded-lg border">
+                <Text weight="semibold" className="mb-4">Rating Variants</Text>
+                <div className="space-y-3">
+                  <div className="flex items-center justify-between">
+                    <Text size="sm">Básico (4.2/5):</Text>
+                    <Rating value={4.2} />
+                  </div>
+                  <div className="flex items-center justify-between">
+                    <Text size="sm">Com valor:</Text>
+                    <Rating value={4.8} showValue />
+                  </div>
+                  <div className="flex items-center justify-between">
+                    <Text size="sm">Com contagem:</Text>
+                    <Rating value={3.5} showValue showCount count={127} />
+                  </div>
+                  <div className="flex items-center justify-between">
+                    <Text size="sm">Sem avaliações:</Text>
+                    <Rating value={0} color="secondary" />
+                  </div>
+                </div>
+              </div>
+
+              <div className="bg-white p-4 rounded-lg border">
+                <Text weight="semibold" className="mb-4">Rating Sizes</Text>
+                <div className="space-y-3">
+                  <div className="flex items-center justify-between">
+                    <Text size="sm">Small:</Text>
+                    <Rating value={4.5} size="sm" showValue />
+                  </div>
+                  <div className="flex items-center justify-between">
+                    <Text size="sm">Medium (padrão):</Text>
+                    <Rating value={4.5} size="md" showValue />
+                  </div>
+                  <div className="flex items-center justify-between">
+                    <Text size="sm">Large:</Text>
+                    <Rating value={4.5} size="lg" showValue />
+                  </div>
+                  <div className="flex items-center justify-between">
+                    <Text size="sm">Extra Large:</Text>
+                    <Rating value={4.5} size="xl" showValue />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* E-commerce Context with Ratings */}
+          <div className="mb-8">
+            <h3 className="text-xl font-medium mb-4">E-commerce with Ratings</h3>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl">
+              <div className="bg-white p-4 rounded-lg border">
+                <div className="flex justify-between items-start mb-2">
+                  <Text weight="semibold">Smartphone Pro Max</Text>
+                  <Badge variant="success" size="sm">Em estoque</Badge>
+                </div>
+                <div className="mb-3">
+                  <Rating value={4.8} size="sm" showValue showCount count={1429} />
+                </div>
+                <div className="flex gap-2 mb-3">
+                  <Badge variant="info" size="sm">5G</Badge>
+                  <Badge variant="default" size="sm">256GB</Badge>
+                </div>
+                <div className="flex items-center justify-between">
+                  <Price value={1899.99} size="lg" />
+                  <div className="flex gap-1">
+                    <Icon name="HeartIcon" size="sm" color="secondary" className="cursor-pointer hover:text-red-500" />
+                    <Icon name="CartIcon" size="sm" color="primary" className="cursor-pointer hover:text-blue-500" />
+                  </div>
+                </div>
+              </div>
+
+              <div className="bg-white p-4 rounded-lg border">
+                <div className="flex justify-between items-start mb-2">
+                  <Text weight="semibold">Notebook Ultrabook</Text>
+                  <Badge variant="info" size="sm">Lançamento</Badge>
+                </div>
+                <div className="mb-3">
+                  <Rating value={4.2} size="sm" showValue showCount count={89} />
+                </div>
+                <div className="flex gap-2 mb-3">
+                  <Badge variant="info" size="sm">Intel i7</Badge>
+                  <Badge variant="default" size="sm">16GB RAM</Badge>
+                </div>
+                <div className="flex items-center justify-between">
+                  <div className="flex items-center gap-2">
+                    <Price value={3499.99} size="sm" isDiscounted />
+                    <Price value={2999.99} size="lg" />
+                  </div>
+                  <div className="flex gap-1">
+                    <Icon name="HeartIcon" size="sm" color="secondary" className="cursor-pointer hover:text-red-500" />
+                    <Icon name="CartIcon" size="sm" color="primary" className="cursor-pointer hover:text-blue-500" />
+                  </div>
+                </div>
+              </div>
+
+              <div className="bg-white p-4 rounded-lg border">
+                <div className="flex justify-between items-start mb-2">
+                  <Text weight="semibold">Fones Bluetooth Pro</Text>
+                  <Badge variant="warning" size="sm">Últimas 5</Badge>
+                </div>
+                <div className="mb-3">
+                  <Rating value={4.6} size="sm" showValue showCount count={892} />
+                </div>
+                <div className="flex gap-2 mb-3">
+                  <Badge variant="default" size="sm">ANC</Badge>
+                  <Badge variant="info" size="sm">30h bateria</Badge>
+                </div>
+                <div className="flex items-center justify-between">
+                  <Price value={449.99} size="lg" />
+                  <div className="flex gap-1">
+                    <Icon name="HeartIcon" size="sm" color="secondary" className="cursor-pointer hover:text-red-500" />
+                    <Icon name="CartIcon" size="sm" color="primary" className="cursor-pointer hover:text-blue-500" />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Rating em diferentes contextos */}
+          <div className="mb-8">
+            <h3 className="text-xl font-medium mb-4">Rating in Different Contexts</h3>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl">
+              {/* Product Review Section */}
+              <div className="bg-white p-4 rounded-lg border">
+                <Text weight="semibold" className="mb-3">Customer Reviews</Text>
+                <div className="space-y-4">
+                  <div className="border-b pb-3">
+                    <div className="flex items-center justify-between mb-2">
+                      <Text size="sm" weight="medium">João Silva</Text>
+                      <Rating value={5} size="sm" />
+                    </div>
+                    <Text size="sm" color="secondary">
+                      "Excelente produto! Superou minhas expectativas em todos os aspectos."
+                    </Text>
+                  </div>
+                  <div className="border-b pb-3">
+                    <div className="flex items-center justify-between mb-2">
+                      <Text size="sm" weight="medium">Maria Santos</Text>
+                      <Rating value={4} size="sm" />
+                    </div>
+                    <Text size="sm" color="secondary">
+                      "Muito bom, entrega rápida e produto conforme descrito."
+                    </Text>
+                  </div>
+                  <div>
+                    <div className="flex items-center justify-between mb-2">
+                      <Text size="sm" weight="medium">Pedro Costa</Text>
+                      <Rating value={3} size="sm" />
+                    </div>
+                    <Text size="sm" color="secondary">
+                      "Produto OK, mas o preço poderia ser melhor."
+                    </Text>
+                  </div>
+                </div>
+              </div>
+
+              {/* Overall Rating Summary */}
+              <div className="bg-white p-4 rounded-lg border">
+                <Text weight="semibold" className="mb-3">Overall Rating</Text>
+                <div className="text-center mb-4">
+                  <Rating value={4.3} size="xl" showValue />
+                  <Text size="sm" color="muted" className="mt-2">
+                    Baseado em 1,847 avaliações
+                  </Text>
+                </div>
+                <div className="space-y-2">
+                  {[5, 4, 3, 2, 1].map((stars) => (
+                    <div key={stars} className="flex items-center gap-2">
+                      <Text size="xs" className="w-2">{stars}</Text>
+                      <Icon name="StarIcon" size="xs" color="warning" decorative />
+                      <div className="flex-1 bg-gray-200 rounded-full h-2">
+                        <div 
+                          className="bg-yellow-400 h-2 rounded-full" 
+                          style={{ 
+                            width: stars === 5 ? '65%' : 
+                                   stars === 4 ? '25%' : 
+                                   stars === 3 ? '7%' : 
+                                   stars === 2 ? '2%' : '1%' 
+                          }}
+                        />
+                      </div>
+                      <Text size="xs" color="muted" className="w-8">
+                        {stars === 5 ? '65%' : 
+                         stars === 4 ? '25%' : 
+                         stars === 3 ? '7%' : 
+                         stars === 2 ? '2%' : '1%'}
+                      </Text>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Icon System */}
+        <section className="mb-12">
+          <h2 className="text-2xl font-semibold mb-6">Icon System (6 Atoms)</h2>
+          
+          {/* Icon Variants - Agora incluindo StarIcon */}
           <div className="mb-8">
             <h3 className="text-xl font-medium mb-4">Available Icons</h3>
             <div className="flex gap-6 items-center flex-wrap">
@@ -39,68 +260,14 @@ export default function Home() {
                 <Icon name="PlusIcon" size="lg" color="success" />
                 <Text size="sm">PlusIcon</Text>
               </div>
-            </div>
-          </div>
-
-          {/* Icon Sizes */}
-          <div className="mb-8">
-            <h3 className="text-xl font-medium mb-4">Icon Sizes</h3>
-            <div className="flex gap-4 items-center flex-wrap">
               <div className="flex items-center gap-2">
-                <Icon name="HeartIcon" size="xs" color="error" />
-                <Text size="sm">xs (12px)</Text>
-              </div>
-              <div className="flex items-center gap-2">
-                <Icon name="HeartIcon" size="sm" color="error" />
-                <Text size="sm">sm (16px)</Text>
-              </div>
-              <div className="flex items-center gap-2">
-                <Icon name="HeartIcon" size="md" color="error" />
-                <Text size="sm">md (20px)</Text>
-              </div>
-              <div className="flex items-center gap-2">
-                <Icon name="HeartIcon" size="lg" color="error" />
-                <Text size="sm">lg (24px)</Text>
-              </div>
-              <div className="flex items-center gap-2">
-                <Icon name="HeartIcon" size="xl" color="error" />
-                <Text size="sm">xl (32px)</Text>
+                <Icon name="StarIcon" size="lg" color="warning" />
+                <Text size="sm">StarIcon ⭐</Text>
               </div>
             </div>
           </div>
 
-          {/* Icon Colors */}
-          <div className="mb-8">
-            <h3 className="text-xl font-medium mb-4">Icon Colors</h3>
-            <div className="flex gap-4 items-center flex-wrap">
-              <div className="flex items-center gap-2">
-                <Icon name="CartIcon" size="lg" color="primary" />
-                <Text size="sm">primary</Text>
-              </div>
-              <div className="flex items-center gap-2">
-                <Icon name="CartIcon" size="lg" color="secondary" />
-                <Text size="sm">secondary</Text>
-              </div>
-              <div className="flex items-center gap-2">
-                <Icon name="CartIcon" size="lg" color="success" />
-                <Text size="sm">success</Text>
-              </div>
-              <div className="flex items-center gap-2">
-                <Icon name="CartIcon" size="lg" color="error" />
-                <Text size="sm">error</Text>
-              </div>
-              <div className="flex items-center gap-2">
-                <Icon name="CartIcon" size="lg" color="warning" />
-                <Text size="sm">warning</Text>
-              </div>
-              <div className="flex items-center gap-2">
-                <Icon name="CartIcon" size="lg" color="info" />
-                <Text size="sm">info</Text>
-              </div>
-            </div>
-          </div>
-
-          {/* Icons em contexto - Buttons */}
+          {/* Icons em contexto - Buttons com StarIcon */}
           <div className="mb-8">
             <h3 className="text-xl font-medium mb-4">Icons in Buttons</h3>
             <div className="flex gap-4 flex-wrap">
@@ -117,86 +284,9 @@ export default function Home() {
                 Buscar
               </Button>
               <Button variant="ghost" size="md">
-                <Icon name="MenuIcon" size="sm" decorative />
-                Menu
+                <Icon name="StarIcon" size="sm" color="warning" decorative />
+                Avaliar
               </Button>
-            </div>
-          </div>
-
-          {/* Icons com animações */}
-          <div className="mb-8">
-            <h3 className="text-xl font-medium mb-4">Animated Icons</h3>
-            <div className="flex gap-6 items-center">
-              <div className="text-center">
-                <Icon 
-                  name="PlusIcon" 
-                  size="xl" 
-                  color="success" 
-                  className="hover:rotate-45 transition-transform duration-200 cursor-pointer" 
-                />
-                <Text size="sm" className="mt-2">Hover to rotate</Text>
-              </div>
-              <div className="text-center">
-                <Icon 
-                  name="HeartIcon" 
-                  size="xl" 
-                  color="error" 
-                  className="hover:scale-125 transition-transform duration-200 cursor-pointer" 
-                />
-                <Text size="sm" className="mt-2">Hover to scale</Text>
-              </div>
-              <div className="text-center">
-                <Icon 
-                  name="SearchIcon" 
-                  size="xl" 
-                  color="info" 
-                  className="hover:text-blue-500 transition-colors duration-200 cursor-pointer" 
-                />
-                <Text size="sm" className="mt-2">Hover color change</Text>
-              </div>
-            </div>
-          </div>
-
-          {/* Icons em diferentes contextos */}
-          <div className="mb-8">
-            <h3 className="text-xl font-medium mb-4">Icons in Context</h3>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl">
-              {/* Search Box simulado */}
-              <div className="bg-white p-4 rounded-lg border">
-                <Text weight="semibold" className="mb-3">Search Box</Text>
-                <div className="relative">
-                  <Icon 
-                    name="SearchIcon" 
-                    size="sm" 
-                    color="secondary" 
-                    className="absolute left-3 top-1/2 transform -translate-y-1/2" 
-                    decorative 
-                  />
-                  <input 
-                    className="w-full pl-10 pr-4 py-2 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500" 
-                    placeholder="Buscar produtos..."
-                  />
-                </div>
-              </div>
-
-              {/* Navigation simulada */}
-              <div className="bg-white p-4 rounded-lg border">
-                <Text weight="semibold" className="mb-3">Navigation Items</Text>
-                <div className="space-y-2">
-                  <div className="flex items-center gap-3 p-2 hover:bg-gray-50 rounded cursor-pointer">
-                    <Icon name="CartIcon" size="sm" color="primary" decorative />
-                    <Text>Carrinho de compras</Text>
-                  </div>
-                  <div className="flex items-center gap-3 p-2 hover:bg-gray-50 rounded cursor-pointer">
-                    <Icon name="HeartIcon" size="sm" color="error" decorative />
-                    <Text>Lista de desejos</Text>
-                  </div>
-                  <div className="flex items-center gap-3 p-2 hover:bg-gray-50 rounded cursor-pointer">
-                    <Icon name="SearchIcon" size="sm" color="secondary" decorative />
-                    <Text>Pesquisa avançada</Text>
-                  </div>
-                </div>
-              </div>
             </div>
           </div>
         </section>
@@ -205,121 +295,22 @@ export default function Home() {
         <section className="mb-12">
           <h2 className="text-2xl font-semibold mb-6">Badge Component (Atom)</h2>
           
-          {/* Badge Variants */}
+          {/* Badge + Icon + Rating combinations */}
           <div className="mb-8">
-            <h3 className="text-xl font-medium mb-4">Badge Variants (Cores Semânticas)</h3>
-            <div className="flex gap-4 items-center flex-wrap">
-              <Badge variant="default">Categoria</Badge>
-              <Badge variant="success">Em estoque</Badge>
-              <Badge variant="warning">Últimas 3 unidades</Badge>
-              <Badge variant="error">Esgotado</Badge>
-              <Badge variant="info">Novidade</Badge>
-            </div>
-          </div>
-
-          {/* Badge Sizes */}
-          <div className="mb-8">
-            <h3 className="text-xl font-medium mb-4">Badge Sizes</h3>
-            <div className="flex gap-4 items-center flex-wrap">
-              <Badge variant="info" size="sm">Small</Badge>
-              <Badge variant="success" size="md">Medium</Badge>
-              <Badge variant="warning" size="lg">Large</Badge>
-            </div>
-          </div>
-
-          {/* Badge + Icon combinations */}
-          <div className="mb-8">
-            <h3 className="text-xl font-medium mb-4">Badge + Icon Combinations</h3>
+            <h3 className="text-xl font-medium mb-4">Badge + Icon + Rating Combinations</h3>
             <div className="flex gap-4 items-center flex-wrap">
               <div className="flex items-center gap-2 bg-white p-3 rounded-lg border">
-                <Icon name="CartIcon" size="sm" color="success" decorative />
-                <Badge variant="success" size="sm">Em estoque</Badge>
+                <Icon name="StarIcon" size="sm" color="warning" decorative />
+                <Rating value={4.8} size="sm" />
+                <Badge variant="info" size="sm">Bestseller</Badge>
               </div>
               <div className="flex items-center gap-2 bg-white p-3 rounded-lg border">
                 <Icon name="HeartIcon" size="sm" color="error" decorative />
                 <Badge variant="info" size="sm">Favoritos</Badge>
               </div>
               <div className="flex items-center gap-2 bg-white p-3 rounded-lg border">
-                <Icon name="PlusIcon" size="sm" color="primary" decorative />
-                <Badge variant="default" size="sm">Adicionar</Badge>
-              </div>
-            </div>
-          </div>
-
-          {/* Badge em contexto E-commerce com ícones */}
-          <div className="mb-8">
-            <h3 className="text-xl font-medium mb-4">E-commerce Examples with Icons</h3>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-4xl">
-              {/* Simulando produtos com badges e ícones */}
-              <div className="bg-white p-4 rounded-lg border">
-                <div className="flex justify-between items-start mb-2">
-                  <div className="flex items-center gap-2">
-                    <Text weight="semibold">Smartphone Pro</Text>
-                  </div>
-                  <Badge variant="success" size="sm">Em estoque</Badge>
-                </div>
-                <div className="flex items-center gap-1 mb-2">
-                  <Icon name="SearchIcon" size="xs" color="secondary" decorative />
-                  <Text size="sm" color="muted">Categoria: Eletrônicos</Text>
-                </div>
-                <div className="flex gap-2 mb-3">
-                  <Badge variant="info" size="sm">5G</Badge>
-                  <Badge variant="default" size="sm">128GB</Badge>
-                </div>
-                <div className="flex items-center justify-between">
-                  <Price value={1299.99} size="lg" />
-                  <div className="flex gap-1">
-                    <Icon name="HeartIcon" size="sm" color="secondary" className="cursor-pointer hover:text-red-500" />
-                    <Icon name="CartIcon" size="sm" color="primary" className="cursor-pointer hover:text-blue-500" />
-                  </div>
-                </div>
-              </div>
-
-              <div className="bg-white p-4 rounded-lg border">
-                <div className="flex justify-between items-start mb-2">
-                  <Text weight="semibold">Notebook Gamer</Text>
-                  <Badge variant="warning" size="sm">Últimas 2</Badge>
-                </div>
-                <div className="flex items-center gap-1 mb-2">
-                  <Icon name="SearchIcon" size="xs" color="secondary" decorative />
-                  <Text size="sm" color="muted">Categoria: Computadores</Text>
-                </div>
-                <div className="flex gap-2 mb-3">
-                  <Badge variant="info" size="sm">Promoção</Badge>
-                  <Badge variant="default" size="sm">RTX 4060</Badge>
-                </div>
-                <div className="flex items-center justify-between">
-                  <div className="flex items-center gap-2">
-                    <Price value={2999.99} size="sm" isDiscounted />
-                    <Price value={2499.99} size="lg" />
-                  </div>
-                  <div className="flex gap-1">
-                    <Icon name="HeartIcon" size="sm" color="secondary" className="cursor-pointer hover:text-red-500" />
-                    <Icon name="CartIcon" size="sm" color="primary" className="cursor-pointer hover:text-blue-500" />
-                  </div>
-                </div>
-              </div>
-
-              <div className="bg-white p-4 rounded-lg border opacity-75">
-                <div className="flex justify-between items-start mb-2">
-                  <Text weight="semibold">Headphone Premium</Text>
-                  <Badge variant="error" size="sm">Esgotado</Badge>
-                </div>
-                <div className="flex items-center gap-1 mb-2">
-                  <Icon name="SearchIcon" size="xs" color="secondary" decorative />
-                  <Text size="sm" color="muted">Categoria: Áudio</Text>
-                </div>
-                <div className="flex gap-2 mb-3">
-                  <Badge variant="default" size="sm">Bluetooth</Badge>
-                  <Badge variant="default" size="sm">Noise Cancel</Badge>
-                </div>
-                <div className="flex items-center justify-between">
-                  <Price value={599.99} size="lg" />
-                  <div className="flex gap-1">
-                    <Icon name="HeartIcon" size="sm" color="secondary" className="cursor-pointer" />
-                    <Icon name="CartIcon" size="sm" color="gray-300" className="cursor-not-allowed" />
-                  </div>
-                </div>
+                <Icon name="CartIcon" size="sm" color="success" decorative />
+                <Badge variant="success" size="sm">Em estoque</Badge>
               </div>
             </div>
           </div>
@@ -329,35 +320,13 @@ export default function Home() {
         <section className="mb-12">
           <h2 className="text-2xl font-semibold mb-6">Card Component (Molecule)</h2>
           
-          {/* Card Variants */}
+          {/* Card com Ratings */}
           <div className="mb-8">
-            <h3 className="text-xl font-medium mb-4">Card Variants</h3>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-              <Card variant="default" title="Default Card" size="sm">
-                <Text size="sm">Este é um card padrão com borda simples.</Text>
-              </Card>
-              
-              <Card variant="elevated" title="Elevated Card" size="sm">
-                <Text size="sm">Card com sombra elevada para destaque.</Text>
-              </Card>
-              
-              <Card variant="outlined" title="Outlined Card" size="sm">
-                <Text size="sm">Card com borda mais grossa.</Text>
-              </Card>
-              
-              <Card variant="filled" title="Filled Card" size="sm">
-                <Text size="sm">Card com background preenchido.</Text>
-              </Card>
-            </div>
-          </div>
-
-          {/* Card com Imagem e Actions com Icons */}
-          <div className="mb-8">
-            <h3 className="text-xl font-medium mb-4">Cards with Icons & Actions</h3>
+            <h3 className="text-xl font-medium mb-4">Cards with Ratings & Icons</h3>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-4xl">
               <Card
                 variant="elevated"
-                title="Produto Exemplo"
+                title="Produto Premium"
                 subtitle="Categoria: Eletrônicos"
                 image="https://picsum.photos/300/200?random=1"
                 actions={
@@ -374,8 +343,9 @@ export default function Home() {
                 }
               >
                 <div className="space-y-2">
+                  <Rating value={4.9} size="sm" showValue showCount count={2847} />
                   <Text size="sm" color="secondary">
-                    Este é um exemplo de card com imagem, título, subtítulo e botões de ação.
+                    Produto premium com excelentes avaliações dos clientes.
                   </Text>
                   <div className="flex gap-2">
                     <Badge variant="success" size="sm">Em estoque</Badge>
@@ -386,41 +356,43 @@ export default function Home() {
               
               <Card
                 variant="default"
-                title="Artigo do Blog"
-                subtitle="Publicado há 2 dias"
+                title="Review do Blog"
+                subtitle="Análise detalhada"
                 image="https://picsum.photos/300/200?random=2"
                 actions={
                   <Button variant="ghost" size="sm">
                     <Icon name="PlusIcon" size="xs" decorative />
-                    Ler artigo
+                    Ler review
                   </Button>
                 }
               >
                 <div className="space-y-2">
+                  <Rating value={4.5} size="sm" showValue />
                   <Text size="sm">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor...
+                    Análise completa do produto com prós e contras detalhados.
                   </Text>
                   <div className="flex gap-2">
-                    <Badge variant="default" size="sm">React</Badge>
-                    <Badge variant="default" size="sm">Next.js</Badge>
+                    <Badge variant="default" size="sm">Review</Badge>
+                    <Badge variant="default" size="sm">Tech</Badge>
                   </div>
                 </div>
               </Card>
               
               <Card
                 variant="outlined"
-                title="Card Interativo"
-                subtitle="Clique para testar"
+                title="Produto Popular"
+                subtitle="Mais vendido"
                 isClickable
-                onClick={() => alert('Card clicado!')}
+                onClick={() => alert('Produto clicado!')}
               >
                 <div className="space-y-2">
+                  <Rating value={4.7} size="sm" showValue showCount count={5924} />
                   <Text size="sm" color="muted">
-                    Este card inteiro é clicável. Passe o mouse e clique para testar.
+                    Nosso produto mais popular com milhares de avaliações positivas.
                   </Text>
                   <div className="flex items-center gap-2">
-                    <Icon name="MenuIcon" size="sm" color="info" decorative />
-                    <Badge variant="info" size="sm">Interativo</Badge>
+                    <Icon name="StarIcon" size="sm" color="warning" decorative />
+                    <Badge variant="warning" size="sm">Bestseller</Badge>
                   </div>
                 </div>
               </Card>
@@ -428,9 +400,9 @@ export default function Home() {
           </div>
         </section>
         
-        {/* Mantendo todos os testes dos outros Atoms */}
+        {/* Outros componentes mantidos mas resumidos */}
         <div className="border-t pt-8">
-          <h2 className="text-2xl font-semibold mb-6">Other Atomic Components</h2>
+          <h2 className="text-2xl font-semibold mb-6">Other Components</h2>
           
           <div className="space-y-8">
             <section>
@@ -449,109 +421,32 @@ export default function Home() {
                   Outline Button
                 </Button>
                 <Button variant="ghost">
-                  <Icon name="MenuIcon" size="sm" decorative />
+                  <Icon name="StarIcon" size="sm" color="warning" decorative />
                   Ghost Button
                 </Button>
               </div>
             </section>
 
             <section>
-              <h2 className="text-2xl font-semibold mb-4">Button Sizes</h2>
-              <div className="flex gap-4 items-center flex-wrap">
-                <Button size="sm">Small</Button>
-                <Button size="md">Medium</Button>
-                <Button size="lg">Large</Button>
-              </div>
-            </section>
-
-            <section>
-              <h2 className="text-2xl font-semibold mb-4">Button States</h2>
-              <div className="flex gap-4 flex-wrap">
-                <Button>Normal</Button>
-                <Button isLoading>Loading...</Button>
-                <Button disabled>Disabled</Button>
-              </div>
-            </section>
-
-            {/* Testando Input Component com Icons */}
-            <section>
-              <h2 className="text-2xl font-semibold mb-4">Input Variants with Icons</h2>
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl">
-                <div className="relative">
-                  <Input 
-                    variant="default"
-                    placeholder="Search with icon..."
-                    label="Default Style"
-                    helperText="This input has a search icon"
-                    className="pl-10"
-                  />
-                  <Icon 
-                    name="SearchIcon" 
-                    size="sm" 
-                    color="secondary" 
-                    className="absolute left-3 top-9" 
-                    decorative 
-                  />
-                </div>
-                
-                <Input 
-                  variant="filled"
-                  placeholder="Filled input"
-                  label="Filled Style"
-                  helperText="This is a filled input"
-                />
-                
-                <Input 
-                  variant="flushed"
-                  placeholder="Flushed input"
-                  label="Flushed Style"
-                  helperText="This is a flushed input"
-                />
-              </div>
-            </section>
-
-            <section>
-              <h2 className="text-2xl font-semibold mb-4">Text Sizes</h2>
-              <div className="space-y-2">
-                <Text size="xs">Extra Small Text (xs)</Text>
-                <Text size="sm">Small Text (sm)</Text>
-                <Text size="base">Base Text (base) - padrão</Text>
-                <Text size="lg">Large Text (lg)</Text>
-                <Text size="xl">Extra Large Text (xl)</Text>
-                <Text size="2xl">2XL Text (2xl)</Text>
-                <Text size="3xl">3XL Text (3xl)</Text>
-              </div>
-            </section>
-
-            <section>
-              <h2 className="text-2xl font-semibold mb-4">Heading Component</h2>
-              <div className="space-y-3">
-                <Heading level={1}>Heading Level 1 (H1)</Heading>
-                <Heading level={2}>Heading Level 2 (H2)</Heading>
-                <Heading level={3}>Heading Level 3 (H3)</Heading>
-                <Heading level={4}>Heading Level 4 (H4)</Heading>
-                <Heading level={5}>Heading Level 5 (H5)</Heading>
-                <Heading level={6}>Heading Level 6 (H6)</Heading>
-              </div>
-            </section>
-
-            <section>
-              <h2 className="text-2xl font-semibold mb-4">Price Component (E-commerce)</h2>
+              <h2 className="text-2xl font-semibold mb-4">Price Component with Ratings</h2>
               <div className="flex gap-8 items-center flex-wrap">
                 <div className="text-center">
-                  <Text size="sm" color="muted" className="mb-1">Preço Normal</Text>
+                  <Text size="sm" color="muted" className="mb-1">Produto Premium</Text>
                   <Price value={299.99} size="2xl" />
+                  <Rating value={4.8} size="sm" showValue className="mt-1" />
                 </div>
                 <div className="text-center">
-                  <Text size="sm" color="muted" className="mb-1">Preço Promocional</Text>
+                  <Text size="sm" color="muted" className="mb-1">Oferta Especial</Text>
                   <div className="flex items-center gap-2">
                     <Price value={399.99} size="lg" isDiscounted />
                     <Price value={299.99} size="2xl" />
                   </div>
+                  <Rating value={4.5} size="sm" showValue className="mt-1" />
                 </div>
                 <div className="text-center">
-                  <Text size="sm" color="muted" className="mb-1">Preço Pequeno</Text>
+                  <Text size="sm" color="muted" className="mb-1">Mais Vendido</Text>
                   <Price value={49.99} size="lg" />
+                  <Rating value={4.9} size="sm" showValue showCount count={1847} className="mt-1" />
                 </div>
               </div>
             </section>
