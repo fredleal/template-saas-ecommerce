@@ -1,6 +1,6 @@
 "use client"
 // src/app/page.tsx
-import { Button, Input, Text, Heading, Price, Badge } from '@/components/atoms'
+import { Button, Input, Text, Heading, Price, Badge, Icon } from '@/components/atoms'
 import { Card, ProductCard } from '@/components/molecules'
 
 export default function Home() {
@@ -11,9 +11,199 @@ export default function Home() {
           Template SaaS - Design System
         </h1>
         
-        {/* NOVO: Testando Badge Component */}
+        {/* NOVO: Testando Icon Component */}
         <section className="mb-12">
-          <h2 className="text-2xl font-semibold mb-6">Badge Component (Atom) - Novidade!</h2>
+          <h2 className="text-2xl font-semibold mb-6">Icon System (Atom) - Novíssimo!</h2>
+          
+          {/* Icon Variants */}
+          <div className="mb-8">
+            <h3 className="text-xl font-medium mb-4">Available Icons</h3>
+            <div className="flex gap-6 items-center flex-wrap">
+              <div className="flex items-center gap-2">
+                <Icon name="CartIcon" size="lg" color="primary" />
+                <Text size="sm">CartIcon</Text>
+              </div>
+              <div className="flex items-center gap-2">
+                <Icon name="HeartIcon" size="lg" color="error" />
+                <Text size="sm">HeartIcon</Text>
+              </div>
+              <div className="flex items-center gap-2">
+                <Icon name="SearchIcon" size="lg" color="secondary" />
+                <Text size="sm">SearchIcon</Text>
+              </div>
+              <div className="flex items-center gap-2">
+                <Icon name="MenuIcon" size="lg" color="primary" />
+                <Text size="sm">MenuIcon</Text>
+              </div>
+              <div className="flex items-center gap-2">
+                <Icon name="PlusIcon" size="lg" color="success" />
+                <Text size="sm">PlusIcon</Text>
+              </div>
+            </div>
+          </div>
+
+          {/* Icon Sizes */}
+          <div className="mb-8">
+            <h3 className="text-xl font-medium mb-4">Icon Sizes</h3>
+            <div className="flex gap-4 items-center flex-wrap">
+              <div className="flex items-center gap-2">
+                <Icon name="HeartIcon" size="xs" color="error" />
+                <Text size="sm">xs (12px)</Text>
+              </div>
+              <div className="flex items-center gap-2">
+                <Icon name="HeartIcon" size="sm" color="error" />
+                <Text size="sm">sm (16px)</Text>
+              </div>
+              <div className="flex items-center gap-2">
+                <Icon name="HeartIcon" size="md" color="error" />
+                <Text size="sm">md (20px)</Text>
+              </div>
+              <div className="flex items-center gap-2">
+                <Icon name="HeartIcon" size="lg" color="error" />
+                <Text size="sm">lg (24px)</Text>
+              </div>
+              <div className="flex items-center gap-2">
+                <Icon name="HeartIcon" size="xl" color="error" />
+                <Text size="sm">xl (32px)</Text>
+              </div>
+            </div>
+          </div>
+
+          {/* Icon Colors */}
+          <div className="mb-8">
+            <h3 className="text-xl font-medium mb-4">Icon Colors</h3>
+            <div className="flex gap-4 items-center flex-wrap">
+              <div className="flex items-center gap-2">
+                <Icon name="CartIcon" size="lg" color="primary" />
+                <Text size="sm">primary</Text>
+              </div>
+              <div className="flex items-center gap-2">
+                <Icon name="CartIcon" size="lg" color="secondary" />
+                <Text size="sm">secondary</Text>
+              </div>
+              <div className="flex items-center gap-2">
+                <Icon name="CartIcon" size="lg" color="success" />
+                <Text size="sm">success</Text>
+              </div>
+              <div className="flex items-center gap-2">
+                <Icon name="CartIcon" size="lg" color="error" />
+                <Text size="sm">error</Text>
+              </div>
+              <div className="flex items-center gap-2">
+                <Icon name="CartIcon" size="lg" color="warning" />
+                <Text size="sm">warning</Text>
+              </div>
+              <div className="flex items-center gap-2">
+                <Icon name="CartIcon" size="lg" color="info" />
+                <Text size="sm">info</Text>
+              </div>
+            </div>
+          </div>
+
+          {/* Icons em contexto - Buttons */}
+          <div className="mb-8">
+            <h3 className="text-xl font-medium mb-4">Icons in Buttons</h3>
+            <div className="flex gap-4 flex-wrap">
+              <Button variant="primary" size="md">
+                <Icon name="CartIcon" size="sm" decorative />
+                Adicionar ao carrinho
+              </Button>
+              <Button variant="outline" size="md">
+                <Icon name="HeartIcon" size="sm" color="error" decorative />
+                Favoritar
+              </Button>
+              <Button variant="secondary" size="md">
+                <Icon name="SearchIcon" size="sm" decorative />
+                Buscar
+              </Button>
+              <Button variant="ghost" size="md">
+                <Icon name="MenuIcon" size="sm" decorative />
+                Menu
+              </Button>
+            </div>
+          </div>
+
+          {/* Icons com animações */}
+          <div className="mb-8">
+            <h3 className="text-xl font-medium mb-4">Animated Icons</h3>
+            <div className="flex gap-6 items-center">
+              <div className="text-center">
+                <Icon 
+                  name="PlusIcon" 
+                  size="xl" 
+                  color="success" 
+                  className="hover:rotate-45 transition-transform duration-200 cursor-pointer" 
+                />
+                <Text size="sm" className="mt-2">Hover to rotate</Text>
+              </div>
+              <div className="text-center">
+                <Icon 
+                  name="HeartIcon" 
+                  size="xl" 
+                  color="error" 
+                  className="hover:scale-125 transition-transform duration-200 cursor-pointer" 
+                />
+                <Text size="sm" className="mt-2">Hover to scale</Text>
+              </div>
+              <div className="text-center">
+                <Icon 
+                  name="SearchIcon" 
+                  size="xl" 
+                  color="info" 
+                  className="hover:text-blue-500 transition-colors duration-200 cursor-pointer" 
+                />
+                <Text size="sm" className="mt-2">Hover color change</Text>
+              </div>
+            </div>
+          </div>
+
+          {/* Icons em diferentes contextos */}
+          <div className="mb-8">
+            <h3 className="text-xl font-medium mb-4">Icons in Context</h3>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl">
+              {/* Search Box simulado */}
+              <div className="bg-white p-4 rounded-lg border">
+                <Text weight="semibold" className="mb-3">Search Box</Text>
+                <div className="relative">
+                  <Icon 
+                    name="SearchIcon" 
+                    size="sm" 
+                    color="secondary" 
+                    className="absolute left-3 top-1/2 transform -translate-y-1/2" 
+                    decorative 
+                  />
+                  <input 
+                    className="w-full pl-10 pr-4 py-2 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500" 
+                    placeholder="Buscar produtos..."
+                  />
+                </div>
+              </div>
+
+              {/* Navigation simulada */}
+              <div className="bg-white p-4 rounded-lg border">
+                <Text weight="semibold" className="mb-3">Navigation Items</Text>
+                <div className="space-y-2">
+                  <div className="flex items-center gap-3 p-2 hover:bg-gray-50 rounded cursor-pointer">
+                    <Icon name="CartIcon" size="sm" color="primary" decorative />
+                    <Text>Carrinho de compras</Text>
+                  </div>
+                  <div className="flex items-center gap-3 p-2 hover:bg-gray-50 rounded cursor-pointer">
+                    <Icon name="HeartIcon" size="sm" color="error" decorative />
+                    <Text>Lista de desejos</Text>
+                  </div>
+                  <div className="flex items-center gap-3 p-2 hover:bg-gray-50 rounded cursor-pointer">
+                    <Icon name="SearchIcon" size="sm" color="secondary" decorative />
+                    <Text>Pesquisa avançada</Text>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Badge Component */}
+        <section className="mb-12">
+          <h2 className="text-2xl font-semibold mb-6">Badge Component (Atom)</h2>
           
           {/* Badge Variants */}
           <div className="mb-8">
@@ -37,22 +227,52 @@ export default function Home() {
             </div>
           </div>
 
-          {/* Badge em contexto E-commerce */}
+          {/* Badge + Icon combinations */}
           <div className="mb-8">
-            <h3 className="text-xl font-medium mb-4">E-commerce Examples</h3>
+            <h3 className="text-xl font-medium mb-4">Badge + Icon Combinations</h3>
+            <div className="flex gap-4 items-center flex-wrap">
+              <div className="flex items-center gap-2 bg-white p-3 rounded-lg border">
+                <Icon name="CartIcon" size="sm" color="success" decorative />
+                <Badge variant="success" size="sm">Em estoque</Badge>
+              </div>
+              <div className="flex items-center gap-2 bg-white p-3 rounded-lg border">
+                <Icon name="HeartIcon" size="sm" color="error" decorative />
+                <Badge variant="info" size="sm">Favoritos</Badge>
+              </div>
+              <div className="flex items-center gap-2 bg-white p-3 rounded-lg border">
+                <Icon name="PlusIcon" size="sm" color="primary" decorative />
+                <Badge variant="default" size="sm">Adicionar</Badge>
+              </div>
+            </div>
+          </div>
+
+          {/* Badge em contexto E-commerce com ícones */}
+          <div className="mb-8">
+            <h3 className="text-xl font-medium mb-4">E-commerce Examples with Icons</h3>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-4xl">
-              {/* Simulando produtos com badges */}
+              {/* Simulando produtos com badges e ícones */}
               <div className="bg-white p-4 rounded-lg border">
                 <div className="flex justify-between items-start mb-2">
-                  <Text weight="semibold">Smartphone Pro</Text>
+                  <div className="flex items-center gap-2">
+                    <Text weight="semibold">Smartphone Pro</Text>
+                  </div>
                   <Badge variant="success" size="sm">Em estoque</Badge>
                 </div>
-                <Text size="sm" color="muted" className="mb-2">Categoria: Eletrônicos</Text>
+                <div className="flex items-center gap-1 mb-2">
+                  <Icon name="SearchIcon" size="xs" color="secondary" decorative />
+                  <Text size="sm" color="muted">Categoria: Eletrônicos</Text>
+                </div>
                 <div className="flex gap-2 mb-3">
                   <Badge variant="info" size="sm">5G</Badge>
                   <Badge variant="default" size="sm">128GB</Badge>
                 </div>
-                <Price value={1299.99} size="lg" />
+                <div className="flex items-center justify-between">
+                  <Price value={1299.99} size="lg" />
+                  <div className="flex gap-1">
+                    <Icon name="HeartIcon" size="sm" color="secondary" className="cursor-pointer hover:text-red-500" />
+                    <Icon name="CartIcon" size="sm" color="primary" className="cursor-pointer hover:text-blue-500" />
+                  </div>
+                </div>
               </div>
 
               <div className="bg-white p-4 rounded-lg border">
@@ -60,14 +280,23 @@ export default function Home() {
                   <Text weight="semibold">Notebook Gamer</Text>
                   <Badge variant="warning" size="sm">Últimas 2</Badge>
                 </div>
-                <Text size="sm" color="muted" className="mb-2">Categoria: Computadores</Text>
+                <div className="flex items-center gap-1 mb-2">
+                  <Icon name="SearchIcon" size="xs" color="secondary" decorative />
+                  <Text size="sm" color="muted">Categoria: Computadores</Text>
+                </div>
                 <div className="flex gap-2 mb-3">
                   <Badge variant="info" size="sm">Promoção</Badge>
                   <Badge variant="default" size="sm">RTX 4060</Badge>
                 </div>
-                <div className="flex items-center gap-2">
-                  <Price value={2999.99} size="sm" isDiscounted />
-                  <Price value={2499.99} size="lg" />
+                <div className="flex items-center justify-between">
+                  <div className="flex items-center gap-2">
+                    <Price value={2999.99} size="sm" isDiscounted />
+                    <Price value={2499.99} size="lg" />
+                  </div>
+                  <div className="flex gap-1">
+                    <Icon name="HeartIcon" size="sm" color="secondary" className="cursor-pointer hover:text-red-500" />
+                    <Icon name="CartIcon" size="sm" color="primary" className="cursor-pointer hover:text-blue-500" />
+                  </div>
                 </div>
               </div>
 
@@ -76,29 +305,22 @@ export default function Home() {
                   <Text weight="semibold">Headphone Premium</Text>
                   <Badge variant="error" size="sm">Esgotado</Badge>
                 </div>
-                <Text size="sm" color="muted" className="mb-2">Categoria: Áudio</Text>
+                <div className="flex items-center gap-1 mb-2">
+                  <Icon name="SearchIcon" size="xs" color="secondary" decorative />
+                  <Text size="sm" color="muted">Categoria: Áudio</Text>
+                </div>
                 <div className="flex gap-2 mb-3">
                   <Badge variant="default" size="sm">Bluetooth</Badge>
                   <Badge variant="default" size="sm">Noise Cancel</Badge>
                 </div>
-                <Price value={599.99} size="lg" />
+                <div className="flex items-center justify-between">
+                  <Price value={599.99} size="lg" />
+                  <div className="flex gap-1">
+                    <Icon name="HeartIcon" size="sm" color="secondary" className="cursor-pointer" />
+                    <Icon name="CartIcon" size="sm" color="gray-300" className="cursor-not-allowed" />
+                  </div>
+                </div>
               </div>
-            </div>
-          </div>
-
-          {/* Badge customizado */}
-          <div className="mb-8">
-            <h3 className="text-xl font-medium mb-4">Badge com Customização</h3>
-            <div className="flex gap-4 items-center flex-wrap">
-              <Badge variant="success" className="font-bold uppercase tracking-wide">
-                Oferta Especial
-              </Badge>
-              <Badge variant="info" className="animate-pulse">
-                Novidade
-              </Badge>
-              <Badge variant="default" className="border-2 border-gray-400">
-                Customizado
-              </Badge>
             </div>
           </div>
         </section>
@@ -129,9 +351,9 @@ export default function Home() {
             </div>
           </div>
 
-          {/* Card com Imagem e Actions */}
+          {/* Card com Imagem e Actions com Icons */}
           <div className="mb-8">
-            <h3 className="text-xl font-medium mb-4">Card with Image & Actions</h3>
+            <h3 className="text-xl font-medium mb-4">Cards with Icons & Actions</h3>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-4xl">
               <Card
                 variant="elevated"
@@ -140,8 +362,14 @@ export default function Home() {
                 image="https://picsum.photos/300/200?random=1"
                 actions={
                   <>
-                    <Button variant="outline" size="sm">Ver mais</Button>
-                    <Button variant="primary" size="sm">Comprar</Button>
+                    <Button variant="outline" size="sm">
+                      <Icon name="SearchIcon" size="xs" decorative />
+                      Ver mais
+                    </Button>
+                    <Button variant="primary" size="sm">
+                      <Icon name="CartIcon" size="xs" decorative />
+                      Comprar
+                    </Button>
                   </>
                 }
               >
@@ -162,7 +390,10 @@ export default function Home() {
                 subtitle="Publicado há 2 dias"
                 image="https://picsum.photos/300/200?random=2"
                 actions={
-                  <Button variant="ghost" size="sm">Ler artigo</Button>
+                  <Button variant="ghost" size="sm">
+                    <Icon name="PlusIcon" size="xs" decorative />
+                    Ler artigo
+                  </Button>
                 }
               >
                 <div className="space-y-2">
@@ -187,90 +418,40 @@ export default function Home() {
                   <Text size="sm" color="muted">
                     Este card inteiro é clicável. Passe o mouse e clique para testar.
                   </Text>
-                  <Badge variant="info" size="sm">Interativo</Badge>
+                  <div className="flex items-center gap-2">
+                    <Icon name="MenuIcon" size="sm" color="info" decorative />
+                    <Badge variant="info" size="sm">Interativo</Badge>
+                  </div>
                 </div>
               </Card>
             </div>
           </div>
-
-          {/* Product Cards para E-commerce com Badges */}
-          <div className="mb-8">
-            <h3 className="text-xl font-medium mb-4">Product Cards com Badges</h3>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl">
-              <div className="relative">
-                <Badge 
-                  variant="success" 
-                  size="sm" 
-                  className="absolute top-2 right-2 z-10"
-                >
-                  Em estoque
-                </Badge>
-                <ProductCard
-                  title="Smartphone Pro Max"
-                  price={1299.99}
-                  originalPrice={1499.99}
-                  image="https://picsum.photos/300/200?random=3"
-                  description="Smartphone com câmera de 108MP, tela OLED de 6.7 polegadas e bateria de longa duração."
-                  onAddToCart={() => alert('Adicionado ao carrinho!')}
-                  onViewDetails={() => alert('Ver detalhes do produto')}
-                  inStock={true}
-                />
-              </div>
-              
-              <div className="relative">
-                <Badge 
-                  variant="info" 
-                  size="sm" 
-                  className="absolute top-2 right-2 z-10"
-                >
-                  Lançamento
-                </Badge>
-                <ProductCard
-                  title="Notebook Gamer"
-                  price={2499.99}
-                  image="https://picsum.photos/300/200?random=4"
-                  description="Notebook para jogos com placa de vídeo dedicada, 16GB RAM e SSD 512GB."
-                  onAddToCart={() => alert('Adicionado ao carrinho!')}
-                  onViewDetails={() => alert('Ver detalhes do produto')}
-                  inStock={true}
-                />
-              </div>
-              
-              <div className="relative">
-                <Badge 
-                  variant="error" 
-                  size="sm" 
-                  className="absolute top-2 right-2 z-10"
-                >
-                  Esgotado
-                </Badge>
-                <ProductCard
-                  title="Headphone Wireless"
-                  price={299.99}
-                  originalPrice={399.99}
-                  image="https://picsum.photos/300/200?random=5"
-                  description="Headphone sem fio com cancelamento de ruído ativo e bateria de 30 horas."
-                  onAddToCart={() => alert('Produto indisponível')}
-                  onViewDetails={() => alert('Ver detalhes do produto')}
-                  inStock={false}
-                />
-              </div>
-            </div>
-          </div>
         </section>
         
-        {/* Mantendo todos os testes dos Atoms */}
+        {/* Mantendo todos os testes dos outros Atoms */}
         <div className="border-t pt-8">
-          <h2 className="text-2xl font-semibold mb-6">Atomic Components</h2>
+          <h2 className="text-2xl font-semibold mb-6">Other Atomic Components</h2>
           
           <div className="space-y-8">
             <section>
-              <h2 className="text-2xl font-semibold mb-4">Button Variants</h2>
+              <h2 className="text-2xl font-semibold mb-4">Button Variants with Icons</h2>
               <div className="flex gap-4 flex-wrap">
-                <Button variant="primary">Primary Button</Button>
-                <Button variant="secondary">Secondary Button</Button>
-                <Button variant="outline">Outline Button</Button>
-                <Button variant="ghost">Ghost Button</Button>
+                <Button variant="primary">
+                  <Icon name="PlusIcon" size="sm" decorative />
+                  Primary Button
+                </Button>
+                <Button variant="secondary">
+                  <Icon name="SearchIcon" size="sm" decorative />
+                  Secondary Button
+                </Button>
+                <Button variant="outline">
+                  <Icon name="HeartIcon" size="sm" decorative />
+                  Outline Button
+                </Button>
+                <Button variant="ghost">
+                  <Icon name="MenuIcon" size="sm" decorative />
+                  Ghost Button
+                </Button>
               </div>
             </section>
 
@@ -292,22 +473,34 @@ export default function Home() {
               </div>
             </section>
 
-            {/* Testando Input Component */}
+            {/* Testando Input Component com Icons */}
             <section>
-              <h2 className="text-2xl font-semibold mb-4">Input Variants</h2>
+              <h2 className="text-2xl font-semibold mb-4">Input Variants with Icons</h2>
               <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl">
-                <Input 
-                  variant="default"
-                  placeholder="Default input"
-                  label="Default Style"
-                  helperText="This is a default input"
-                />
+                <div className="relative">
+                  <Input 
+                    variant="default"
+                    placeholder="Search with icon..."
+                    label="Default Style"
+                    helperText="This input has a search icon"
+                    className="pl-10"
+                  />
+                  <Icon 
+                    name="SearchIcon" 
+                    size="sm" 
+                    color="secondary" 
+                    className="absolute left-3 top-9" 
+                    decorative 
+                  />
+                </div>
+                
                 <Input 
                   variant="filled"
                   placeholder="Filled input"
                   label="Filled Style"
                   helperText="This is a filled input"
                 />
+                
                 <Input 
                   variant="flushed"
                   placeholder="Flushed input"
@@ -318,39 +511,6 @@ export default function Home() {
             </section>
 
             <section>
-              <h2 className="text-2xl font-semibold mb-4">Input Sizes</h2>
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl">
-                <Input size="sm" placeholder="Small input" label="Small Size" />
-                <Input size="md" placeholder="Medium input" label="Medium Size" />
-                <Input size="lg" placeholder="Large input" label="Large Size" />
-              </div>
-            </section>
-
-            <section>
-              <h2 className="text-2xl font-semibold mb-4">Input States</h2>
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl">
-                <Input 
-                  placeholder="Normal input"
-                  label="Normal State"
-                  helperText="Everything looks good"
-                />
-                <Input 
-                  placeholder="Error input"
-                  label="Error State"
-                  error={true}
-                  errorMessage="This field is required"
-                />
-                <Input 
-                  placeholder="Disabled input"
-                  label="Disabled State"
-                  disabled
-                  helperText="This input is disabled"
-                />
-              </div>
-            </section>
-
-            {/* Testando Text Component */}
-            <section>
               <h2 className="text-2xl font-semibold mb-4">Text Sizes</h2>
               <div className="space-y-2">
                 <Text size="xs">Extra Small Text (xs)</Text>
@@ -360,26 +520,6 @@ export default function Home() {
                 <Text size="xl">Extra Large Text (xl)</Text>
                 <Text size="2xl">2XL Text (2xl)</Text>
                 <Text size="3xl">3XL Text (3xl)</Text>
-              </div>
-            </section>
-
-            <section>
-              <h2 className="text-2xl font-semibold mb-4">Text Colors & Weights</h2>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                <div className="space-y-2">
-                  <Text color="primary" weight="normal">Primary color, normal weight</Text>
-                  <Text color="secondary" weight="medium">Secondary color, medium weight</Text>
-                  <Text color="muted" weight="light">Muted color, light weight</Text>
-                  <Text color="success" weight="semibold">Success color, semibold weight</Text>
-                  <Text color="warning" weight="bold">Warning color, bold weight</Text>
-                  <Text color="error" weight="extrabold">Error color, extrabold weight</Text>
-                </div>
-                <div className="space-y-2">
-                  <Text align="left">Left aligned text</Text>
-                  <Text align="center">Center aligned text</Text>
-                  <Text align="right">Right aligned text</Text>
-                  <Text align="justify">Justify aligned text - Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore.</Text>
-                </div>
               </div>
             </section>
 
