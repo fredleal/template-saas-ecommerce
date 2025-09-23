@@ -1,36 +1,182 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Template SaaS E-commerce Design System
 
-## Getting Started
+A modern, TypeScript-first design system built with Next.js 15, Tailwind CSS, and atomic design principles. Features production-ready components for SaaS and e-commerce applications.
 
-First, run the development server:
+![TypeScript](https://img.shields.io/badge/TypeScript-5.0+-blue)
+![Next.js](https://img.shields.io/badge/Next.js-15.0+-black)
+![Tailwind](https://img.shields.io/badge/Tailwind-3.0+-06B6D4)
+
+## Features
+
+- **🧩 Atomic Design**: Systematic component architecture (Atoms, Molecules, Organisms)
+- **🎨 Design Tokens**: Consistent spacing, colors, and typography
+- **♿ Accessibility First**: WCAG AA compliant components
+- **📱 Responsive**: Mobile-first design approach
+- **🔧 TypeScript**: Full type safety and developer experience
+- **⚡ Performance**: Optimized bundle size and tree-shaking
+- **🎯 E-commerce Ready**: Rating systems, pricing, product cards
+
+## Quick Start
 
 ```bash
+# Clone the repository
+git clone https://github.com/fredleal/template-saas-ecommerce.git
+
+# Install dependencies
+cd template-saas-ecommerce
+npm install
+
+# Start development server
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+
+# Visit http://localhost:3000 to see the design system showcase
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Component Library
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### Atoms (14 components)
+```typescript
+// Typography
+import { Text, Heading } from '@/components/atoms'
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+// Form Controls  
+import { Button, Input } from '@/components/atoms'
 
-## Learn More
+// Visual Elements
+import { Badge, Icon, Price } from '@/components/atoms'
 
-To learn more about Next.js, take a look at the following resources:
+// Icons (9 available)
+import { Icon } from '@/components/atoms'
+// CartIcon, HeartIcon, SearchIcon, MenuIcon, PlusIcon, StarIcon
+// UserIcon, FilterIcon, CheckIcon (coming soon)
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### Molecules (3 components)
+```typescript
+// Layout
+import { Card } from '@/components/molecules'
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+// E-commerce
+import { ProductCard, Rating } from '@/components/molecules'
+```
 
-## Deploy on Vercel
+## Usage Examples
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### Basic Components
+```typescript
+import { Button, Text, Badge, Icon } from '@/components/atoms'
+import { Card, Rating } from '@/components/molecules'
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+export function ProductExample() {
+  return (
+    <Card variant="elevated" title="Premium Product">
+      <Rating value={4.8} showValue showCount count={1247} />
+      <Text size="sm" color="muted">
+        High-quality product with excellent reviews
+      </Text>
+      <div className="flex gap-2 mt-4">
+        <Badge variant="success" size="sm">In Stock</Badge>
+        <Badge variant="info" size="sm">Free Shipping</Badge>
+      </div>
+      <Button variant="primary" className="mt-4">
+        <Icon name="CartIcon" size="sm" decorative />
+        Add to Cart
+      </Button>
+    </Card>
+  )
+}
+```
+
+### E-commerce Features
+```typescript
+import { Price, Rating, Badge } from '@/components/atoms'
+
+// Pricing with discounts
+<Price value={299.99} size="2xl" />
+<Price value={399.99} size="lg" isDiscounted />
+
+// Product ratings
+<Rating value={4.5} showValue showCount count={892} />
+
+// Status indicators
+<Badge variant="warning" size="sm">Last 3 items</Badge>
+```
+
+## Architecture
+
+### Atomic Design Structure
+```
+src/
+├── components/
+│   ├── atoms/          # Basic building blocks
+│   ├── molecules/      # Component combinations  
+│   └── organisms/      # Complex sections (planned)
+├── assets/
+│   └── icons/          # Icon system by category
+└── styles/
+    └── globals.css     # Design tokens
+```
+
+### Icon System
+Icons are organized by purpose:
+- `ecommerce/` - CartIcon, HeartIcon
+- `navigation/` - SearchIcon, MenuIcon  
+- `actions/` - PlusIcon
+- `feedback/` - StarIcon
+- `social/` - UserIcon (planned)
+
+## Development
+
+### Adding New Components
+
+1. **Atoms**: Place in `src/components/atoms/`
+2. **Export**: Add to `src/components/atoms/index.ts`
+3. **Showcase**: Demonstrate in `src/app/page.tsx`
+4. **Types**: Extend existing patterns for consistency
+
+### Design Tokens
+Customize the system via Tailwind config:
+
+```javascript
+// tailwind.config.js
+module.exports = {
+  theme: {
+    extend: {
+      colors: {
+        primary: { /* your brand colors */ },
+        secondary: { /* your brand colors */ },
+      }
+    }
+  }
+}
+```
+
+## Testing (Coming Soon)
+
+Testing implementation planned after reaching 9+ components:
+- **Unit Tests**: Vitest + Testing Library
+- **Coverage Goals**: 80% atoms, 60% molecules
+- **Visual Testing**: Storybook integration planned
+
+## Contributing
+
+1. Check [GitHub Projects](https://github.com/users/fredleal/projects/2) for current tasks
+2. Follow the issue template for new components
+3. Ensure TypeScript compliance and accessibility
+4. Add component to main showcase page
+
+## Tech Stack
+
+- **Framework**: Next.js 15 with App Router
+- **Styling**: Tailwind CSS 3.0+
+- **Language**: TypeScript 5.0+
+- **Icons**: Custom SVG icon system
+- **Deployment**: Vercel (recommended)
+
+## License
+
+MIT License - see [LICENSE](LICENSE) for details.
+
+---
+
+**Built for modern web applications**
