@@ -3,7 +3,7 @@ import { BaseIconProps, iconSizes, iconColors } from '../base/BaseIcon'
 
 /**
  * PlusIcon - Ícone de adição/mais para ações de criação
- * 
+ *
  * @example
  * <PlusIcon size="sm" color="success" />
  * <PlusIcon size="lg" className="rotate-45 transition-transform" />
@@ -13,11 +13,11 @@ export const PlusIcon: React.FC<BaseIconProps> = ({
   color = 'current',
   className = '',
   'aria-label': ariaLabel = 'Adicionar',
-  decorative = false
+  decorative = false,
 }) => {
   const sizeValue = typeof size === 'number' ? size : iconSizes[size]
   const colorClass = iconColors[color]
-  
+
   return (
     <svg
       width={sizeValue}

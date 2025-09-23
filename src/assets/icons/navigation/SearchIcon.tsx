@@ -3,7 +3,7 @@ import { BaseIconProps, iconSizes, iconColors } from '../base/BaseIcon'
 
 /**
  * SearchIcon - Ícone de lupa para busca e pesquisa
- * 
+ *
  * @example
  * <SearchIcon size="md" color="secondary" />
  * <SearchIcon size="sm" className="mr-2" decorative />
@@ -13,11 +13,11 @@ export const SearchIcon: React.FC<BaseIconProps> = ({
   color = 'current',
   className = '',
   'aria-label': ariaLabel = 'Buscar',
-  decorative = false
+  decorative = false,
 }) => {
   const sizeValue = typeof size === 'number' ? size : iconSizes[size]
   const colorClass = iconColors[color]
-  
+
   return (
     <svg
       width={sizeValue}
@@ -29,13 +29,7 @@ export const SearchIcon: React.FC<BaseIconProps> = ({
       aria-hidden={decorative}
       role={decorative ? 'presentation' : 'img'}
     >
-      <circle
-        cx="11"
-        cy="11"
-        r="8"
-        stroke="currentColor"
-        strokeWidth="2"
-      />
+      <circle cx="11" cy="11" r="8" stroke="currentColor" strokeWidth="2" />
       <path
         d="M21 21L16.65 16.65"
         stroke="currentColor"

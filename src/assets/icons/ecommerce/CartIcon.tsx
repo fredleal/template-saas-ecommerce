@@ -3,7 +3,7 @@ import { BaseIconProps, iconSizes, iconColors } from '../base/BaseIcon'
 
 /**
  * CartIcon - Ícone de carrinho de compras para e-commerce
- * 
+ *
  * @example
  * <CartIcon size="md" color="primary" />
  * <CartIcon size={24} className="hover:text-blue-500" />
@@ -13,11 +13,11 @@ export const CartIcon: React.FC<BaseIconProps> = ({
   color = 'current',
   className = '',
   'aria-label': ariaLabel = 'Carrinho de compras',
-  decorative = false
+  decorative = false,
 }) => {
   const sizeValue = typeof size === 'number' ? size : iconSizes[size]
   const colorClass = iconColors[color]
-  
+
   return (
     <svg
       width={sizeValue}

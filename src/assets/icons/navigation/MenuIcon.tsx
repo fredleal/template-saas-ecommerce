@@ -3,7 +3,7 @@ import { BaseIconProps, iconSizes, iconColors } from '../base/BaseIcon'
 
 /**
  * MenuIcon - Ícone de hamburguer para menus de navegação
- * 
+ *
  * @example
  * <MenuIcon size="lg" color="primary" />
  * <MenuIcon size="md" className="md:hidden" aria-label="Abrir menu" />
@@ -13,11 +13,11 @@ export const MenuIcon: React.FC<BaseIconProps> = ({
   color = 'current',
   className = '',
   'aria-label': ariaLabel = 'Menu',
-  decorative = false
+  decorative = false,
 }) => {
   const sizeValue = typeof size === 'number' ? size : iconSizes[size]
   const colorClass = iconColors[color]
-  
+
   return (
     <svg
       width={sizeValue}

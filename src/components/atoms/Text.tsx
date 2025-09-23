@@ -24,7 +24,7 @@ export const Text = ({
   // Classes de tamanho
   const sizeClasses = {
     xs: 'text-xs',
-    sm: 'text-sm', 
+    sm: 'text-sm',
     base: 'text-base',
     lg: 'text-lg',
     xl: 'text-xl',
@@ -33,7 +33,7 @@ export const Text = ({
     '4xl': 'text-4xl',
     '5xl': 'text-5xl',
   }
-  
+
   // Classes de peso
   const weightClasses = {
     light: 'font-light',
@@ -43,7 +43,7 @@ export const Text = ({
     bold: 'font-bold',
     extrabold: 'font-extrabold',
   }
-  
+
   // Classes de cor
   const colorClasses = {
     primary: 'text-gray-900',
@@ -53,7 +53,7 @@ export const Text = ({
     warning: 'text-yellow-600',
     error: 'text-red-600',
   }
-  
+
   // Classes de alinhamento
   const alignClasses = {
     left: 'text-left',
@@ -61,22 +61,23 @@ export const Text = ({
     right: 'text-right',
     justify: 'text-justify',
   }
-  
+
   // Combinar classes
   const finalClasses = `${sizeClasses[size]} ${weightClasses[weight]} ${colorClasses[color]} ${alignClasses[align]} ${className}`
-  
-  return (
-    <Component className={finalClasses}>
-      {children}
-    </Component>
-  )
+
+  return <Component className={finalClasses}>{children}</Component>
 }
 
 // Componentes pré-definidos para facilitar o uso
-export const Heading = ({ level = 1, children, className = '', ...props }: { 
+export const Heading = ({
+  level = 1,
+  children,
+  className = '',
+  ...props
+}: {
   level?: 1 | 2 | 3 | 4 | 5 | 6
   children: React.ReactNode
-  className?: string 
+  className?: string
 } & Omit<TextProps, 'as' | 'children'>) => {
   const headingProps = {
     1: { as: 'h1' as const, size: '4xl' as const, weight: 'bold' as const },
@@ -86,9 +87,9 @@ export const Heading = ({ level = 1, children, className = '', ...props }: {
     5: { as: 'h5' as const, size: 'lg' as const, weight: 'medium' as const },
     6: { as: 'h6' as const, size: 'base' as const, weight: 'medium' as const },
   }
-  
+
   const headingConfig = headingProps[level]
-  
+
   return (
     <Text {...headingConfig} className={className} {...props}>
       {children}
@@ -97,13 +98,13 @@ export const Heading = ({ level = 1, children, className = '', ...props }: {
 }
 
 // Componente para preços (e-commerce)
-export const Price = ({ 
-  value, 
-  currency = 'R$', 
+export const Price = ({
+  value,
+  currency = 'R$',
   size = 'lg',
   isDiscounted = false,
   className = '',
-  ...props 
+  ...props
 }: {
   value: number
   currency?: string
@@ -115,7 +116,7 @@ export const Price = ({
     style: 'currency',
     currency: 'BRL',
   }).format(value)
-  
+
   return (
     <Text
       size={size}

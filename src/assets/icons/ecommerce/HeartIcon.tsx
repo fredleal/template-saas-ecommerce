@@ -3,7 +3,7 @@ import { BaseIconProps, iconSizes, iconColors } from '../base/BaseIcon'
 
 /**
  * HeartIcon - Ícone de coração para favoritos e curtidas
- * 
+ *
  * @example
  * <HeartIcon size="sm" color="error" />
  * <HeartIcon size="lg" className="hover:fill-red-500 transition-colors" />
@@ -13,11 +13,11 @@ export const HeartIcon: React.FC<BaseIconProps> = ({
   color = 'current',
   className = '',
   'aria-label': ariaLabel = 'Favorito',
-  decorative = false
+  decorative = false,
 }) => {
   const sizeValue = typeof size === 'number' ? size : iconSizes[size]
   const colorClass = iconColors[color]
-  
+
   return (
     <svg
       width={sizeValue}

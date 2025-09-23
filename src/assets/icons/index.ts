@@ -5,7 +5,7 @@
 export { CartIcon } from './ecommerce/CartIcon'
 export { HeartIcon } from './ecommerce/HeartIcon'
 
-// Navigation Icons  
+// Navigation Icons
 export { SearchIcon } from './navigation/SearchIcon'
 export { MenuIcon } from './navigation/MenuIcon'
 
