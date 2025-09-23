@@ -1,3 +1,4 @@
+"use client"
 // src/components/atoms/Input.tsx
 import React from 'react'
 
