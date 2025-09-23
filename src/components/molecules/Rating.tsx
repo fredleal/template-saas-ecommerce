@@ -1,4 +1,4 @@
-"use client"
+'use client'
 import React from 'react'
 import { Text } from '@/components/atoms'
 
@@ -25,10 +25,10 @@ const StarIcon: React.FC<{
   const sizeMap = { xs: 12, sm: 16, md: 20, lg: 24, xl: 32 }
   const colorMap = {
     warning: 'text-yellow-500',
-    secondary: 'text-gray-500', 
-    primary: 'text-gray-900'
+    secondary: 'text-gray-500',
+    primary: 'text-gray-900',
   }
-  
+
   return (
     <svg
       width={sizeMap[size]}
@@ -59,15 +59,15 @@ export const Rating: React.FC<RatingProps> = ({
   count,
   color = 'warning',
   className = '',
-  'aria-label': ariaLabel
+  'aria-label': ariaLabel,
 }) => {
   const clampedValue = Math.max(0, Math.min(value, max))
   const filledStars = Math.floor(clampedValue)
   const hasHalfStar = clampedValue % 1 >= 0.5
   const emptyStars = max - filledStars - (hasHalfStar ? 1 : 0)
-  
+
   const stars = []
-  
+
   for (let i = 0; i < filledStars; i++) {
     stars.push(
       <StarIcon
@@ -78,7 +78,7 @@ export const Rating: React.FC<RatingProps> = ({
       />
     )
   }
-  
+
   if (hasHalfStar) {
     stars.push(
       <div key="half" className="relative">
@@ -89,13 +89,13 @@ export const Rating: React.FC<RatingProps> = ({
           color={color}
           className="absolute inset-0"
           style={{
-            clipPath: 'polygon(0 0, 50% 0, 50% 100%, 0 100%)'
+            clipPath: 'polygon(0 0, 50% 0, 50% 100%, 0 100%)',
           }}
         />
       </div>
     )
   }
-  
+
   for (let i = 0; i < emptyStars; i++) {
     stars.push(
       <StarIcon
@@ -106,47 +106,41 @@ export const Rating: React.FC<RatingProps> = ({
       />
     )
   }
-  
+
   const textSizeMap = {
     xs: 'xs',
-    sm: 'sm', 
+    sm: 'sm',
     md: 'sm',
     lg: 'base',
-    xl: 'lg'
+    xl: 'lg',
   } as const
-  
+
   const textSize = textSizeMap[size]
-  
+
   return (
-    <div 
+    <div
       className={`flex items-center gap-1 ${className}`}
       aria-label={
-        ariaLabel || 
+        ariaLabel ||
         `${clampedValue} de ${max} estrelas${count ? ` (${count} avaliações)` : ''}`
       }
       role="img"
     >
-      <div className="flex items-center gap-0.5">
-        {stars}
-      </div>
-      
+      <div className="flex items-center gap-0.5">{stars}</div>
+
       {showValue && (
-        <Text 
-          size={textSize} 
-          color="secondary" 
+        <Text
+          size={textSize}
+          color="secondary"
           className="ml-1"
           weight="medium"
         >
           {clampedValue.toFixed(1)}
         </Text>
       )}
-      
+
       {showCount && count !== undefined && (
-        <Text 
-          size={textSize} 
-          color="muted" 
-          className="ml-1"
-        >
+        <Text size={textSize} color="muted" className="ml-1">
           ({count.toLocaleString()})
         </Text>
       )}

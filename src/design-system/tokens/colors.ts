@@ -4,7 +4,7 @@ export const colors = {
   // Brand Colors - Customize para cada projeto
   primary: {
     50: '#eff6ff',
-    100: '#dbeafe', 
+    100: '#dbeafe',
     200: '#bfdbfe',
     300: '#93c5fd',
     400: '#60a5fa',
@@ -14,7 +14,7 @@ export const colors = {
     800: '#1e40af',
     900: '#1e3a8a',
   },
-  
+
   // Neutral Colors
   gray: {
     50: '#f9fafb',

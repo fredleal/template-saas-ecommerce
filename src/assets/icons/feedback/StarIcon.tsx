@@ -11,11 +11,11 @@ export const StarIcon: React.FC<StarIconProps> = ({
   color = 'warning',
   className = '',
   'aria-label': ariaLabel = 'Estrela',
-  decorative = false
+  decorative = false,
 }) => {
   const sizeValue = typeof size === 'number' ? size : iconSizes[size]
   const colorClass = iconColors[color]
-  
+
   return (
     <svg
       width={sizeValue}

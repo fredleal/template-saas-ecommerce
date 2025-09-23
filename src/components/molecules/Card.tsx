@@ -1,4 +1,4 @@
-"use client"
+'use client'
 // src/components/molecules/Card.tsx
 import React from 'react'
 import { Button, Text, Heading } from '@/components/atoms'
@@ -32,89 +32,74 @@ export const Card = ({
   isClickable = false,
 }: CardProps) => {
   // Classes base
-  const baseClasses = 'bg-white rounded-lg overflow-hidden transition-all duration-200'
-  
+  const baseClasses =
+    'bg-white rounded-lg overflow-hidden transition-all duration-200'
+
   // Variantes
   const variantClasses = {
     default: 'border border-gray-200',
     elevated: 'shadow-md hover:shadow-lg',
     outlined: 'border-2 border-gray-300',
-    filled: 'bg-gray-50 border border-gray-200'
+    filled: 'bg-gray-50 border border-gray-200',
   }
-  
+
   // Tamanhos (padding interno)
   const sizeClasses = {
     sm: 'p-4',
-    md: 'p-6', 
-    lg: 'p-8'
+    md: 'p-6',
+    lg: 'p-8',
   }
-  
+
   // Classes de clicável
-  const clickableClasses = isClickable || onClick ? 'cursor-pointer hover:shadow-md' : ''
-  
+  const clickableClasses =
+    isClickable || onClick ? 'cursor-pointer hover:shadow-md' : ''
+
   // Combinar classes
   const cardClasses = `${baseClasses} ${variantClasses[variant]} ${clickableClasses} ${className}`
-  
+
   // Handler de clique
   const handleClick = () => {
     if (onClick) {
       onClick()
     }
   }
-  
+
   return (
-    <div 
-      className={cardClasses}
-      onClick={handleClick}
-    >
+    <div className={cardClasses} onClick={handleClick}>
       {/* Imagem (se fornecida) */}
       {image && (
         <div className="w-full h-48 bg-gray-200 overflow-hidden">
-          <img 
-            src={image} 
+          <img
+            src={image}
             alt={imageAlt || title || 'Card image'}
             className="w-full h-full object-cover"
           />
         </div>
       )}
-      
+
       {/* Conteúdo do Card */}
       <div className={image ? sizeClasses[size] : `${sizeClasses[size]} pb-4`}>
         {/* Header (Title + Subtitle) */}
         {(title || subtitle) && (
           <div className="mb-4">
             {title && (
-              <Heading 
-                level={3} 
-                className="mb-1"
-              >
+              <Heading level={3} className="mb-1">
                 {title}
               </Heading>
             )}
             {subtitle && (
-              <Text 
-                color="secondary" 
-                size="sm"
-              >
+              <Text color="secondary" size="sm">
                 {subtitle}
               </Text>
             )}
           </div>
         )}
-        
+
         {/* Conteúdo principal */}
-        {children && (
-          <div className="mb-4">
-            {children}
-          </div>
-        )}
-        
+        {children && <div className="mb-4">{children}</div>}
+
         {/* Actions (Botões) */}
-        {actions && (
-          <div className="flex gap-2 flex-wrap">
-            {actions}
-          </div>
-        )}
+        {actions && <div className="flex gap-2 flex-wrap">{actions}</div>}
       </div>
     </div>
   )
@@ -153,14 +138,14 @@ export const ProductCard = ({
       <Text size="lg" weight="semibold" className="mb-2">
         {title}
       </Text>
-      
+
       {/* Descrição */}
       {description && (
         <Text size="sm" color="secondary" className="mb-3 line-clamp-2">
           {description}
         </Text>
       )}
-      
+
       {/* Preços */}
       <div className="flex items-center gap-2 mb-4">
         {originalPrice && (
@@ -172,30 +157,26 @@ export const ProductCard = ({
           R$ {price.toFixed(2)}
         </Text>
       </div>
-      
+
       {/* Status de estoque */}
       <div className="mb-4">
-        <Text 
-          size="sm" 
-          color={inStock ? 'success' : 'error'}
-          weight="medium"
-        >
+        <Text size="sm" color={inStock ? 'success' : 'error'} weight="medium">
           {inStock ? '✓ Em estoque' : '✗ Fora de estoque'}
         </Text>
       </div>
-      
+
       {/* Botões */}
       <div className="flex gap-2">
-        <Button 
-          variant="outline" 
+        <Button
+          variant="outline"
           size="sm"
           onClick={onViewDetails}
           className="flex-1"
         >
           Ver detalhes
         </Button>
-        <Button 
-          variant="primary" 
+        <Button
+          variant="primary"
           size="sm"
           onClick={onAddToCart}
           disabled={!inStock}
