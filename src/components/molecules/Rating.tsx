@@ -14,12 +14,14 @@ interface RatingProps {
   'aria-label'?: string
 }
 
-// Temporary simple StarIcon to avoid import issues
+// Simple StarIcon component with style support
 const StarIcon: React.FC<{
   variant: 'filled' | 'outline'
   size: 'xs' | 'sm' | 'md' | 'lg' | 'xl'
   color: 'warning' | 'secondary' | 'primary'
-}> = ({ variant, size, color }) => {
+  style?: React.CSSProperties
+  className?: string
+}> = ({ variant, size, color, style, className = '' }) => {
   const sizeMap = { xs: 12, sm: 16, md: 20, lg: 24, xl: 32 }
   const colorMap = {
     warning: 'text-yellow-500',
@@ -33,7 +35,8 @@ const StarIcon: React.FC<{
       height={sizeMap[size]}
       viewBox="0 0 24 24"
       fill={variant === 'filled' ? 'currentColor' : 'none'}
-      className={colorMap[color]}
+      className={`${colorMap[color]} ${className}`}
+      style={style}
     >
       <polygon
         points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26"
@@ -84,11 +87,9 @@ export const Rating: React.FC<RatingProps> = ({
           variant="filled"
           size={size}
           color={color}
+          className="absolute inset-0"
           style={{
-            clipPath: 'polygon(0 0, 50% 0, 50% 100%, 0 100%)',
-            position: 'absolute',
-            top: 0,
-            left: 0
+            clipPath: 'polygon(0 0, 50% 0, 50% 100%, 0 100%)'
           }}
         />
       </div>
@@ -152,5 +153,3 @@ export const Rating: React.FC<RatingProps> = ({
     </div>
   )
 }
-
-export default Rating
