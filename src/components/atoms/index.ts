@@ -3,3 +3,4 @@
 export { Button } from './Button'
 export { Input } from './Input'
 export { Text, Heading, Price } from './Text'
+export { Badge } from './Badge'
