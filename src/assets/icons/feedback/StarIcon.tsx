@@ -1,25 +1,7 @@
 import React from 'react'
 import { BaseIconProps, iconSizes, iconColors } from '../base/BaseIcon'
 
-/**
- * StarIcon - Ícone de estrela para sistemas de rating e avaliações
- * 
- * @example
- * // Estrela preenchida (rating dado)
- * <StarIcon variant="filled" size="md" color="warning" />
- * 
- * @example  
- * // Estrela vazia (rating não dado)
- * <StarIcon variant="outline" size="sm" color="warning" />
- * 
- * @example
- * // Em diferentes contextos
- * <StarIcon variant="filled" color="success" />   // Destaque/premium
- * <StarIcon variant="outline" color="secondary" /> // Neutro/disabled
- */
-
 interface StarIconProps extends BaseIconProps {
-  /** Variante visual da estrela */
   variant?: 'filled' | 'outline'
 }
 
