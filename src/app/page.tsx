@@ -1,7 +1,7 @@
 "use client"
 // src/app/page.tsx
-import { Button, Input, Text, Heading, Price, Badge, Icon } from '@/components/atoms'
-import { Card, ProductCard, Rating } from '@/components/molecules'
+import { Button, Text, Price, Badge, Icon } from '@/components/atoms'
+import { Card, Rating } from '@/components/molecules'
 
 export default function Home() {
   return (
@@ -169,7 +169,7 @@ export default function Home() {
                       <Rating value={5} size="sm" />
                     </div>
                     <Text size="sm" color="secondary">
-                      "Excelente produto! Superou minhas expectativas em todos os aspectos."
+                      &quot;Excelente produto! Superou minhas expectativas em todos os aspectos.&quot;
                     </Text>
                   </div>
                   <div className="border-b pb-3">
@@ -178,7 +178,7 @@ export default function Home() {
                       <Rating value={4} size="sm" />
                     </div>
                     <Text size="sm" color="secondary">
-                      "Muito bom, entrega rápida e produto conforme descrito."
+                      &quot;Muito bom, entrega rápida e produto conforme descrito.&quot;
                     </Text>
                   </div>
                   <div>
@@ -187,7 +187,7 @@ export default function Home() {
                       <Rating value={3} size="sm" />
                     </div>
                     <Text size="sm" color="secondary">
-                      "Produto OK, mas o preço poderia ser melhor."
+                      &quot;Produto OK, mas o preço poderia ser melhor.&quot;
                     </Text>
                   </div>
                 </div>
