@@ -100,14 +100,12 @@ export const Heading = ({
 // Componente para preços (e-commerce)
 export const Price = ({
   value,
-  currency = 'R$',
   size = 'lg',
   isDiscounted = false,
   className = '',
   ...props
 }: {
   value: number
-  currency?: string
   size?: TextProps['size']
   isDiscounted?: boolean
   className?: string
