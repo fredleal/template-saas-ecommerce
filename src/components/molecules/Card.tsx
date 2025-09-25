@@ -1,6 +1,7 @@
 "use client"
 // src/components/molecules/Card.tsx
 import React from 'react'
+import Image from 'next/image'
 import { Button, Text, Heading } from '@/components/atoms'
 
 // Props do componente
@@ -69,11 +70,13 @@ export const Card = ({
     >
       {/* Imagem (se fornecida) */}
       {image && (
-        <div className="w-full h-48 bg-gray-200 overflow-hidden">
-          <img 
+        <div className="w-full h-48 bg-gray-200 overflow-hidden relative">
+          <Image 
             src={image} 
             alt={imageAlt || title || 'Card image'}
-            className="w-full h-full object-cover"
+            fill
+            className="object-cover"
+            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
           />
         </div>
       )}
