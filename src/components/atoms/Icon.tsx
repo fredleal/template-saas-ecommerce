@@ -3,7 +3,7 @@ import React from 'react'
 import * as Icons from '@/assets/icons'
 
 type IconName = keyof Pick<typeof Icons, {
-  [K in keyof typeof Icons]: typeof Icons[K] extends React.ComponentType<any> ? K : never
+  [K in keyof typeof Icons]: typeof Icons[K] extends React.ComponentType<unknown> ? K : never
 }[keyof typeof Icons]>
 
 interface IconProps {
