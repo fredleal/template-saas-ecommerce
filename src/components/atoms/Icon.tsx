@@ -2,9 +2,8 @@
 import React from 'react'
 import * as Icons from '@/assets/icons'
 
-type IconName = keyof Pick<typeof Icons, {
-  [K in keyof typeof Icons]: typeof Icons[K] extends React.ComponentType<unknown> ? K : never
-}[keyof typeof Icons]>
+// Simplified type that directly lists available icons
+type IconName = 'CartIcon' | 'HeartIcon' | 'SearchIcon' | 'MenuIcon' | 'PlusIcon' | 'StarIcon'
 
 interface IconProps {
   name: IconName
@@ -36,7 +35,5 @@ export const Icon: React.FC<IconProps> = ({
 export default Icon
 
 export const getAvailableIcons = (): IconName[] => {
-  return Object.keys(Icons).filter(key => 
-    key.endsWith('Icon') && typeof Icons[key as keyof typeof Icons] === 'function'
-  ) as IconName[]
+  return ['CartIcon', 'HeartIcon', 'SearchIcon', 'MenuIcon', 'PlusIcon', 'StarIcon']
 }
