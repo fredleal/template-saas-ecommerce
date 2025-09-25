@@ -14,6 +14,20 @@ interface RatingProps {
   'aria-label'?: string
 }
 
+/**
+ * Format numbers consistently for SSR/client compatibility
+ * Avoids toLocaleString() which causes hydration mismatches
+ */
+const formatCount = (count: number): string => {
+  if (count >= 1000000) {
+    return `${(count / 1000000).toFixed(1).replace(/\.0$/, '')}M`
+  }
+  if (count >= 1000) {
+    return `${(count / 1000).toFixed(1).replace(/\.0$/, '')}k`
+  }
+  return count.toString()
+}
+
 // Simple StarIcon component with style support
 const StarIcon: React.FC<{
   variant: 'filled' | 'outline'
@@ -122,7 +136,7 @@ export const Rating: React.FC<RatingProps> = ({
       className={`flex items-center gap-1 ${className}`}
       aria-label={
         ariaLabel ||
-        `${clampedValue} de ${max} estrelas${count ? ` (${count} avaliações)` : ''}`
+        `${clampedValue} de ${max} estrelas${count ? ` (${formatCount(count)} avaliações)` : ''}`
       }
       role="img"
     >
@@ -141,7 +155,7 @@ export const Rating: React.FC<RatingProps> = ({
 
       {showCount && count !== undefined && (
         <Text size={textSize} color="muted" className="ml-1">
-          ({count.toLocaleString()})
+          ({formatCount(count)})
         </Text>
       )}
     </div>
