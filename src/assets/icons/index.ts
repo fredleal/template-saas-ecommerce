@@ -15,6 +15,7 @@ export { PlusIcon } from './actions/PlusIcon'
 
 // Feedback Icons
 export { StarIcon } from './feedback/StarIcon'
+export { CheckIcon } from './feedback/CheckIcon'
 
 // Social Icons
 export { UserIcon } from './social/UserIcon'
