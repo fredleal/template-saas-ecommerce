@@ -11,6 +11,7 @@ type IconName =
   | 'PlusIcon'
   | 'StarIcon'
   | 'UserIcon'
+  | 'FilterIcon'
 
 interface IconProps {
   name: IconName
@@ -59,5 +60,6 @@ export const getAvailableIcons = (): IconName[] => {
     'PlusIcon',
     'StarIcon',
     'UserIcon',
+    'FilterIcon',
   ]
 }
