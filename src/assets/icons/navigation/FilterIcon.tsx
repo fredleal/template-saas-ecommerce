@@ -1,24 +1,6 @@
 import React from 'react'
 import { BaseIconProps, iconSizes, iconColors } from '../base/BaseIcon'
 
-/**
- * FilterIcon Component
- * 
- * A funnel/filter icon for search and filtering interfaces.
- * Perfect for product filtering, data sorting, search refinements, and filter controls.
- * 
- * @example
- * ```tsx
- * // Basic usage
- * <Icon name="FilterIcon" />
- * 
- * // Filter button
- * <Icon name="FilterIcon" size="sm" color="secondary" />
- * 
- * // Active filter state
- * <Icon name="FilterIcon" size="md" color="primary" />
- * ```
- */
 export const FilterIcon: React.FC<BaseIconProps> = ({
   size = 'md',
   color = 'current',
@@ -40,7 +22,6 @@ export const FilterIcon: React.FC<BaseIconProps> = ({
       aria-hidden={decorative}
       role={decorative ? 'presentation' : 'img'}
     >
-      {/* Funnel/filter icon - clean lines representing filtering */}
       <polygon
         points="22,3 2,3 10,12.46 10,19 14,21 14,12.46"
         stroke="currentColor"
