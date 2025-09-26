@@ -1,5 +1,5 @@
 import React from 'react'
-import { BaseIconProps } from '../base/BaseIcon'
+import { BaseIconProps, iconSizes, iconColors } from '../base/BaseIcon'
 
 /**
  * UserIcon Component
@@ -19,24 +19,26 @@ import { BaseIconProps } from '../base/BaseIcon'
  * <Icon name="UserIcon" size="sm" color="secondary" />
  * ```
  */
-export const UserIcon: React.FC<BaseIconProps> = ({ 
-  size = 'md', 
-  color = 'primary', 
-  variant = 'outline',
+export const UserIcon: React.FC<BaseIconProps> = ({
+  size = 'md',
+  color = 'current',
   className = '',
-  ...props 
+  'aria-label': ariaLabel = 'User profile',
+  decorative = false,
 }) => {
-  const sizeMap = { xs: 12, sm: 16, md: 20, lg: 24, xl: 32 }
-  const iconSize = sizeMap[size]
+  const sizeValue = typeof size === 'number' ? size : iconSizes[size]
+  const colorClass = iconColors[color]
 
   return (
     <svg
-      width={iconSize}
-      height={iconSize}
+      width={sizeValue}
+      height={sizeValue}
       viewBox="0 0 24 24"
-      fill={variant === 'filled' ? 'currentColor' : 'none'}
-      className={className}
-      {...props}
+      fill="none"
+      className={`${colorClass} ${className}`}
+      aria-label={decorative ? undefined : ariaLabel}
+      aria-hidden={decorative}
+      role={decorative ? 'presentation' : 'img'}
     >
       {/* User silhouette - clean, generic profile icon */}
       <path
@@ -45,7 +47,6 @@ export const UserIcon: React.FC<BaseIconProps> = ({
         strokeWidth="2"
         strokeLinecap="round"
         strokeLinejoin="round"
-        fill={variant === 'filled' ? 'currentColor' : 'none'}
       />
       <circle
         cx="12"
@@ -55,7 +56,6 @@ export const UserIcon: React.FC<BaseIconProps> = ({
         strokeWidth="2"
         strokeLinecap="round"
         strokeLinejoin="round"
-        fill={variant === 'filled' ? 'currentColor' : 'none'}
       />
     </svg>
   )
