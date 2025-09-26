@@ -11,70 +11,91 @@ export default function Home() {
           Template SaaS - Design System
         </h1>
 
-        {/* NOVO: UserIcon */}
+        {/* NOVO: FilterIcon */}
         <section className="mb-12">
           <h2 className="text-2xl font-semibold mb-6">
-            UserIcon - NEW! 👤
+            FilterIcon - NEW! 🔽
           </h2>
 
           <div className="mb-8">
-            <h3 className="text-xl font-medium mb-4">UserIcon Usage</h3>
+            <h3 className="text-xl font-medium mb-4">FilterIcon Usage</h3>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
               <div className="bg-white p-4 rounded-lg border">
                 <div className="flex items-center gap-2 mb-2">
-                  <Icon name="UserIcon" size="md" color="primary" />
-                  <Text weight="medium">User Profile</Text>
+                  <Icon name="FilterIcon" size="md" color="primary" />
+                  <Text weight="medium">Product Filters</Text>
                 </div>
-                <Text size="sm" color="secondary">Profile and account settings</Text>
+                <Text size="sm" color="secondary">Category, price, brand filtering</Text>
               </div>
               <div className="bg-white p-4 rounded-lg border">
                 <div className="flex items-center gap-2 mb-2">
-                  <Icon name="UserIcon" size="md" color="secondary" />
-                  <Text weight="medium">Authentication</Text>
+                  <Icon name="FilterIcon" size="md" color="secondary" />
+                  <Text weight="medium">Search Refinement</Text>
                 </div>
-                <Text size="sm" color="secondary">Login and signup flows</Text>
+                <Text size="sm" color="secondary">Refine search results</Text>
               </div>
               <div className="bg-white p-4 rounded-lg border">
                 <div className="flex items-center gap-2 mb-2">
-                  <Icon name="UserIcon" size="md" color="info" />
-                  <Text weight="medium">User Reviews</Text>
+                  <Icon name="FilterIcon" size="md" color="info" />
+                  <Text weight="medium">Data Sorting</Text>
                 </div>
-                <Text size="sm" color="secondary">Customer feedback sections</Text>
+                <Text size="sm" color="secondary">Table and list filtering</Text>
               </div>
             </div>
           </div>
 
-          {/* UserIcon in Reviews */}
+          {/* FilterIcon in E-commerce Context */}
           <div className="mb-8">
             <h3 className="text-xl font-medium mb-4">
-              UserIcon in Customer Reviews
+              FilterIcon in E-commerce
             </h3>
-            <div className="bg-white p-4 rounded-lg border max-w-2xl">
-              <Text weight="semibold" className="mb-3">Customer Reviews</Text>
-              <div className="space-y-4">
-                <div className="border-b pb-3">
-                  <div className="flex items-center justify-between mb-2">
+            <div className="bg-white p-4 rounded-lg border max-w-4xl">
+              <div className="flex items-center justify-between mb-4">
+                <Text weight="semibold">Product Filters</Text>
+                <Button variant="outline" size="sm">
+                  <Icon name="FilterIcon" size="sm" decorative />
+                  Apply Filters
+                </Button>
+              </div>
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                <div>
+                  <Text size="sm" weight="medium" className="mb-2">Category</Text>
+                  <div className="space-y-1">
                     <div className="flex items-center gap-2">
-                      <Icon name="UserIcon" size="sm" color="primary" />
-                      <Text size="sm" weight="medium">João Silva</Text>
+                      <input type="checkbox" id="electronics" />
+                      <label htmlFor="electronics" className="text-sm">Electronics</label>
                     </div>
-                    <Rating value={5} size="sm" />
+                    <div className="flex items-center gap-2">
+                      <input type="checkbox" id="clothing" />
+                      <label htmlFor="clothing" className="text-sm">Clothing</label>
+                    </div>
                   </div>
-                  <Text size="sm" color="secondary">
-                    &quot;Excelente produto! Superou minhas expectativas.&quot;
-                  </Text>
                 </div>
-                <div className="border-b pb-3">
-                  <div className="flex items-center justify-between mb-2">
+                <div>
+                  <Text size="sm" weight="medium" className="mb-2">Price Range</Text>
+                  <div className="space-y-1">
                     <div className="flex items-center gap-2">
-                      <Icon name="UserIcon" size="sm" color="primary" />
-                      <Text size="sm" weight="medium">Maria Santos</Text>
+                      <input type="checkbox" id="under100" />
+                      <label htmlFor="under100" className="text-sm">Under $100</label>
                     </div>
-                    <Rating value={4} size="sm" />
+                    <div className="flex items-center gap-2">
+                      <input type="checkbox" id="100to500" />
+                      <label htmlFor="100to500" className="text-sm">$100 - $500</label>
+                    </div>
                   </div>
-                  <Text size="sm" color="secondary">
-                    &quot;Muito bom, entrega rápida e produto conforme descrito.&quot;
-                  </Text>
+                </div>
+                <div>
+                  <Text size="sm" weight="medium" className="mb-2">Rating</Text>
+                  <div className="space-y-1">
+                    <div className="flex items-center gap-2">
+                      <input type="checkbox" id="4stars" />
+                      <label htmlFor="4stars" className="text-sm">4+ Stars</label>
+                    </div>
+                    <div className="flex items-center gap-2">
+                      <input type="checkbox" id="3stars" />
+                      <label htmlFor="3stars" className="text-sm">3+ Stars</label>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
@@ -83,7 +104,7 @@ export default function Home() {
 
         {/* Icon System */}
         <section className="mb-12">
-          <h2 className="text-2xl font-semibold mb-6">Icon System (7 Atoms)</h2>
+          <h2 className="text-2xl font-semibold mb-6">Icon System (8 Atoms)</h2>
 
           <div className="mb-8">
             <h3 className="text-xl font-medium mb-4">Available Icons</h3>
@@ -114,7 +135,11 @@ export default function Home() {
               </div>
               <div className="flex items-center gap-2">
                 <Icon name="UserIcon" size="lg" color="primary" />
-                <Text size="sm">UserIcon 👤 NEW!</Text>
+                <Text size="sm">UserIcon 👤</Text>
+              </div>
+              <div className="flex items-center gap-2">
+                <Icon name="FilterIcon" size="lg" color="secondary" />
+                <Text size="sm">FilterIcon 🔽 NEW!</Text>
               </div>
             </div>
           </div>
@@ -143,6 +168,43 @@ export default function Home() {
                 <Icon name="UserIcon" size="sm" decorative />
                 Minha conta
               </Button>
+              <Button variant="outline" size="md">
+                <Icon name="FilterIcon" size="sm" decorative />
+                Filtrar
+              </Button>
+            </div>
+          </div>
+
+          {/* FilterIcon contexts */}
+          <div className="mb-8">
+            <h3 className="text-xl font-medium mb-4">FilterIcon in Search & Navigation</h3>
+            <div className="bg-white p-4 rounded-lg border max-w-2xl">
+              <div className="flex items-center gap-4 mb-4">
+                <div className="flex-1">
+                  <input 
+                    type="text" 
+                    placeholder="Search products..." 
+                    className="w-full px-3 py-2 border rounded-lg"
+                  />
+                </div>
+                <Button variant="outline" size="sm">
+                  <Icon name="SearchIcon" size="sm" decorative />
+                  Search
+                </Button>
+                <Button variant="outline" size="sm">
+                  <Icon name="FilterIcon" size="sm" decorative />
+                  Filters
+                </Button>
+              </div>
+              <div className="flex gap-2 flex-wrap">
+                <Badge variant="info" size="sm">Electronics</Badge>
+                <Badge variant="info" size="sm">Under $500</Badge>
+                <Badge variant="info" size="sm">4+ Stars</Badge>
+                <Button variant="ghost" size="sm">
+                  <Icon name="PlusIcon" size="xs" decorative />
+                  Add filter
+                </Button>
+              </div>
             </div>
           </div>
         </section>
@@ -215,7 +277,7 @@ export default function Home() {
                 <div className="flex gap-1">
                   <Icon name="HeartIcon" size="sm" color="secondary" className="cursor-pointer hover:text-red-500" />
                   <Icon name="CartIcon" size="sm" color="primary" className="cursor-pointer hover:text-blue-500" />
-                  <Icon name="UserIcon" size="sm" color="secondary" className="cursor-pointer hover:text-gray-700" />
+                  <Icon name="FilterIcon" size="sm" color="secondary" className="cursor-pointer hover:text-gray-700" />
                 </div>
               </div>
             </div>
@@ -280,8 +342,8 @@ export default function Home() {
               actions={
                 <>
                   <Button variant="outline" size="sm">
-                    <Icon name="SearchIcon" size="xs" decorative />
-                    Ver mais
+                    <Icon name="FilterIcon" size="xs" decorative />
+                    Filter
                   </Button>
                   <Button variant="primary" size="sm">
                     <Icon name="CartIcon" size="xs" decorative />
@@ -363,8 +425,8 @@ export default function Home() {
                 Secondary Button
               </Button>
               <Button variant="outline">
-                <Icon name="HeartIcon" size="sm" decorative />
-                Outline Button
+                <Icon name="FilterIcon" size="sm" decorative />
+                Filter Button
               </Button>
               <Button variant="ghost">
                 <Icon name="UserIcon" size="sm" decorative />
