@@ -2,7 +2,6 @@
 import React from 'react'
 import * as Icons from '@/assets/icons'
 
-// Simplified type that directly lists available icons
 type IconName =
   | 'CartIcon'
   | 'HeartIcon'
@@ -11,6 +10,8 @@ type IconName =
   | 'PlusIcon'
   | 'StarIcon'
   | 'UserIcon'
+  | 'FilterIcon'
+  | 'CheckIcon'
 
 interface IconProps {
   name: IconName
@@ -59,5 +60,7 @@ export const getAvailableIcons = (): IconName[] => {
     'PlusIcon',
     'StarIcon',
     'UserIcon',
+    'FilterIcon',
+    'CheckIcon',
   ]
 }

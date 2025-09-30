@@ -8,12 +8,14 @@ export { HeartIcon } from './ecommerce/HeartIcon'
 // Navigation Icons
 export { SearchIcon } from './navigation/SearchIcon'
 export { MenuIcon } from './navigation/MenuIcon'
+export { FilterIcon } from './navigation/FilterIcon'
 
 // Action Icons
 export { PlusIcon } from './actions/PlusIcon'
 
 // Feedback Icons
 export { StarIcon } from './feedback/StarIcon'
+export { CheckIcon } from './feedback/CheckIcon'
 
 // Social Icons
 export { UserIcon } from './social/UserIcon'

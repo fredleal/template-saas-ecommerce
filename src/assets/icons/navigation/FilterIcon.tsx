@@ -1,11 +1,11 @@
 import React from 'react'
 import { BaseIconProps, iconSizes, iconColors } from '../base/BaseIcon'
 
-export const CartIcon: React.FC<BaseIconProps> = ({
+export const FilterIcon: React.FC<BaseIconProps> = ({
   size = 'md',
   color = 'current',
   className = '',
-  'aria-label': ariaLabel = 'Carrinho de compras',
+  'aria-label': ariaLabel = 'Filter',
   decorative = false,
 }) => {
   const sizeValue = typeof size === 'number' ? size : iconSizes[size]
@@ -22,8 +22,8 @@ export const CartIcon: React.FC<BaseIconProps> = ({
       aria-hidden={decorative}
       role={decorative ? 'presentation' : 'img'}
     >
-      <path
-        d="M3 3H5L5.4 5M7 13H17L21 5H5.4M7 13L5.4 5M7 13L4.7 15.3C4.3 15.7 4.6 16.4 5.1 16.4H17M17 13V16.4M9 19.5C9.8 19.5 10.5 20.2 10.5 21S9.8 22.5 9 22.5 7.5 21.8 7.5 21 8.2 19.5 9 19.5ZM20 19.5C20.8 19.5 21.5 20.2 21.5 21S20.8 22.5 20 22.5 18.5 21.8 18.5 21 19.2 19.5 20 19.5Z"
+      <polygon
+        points="22,3 2,3 10,12.46 10,19 14,21 14,12.46"
         stroke="currentColor"
         strokeWidth="2"
         strokeLinecap="round"
