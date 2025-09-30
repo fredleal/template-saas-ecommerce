@@ -32,7 +32,11 @@ export const Badge = ({
 
   const classes = `${baseClasses} ${variantClasses[variant]} ${sizeClasses[size]} ${className}`
 
-  return <span className={classes}>{children}</span>
+  return (
+    <span role="status" className={classes}>
+      {children}
+    </span>
+  )
 }
 
 export default Badge
