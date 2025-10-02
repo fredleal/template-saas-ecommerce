@@ -148,7 +148,7 @@ describe('Text', () => {
     })
 
     it('handles very long text', () => {
-      const longText = 'Lorem ipsum '.repeat(50)
+      const longText = 'Lorem ipsum '.repeat(50).trim()
       render(<Text>{longText}</Text>)
       expect(screen.getByText(longText)).toBeInTheDocument()
     })
