@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest'
-import { render, screen } from '@testing-library/react'
+import { render, screen, fireEvent } from '@testing-library/react'
 import { axe } from 'jest-axe'
 import userEvent from '@testing-library/user-event'
 import { Input } from './Input'
@@ -173,14 +173,14 @@ describe('Input', () => {
       expect(input.value).toBe(longText)
     })
 
-    it('handles special characters', async () => {
-      const user = userEvent.setup()
+    it('handles special characters', () => {
+      // Using fireEvent instead of userEvent for special characters
       const specialChars = '!@#$%^&*()_+-=[]{}|;:",.<>?/~`'
       render(<Input />)
-      const input = screen.getByRole('textbox')
+      const input = screen.getByRole('textbox') as HTMLInputElement
       
-      await user.type(input, specialChars)
-      expect((input as HTMLInputElement).value).toBe(specialChars)
+      fireEvent.change(input, { target: { value: specialChars } })
+      expect(input.value).toBe(specialChars)
     })
 
     it('applies custom className correctly', () => {
