@@ -31,7 +31,7 @@ describe('Rating', () => {
 
     it('renders empty stars (0.0)', () => {
       render(<Rating value={0} showValue />)
-      expect(screen.getByText('0')).toBeInTheDocument()
+      expect(screen.getByText('0.0')).toBeInTheDocument()
     })
 
     it('renders decimal values (4.2)', () => {
@@ -94,12 +94,12 @@ describe('Rating', () => {
   describe('Edge Cases', () => {
     it('handles value of 0', () => {
       render(<Rating value={0} showValue />)
-      expect(screen.getByText('0')).toBeInTheDocument()
+      expect(screen.getByText('0.0')).toBeInTheDocument()
     })
 
     it('handles maximum value (5)', () => {
       render(<Rating value={5} showValue />)
-      expect(screen.getByText('5')).toBeInTheDocument()
+      expect(screen.getByText('5.0')).toBeInTheDocument()
     })
 
     it('applies custom className', () => {
