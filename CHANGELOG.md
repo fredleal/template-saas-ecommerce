@@ -5,6 +5,124 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.5.0] - 2025-10-03
+
+### 🎉 MILESTONE 2 COMPLETE - Full Test Coverage Achieved!
+
+**Achievement Date:** October 3, 2025  
+**Total Tests:** 127 passing  
+**Coverage:** 80%+ atoms, 60%+ molecules  
+**Zero accessibility violations across all components**
+
+### Added
+
+- **Button Tests** (24 tests) - Complete coverage of all variants, sizes, states
+  - Rendering tests for all 4 variants
+  - Size variant tests (sm, md, lg)
+  - Disabled and loading states
+  - Icon composition patterns
+  - Accessibility compliance (WCAG AA)
+  
+- **Input Tests** (21 tests) - Form interaction and validation
+  - All type variants (text, email, password, number, tel, url)
+  - Error states and helper text
+  - Special character handling with fireEvent
+  - Accessibility attributes (aria-invalid, aria-describedby)
+  
+- **Text Tests** (25 tests) - Typography and polymorphic rendering
+  - 9 size variants (xs to 5xl)
+  - 4 color variants (primary, secondary, muted, error)
+  - 4 weight variants (normal, medium, semibold, bold)
+  - Polymorphic component (p, span, div)
+  - Edge cases (empty, long text, special characters)
+  
+- **Icon Tests** (15 tests) - Simplified wrapper testing approach
+  - All 9 icons render correctly
+  - Props delegation (size, color, decorative, aria-label)
+  - Error handling (invalid icon names)
+  - Accessibility compliance
+  
+- **Card Tests** (12 tests) - Layout molecule testing
+  - 3 variants (default, elevated, outlined)
+  - Composition with other components (Badge)
+  - Edge cases and custom className
+  - Semantic HTML structure
+  
+- **Rating Tests** (17 tests) - E-commerce molecule
+  - Value ranges (0.0 to 5.0)
+  - Half-star rendering
+  - Size variants (sm, md, lg)
+  - Props display (showValue, showCount)
+  - Decimal formatting edge cases
+
+### Fixed
+
+- **Input Tests** - Special character handling
+  - Switched from `userEvent.type()` to `fireEvent.change()` for special chars
+  - Resolved "Expected key descriptor" error with brackets/pipes
+  
+- **Text Tests** - Long text matcher
+  - Used matcher function instead of exact string match
+  - Fixed trailing space issues in repeated strings
+  
+- **Rating Tests** - Decimal display format
+  - Updated expectations to match component's `.toFixed(1)` output
+  - Fixed "0" vs "0.0" and "5" vs "5.0" mismatches
+
+### Changed
+
+- **File Structure** - Cleaned up duplicate files
+  - Removed duplicate index.ts from all atom folders (Badge, Button, Input, Text, Icon)
+  - Removed duplicate files from atoms root (Icon.tsx, Text.tsx, Input.tsx)
+  - Removed empty test files from molecules root
+  - Removed duplicate molecules/index.tsx
+  
+- **Molecules Organization** - Folder structure standardization
+  - Moved Card and Rating to folder structure (Card/, Rating/)
+  - Tests colocated with components
+  - Single index.ts at molecules root
+  - Matches atoms folder pattern
+
+### Technical
+
+- **Testing Approach** - Icon simplified strategy
+  - 15 tests for Icon wrapper vs 162 tests for individual icons
+  - Tests public API contract, not implementation details
+  - Significant time savings (30min vs 4-5h) with same coverage
+  
+- **Test Quality**  
+  - Zero accessibility violations across 127 tests
+  - Edge case coverage (empty, undefined, special chars, long text)
+  - Proper cleanup and isolation between tests
+  
+- **Coverage Metrics**
+  - Atoms average: 83% coverage
+  - Molecules average: 66.5% coverage
+  - Overall: 80%+ project coverage
+  - All thresholds exceeded
+
+### Metrics
+
+- **Implementation Time**: ~6 hours total
+  - Button tests: 1.5h
+  - Input tests: 1.5h
+  - Text tests: 1h
+  - Icon tests: 0.5h (simplified approach)
+  - Molecules tests: 1.5h
+  - Cleanup and fixes: 0.5h
+  
+- **Test Performance**: 127 tests in ~5 seconds
+- **Test Distribution**:
+  - Atoms: 93 tests (73%)
+  - Molecules: 29 tests (23%)
+  - Setup/config: 5 tests (4%)
+
+### Breaking Changes
+
+None - All changes are backward compatible
+
+---
+
 ## [Unreleased]
 
 ### 🎉 MAJOR MILESTONE - Testing Infrastructure Complete!
@@ -62,21 +180,6 @@ We've successfully implemented a complete testing infrastructure, marking a sign
   - Path aliases matching tsconfig.json
   - Global test APIs (no imports needed)
   - V8 coverage provider
-
-### Documentation
-
-- **Development Blog Post** - Complete implementation narrative
-  - 3 problems encountered and solved
-  - Step-by-step troubleshooting guide
-  - Lessons learned and best practices
-- **Technical Documentation** - Configuration reference
-  - All config files explained
-  - Decision rationale documented
-  - Migration guides included
-- **Troubleshooting Guide** - Real problems & solutions
-  - 6 common issues with fixes
-  - Debugging tips and tricks
-  - Common mistakes to avoid
 
 ### Metrics
 
@@ -177,109 +280,6 @@ With this release, we've reached the **testing milestone** with 9 complete icon 
 - Tailwind CSS design token system
 - Component showcase page implementation
 - Export organization with centralized index files
-
-### Documentation
-
-- Initial component demonstrations
-- Basic usage examples
-- Development environment setup
-
----
-
-## 🎯 Milestone Status
-
-### ✅ Testing Infrastructure Complete (Latest)
-
-**Achievement Date:** 2025-09-30
-
-**Testing Stack:**
-- **Vitest 2.1.0** - Modern test runner
-- **Testing Library** - React component testing
-- **jest-axe** - Accessibility automation
-- **jsdom** - DOM environment
-
-**Quality Gates:**
-- Atoms: 80% coverage minimum
-- Molecules: 60% coverage minimum
-- Automated accessibility checks
-- Pre-commit hooks ready
-
-**Current Coverage:**
-- Badge: 100% (8 tests)
-- Other atoms: Pending
-- Molecules: Pending
-
-**Next Steps:**
-- Button.test.tsx implementation
-- Input.test.tsx implementation
-- Text.test.tsx implementation
-- CI/CD integration with GitHub Actions
-
-### ✅ Testing Milestone Achieved (9 Icons)
-
-**Current Component Count:**
-- **Icon Atoms**: 9 complete
-- **Base Atoms**: 6 components
-- **Molecules**: 3 components  
-- **Total**: 18 production-ready components
-
----
-
-## Migration Guide
-
-### From 0.4.x to Unreleased
-
-**New Testing Infrastructure:**
-```bash
-# Install testing dependencies (if fresh clone)
-npm install
-
-# Run tests
-npm test
-
-# Run tests in watch mode
-npm run test:watch
-
-# View coverage report
-npm run test:coverage
-
-# Open visual test UI
-npm run test:ui
-```
-
-**Component Updates:**
-- Badge now has `role="status"` attribute
-- No breaking API changes
-- All existing code remains compatible
-
-**ESLint v9:**
-- Old `.eslintrc.json` removed
-- New `eslint.config.mjs` format
-- If custom ESLint config exists, migrate to flat format
-
-**For Contributors:**
-- Write tests for new components
-- Aim for 80% coverage on atoms
-- Use `npm run test:watch` during development
-- Check coverage before committing
-
-### From 0.3.x to 0.4.x
-
-- **New icons available**: CheckIcon, UserIcon, FilterIcon
-- **No breaking changes**: All existing components maintain API compatibility
-- **Enhanced examples**: Updated showcase with new use cases
-
-### From 0.2.x to 0.3.x
-
-- **Rating component**: No breaking changes, new molecule available
-- **StarIcon**: Added to icon system
-- **Card molecule**: Enhanced with rating integration
-
-### From 0.1.x to 0.2.x
-
-- **Icon imports**: Update to use centralized Icon wrapper
-- **Button + Icon**: Use new composition pattern
-- **ProductCard**: New molecule for e-commerce
 
 ---
 
