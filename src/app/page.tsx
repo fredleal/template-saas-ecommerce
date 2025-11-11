@@ -1,6 +1,7 @@
 'use client'
-import { Button, Text, Price, Badge, Icon } from '@/components/atoms'
+import { Button, Text, Price, Badge, Icon, Spinner } from '@/components/atoms'
 import { Card, Rating } from '@/components/molecules'
+import { AuthForm } from '@/components/organisms'
 
 export default function Home() {
   return (
@@ -196,6 +197,32 @@ export default function Home() {
       <section className="max-w-7xl mx-auto px-6 pb-12">
         <Text size="3xl" weight="bold" className="mb-8">Interactive Component Examples</Text>
         
+        {/* AuthForm and Spinner Showcase */}
+        <div className="mb-12">
+          <div className="flex items-center justify-between mb-6">
+            <div>
+              <Text size="2xl" weight="semibold" className="mb-2">Authentication & Loading</Text>
+              <Text size="sm" color="secondary">Demonstration of a complex organism and a simple atom</Text>
+            </div>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-start">
+            <Card variant="elevated">
+              <AuthForm />
+            </Card>
+            <div className="bg-white rounded-xl p-8 border">
+              <Text weight="semibold" className="mb-4">Spinner Variants</Text>
+              <div className="flex items-center gap-6">
+                <Spinner size="sm" variant="primary" />
+                <Spinner size="md" variant="secondary" />
+                <Spinner size="lg" variant="primary" />
+                <div className="bg-gray-800 p-4 rounded-md">
+                  <Spinner size="md" variant="white" />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
         {/* E-commerce Product Cards */}
         <div className="mb-12">
           <div className="flex items-center justify-between mb-6">
