@@ -1,0 +1,16 @@
+Create a test file at src/components/atoms/Checkbox/Checkbox.test.tsx with comprehensive tests for the Checkbox component.
+
+Use:
+- Vitest
+- React Testing Library  
+- @testing-library/user-event
+
+Test cases:
+1. Rendering (with/without label, label positions)
+2. State management (controlled, uncontrolled, indeterminate)
+3. Interactions (click, onChange, disabled)
+4. Size variants (sm, md, lg)
+5. Accessibility (role, label association, disabled)
+6. Custom className
+
+Write the complete test file to: src/components/atoms/Checkbox/Checkbox.test.tsx
