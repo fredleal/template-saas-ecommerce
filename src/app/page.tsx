@@ -1,5 +1,13 @@
 'use client'
-import { Button, Text, Price, Badge, Icon, Checkbox } from '@/components/atoms'
+import {
+  Button,
+  Text,
+  Price,
+  Badge,
+  Icon,
+  Checkbox,
+  Input,
+} from '@/components/atoms'
 import { Card, Rating } from '@/components/molecules'
 
 export default function Home() {
@@ -666,6 +674,67 @@ export default function Home() {
                   />
                   <Checkbox label="Label on left" labelPosition="left" />
                   <Checkbox label="No label example" />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Input Component Showcase */}
+      <section className="max-w-7xl mx-auto px-6 pb-12">
+        <div className="mb-12">
+          <div className="flex items-center justify-between mb-6">
+            <div>
+              <Text size="2xl" weight="semibold" className="mb-2">
+                Input Atom
+              </Text>
+              <Text size="sm" color="secondary">
+                Form input field component for text entry with validation states
+              </Text>
+            </div>
+          </div>
+          <div className="bg-white rounded-xl p-8 border">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+              {/* Input Types */}
+              <div>
+                <Text weight="semibold" className="mb-4">
+                  Input Types
+                </Text>
+                <div className="space-y-3">
+                  <Input type="text" placeholder="Text input" />
+                  <Input type="email" placeholder="Email input" />
+                  <Input type="password" placeholder="Password input" />
+                  <Input type="number" placeholder="Number input" />
+                </div>
+              </div>
+
+              {/* Size Variants */}
+              <div>
+                <Text weight="semibold" className="mb-4">
+                  Size Variants
+                </Text>
+                <div className="space-y-3">
+                  <Input size="sm" placeholder="Small input" />
+                  <Input size="md" placeholder="Medium input (default)" />
+                  <Input size="lg" placeholder="Large input" />
+                </div>
+              </div>
+
+              {/* States */}
+              <div>
+                <Text weight="semibold" className="mb-4">
+                  States
+                </Text>
+                <div className="space-y-3">
+                  <Input placeholder="Normal input" />
+                  <Input placeholder="Disabled input" disabled />
+                  <Input
+                    placeholder="Read-only input"
+                    readOnly
+                    defaultValue="Read only"
+                  />
+                  <Input placeholder="Error state" error />
                 </div>
               </div>
             </div>
