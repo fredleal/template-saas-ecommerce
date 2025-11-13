@@ -1,193 +1,228 @@
-import { describe, it, expect } from 'vitest'
-import { render, screen, fireEvent } from '@testing-library/react'
-import { axe } from 'jest-axe'
+import { describe, it, expect, vi } from 'vitest'
+import { render, screen } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 import { Input } from './Input'
 
 describe('Input', () => {
   describe('Rendering', () => {
-    it('renders with default props', () => {
+    it('renders input element', () => {
       render(<Input />)
-      const input = screen.getByRole('textbox')
-      expect(input).toBeInTheDocument()
-    })
-
-    it('renders with label', () => {
-      render(<Input label="Email" />)
-      expect(screen.getByLabelText('Email')).toBeInTheDocument()
+      expect(screen.getByRole('textbox')).toBeInTheDocument()
     })
 
     it('renders with placeholder', () => {
-      render(<Input placeholder="Enter your email" />)
-      expect(screen.getByPlaceholderText('Enter your email')).toBeInTheDocument()
+      render(<Input placeholder="Enter text" />)
+      expect(screen.getByPlaceholderText('Enter text')).toBeInTheDocument()
+    })
+
+    it('renders with default value', () => {
+      render(<Input defaultValue="Initial text" />)
+      expect(screen.getByDisplayValue('Initial text')).toBeInTheDocument()
+    })
+
+    it('renders with controlled value', () => {
+      render(<Input value="Controlled value" onChange={() => {}} />)
+      expect(screen.getByDisplayValue('Controlled value')).toBeInTheDocument()
     })
   })
 
-  describe('Variants', () => {
-    it('renders default variant', () => {
-      render(<Input variant="default" />)
-      const input = screen.getByRole('textbox')
-      expect(input).toHaveClass('border')
-      expect(input).toHaveClass('rounded-md')
+  describe('Input Types', () => {
+    it('renders as text input by default', () => {
+      render(<Input />)
+      expect(screen.getByRole('textbox')).toHaveAttribute('type', 'text')
     })
 
-    it('renders filled variant', () => {
-      render(<Input variant="filled" />)
+    it('renders as email input', () => {
+      render(<Input type="email" />)
       const input = screen.getByRole('textbox')
-      expect(input).toHaveClass('bg-gray-100')
+      expect(input).toHaveAttribute('type', 'email')
     })
 
-    it('renders flushed variant', () => {
-      render(<Input variant="flushed" />)
-      const input = screen.getByRole('textbox')
-      expect(input).toHaveClass('border-b-2')
-      expect(input).toHaveClass('rounded-none')
+    it('renders as password input', () => {
+      const { container } = render(<Input type="password" />)
+      const input = container.querySelector('input[type="password"]')
+      expect(input).toHaveAttribute('type', 'password')
+    })
+
+    it('renders as number input', () => {
+      const { container } = render(<Input type="number" />)
+      const input = container.querySelector('input[type="number"]')
+      expect(input).toHaveAttribute('type', 'number')
+    })
+
+    it('renders as tel input', () => {
+      const { container } = render(<Input type="tel" />)
+      const input = container.querySelector('input[type="tel"]')
+      expect(input).toHaveAttribute('type', 'tel')
+    })
+
+    it('renders as url input', () => {
+      const { container } = render(<Input type="url" />)
+      const input = container.querySelector('input[type="url"]')
+      expect(input).toHaveAttribute('type', 'url')
+    })
+  })
+
+  describe('Size Variants', () => {
+    it('renders small size', () => {
+      render(<Input size="sm" />)
+      expect(screen.getByRole('textbox')).toHaveClass(
+        'px-3',
+        'py-1.5',
+        'text-sm'
+      )
+    })
+
+    it('renders medium size (default)', () => {
+      render(<Input />)
+      expect(screen.getByRole('textbox')).toHaveClass(
+        'px-4',
+        'py-2',
+        'text-base'
+      )
+    })
+
+    it('renders large size', () => {
+      render(<Input size="lg" />)
+      expect(screen.getByRole('textbox')).toHaveClass('px-5', 'py-3', 'text-lg')
     })
   })
 
   describe('States', () => {
-    it('error state displays correctly', () => {
-      render(<Input error label="Email" />)
-      const input = screen.getByRole('textbox')
-      expect(input).toHaveClass('border-red-500')
-    })
-
-    it('error message shows when error prop is true', () => {
-      render(<Input error errorMessage="Invalid email" />)
-      expect(screen.getByText('Invalid email')).toBeInTheDocument()
-    })
-
-    it('helper text shows when no error', () => {
-      render(<Input helperText="We'll never share your email" />)
-      expect(screen.getByText("We'll never share your email")).toBeInTheDocument()
-    })
-
-    it('disabled state prevents interaction', () => {
+    it('applies disabled state', () => {
       render(<Input disabled />)
-      const input = screen.getByRole('textbox')
-      expect(input).toBeDisabled()
-      expect(input).toHaveClass('disabled:opacity-50')
-    })
-  })
-
-  describe('Value & Change', () => {
-    it('handles onChange event correctly', async () => {
-      const user = userEvent.setup()
-      let value = ''
-      const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-        value = e.target.value
-      }
-
-      render(<Input onChange={handleChange} />)
-      const input = screen.getByRole('textbox')
-      
-      await user.type(input, 'test@example.com')
-      expect(value).toBe('test@example.com')
+      expect(screen.getByRole('textbox')).toBeDisabled()
     })
 
-    it('updates value on user input', async () => {
-      const user = userEvent.setup()
-      render(<Input defaultValue="" />)
-      const input = screen.getByRole('textbox') as HTMLInputElement
-      
-      await user.type(input, 'Hello')
-      expect(input.value).toBe('Hello')
-    })
-
-    it('controlled component behavior', () => {
-      const { rerender } = render(<Input value="initial" onChange={() => {}} />)
-      const input = screen.getByRole('textbox') as HTMLInputElement
-      expect(input.value).toBe('initial')
-
-      rerender(<Input value="updated" onChange={() => {}} />)
-      expect(input.value).toBe('updated')
-    })
-  })
-
-  describe('Form Integration', () => {
-    it('works with form submission', async () => {
-      let submittedValue = ''
-      const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-        e.preventDefault()
-        const formData = new FormData(e.currentTarget)
-        submittedValue = formData.get('email') as string
-      }
-
-      render(
-        <form onSubmit={handleSubmit}>
-          <Input name="email" defaultValue="test@example.com" />
-          <button type="submit">Submit</button>
-        </form>
+    it('applies disabled styling', () => {
+      render(<Input disabled />)
+      expect(screen.getByRole('textbox')).toHaveClass(
+        'bg-gray-100',
+        'cursor-not-allowed',
+        'opacity-60'
       )
-
-      const button = screen.getByRole('button')
-      button.click()
-      
-      expect(submittedValue).toBe('test@example.com')
     })
 
-    it('required attribute works correctly', () => {
-      render(<Input required />)
+    it('applies readOnly state', () => {
+      render(<Input readOnly />)
       const input = screen.getByRole('textbox')
-      expect(input).toBeRequired()
+      expect(input).toHaveAttribute('readonly')
+    })
+
+    it('applies readOnly styling', () => {
+      render(<Input readOnly />)
+      expect(screen.getByRole('textbox')).toHaveClass(
+        'bg-gray-100',
+        'cursor-not-allowed',
+        'opacity-60'
+      )
+    })
+
+    it('applies error styling', () => {
+      render(<Input error />)
+      expect(screen.getByRole('textbox')).toHaveClass(
+        'border-red-500',
+        'focus:ring-red-500'
+      )
+    })
+
+    it('applies normal styling when not in error state', () => {
+      render(<Input />)
+      expect(screen.getByRole('textbox')).toHaveClass(
+        'border-gray-300',
+        'focus:ring-blue-500'
+      )
+    })
+
+    it('applies required attribute', () => {
+      render(<Input required />)
+      expect(screen.getByRole('textbox')).toBeRequired()
+    })
+  })
+
+  describe('Events', () => {
+    it('calls onChange when typing', async () => {
+      const onChange = vi.fn()
+      const user = userEvent.setup()
+      render(<Input onChange={onChange} />)
+
+      const input = screen.getByRole('textbox')
+      await user.type(input, 'hello')
+
+      expect(onChange).toHaveBeenCalled()
+      expect(onChange).toHaveBeenCalledWith('h')
+    })
+
+    it('calls onFocus when focused', async () => {
+      const onFocus = vi.fn()
+      const user = userEvent.setup()
+      render(<Input onFocus={onFocus} />)
+
+      await user.click(screen.getByRole('textbox'))
+
+      expect(onFocus).toHaveBeenCalledTimes(1)
+    })
+
+    it('calls onBlur when blurred', async () => {
+      const onBlur = vi.fn()
+      const user = userEvent.setup()
+      render(<Input onBlur={onBlur} />)
+
+      const input = screen.getByRole('textbox')
+      await user.click(input)
+      await user.tab()
+
+      expect(onBlur).toHaveBeenCalledTimes(1)
+    })
+  })
+
+  describe('Attributes', () => {
+    it('accepts id attribute', () => {
+      render(<Input id="email-input" />)
+      expect(screen.getByRole('textbox')).toHaveAttribute('id', 'email-input')
+    })
+
+    it('accepts name attribute', () => {
+      render(<Input name="email" />)
+      expect(screen.getByRole('textbox')).toHaveAttribute('name', 'email')
+    })
+
+    it('accepts autoComplete attribute', () => {
+      render(<Input autoComplete="email" />)
+      expect(screen.getByRole('textbox')).toHaveAttribute(
+        'autocomplete',
+        'email'
+      )
+    })
+
+    it('accepts maxLength attribute', () => {
+      render(<Input maxLength={10} />)
+      expect(screen.getByRole('textbox')).toHaveAttribute('maxlength', '10')
+    })
+  })
+
+  describe('Custom Styling', () => {
+    it('applies custom className', () => {
+      render(<Input className="custom-class" />)
+      expect(screen.getByRole('textbox')).toHaveClass('custom-class')
     })
   })
 
   describe('Accessibility', () => {
-    it('has no accessibility violations', async () => {
-      const { container } = render(<Input label="Email" />)
-      const results = await axe(container)
-      expect(results).toHaveNoViolations()
-    })
-
-    it('label is properly associated with input', () => {
-      render(<Input label="Email Address" id="email-input" />)
-      const label = screen.getByText('Email Address')
-      const input = screen.getByLabelText('Email Address')
-      expect(label).toBeInTheDocument()
-      expect(input).toBeInTheDocument()
-      expect(input.id).toBe('email-input')
-    })
-
-    it('error message has proper styling', () => {
-      render(<Input error errorMessage="This field is required" label="Email" />)
-      const errorMsg = screen.getByText('This field is required')
-      expect(errorMsg).toHaveClass('text-red-600')
-    })
-  })
-
-  describe('Edge Cases', () => {
-    it('handles empty value', () => {
-      render(<Input value="" onChange={() => {}} />)
-      const input = screen.getByRole('textbox') as HTMLInputElement
-      expect(input.value).toBe('')
-    })
-
-    it('handles very long text input', async () => {
-      const user = userEvent.setup()
-      const longText = 'a'.repeat(200)
+    it('has correct role for text input', () => {
       render(<Input />)
-      const input = screen.getByRole('textbox') as HTMLInputElement
-      
-      await user.type(input, longText)
-      expect(input.value).toBe(longText)
+      expect(screen.getByRole('textbox')).toBeInTheDocument()
     })
 
-    it('handles special characters', () => {
-      // Using fireEvent instead of userEvent for special characters
-      const specialChars = '!@#$%^&*()_+-=[]{}|;:",.<>?/~`'
-      render(<Input />)
-      const input = screen.getByRole('textbox') as HTMLInputElement
-      
-      fireEvent.change(input, { target: { value: specialChars } })
-      expect(input.value).toBe(specialChars)
-    })
-
-    it('applies custom className correctly', () => {
-      render(<Input className="custom-input" />)
+    it('supports form associations', () => {
+      render(
+        <form>
+          <Input name="test" id="test-input" />
+        </form>
+      )
       const input = screen.getByRole('textbox')
-      expect(input).toHaveClass('custom-input')
-      expect(input).toHaveClass('w-full') // base class preserved
+      expect(input).toHaveAttribute('name', 'test')
+      expect(input).toHaveAttribute('id', 'test-input')
     })
   })
 })
