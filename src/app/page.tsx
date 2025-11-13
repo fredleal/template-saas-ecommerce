@@ -2,13 +2,14 @@
 import {
   Button,
   Text,
+  Heading,
   Price,
   Badge,
   Icon,
   Checkbox,
   Input,
 } from '@/components/atoms'
-import { Card, Rating } from '@/components/molecules'
+import { Card, ProductCard, Rating } from '@/components/molecules'
 
 export default function Home() {
   return (
@@ -19,11 +20,11 @@ export default function Home() {
           <div className="flex items-start justify-between">
             <div>
               <Badge variant="success" size="sm" className="mb-4">
-                Testing Ready
+                v1.3 Production Ready
               </Badge>
-              <h1 className="text-5xl font-bold text-gray-900 mb-4">
-                Design System
-              </h1>
+              <Heading level={1} className="mb-4">
+                Design System Showcase
+              </Heading>
               <Text size="xl" color="secondary" className="mb-6 max-w-2xl">
                 Production-ready component library built with Atomic Design,
                 TypeScript, and comprehensive test coverage.
@@ -44,7 +45,7 @@ export default function Home() {
             <div className="grid grid-cols-2 gap-4">
               <div className="bg-blue-50 p-4 rounded-lg border border-blue-200">
                 <Text size="3xl" weight="bold" className="text-blue-600">
-                  18
+                  9
                 </Text>
                 <Text size="sm" color="secondary">
                   Components
@@ -60,18 +61,18 @@ export default function Home() {
               </div>
               <div className="bg-purple-50 p-4 rounded-lg border border-purple-200">
                 <Text size="3xl" weight="bold" className="text-purple-600">
-                  9
+                  6
                 </Text>
                 <Text size="sm" color="secondary">
-                  Icons
+                  Atoms
                 </Text>
               </div>
               <div className="bg-amber-50 p-4 rounded-lg border border-amber-200">
                 <Text size="3xl" weight="bold" className="text-amber-600">
-                  8
+                  3
                 </Text>
                 <Text size="sm" color="secondary">
-                  Tests
+                  Molecules
                 </Text>
               </div>
             </div>
@@ -187,7 +188,7 @@ export default function Home() {
                 size="sm"
                 className="bg-white/20 text-white border-white/30"
               >
-                Test Coverage
+                Workflow v1.4
               </Badge>
             </div>
           </div>
@@ -214,25 +215,25 @@ export default function Home() {
                   Atoms
                 </Text>
                 <Text size="sm" color="secondary">
-                  15 components
+                  6 components
                 </Text>
               </div>
             </div>
             <div className="space-y-2">
               <div className="flex items-center gap-2">
                 <Icon name="CheckIcon" size="xs" color="success" />
-                <Text size="sm">Badge, Button, Input, Text</Text>
+                <Text size="sm">Badge, Button, Checkbox</Text>
               </div>
               <div className="flex items-center gap-2">
                 <Icon name="CheckIcon" size="xs" color="success" />
-                <Text size="sm">Heading, Price</Text>
+                <Text size="sm">Heading, Icon, Input</Text>
               </div>
               <div className="flex items-center gap-2">
                 <Icon name="CheckIcon" size="xs" color="success" />
-                <Text size="sm">9 Icon Components</Text>
+                <Text size="sm">Price, Text</Text>
               </div>
-              <Badge variant="info" size="sm" className="mt-3">
-                80% Coverage Goal
+              <Badge variant="success" size="sm" className="mt-3">
+                100% Complete
               </Badge>
             </div>
           </div>
@@ -268,7 +269,7 @@ export default function Home() {
                 <Text size="sm">ProductCard</Text>
               </div>
               <Badge variant="success" size="sm" className="mt-3">
-                60% Coverage Goal
+                Production Ready
               </Badge>
             </div>
           </div>
@@ -286,7 +287,7 @@ export default function Home() {
                   Organisms
                 </Text>
                 <Text size="sm" color="secondary">
-                  Coming soon
+                  Coming Q1 2025
                 </Text>
               </div>
             </div>
@@ -294,19 +295,19 @@ export default function Home() {
               <div className="flex items-center gap-2">
                 <div className="w-4 h-4 rounded-full border-2 border-gray-300"></div>
                 <Text size="sm" color="muted">
-                  KanbanBoard
+                  Header
                 </Text>
               </div>
               <div className="flex items-center gap-2">
                 <div className="w-4 h-4 rounded-full border-2 border-gray-300"></div>
                 <Text size="sm" color="muted">
-                  CardModal
+                  ProductGrid
                 </Text>
               </div>
               <div className="flex items-center gap-2">
                 <div className="w-4 h-4 rounded-full border-2 border-gray-300"></div>
                 <Text size="sm" color="muted">
-                  BoardHeader
+                  AuthForm
                 </Text>
               </div>
               <Badge variant="warning" size="sm" className="mt-3">
@@ -319,9 +320,9 @@ export default function Home() {
 
       {/* Live Component Showcase */}
       <section className="max-w-7xl mx-auto px-6 pb-12">
-        <Text size="3xl" weight="bold" className="mb-8">
-          Interactive Component Examples
-        </Text>
+        <Heading level={2} className="mb-8">
+          Component Showcase
+        </Heading>
 
         {/* E-commerce Product Cards */}
         <div className="mb-12">
@@ -742,74 +743,230 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Real-World Example with ProductCard */}
+      <section className="max-w-7xl mx-auto px-6 pb-12">
+        <Heading level={2} className="mb-4">
+          Real-World Example: E-commerce Grid
+        </Heading>
+        <Text size="sm" color="secondary" className="mb-8">
+          ProductCard molecule in action - combining atoms for production-ready
+          UI
+        </Text>
+
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
+          <ProductCard
+            title="Premium Smartphone"
+            price={899.99}
+            badge="Verified"
+            badgeVariant="success"
+            description="5G connectivity, AI camera, 256GB storage"
+          />
+          <ProductCard
+            title="Wireless Earbuds"
+            price={179.99}
+            originalPrice={229.99}
+            badge="Limited Offer"
+            badgeVariant="warning"
+            description="ANC, 30h battery, premium sound quality"
+          />
+          <ProductCard
+            title="Smart Watch"
+            price={349.99}
+            badge="Best Seller"
+            badgeVariant="success"
+            description="GPS, health monitoring, fitness tracking"
+          />
+          <ProductCard
+            title="Tablet Pro"
+            price={649.99}
+            badge="New"
+            badgeVariant="info"
+            description="12.9 inch display, M2 chip, all-day battery"
+          />
+        </div>
+      </section>
+
+      {/* Roadmap */}
+      <section className="max-w-7xl mx-auto px-6 pb-12">
+        <Heading level={2} className="mb-4">
+          Roadmap Q1 2025
+        </Heading>
+        <Text size="sm" color="secondary" className="mb-8">
+          Next components planned for development
+        </Text>
+
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <Card variant="outlined">
+            <div className="flex items-center gap-2 mb-3">
+              <div className="w-8 h-8 rounded-full bg-blue-100 flex items-center justify-center">
+                <Text size="sm" weight="bold" className="text-blue-600">
+                  A
+                </Text>
+              </div>
+              <Text weight="semibold">Next Atoms</Text>
+            </div>
+            <div className="space-y-2">
+              <div className="flex items-center gap-2">
+                <Icon name="PlusIcon" size="xs" color="primary" />
+                <Text size="sm">Select</Text>
+              </div>
+              <div className="flex items-center gap-2">
+                <Icon name="PlusIcon" size="xs" color="primary" />
+                <Text size="sm">Textarea</Text>
+              </div>
+              <div className="flex items-center gap-2">
+                <Icon name="PlusIcon" size="xs" color="primary" />
+                <Text size="sm">Toggle</Text>
+              </div>
+              <div className="flex items-center gap-2">
+                <Icon name="PlusIcon" size="xs" color="primary" />
+                <Text size="sm">Radio</Text>
+              </div>
+            </div>
+          </Card>
+
+          <Card variant="outlined">
+            <div className="flex items-center gap-2 mb-3">
+              <div className="w-8 h-8 rounded-full bg-green-100 flex items-center justify-center">
+                <Text size="sm" weight="bold" className="text-green-600">
+                  M
+                </Text>
+              </div>
+              <Text weight="semibold">Next Molecules</Text>
+            </div>
+            <div className="space-y-2">
+              <div className="flex items-center gap-2">
+                <Icon name="PlusIcon" size="xs" color="success" />
+                <Text size="sm">FormField</Text>
+              </div>
+              <div className="flex items-center gap-2">
+                <Icon name="PlusIcon" size="xs" color="success" />
+                <Text size="sm">SearchBar</Text>
+              </div>
+              <div className="flex items-center gap-2">
+                <Icon name="PlusIcon" size="xs" color="success" />
+                <Text size="sm">Dropdown</Text>
+              </div>
+              <div className="flex items-center gap-2">
+                <Icon name="PlusIcon" size="xs" color="success" />
+                <Text size="sm">Pagination</Text>
+              </div>
+            </div>
+          </Card>
+
+          <Card variant="outlined">
+            <div className="flex items-center gap-2 mb-3">
+              <div className="w-8 h-8 rounded-full bg-purple-100 flex items-center justify-center">
+                <Text size="sm" weight="bold" className="text-purple-600">
+                  O
+                </Text>
+              </div>
+              <Text weight="semibold">Next Organisms</Text>
+            </div>
+            <div className="space-y-2">
+              <div className="flex items-center gap-2">
+                <Icon name="PlusIcon" size="xs" color="primary" />
+                <Text size="sm">Header</Text>
+              </div>
+              <div className="flex items-center gap-2">
+                <Icon name="PlusIcon" size="xs" color="primary" />
+                <Text size="sm">ProductGrid</Text>
+              </div>
+              <div className="flex items-center gap-2">
+                <Icon name="PlusIcon" size="xs" color="primary" />
+                <Text size="sm">AuthForm</Text>
+              </div>
+            </div>
+          </Card>
+        </div>
+      </section>
+
       {/* Footer */}
       <footer className="bg-white border-t mt-16">
         <div className="max-w-7xl mx-auto px-6 py-12">
           <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
             <div>
               <Text weight="bold" className="mb-3">
-                Project Info
+                Tech Stack
               </Text>
               <div className="space-y-2">
                 <Text size="sm" color="secondary">
-                  Next.js 15
+                  Next.js 15 (App Router)
                 </Text>
                 <Text size="sm" color="secondary">
-                  TypeScript 5
+                  TypeScript 5 (Strict)
                 </Text>
                 <Text size="sm" color="secondary">
                   Tailwind CSS
                 </Text>
-              </div>
-            </div>
-            <div>
-              <Text weight="bold" className="mb-3">
-                Testing
-              </Text>
-              <div className="space-y-2">
                 <Text size="sm" color="secondary">
-                  Vitest 2.1
-                </Text>
-                <Text size="sm" color="secondary">
-                  Testing Library
-                </Text>
-                <Text size="sm" color="secondary">
-                  jest-axe
+                  Vitest + RTL
                 </Text>
               </div>
             </div>
             <div>
               <Text weight="bold" className="mb-3">
-                Documentation
+                Development
               </Text>
               <div className="space-y-2">
                 <Text size="sm" color="secondary">
-                  Technical Docs
+                  Component Workflow
                 </Text>
                 <Text size="sm" color="secondary">
-                  Learning Guides
+                  Atomic Design
                 </Text>
                 <Text size="sm" color="secondary">
-                  Troubleshooting
+                  GitHub Projects
+                </Text>
+                <Text size="sm" color="secondary">
+                  Obsidian Docs
                 </Text>
               </div>
             </div>
             <div>
               <Text weight="bold" className="mb-3">
-                Coverage
+                Quality
               </Text>
               <div className="space-y-2">
                 <Text size="sm" color="secondary">
-                  Badge: 100%
+                  100% Test Coverage
                 </Text>
                 <Text size="sm" color="secondary">
-                  8 Tests Passing
+                  WCAG AA Compliant
                 </Text>
                 <Text size="sm" color="secondary">
-                  Zero A11y Issues
+                  TypeScript Strict
+                </Text>
+                <Text size="sm" color="secondary">
+                  Zero Runtime Errors
                 </Text>
               </div>
             </div>
+            <div>
+              <Text weight="bold" className="mb-3">
+                Status
+              </Text>
+              <div className="space-y-2">
+                <Badge variant="success" size="sm" className="mb-2">
+                  v1.3 Production
+                </Badge>
+                <Text size="sm" color="secondary">
+                  9 Components Live
+                </Text>
+                <Text size="sm" color="secondary">
+                  Q1 2025 Roadmap
+                </Text>
+                <Text size="sm" color="secondary">
+                  Active Development
+                </Text>
+              </div>
+            </div>
+          </div>
+
+          <div className="mt-8 pt-8 border-t border-gray-200 text-center">
+            <Text size="sm" color="muted">
+              Design System Template · Next.js 15 · TypeScript
+            </Text>
           </div>
         </div>
       </footer>
