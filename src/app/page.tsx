@@ -10,7 +10,7 @@ import {
   Input,
 } from '@/components/atoms'
 import { Card, ProductCard, Rating } from '@/components/molecules'
-import { Header } from '@/components/organisms'
+import { Header, Footer } from '@/components/organisms'
 
 export default function Home() {
   const navLinks = [
@@ -896,95 +896,107 @@ export default function Home() {
           </div>
         </section>
 
-        {/* Footer */}
-        <footer className="bg-white border-t mt-16">
-          <div className="max-w-7xl mx-auto px-6 py-12">
-            <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
-              <div>
-                <Text weight="bold" className="mb-3">
-                  Tech Stack
-                </Text>
-                <div className="space-y-2">
-                  <Text size="sm" color="secondary">
-                    Next.js 15 (App Router)
-                  </Text>
-                  <Text size="sm" color="secondary">
-                    TypeScript 5 (Strict)
-                  </Text>
-                  <Text size="sm" color="secondary">
-                    Tailwind CSS
-                  </Text>
-                  <Text size="sm" color="secondary">
-                    Vitest + RTL
-                  </Text>
-                </div>
-              </div>
-              <div>
-                <Text weight="bold" className="mb-3">
-                  Development
-                </Text>
-                <div className="space-y-2">
-                  <Text size="sm" color="secondary">
-                    Component Workflow
-                  </Text>
-                  <Text size="sm" color="secondary">
-                    Atomic Design
-                  </Text>
-                  <Text size="sm" color="secondary">
-                    GitHub Projects
-                  </Text>
-                  <Text size="sm" color="secondary">
-                    Obsidian Docs
-                  </Text>
-                </div>
-              </div>
-              <div>
-                <Text weight="bold" className="mb-3">
-                  Quality
-                </Text>
-                <div className="space-y-2">
-                  <Text size="sm" color="secondary">
-                    100% Test Coverage
-                  </Text>
-                  <Text size="sm" color="secondary">
-                    WCAG AA Compliant
-                  </Text>
-                  <Text size="sm" color="secondary">
-                    TypeScript Strict
-                  </Text>
-                  <Text size="sm" color="secondary">
-                    Zero Runtime Errors
-                  </Text>
-                </div>
-              </div>
-              <div>
-                <Text weight="bold" className="mb-3">
-                  Status
-                </Text>
-                <div className="space-y-2">
-                  <Badge variant="success" size="sm" className="mb-2">
-                    v1.3 Production
-                  </Badge>
-                  <Text size="sm" color="secondary">
-                    9 Components Live
-                  </Text>
-                  <Text size="sm" color="secondary">
-                    Q1 2025 Roadmap
-                  </Text>
-                  <Text size="sm" color="secondary">
-                    Active Development
-                  </Text>
-                </div>
-              </div>
-            </div>
+        {/* Footer Component Showcase */}
+        <section className="max-w-7xl mx-auto px-6 pb-12">
+          <Text size="2xl" weight="semibold" className="mb-6">
+            Footer Organism
+          </Text>
+          <Footer
+            companyName="Design System"
+            companyDescription="Modern, TypeScript-first design system built with Next.js 15, Tailwind CSS, and atomic design principles."
+            sections={[
+              {
+                title: 'Product',
+                links: [
+                  { label: 'Features', href: '#features' },
+                  { label: 'Components', href: '#components' },
+                  { label: 'Pricing', href: '#pricing' },
+                  { label: 'Documentation', href: '#docs' },
+                ],
+              },
+              {
+                title: 'Company',
+                links: [
+                  { label: 'About', href: '#about' },
+                  { label: 'Blog', href: '#blog' },
+                  { label: 'Careers', href: '#careers' },
+                  { label: 'Contact', href: '#contact' },
+                ],
+              },
+              {
+                title: 'Resources',
+                links: [
+                  { label: 'GitHub', href: 'https://github.com' },
+                  { label: 'Docs', href: '#docs' },
+                  { label: 'Community', href: '#community' },
+                  { label: 'Support', href: '#support' },
+                ],
+              },
+            ]}
+            socialLinks={[
+              {
+                icon: 'CheckIcon',
+                href: 'https://github.com',
+                label: 'GitHub',
+              },
+              {
+                icon: 'StarIcon',
+                href: 'https://twitter.com',
+                label: 'Twitter',
+              },
+              {
+                icon: 'HeartIcon',
+                href: 'https://discord.com',
+                label: 'Discord',
+              },
+            ]}
+            copyrightYear={2025}
+            legalLinks={[
+              { label: 'Privacy Policy', href: '#privacy' },
+              { label: 'Terms of Service', href: '#terms' },
+              { label: 'Cookie Policy', href: '#cookies' },
+            ]}
+          />
+        </section>
 
-            <div className="mt-8 pt-8 border-t border-gray-200 text-center">
-              <Text size="sm" color="muted">
-                Design System Template · Next.js 15 · TypeScript
-              </Text>
-            </div>
-          </div>
-        </footer>
+        {/* Site Footer */}
+        <Footer
+          companyName="Design System Template"
+          sections={[
+            {
+              title: 'Tech Stack',
+              links: [
+                { label: 'Next.js 15', href: '#' },
+                { label: 'TypeScript 5', href: '#' },
+                { label: 'Tailwind CSS', href: '#' },
+                { label: 'Vitest', href: '#' },
+              ],
+            },
+            {
+              title: 'Development',
+              links: [
+                { label: 'Component Workflow', href: '#' },
+                { label: 'Atomic Design', href: '#' },
+                { label: 'GitHub Projects', href: '#' },
+                { label: 'Obsidian Docs', href: '#' },
+              ],
+            },
+            {
+              title: 'Quality',
+              links: [
+                { label: '100% Coverage', href: '#' },
+                { label: 'WCAG AA', href: '#' },
+                { label: 'TypeScript Strict', href: '#' },
+                { label: 'Zero Errors', href: '#' },
+              ],
+            },
+          ]}
+          copyrightYear={2025}
+          legalLinks={[
+            { label: 'Privacy', href: '#privacy' },
+            { label: 'Terms', href: '#terms' },
+          ]}
+        />
       </main>
     </>
   )
