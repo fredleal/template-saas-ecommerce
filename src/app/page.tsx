@@ -780,31 +780,31 @@ export default function Home() {
             <ProductCard
               title="Premium Smartphone"
               price={899.99}
-              badge="Verified"
-              badgeVariant="success"
               description="5G connectivity, AI camera, 256GB storage"
+              image="https://images.unsplash.com/photo-1511707267537-b85faf00021e?w=300&h=300&fit=crop"
+              inStock={true}
             />
             <ProductCard
               title="Wireless Earbuds"
               price={179.99}
               originalPrice={229.99}
-              badge="Limited Offer"
-              badgeVariant="warning"
               description="ANC, 30h battery, premium sound quality"
+              image="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=300&h=300&fit=crop"
+              inStock={true}
             />
             <ProductCard
               title="Smart Watch"
               price={349.99}
-              badge="Best Seller"
-              badgeVariant="success"
               description="GPS, health monitoring, fitness tracking"
+              image="https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=300&h=300&fit=crop"
+              inStock={true}
             />
             <ProductCard
               title="Tablet Pro"
               price={649.99}
-              badge="New"
-              badgeVariant="info"
               description="12.9 inch display, M2 chip, all-day battery"
+              image="https://images.unsplash.com/photo-1561070791-2526d30994b5?w=300&h=300&fit=crop"
+              inStock={true}
             />
           </div>
         </section>
@@ -1012,7 +1012,7 @@ export default function Home() {
 
         {/* Blog MVP Components Section */}
         <section className="max-w-7xl mx-auto px-6 py-16">
-          <Badge variant="primary" size="sm" className="mb-4">
+          <Badge variant="info" size="sm" className="mb-4">
             Phase 4 Week 2 - Blog MVP
           </Badge>
           <Text size="2xl" weight="semibold" className="mb-12">

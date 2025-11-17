@@ -9,7 +9,7 @@ interface TableOfContentsItem {
   level: 1 | 2 | 3
 }
 
-interface TableOfContentsProps {
+export interface TableOfContentsProps {
   items: TableOfContentsItem[]
   activeId?: string
   onItemClick?: (id: string) => void
@@ -27,9 +27,9 @@ export const TableOfContents = ({
   const baseClasses = 'rounded-lg border border-gray-200 bg-gray-50 p-4'
   const finalClasses = `${baseClasses} ${className}`
 
-  const getLevelClasses = (level: number, isActive: boolean): string => {
+  const getLevelClasses = (level: 1 | 2 | 3, isActive: boolean): string => {
     const baseLevel = 'block px-3 py-2 rounded text-sm transition-colors'
-    const levelMargin = {
+    const levelMargin: Record<1 | 2 | 3, string> = {
       1: 'ml-0',
       2: 'ml-4',
       3: 'ml-8',
@@ -53,8 +53,10 @@ export const TableOfContents = ({
   return (
     <nav className={finalClasses} aria-label="Article navigation">
       <Text
-        variant="secondary"
-        className="font-semibold mb-3 text-sm uppercase tracking-wide"
+        color="secondary"
+        weight="semibold"
+        size="sm"
+        className="mb-3 uppercase tracking-wide"
       >
         {title}
       </Text>
