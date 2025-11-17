@@ -41,6 +41,11 @@ export default [
         alert: 'readonly',
         HTMLButtonElement: 'readonly',
         HTMLInputElement: 'readonly',
+        document: 'readonly',
+        navigator: 'readonly',
+        setTimeout: 'readonly',
+        setInterval: 'readonly',
+        HTMLElement: 'readonly',
       },
     },
     plugins: {
@@ -53,6 +58,47 @@ export default [
     },
   },
   
+  // Test files - vitest globals
+  {
+    files: ['**/*.test.{ts,tsx}'],
+    languageOptions: {
+      parser: typescriptParser,
+      parserOptions: {
+        ecmaVersion: 'latest',
+        sourceType: 'module',
+        ecmaFeatures: {
+          jsx: true,
+        },
+      },
+      globals: {
+        // Vitest globals
+        describe: 'readonly',
+        it: 'readonly',
+        expect: 'readonly',
+        test: 'readonly',
+        afterEach: 'readonly',
+        afterAll: 'readonly',
+        beforeEach: 'readonly',
+        beforeAll: 'readonly',
+        vi: 'readonly',
+        // Browser globals for tests
+        document: 'readonly',
+        window: 'readonly',
+        navigator: 'readonly',
+        HTMLElement: 'readonly',
+        setTimeout: 'readonly',
+        setInterval: 'readonly',
+      },
+    },
+    plugins: {
+      '@typescript-eslint': typescriptPlugin,
+    },
+    rules: {
+      'no-console': 'warn',
+      '@typescript-eslint/no-unused-vars': 'warn',
+    },
+  },
+
   // Node.js files
   {
     files: ['**/*.js', '**/*.mjs'],
