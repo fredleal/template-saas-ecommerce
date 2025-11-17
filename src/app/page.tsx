@@ -9,8 +9,16 @@ import {
   Checkbox,
   Input,
 } from '@/components/atoms'
-import { Card, ProductCard, Rating, PostCard } from '@/components/molecules'
-import { Header, Footer } from '@/components/organisms'
+import {
+  Card,
+  ProductCard,
+  Rating,
+  PostCard,
+  TableOfContents,
+  CodeBlock,
+  Prose,
+} from '@/components/molecules'
+import { Header, Footer, BlogHeader } from '@/components/organisms'
 
 export default function Home() {
   const navLinks = [
@@ -1000,6 +1008,148 @@ export default function Home() {
               { label: 'Cookie Policy', href: '#cookies' },
             ]}
           />
+        </section>
+
+        {/* Blog MVP Components Section */}
+        <section className="max-w-7xl mx-auto px-6 py-16">
+          <Badge variant="primary" size="sm" className="mb-4">
+            Phase 4 Week 2 - Blog MVP
+          </Badge>
+          <Text size="2xl" weight="semibold" className="mb-12">
+            Blog Components Collection
+          </Text>
+
+          {/* BlogHeader Showcase */}
+          <div className="mb-16">
+            <Text size="lg" weight="semibold" className="mb-6">
+              BlogHeader Organism
+            </Text>
+            <BlogHeader
+              title="Building a Modern Design System with TypeScript"
+              description="Learn how to create a scalable, type-safe component library with atomic design principles"
+              author="Fred Leal"
+              date="2025-01-17"
+              readTime="12"
+              tags={['Design System', 'TypeScript', 'React', 'Components']}
+              heroImage="https://images.unsplash.com/photo-1633356122544-f134324ef6db?w=1200&h=400&fit=crop"
+              heroImageAlt="Design System Cover"
+            />
+          </div>
+
+          {/* TableOfContents + Prose + CodeBlock */}
+          <div className="grid grid-cols-1 lg:grid-cols-4 gap-8">
+            <div className="lg:col-span-1">
+              <Text size="base" weight="semibold" className="mb-4">
+                Article Sections
+              </Text>
+              <TableOfContents
+                items={[
+                  { id: 'intro', label: 'Introduction', level: 1 },
+                  { id: 'setup', label: 'Setup & Installation', level: 1 },
+                  { id: 'dependencies', label: 'Dependencies', level: 2 },
+                  { id: 'structure', label: 'Project Structure', level: 1 },
+                  { id: 'atoms', label: 'Creating Atoms', level: 1 },
+                  { id: 'molecules', label: 'Combining Molecules', level: 1 },
+                  { id: 'testing', label: 'Testing Strategy', level: 1 },
+                  { id: 'coverage', label: 'Coverage Goals', level: 2 },
+                ]}
+                activeId="intro"
+              />
+            </div>
+
+            <div className="lg:col-span-3">
+              <Text size="base" weight="semibold" className="mb-4">
+                Article Content
+              </Text>
+              <div className="space-y-8">
+                <Prose>
+                  <h2>Getting Started with Design Systems</h2>
+                  <p>
+                    A well-structured design system is the foundation of
+                    scalable applications. In this guide, we'll build a modern
+                    component library using TypeScript, React, and Tailwind CSS.
+                  </p>
+
+                  <h3>Why Design Systems Matter</h3>
+                  <p>Design systems provide:</p>
+                  <ul>
+                    <li>Consistency across your application</li>
+                    <li>Faster development cycles</li>
+                    <li>Improved maintainability</li>
+                    <li>Better code reusability</li>
+                  </ul>
+
+                  <h3>Key Technologies</h3>
+                  <p>Here's the tech stack we'll be using:</p>
+                </Prose>
+
+                {/* CodeBlock Example */}
+                <CodeBlock
+                  code={`{
+  "name": "design-system",
+  "version": "1.0.0",
+  "devDependencies": {
+    "react": "^19.0.0",
+    "typescript": "^5.0.0",
+    "tailwindcss": "^4.0.0",
+    "vitest": "^2.0.0"
+  }
+}`}
+                  language="json"
+                  title="package.json"
+                  showCopyButton={true}
+                />
+
+                <Prose>
+                  <h3>TypeScript Configuration</h3>
+                  <p>Enable strict mode for maximum type safety:</p>
+                </Prose>
+
+                <CodeBlock
+                  code={`// tsconfig.json
+{
+  "compilerOptions": {
+    "strict": true,
+    "noUncheckedIndexedAccess": true,
+    "noImplicitAny": true,
+    "strictNullChecks": true,
+    "strictFunctionTypes": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true
+  }
+}`}
+                  language="json"
+                  title="TypeScript Strict Mode"
+                />
+
+                <Prose>
+                  <h3>Benefits of This Approach</h3>
+                  <p>By combining these technologies, you get:</p>
+                  <ul>
+                    <li>
+                      <strong>Type Safety:</strong> Catch errors at compile time
+                    </li>
+                    <li>
+                      <strong>Performance:</strong> Optimized bundle sizes with
+                      Tailwind CSS
+                    </li>
+                    <li>
+                      <strong>Testing:</strong> 100% coverage with Vitest
+                    </li>
+                    <li>
+                      <strong>Accessibility:</strong> WCAG AA compliant
+                      components
+                    </li>
+                  </ul>
+
+                  <blockquote>
+                    "A design system is not just code. It's a shared language
+                    between designers and developers."
+                  </blockquote>
+                </Prose>
+              </div>
+            </div>
+          </div>
         </section>
 
         {/* Site Footer */}
