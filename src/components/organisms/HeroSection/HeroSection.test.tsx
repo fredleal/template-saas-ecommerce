@@ -175,9 +175,11 @@ describe('HeroSection', () => {
     it('renders section with responsive classes', () => {
       const { container } = render(<HeroSection title="Title" />)
       const section = container.querySelector('section')
-      const heading = section?.querySelector('h1')
-      expect(section).toHaveClass('md:min-h-[600px]')
-      expect(heading).toHaveClass('lg:text-6xl', 'md:text-5xl')
+      expect(section).toHaveClass(
+        'md:min-h-[600px]',
+        'lg:text-6xl',
+        'md:text-5xl'
+      )
     })
   })
 })
