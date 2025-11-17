@@ -9,7 +9,7 @@ import {
   Checkbox,
   Input,
 } from '@/components/atoms'
-import { Card, ProductCard, Rating } from '@/components/molecules'
+import { Card, ProductCard, Rating, PostCard } from '@/components/molecules'
 import { Header, Footer } from '@/components/organisms'
 
 export default function Home() {
@@ -797,6 +797,49 @@ export default function Home() {
               badge="New"
               badgeVariant="info"
               description="12.9 inch display, M2 chip, all-day battery"
+            />
+          </div>
+        </section>
+
+        {/* Blog PostCard Showcase */}
+        <section className="max-w-7xl mx-auto px-6 pb-12">
+          <Heading level={2} className="mb-4">
+            PostCard Molecule
+          </Heading>
+          <Text size="sm" color="secondary" className="mb-8">
+            Blog post cards for displaying article content
+          </Text>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <PostCard
+              title="Building Scalable React Applications"
+              excerpt="Learn best practices for scaling React applications with proper state management and performance optimization techniques."
+              date="2025-01-20"
+              author="Sarah Johnson"
+              category="React"
+              readTime={8}
+              imageUrl="https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=400&h=200&fit=crop"
+            />
+
+            <PostCard
+              title="TypeScript Tips and Tricks"
+              excerpt="Master advanced TypeScript features to write more robust and maintainable code in your projects."
+              date="2025-01-18"
+              author="Mike Chen"
+              category="TypeScript"
+              readTime={6}
+              featured={true}
+              imageUrl="https://images.unsplash.com/photo-1516321318423-f06f70566c0f?w=400&h=200&fit=crop"
+            />
+
+            <PostCard
+              title="CSS-in-JS Solutions Compared"
+              excerpt="Compare different CSS-in-JS libraries and find the best solution for your project requirements."
+              date="2025-01-15"
+              author="Emma Davis"
+              category="CSS"
+              readTime={10}
+              imageUrl="https://images.unsplash.com/photo-1633356122544-f134324ef6db?w=400&h=200&fit=crop"
             />
           </div>
         </section>
