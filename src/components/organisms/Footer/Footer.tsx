@@ -75,8 +75,8 @@ export const Footer = ({
                   {section.title}
                 </Text>
                 <ul className="space-y-3">
-                  {section.links.map(link => (
-                    <li key={link.href}>
+                  {section.links.map((link, linkIdx) => (
+                    <li key={`${idx}-link-${linkIdx}`}>
                       <a
                         href={link.href}
                         className="text-gray-400 hover:text-blue-400 transition-colors focus:outline-none focus:ring-2 focus:ring-blue-400 rounded px-2 py-1"
@@ -104,8 +104,8 @@ export const Footer = ({
             {/* Legal Links */}
             {legalLinks.length > 0 && (
               <ul className="flex flex-wrap gap-4 md:gap-6">
-                {legalLinks.map(link => (
-                  <li key={link.href}>
+                {legalLinks.map((link, legalIdx) => (
+                  <li key={`legal-${legalIdx}`}>
                     <a
                       href={link.href}
                       className="text-gray-500 hover:text-blue-400 transition-colors focus:outline-none focus:ring-2 focus:ring-blue-400 rounded px-2 py-1 text-sm"
