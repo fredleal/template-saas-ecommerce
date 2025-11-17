@@ -2,7 +2,7 @@
 
 import React, { useState } from 'react'
 
-interface CodeBlockProps {
+export interface CodeBlockProps {
   code: string
   language?: string
   showLineNumbers?: boolean

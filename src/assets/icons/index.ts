@@ -9,6 +9,7 @@ export { HeartIcon } from './ecommerce/HeartIcon'
 export { SearchIcon } from './navigation/SearchIcon'
 export { MenuIcon } from './navigation/MenuIcon'
 export { FilterIcon } from './navigation/FilterIcon'
+export { XIcon } from './navigation/XIcon'
 
 // Action Icons
 export { PlusIcon } from './actions/PlusIcon'
