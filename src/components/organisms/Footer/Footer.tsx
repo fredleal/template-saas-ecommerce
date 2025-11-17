@@ -12,11 +12,27 @@ export interface FooterSection {
   links: FooterLink[]
 }
 
+export interface SocialLink {
+  icon:
+    | 'CartIcon'
+    | 'HeartIcon'
+    | 'SearchIcon'
+    | 'MenuIcon'
+    | 'PlusIcon'
+    | 'StarIcon'
+    | 'UserIcon'
+    | 'FilterIcon'
+    | 'CheckIcon'
+    | 'XIcon'
+  href: string
+  label: string
+}
+
 export interface FooterProps {
   companyName: string
   companyDescription?: string
   sections: FooterSection[]
-  socialLinks?: { icon: string; href: string; label: string }[]
+  socialLinks?: SocialLink[]
   copyrightYear?: number
   legalLinks?: FooterLink[]
   className?: string
@@ -61,7 +77,7 @@ export const Footer = ({
                       target="_blank"
                       rel="noopener noreferrer"
                     >
-                      <Icon name={link.icon as any} size="md" decorative />
+                      <Icon name={link.icon} size="md" decorative />
                     </a>
                   ))}
                 </div>

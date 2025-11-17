@@ -1,6 +1,6 @@
 import React from 'react'
 
-interface ProseProps {
+export interface ProseProps {
   children: React.ReactNode
   className?: string
   size?: 'sm' | 'md' | 'lg'

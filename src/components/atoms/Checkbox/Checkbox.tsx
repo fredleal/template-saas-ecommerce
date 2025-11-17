@@ -1,7 +1,7 @@
 'use client'
 import React, { useEffect, useRef } from 'react'
 
-interface CheckboxProps {
+export interface CheckboxProps {
   // State control
   checked?: boolean // Controlled state
   defaultChecked?: boolean // Uncontrolled default
