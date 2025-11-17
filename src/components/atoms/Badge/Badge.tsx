@@ -1,7 +1,7 @@
 'use client'
 import React from 'react'
 
-interface BadgeProps {
+export interface BadgeProps {
   variant?: 'default' | 'success' | 'warning' | 'error' | 'info'
   size?: 'sm' | 'md' | 'lg'
   children: React.ReactNode
@@ -38,5 +38,3 @@ export const Badge = ({
     </span>
   )
 }
-
-export default Badge

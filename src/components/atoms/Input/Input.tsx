@@ -1,7 +1,7 @@
 'use client'
 import React from 'react'
 
-interface InputProps {
+export interface InputProps {
   // Input types
   type?: 'text' | 'email' | 'password' | 'number' | 'tel' | 'url'
 
@@ -20,12 +20,14 @@ interface InputProps {
   readOnly?: boolean
   required?: boolean
   error?: boolean
+  errorMessage?: string
 
   // Attributes
   name?: string
   id?: string
   autoComplete?: string
   maxLength?: number
+  ariaDescribedBy?: string
 
   // Styling
   size?: 'sm' | 'md' | 'lg'
@@ -44,12 +46,14 @@ export const Input = ({
   readOnly = false,
   required = false,
   error = false,
+  errorMessage,
   name,
   id,
   autoComplete,
   maxLength,
   size = 'md',
   className = '',
+  ariaDescribedBy,
 }: InputProps) => {
   // 1. Handle change event
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -83,22 +87,33 @@ export const Input = ({
   const classes = `${baseClasses} ${sizeClasses[size]} ${stateClasses} ${disabledClass} ${className}`
 
   return (
-    <input
-      type={type}
-      value={value}
-      defaultValue={defaultValue}
-      placeholder={placeholder}
-      onChange={handleChange}
-      onFocus={onFocus}
-      onBlur={onBlur}
-      disabled={disabled}
-      readOnly={readOnly}
-      required={required}
-      name={name}
-      id={id}
-      autoComplete={autoComplete}
-      maxLength={maxLength}
-      className={classes}
-    />
+    <>
+      <input
+        type={type}
+        value={value}
+        defaultValue={defaultValue}
+        placeholder={placeholder}
+        onChange={handleChange}
+        onFocus={onFocus}
+        onBlur={onBlur}
+        disabled={disabled}
+        readOnly={readOnly}
+        required={required}
+        name={name}
+        id={id}
+        autoComplete={autoComplete}
+        maxLength={maxLength}
+        className={classes}
+        aria-invalid={error}
+        aria-describedby={
+          ariaDescribedBy || (error && errorMessage ? `${id}-error` : undefined)
+        }
+      />
+      {error && errorMessage && (
+        <p id={`${id}-error`} className="mt-1 text-sm text-red-600">
+          {errorMessage}
+        </p>
+      )}
+    </>
   )
 }

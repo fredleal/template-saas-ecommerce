@@ -3,7 +3,7 @@
 import React from 'react'
 import { Text, Heading } from '@/components/atoms'
 
-interface BlogHeaderProps {
+export interface BlogHeaderProps {
   title: string
   description?: string
   author: string
@@ -77,7 +77,7 @@ export const BlogHeader = ({
 
         {/* Description/Subtitle */}
         {description && (
-          <Text variant="secondary" className="mb-6 text-lg md:text-xl">
+          <Text color="secondary" size="lg" className="mb-6 md:text-xl">
             {description}
           </Text>
         )}

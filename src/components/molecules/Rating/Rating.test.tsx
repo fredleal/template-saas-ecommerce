@@ -85,7 +85,9 @@ describe('Rating', () => {
 
   describe('Accessibility', () => {
     it('has no accessibility violations', async () => {
-      const { container } = render(<Rating value={4.5} showValue />)
+      const { container } = render(
+        <Rating value={4.5} showValue isInteractive onRatingChange={() => {}} />
+      )
       const results = await axe(container)
       expect(results).toHaveNoViolations()
     })
@@ -103,7 +105,9 @@ describe('Rating', () => {
     })
 
     it('applies custom className', () => {
-      const { container } = render(<Rating value={4} className="custom-rating" />)
+      const { container } = render(
+        <Rating value={4} className="custom-rating" />
+      )
       const rating = container.firstChild as HTMLElement
       expect(rating).toHaveClass('custom-rating')
     })

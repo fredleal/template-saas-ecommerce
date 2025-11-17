@@ -2,7 +2,7 @@
 import React, { useState } from 'react'
 import { Text, Button, Icon } from '@/components/atoms'
 
-interface HeaderProps {
+export interface HeaderProps {
   logoText: string
   links: { label: string; href: string }[]
   currentPath?: string
