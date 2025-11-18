@@ -1,8 +1,8 @@
 'use client'
 
 import React from 'react'
-import { Button } from '@/components/atoms/Button/Button'
-import { Text } from '@/components/atoms/Text/Text'
+import { Button } from '../../atoms/Button/Button'
+import { Text } from '../../atoms/Text/Text'
 
 export interface HeroSectionProps {
   title: string

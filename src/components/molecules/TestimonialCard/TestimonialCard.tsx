@@ -1,7 +1,7 @@
 'use client'
 
 import React from 'react'
-import { Text } from '@/components/atoms/Text/Text'
+import { Text } from '../../atoms/Text/Text'
 
 export interface TestimonialCardProps {
   avatar: string

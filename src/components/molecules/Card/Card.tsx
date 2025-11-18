@@ -2,7 +2,7 @@
 // src/components/molecules/Card.tsx
 import React from 'react'
 import Image from 'next/image'
-import { Button, Text, Heading } from '@/components/atoms'
+import { Button, Text, Heading } from '../../atoms'
 
 // Props do componente
 export interface CardProps {
