@@ -1,8 +1,8 @@
 'use client'
 
 import React from 'react'
-import { Icon, IconName } from '@/components/atoms/Icon/Icon'
-import { Text } from '@/components/atoms/Text/Text'
+import { Icon, IconName } from '../../atoms/Icon/Icon'
+import { Text } from '../../atoms/Text/Text'
 
 export interface FeatureCardProps {
   icon: IconName

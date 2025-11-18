@@ -1,7 +1,7 @@
 'use client'
 
 import React, { useState } from 'react'
-import { Text } from '@/components/atoms/Text/Text'
+import { Text } from '../../atoms/Text/Text'
 
 export interface FAQItem {
   id: string

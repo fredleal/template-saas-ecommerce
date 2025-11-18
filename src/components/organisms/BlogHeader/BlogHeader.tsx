@@ -1,7 +1,7 @@
 'use client'
 
 import React from 'react'
-import { Text, Heading } from '@/components/atoms'
+import { Text, Heading } from '../../atoms'
 
 export interface BlogHeaderProps {
   title: string
