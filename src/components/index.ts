@@ -41,6 +41,26 @@ export type { CodeBlockProps } from './molecules/CodeBlock/CodeBlock'
 export { TableOfContents } from './molecules/TableOfContents/TableOfContents'
 export type { TableOfContentsProps } from './molecules/TableOfContents/TableOfContents'
 
-// Organisms (if any exist)
-// export { Section } from './organisms/Section/Section'
-// export type { SectionProps } from './organisms/Section/Section'
+// Organisms
+export { Header } from './organisms/Header/Header'
+export type { HeaderProps } from './organisms/Header/Header'
+
+export { Footer } from './organisms/Footer/Footer'
+export type {
+  FooterProps,
+  FooterSection,
+  FooterLink,
+  SocialLink,
+} from './organisms/Footer/Footer'
+
+export { BlogHeader } from './organisms/BlogHeader/BlogHeader'
+export type { BlogHeaderProps } from './organisms/BlogHeader/BlogHeader'
+
+export { HeroSection } from './organisms/HeroSection/HeroSection'
+export type { HeroSectionProps } from './organisms/HeroSection/HeroSection'
+
+export { FAQSection } from './organisms/FAQSection/FAQSection'
+export type {
+  FAQSectionProps,
+  FAQItem,
+} from './organisms/FAQSection/FAQSection'
