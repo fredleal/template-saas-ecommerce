@@ -1,6 +1,6 @@
 'use client'
 import React from 'react'
-import { Text, Badge, Icon } from '@/components/atoms'
+import { Text, Badge, Icon } from '../../atoms'
 
 export interface PostCardProps {
   title: string

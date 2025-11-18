@@ -1,6 +1,6 @@
 'use client'
 import React, { useState } from 'react'
-import { Text, Button, Icon } from '@/components/atoms'
+import { Text, Button, Icon } from '../../atoms'
 
 export interface HeaderProps {
   logoText: string
