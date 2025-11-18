@@ -1,0 +1,1 @@
+{"version":3,"file":"StarIcon.d.ts","sourceRoot":"","sources":["../../../../src/assets/icons/feedback/StarIcon.tsx"],"names":[],"mappings":"AAAA,OAAO,KAAK,MAAM,OAAO,CAAA;AACzB,OAAO,EAAE,aAAa,EAAyB,MAAM,kBAAkB,CAAA;AAEvE,UAAU,aAAc,SAAQ,aAAa;IAC3C,OAAO,CAAC,EAAE,QAAQ,GAAG,SAAS,CAAA;CAC/B;AAED,eAAO,MAAM,QAAQ,EAAE,KAAK,CAAC,EAAE,CAAC,aAAa,CAgC5C,CAAA"}
