@@ -1,7 +1,7 @@
 'use client'
 
 import React from 'react'
-import { Text } from '@/components/atoms'
+import { Text } from '../../atoms'
 
 interface TableOfContentsItem {
   id: string
