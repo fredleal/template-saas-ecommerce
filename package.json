@@ -1,10 +1,46 @@
 {
-  "name": "atomic-design-library",
-  "version": "0.1.0",
-  "private": true,
+  "name": "@fredleal/saas-components",
+  "version": "1.0.0",
+  "description": "A comprehensive React component library built with TypeScript, Tailwind CSS, and Atomic Design principles",
+  "private": false,
+  "type": "module",
+  "main": "./dist/index.js",
+  "module": "./dist/index.esm.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.esm.js",
+      "require": "./dist/index.js"
+    },
+    "./atoms": {
+      "types": "./dist/atoms/index.d.ts",
+      "import": "./dist/atoms/index.esm.js",
+      "require": "./dist/atoms/index.js"
+    },
+    "./molecules": {
+      "types": "./dist/molecules/index.d.ts",
+      "import": "./dist/molecules/index.esm.js",
+      "require": "./dist/molecules/index.js"
+    },
+    "./organisms": {
+      "types": "./dist/organisms/index.d.ts",
+      "import": "./dist/organisms/index.esm.js",
+      "require": "./dist/organisms/index.js"
+    },
+    "./schemas": {
+      "types": "./dist/schemas/index.d.ts",
+      "import": "./dist/schemas/index.esm.js",
+      "require": "./dist/schemas/index.js"
+    }
+  },
+  "files": [
+    "dist"
+  ],
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
+    "build": "next build && npm run build:lib",
+    "build:lib": "tsc --project tsconfig.build.json && tsc --project tsconfig.build.json --module esnext --outDir dist --declaration",
     "start": "next start",
     "lint": "eslint . --ext .ts,.tsx --fix",
     "lint:check": "eslint . --ext .ts,.tsx",
@@ -14,7 +50,27 @@
     "test": "vitest run",
     "test:watch": "vitest",
     "test:ui": "vitest --ui",
-    "test:coverage": "vitest run --coverage"
+    "test:coverage": "vitest run --coverage",
+    "prepublishOnly": "npm run build && npm run test && npm run lint:check"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/fredleal/template-saas-ecommerce"
+  },
+  "keywords": [
+    "react",
+    "components",
+    "typescript",
+    "tailwindcss",
+    "atomic-design",
+    "saas",
+    "ecommerce"
+  ],
+  "author": "Fred Leal <flm_@msn.com>",
+  "license": "MIT",
+  "peerDependencies": {
+    "react": ">=18.0.0",
+    "react-dom": ">=18.0.0"
   },
   "dependencies": {
     "next": "15.5.2",
