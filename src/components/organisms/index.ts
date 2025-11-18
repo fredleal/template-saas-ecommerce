@@ -7,3 +7,9 @@ export {
   type SocialLink,
 } from './Footer/Footer'
 export { BlogHeader, type BlogHeaderProps } from './BlogHeader/BlogHeader'
+export { HeroSection, type HeroSectionProps } from './HeroSection/HeroSection'
+export {
+  FAQSection,
+  type FAQSectionProps,
+  type FAQItem,
+} from './FAQSection/FAQSection'
