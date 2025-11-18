@@ -2,7 +2,7 @@
 import React from 'react'
 import * as Icons from '@/assets/icons'
 
-type IconName =
+export type IconName =
   | 'CartIcon'
   | 'HeartIcon'
   | 'SearchIcon'

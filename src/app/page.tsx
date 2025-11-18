@@ -265,14 +265,14 @@ export default function Home() {
                 title="Fully Tested"
                 description="100% test coverage with Vitest and Testing Library. All components thoroughly tested for reliability."
                 iconSize="lg"
-                iconColor="success"
+                iconColor="primary"
               />
               <FeatureCard
                 icon="StarIcon"
                 title="Production Ready"
                 description="Battle-tested components built with TypeScript strict mode and WCAG AA accessibility compliance."
                 iconSize="lg"
-                iconColor="warning"
+                iconColor="primary"
               />
             </div>
           </div>
