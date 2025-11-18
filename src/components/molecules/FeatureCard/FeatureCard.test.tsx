@@ -8,7 +8,7 @@ describe('FeatureCard', () => {
     it('renders title and description', () => {
       render(
         <FeatureCard
-          icon="Plus"
+          icon="PlusIcon"
           title="Feature Title"
           description="Feature description text"
         />
@@ -131,7 +131,7 @@ describe('FeatureCard', () => {
   describe('Layout', () => {
     it('applies flex column layout', () => {
       const { container } = render(
-        <FeatureCard icon="Plus" title="Test" description="Description" />
+        <FeatureCard icon="PlusIcon" title="Test" description="Description" />
       )
       const featureCard = container.firstChild as HTMLElement
       expect(featureCard).toHaveClass(

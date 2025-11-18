@@ -17,8 +17,16 @@ import {
   TableOfContents,
   CodeBlock,
   Prose,
+  FeatureCard,
+  TestimonialCard,
 } from '@/components/molecules'
-import { Header, Footer, BlogHeader } from '@/components/organisms'
+import {
+  Header,
+  Footer,
+  BlogHeader,
+  HeroSection,
+  FAQSection,
+} from '@/components/organisms'
 
 export default function Home() {
   const navLinks = [
@@ -209,6 +217,146 @@ export default function Home() {
                 </Badge>
               </div>
             </div>
+          </div>
+        </section>
+
+        {/* New Landing Page Components - PR #68 & #69 */}
+        <section className="py-12 md:py-16 bg-gradient-to-b from-gray-50 to-white">
+          {/* HeroSection Showcase */}
+          <div className="mb-12">
+            <HeroSection
+              title="Introducing HeroSection Organism"
+              subtitle="Landing Page Component"
+              description="A full-screen hero section with gradient overlay, optional background image, and dual CTA buttons. Perfect for landing pages and marketing sites."
+              primaryCTA={{
+                label: 'View Documentation',
+                onClick: () => alert('Documentation coming soon!'),
+              }}
+              secondaryCTA={{
+                label: 'See Examples',
+                onClick: () => alert('Examples coming soon!'),
+              }}
+            />
+          </div>
+
+          {/* FeatureCard Showcase */}
+          <div className="max-w-7xl mx-auto px-6 mb-12">
+            <Badge variant="info" size="sm" className="mb-4">
+              PR #68 - FeatureCard Molecule
+            </Badge>
+            <Text size="2xl" weight="semibold" className="mb-2">
+              Feature Cards for Landing Pages
+            </Text>
+            <Text size="sm" color="secondary" className="mb-8">
+              Display key features with icons, titles, and descriptions in a
+              grid layout
+            </Text>
+
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+              <FeatureCard
+                icon="PlusIcon"
+                title="Easy Integration"
+                description="Simple to integrate into your existing projects with comprehensive documentation and examples."
+                iconSize="lg"
+                iconColor="primary"
+              />
+              <FeatureCard
+                icon="CheckIcon"
+                title="Fully Tested"
+                description="100% test coverage with Vitest and Testing Library. All components thoroughly tested for reliability."
+                iconSize="lg"
+                iconColor="primary"
+              />
+              <FeatureCard
+                icon="StarIcon"
+                title="Production Ready"
+                description="Battle-tested components built with TypeScript strict mode and WCAG AA accessibility compliance."
+                iconSize="lg"
+                iconColor="primary"
+              />
+            </div>
+          </div>
+
+          {/* TestimonialCard Showcase */}
+          <div className="max-w-7xl mx-auto px-6 mb-12">
+            <Badge variant="info" size="sm" className="mb-4">
+              PR #70 - TestimonialCard Molecule
+            </Badge>
+            <Text size="2xl" weight="semibold" className="mb-2">
+              Testimonials from Users
+            </Text>
+            <Text size="sm" color="secondary" className="mb-8">
+              Showcase customer feedback with avatar, quote, author name, and
+              title
+            </Text>
+
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+              <TestimonialCard
+                avatar="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop"
+                quote="The component library transformed our development workflow. We built features 3x faster!"
+                author="Sarah Anderson"
+                title="Product Lead"
+                company="TechStartup Inc"
+              />
+              <TestimonialCard
+                avatar="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=400&h=400&fit=crop"
+                quote="Exceptional quality and documentation. Exactly what we needed for our design system."
+                author="James Mitchell"
+                title="Engineering Manager"
+                company="Digital Solutions"
+              />
+              <TestimonialCard
+                avatar="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=400&h=400&fit=crop"
+                quote="The accessibility features are outstanding. WCAG AA compliance out of the box!"
+                author="Emma Williams"
+                title="Accessibility Specialist"
+                company="Design Systems Co"
+              />
+            </div>
+          </div>
+
+          {/* FAQSection Showcase */}
+          <div className="max-w-7xl mx-auto px-6 mb-12">
+            <Badge variant="info" size="sm" className="mb-4">
+              PR #71 - FAQSection Organism
+            </Badge>
+            <FAQSection
+              title="Frequently Asked Questions"
+              subtitle="Everything you need to know about our component library"
+              items={[
+                {
+                  id: '1',
+                  question: 'What is atomic design and why should I use it?',
+                  answer:
+                    'Atomic design is a methodology for creating design systems by breaking down interfaces into fundamental building blocks (atoms), then combining them into larger units (molecules and organisms). This approach promotes consistency, reusability, and maintainability across your projects.',
+                },
+                {
+                  id: '2',
+                  question: 'Are these components accessible?',
+                  answer:
+                    'Yes! All components are built to WCAG AA standards with proper semantic HTML, ARIA labels, keyboard navigation, and tested with jest-axe for automated accessibility compliance checking.',
+                },
+                {
+                  id: '3',
+                  question: 'Can I customize the styling?',
+                  answer:
+                    'Absolutely. Components use Tailwind CSS utility classes and accept custom className props for extending styles. All components are TypeScript-first for maximum customization with type safety.',
+                },
+                {
+                  id: '4',
+                  question: 'What testing coverage do you have?',
+                  answer:
+                    'We maintain 100% test coverage across all components using Vitest and React Testing Library. Each component includes unit tests, integration tests, and accessibility tests.',
+                },
+                {
+                  id: '5',
+                  question: 'Is TypeScript required?',
+                  answer:
+                    'While TypeScript is optional, we recommend it for the best development experience. All components have full TypeScript definitions with strict mode support.',
+                },
+              ]}
+              allowMultipleOpen={true}
+            />
           </div>
         </section>
 
