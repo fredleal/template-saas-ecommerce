@@ -8,7 +8,7 @@ describe('FeatureCard', () => {
     it('renders title and description', () => {
       render(
         <FeatureCard
-          icon="Plus"
+          icon="PlusIcon"
           title="Feature Title"
           description="Feature description text"
         />
@@ -20,7 +20,7 @@ describe('FeatureCard', () => {
     it('renders with correct icon', () => {
       const { container } = render(
         <FeatureCard
-          icon="Plus"
+          icon="PlusIcon"
           title="Add Feature"
           description="Click to add"
         />
@@ -49,7 +49,7 @@ describe('FeatureCard', () => {
       sizes.forEach(size => {
         const { container, unmount } = render(
           <FeatureCard
-            icon="Plus"
+            icon="PlusIcon"
             title="Test"
             description="Description"
             iconSize={size}
@@ -66,7 +66,7 @@ describe('FeatureCard', () => {
       colors.forEach(color => {
         const { container, unmount } = render(
           <FeatureCard
-            icon="Plus"
+            icon="PlusIcon"
             title="Test"
             description="Description"
             iconColor={color}
@@ -105,7 +105,11 @@ describe('FeatureCard', () => {
   describe('Accessibility', () => {
     it('has no accessibility violations', async () => {
       const { container } = render(
-        <FeatureCard icon="Plus" title="Feature" description="Description" />
+        <FeatureCard
+          icon="PlusIcon"
+          title="Feature"
+          description="Description"
+        />
       )
       const results = await axe(container)
       expect(results).toHaveNoViolations()
@@ -113,7 +117,11 @@ describe('FeatureCard', () => {
 
     it('icon is marked as decorative', () => {
       const { container } = render(
-        <FeatureCard icon="Plus" title="Feature" description="Description" />
+        <FeatureCard
+          icon="PlusIcon"
+          title="Feature"
+          description="Description"
+        />
       )
       const svg = container.querySelector('svg')
       expect(svg).toHaveAttribute('aria-hidden', 'true')
@@ -123,7 +131,7 @@ describe('FeatureCard', () => {
   describe('Layout', () => {
     it('applies flex column layout', () => {
       const { container } = render(
-        <FeatureCard icon="Plus" title="Test" description="Description" />
+        <FeatureCard icon="PlusIcon" title="Test" description="Description" />
       )
       const featureCard = container.firstChild as HTMLElement
       expect(featureCard).toHaveClass(
