@@ -1,6 +1,6 @@
 'use client'
 import React from 'react'
-import * as Icons from '@/assets/icons'
+import * as Icons from '../../../assets/icons'
 
 export type IconName =
   | 'CartIcon'
