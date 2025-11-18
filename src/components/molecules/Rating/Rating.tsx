@@ -1,6 +1,6 @@
 'use client'
 import React from 'react'
-import { Text } from '@/components/atoms'
+import { Text } from '../../atoms'
 
 export interface RatingProps {
   value: number
