@@ -3,35 +3,16 @@
   "version": "1.0.0",
   "description": "A comprehensive React component library built with TypeScript, Tailwind CSS, and Atomic Design principles",
   "private": false,
-  "type": "module",
   "main": "./dist/index.js",
-  "module": "./dist/index.esm.js",
   "types": "./dist/index.d.ts",
   "exports": {
     ".": {
       "types": "./dist/index.d.ts",
-      "import": "./dist/index.esm.js",
-      "require": "./dist/index.js"
-    },
-    "./atoms": {
-      "types": "./dist/atoms/index.d.ts",
-      "import": "./dist/atoms/index.esm.js",
-      "require": "./dist/atoms/index.js"
-    },
-    "./molecules": {
-      "types": "./dist/molecules/index.d.ts",
-      "import": "./dist/molecules/index.esm.js",
-      "require": "./dist/molecules/index.js"
-    },
-    "./organisms": {
-      "types": "./dist/organisms/index.d.ts",
-      "import": "./dist/organisms/index.esm.js",
-      "require": "./dist/organisms/index.js"
+      "default": "./dist/index.js"
     },
     "./schemas": {
       "types": "./dist/schemas/index.d.ts",
-      "import": "./dist/schemas/index.esm.js",
-      "require": "./dist/schemas/index.js"
+      "default": "./dist/schemas/index.js"
     }
   },
   "files": [

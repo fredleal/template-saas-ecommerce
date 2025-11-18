@@ -1,6 +1,6 @@
 'use client'
 import React from 'react'
-import { Text, Icon } from '@/components/atoms'
+import { Text, Icon } from '../../atoms'
 
 export interface FooterLink {
   label: string
