@@ -143,7 +143,7 @@ function QuantitySelectorProductDemo() {
           <Text size="sm" color="secondary">
             Subtotal:
           </Text>
-          <Text size="md" weight="bold" className="text-green-600">
+          <Text size="base" weight="bold" className="text-green-600">
             ${totalPrice}
           </Text>
         </div>
