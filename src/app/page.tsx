@@ -1,4 +1,5 @@
 'use client'
+import { useState } from 'react'
 import {
   Button,
   Text,
@@ -8,6 +9,9 @@ import {
   Icon,
   Checkbox,
   Input,
+  QuantitySelector,
+  StockBadge,
+  DiscountLabel,
 } from '@/components/atoms'
 import {
   Card,
@@ -27,6 +31,126 @@ import {
   HeroSection,
   FAQSection,
 } from '@/components/organisms'
+
+// Interactive Demo Components
+function QuantitySelectorDemo() {
+  const [quantity1, setQuantity1] = useState(1)
+  const [quantity2, setQuantity2] = useState(5)
+  const [quantity3, setQuantity3] = useState(1)
+
+  return (
+    <div className="space-y-6">
+      <div>
+        <Text size="sm" weight="semibold" className="mb-3">
+          Controle Básico (min: 1, max: 99)
+        </Text>
+        <div className="flex items-center gap-4">
+          <QuantitySelector value={quantity1} onChange={setQuantity1} />
+          <Text size="sm" color="secondary">
+            Quantidade: {quantity1}
+          </Text>
+        </div>
+      </div>
+
+      <div>
+        <Text size="sm" weight="semibold" className="mb-3">
+          Com Limites Customizados (min: 3, max: 10)
+        </Text>
+        <div className="flex items-center gap-4">
+          <QuantitySelector
+            value={quantity2}
+            onChange={setQuantity2}
+            min={3}
+            max={10}
+          />
+          <Text size="sm" color="secondary">
+            Quantidade: {quantity2}
+          </Text>
+        </div>
+      </div>
+
+      <div>
+        <Text size="sm" weight="semibold" className="mb-3">
+          Tamanhos (sm, md, lg)
+        </Text>
+        <div className="flex flex-wrap gap-3 items-center">
+          <QuantitySelector
+            value={quantity3}
+            onChange={setQuantity3}
+            size="sm"
+          />
+          <QuantitySelector
+            value={quantity3}
+            onChange={setQuantity3}
+            size="md"
+          />
+          <QuantitySelector
+            value={quantity3}
+            onChange={setQuantity3}
+            size="lg"
+          />
+        </div>
+      </div>
+
+      <div>
+        <Text size="sm" weight="semibold" className="mb-3">
+          Estado Disabled
+        </Text>
+        <QuantitySelector value={5} onChange={() => {}} disabled />
+      </div>
+
+      <div className="bg-gray-50 p-4 rounded-lg">
+        <Text size="xs" color="secondary" className="mb-2">
+          Exemplo Real: Carrinho de Compras
+        </Text>
+        <div className="flex items-center justify-between">
+          <div className="flex items-center gap-3">
+            <div className="w-12 h-12 bg-gray-200 rounded" />
+            <div>
+              <Text size="sm" weight="semibold">
+                Product Name
+              </Text>
+              <Text size="sm" weight="bold" className="text-gray-900">
+                $49.99
+              </Text>
+            </div>
+          </div>
+          <QuantitySelector value={quantity1} onChange={setQuantity1} />
+        </div>
+      </div>
+    </div>
+  )
+}
+
+function QuantitySelectorProductDemo() {
+  const [quantity, setQuantity] = useState(1)
+  const totalPrice = (194.99 * quantity).toFixed(2)
+
+  return (
+    <div className="space-y-3">
+      <div className="flex items-center justify-between">
+        <QuantitySelector value={quantity} onChange={setQuantity} size="md" />
+        <Text size="sm" color="secondary">
+          Qty: {quantity}
+        </Text>
+      </div>
+      <Button variant="primary" size="md" className="w-full">
+        <Icon name="CartIcon" size="sm" decorative />
+        Add {quantity} to Cart
+      </Button>
+      <div className="pt-2 border-t border-gray-200">
+        <div className="flex justify-between text-sm">
+          <Text size="sm" color="secondary">
+            Subtotal:
+          </Text>
+          <Text size="md" weight="bold" className="text-green-600">
+            ${totalPrice}
+          </Text>
+        </div>
+      </div>
+    </div>
+  )
+}
 
 export default function Home() {
   const navLinks = [
@@ -480,6 +604,276 @@ export default function Home() {
                 </Badge>
               </div>
             </div>
+          </div>
+        </section>
+
+        {/* NEW: E-commerce Atoms Showcase - PR #78 */}
+        <section className="max-w-7xl mx-auto px-6 py-12 bg-gradient-to-br from-blue-50 to-purple-50 rounded-2xl mb-12">
+          <div className="flex items-center justify-between mb-8">
+            <div>
+              <Badge variant="success" size="sm" className="mb-3">
+                NEW - PR #78
+              </Badge>
+              <Text size="3xl" weight="bold" className="mb-2">
+                E-commerce Atoms - QuantitySelector
+              </Text>
+              <Text size="sm" color="secondary">
+                3 novos componentes atoms para e-commerce com testes completos
+              </Text>
+            </div>
+            <div className="flex gap-2">
+              <Badge variant="info" size="sm">
+                61 tests
+              </Badge>
+              <Badge variant="success" size="sm">
+                100% coverage
+              </Badge>
+            </div>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            {/* QuantitySelector Component */}
+            <Card variant="elevated" className="bg-white md:col-span-2">
+              <div className="mb-4 pb-4 border-b border-gray-200">
+                <Text size="lg" weight="bold" className="mb-1">
+                  1. QuantitySelector Atom (PR #78)
+                </Text>
+                <Text size="sm" color="secondary">
+                  Controle interativo de quantidade com validação min/max
+                </Text>
+                <Badge variant="info" size="sm" className="mt-2">
+                  22 tests
+                </Badge>
+              </div>
+
+              <QuantitySelectorDemo />
+            </Card>
+
+            {/* StockBadge Component */}
+            <Card variant="elevated" className="bg-white">
+              <div className="mb-4 pb-4 border-b border-gray-200">
+                <Text size="lg" weight="bold" className="mb-1">
+                  2. StockBadge Atom
+                </Text>
+                <Text size="sm" color="secondary">
+                  Badge de status de estoque com auto-detection
+                </Text>
+                <Badge variant="info" size="sm" className="mt-2">
+                  18 tests
+                </Badge>
+              </div>
+
+              <div className="space-y-6">
+                {/* Auto Status Detection */}
+                <div>
+                  <Text size="sm" weight="semibold" className="mb-3">
+                    Auto-Detection por Estoque
+                  </Text>
+                  <div className="space-y-2">
+                    <div className="flex items-center justify-between bg-gray-50 p-3 rounded">
+                      <Text size="sm">Stock: 10 items</Text>
+                      <StockBadge stock={10} size="md" />
+                    </div>
+                    <div className="flex items-center justify-between bg-gray-50 p-3 rounded">
+                      <Text size="sm">Stock: 3 items</Text>
+                      <StockBadge stock={3} size="md" />
+                    </div>
+                    <div className="flex items-center justify-between bg-gray-50 p-3 rounded">
+                      <Text size="sm">Stock: 0 items</Text>
+                      <StockBadge stock={0} size="md" />
+                    </div>
+                  </div>
+                </div>
+
+                {/* Size Variants */}
+                <div>
+                  <Text size="sm" weight="semibold" className="mb-3">
+                    Tamanhos (sm, md, lg)
+                  </Text>
+                  <div className="flex flex-wrap gap-2 items-center">
+                    <StockBadge stock={50} size="sm" />
+                    <StockBadge stock={50} size="md" />
+                    <StockBadge stock={50} size="lg" />
+                  </div>
+                </div>
+
+                {/* Real Example */}
+                <div className="bg-gray-50 p-4 rounded-lg">
+                  <Text size="xs" color="secondary" className="mb-2">
+                    Exemplo Real: Product Card
+                  </Text>
+                  <div className="flex items-center justify-between">
+                    <div>
+                      <Text weight="semibold">Smartphone XYZ</Text>
+                      <Text size="lg" weight="bold" className="text-gray-900">
+                        $899.99
+                      </Text>
+                    </div>
+                    <StockBadge stock={2} size="md" />
+                  </div>
+                </div>
+              </div>
+            </Card>
+
+            {/* DiscountLabel Component */}
+            <Card variant="elevated" className="bg-white">
+              <div className="mb-4 pb-4 border-b border-gray-200">
+                <Text size="lg" weight="bold" className="mb-1">
+                  3. DiscountLabel Atom
+                </Text>
+                <Text size="sm" color="secondary">
+                  Label para exibir percentual de desconto
+                </Text>
+                <Badge variant="info" size="sm" className="mt-2">
+                  21 tests
+                </Badge>
+              </div>
+
+              <div className="space-y-6">
+                {/* Percentages */}
+                <div>
+                  <Text size="sm" weight="semibold" className="mb-3">
+                    Diferentes Descontos
+                  </Text>
+                  <div className="flex flex-wrap gap-3">
+                    <DiscountLabel percentage={10} size="md" />
+                    <DiscountLabel percentage={25} size="md" />
+                    <DiscountLabel percentage={50} size="md" />
+                    <DiscountLabel percentage={75} size="md" />
+                  </div>
+                </div>
+
+                {/* Variants */}
+                <div>
+                  <Text size="sm" weight="semibold" className="mb-3">
+                    Variantes de Cor
+                  </Text>
+                  <div className="flex flex-wrap gap-3">
+                    <DiscountLabel percentage={20} variant="default" />
+                    <DiscountLabel percentage={20} variant="primary" />
+                    <DiscountLabel percentage={20} variant="accent" />
+                  </div>
+                </div>
+
+                {/* Sizes */}
+                <div>
+                  <Text size="sm" weight="semibold" className="mb-3">
+                    Tamanhos (sm, md, lg)
+                  </Text>
+                  <div className="flex flex-wrap gap-3 items-center">
+                    <DiscountLabel percentage={30} size="sm" />
+                    <DiscountLabel percentage={30} size="md" />
+                    <DiscountLabel percentage={30} size="lg" />
+                  </div>
+                </div>
+
+                {/* Real Example */}
+                <div className="bg-gray-50 p-4 rounded-lg">
+                  <Text size="xs" color="secondary" className="mb-2">
+                    Exemplo Real: Banner Promocional
+                  </Text>
+                  <div className="bg-gradient-to-r from-red-500 to-red-600 p-4 rounded-lg text-white relative overflow-hidden">
+                    <DiscountLabel
+                      percentage={40}
+                      size="lg"
+                      className="absolute top-2 right-2"
+                    />
+                    <Text size="sm" className="text-white/90 mb-1">
+                      BLACK FRIDAY
+                    </Text>
+                    <Text size="lg" weight="bold" className="text-white">
+                      Ofertas Imperdíveis
+                    </Text>
+                  </div>
+                </div>
+              </div>
+            </Card>
+          </div>
+
+          {/* Complete Product Example */}
+          <div className="mt-8">
+            <Text size="xl" weight="bold" className="mb-4">
+              Exemplo Completo: Componentes Combinados
+            </Text>
+            <Card variant="elevated" className="bg-white">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                {/* Product 1 */}
+                <div>
+                  <div className="relative mb-4">
+                    <div className="aspect-square bg-gray-100 rounded-lg flex items-center justify-center">
+                      <Icon name="CartIcon" size="xl" color="secondary" />
+                    </div>
+                    <DiscountLabel
+                      percentage={35}
+                      size="md"
+                      className="absolute top-3 right-3"
+                    />
+                  </div>
+                  <div className="flex items-start justify-between mb-3">
+                    <div>
+                      <Text weight="bold" size="lg" className="mb-1">
+                        Premium Headphones
+                      </Text>
+                      <StockBadge stock={5} size="sm" />
+                    </div>
+                  </div>
+                  <div className="flex items-center gap-3 mb-4">
+                    <Text
+                      size="sm"
+                      className="text-gray-500 line-through font-semibold"
+                    >
+                      $299.99
+                    </Text>
+                    <Text size="xl" weight="bold" className="text-green-600">
+                      $194.99
+                    </Text>
+                  </div>
+                  <QuantitySelectorProductDemo />
+                </div>
+
+                {/* Product 2 */}
+                <div>
+                  <div className="relative mb-4">
+                    <div className="aspect-square bg-gray-100 rounded-lg flex items-center justify-center">
+                      <Icon name="StarIcon" size="xl" color="warning" />
+                    </div>
+                    <DiscountLabel
+                      percentage={20}
+                      size="md"
+                      variant="primary"
+                      className="absolute top-3 right-3"
+                    />
+                  </div>
+                  <div className="flex items-start justify-between mb-3">
+                    <div>
+                      <Text weight="bold" size="lg" className="mb-1">
+                        Smart Watch Pro
+                      </Text>
+                      <StockBadge stock={0} size="sm" />
+                    </div>
+                  </div>
+                  <div className="flex items-center gap-3 mb-4">
+                    <Text
+                      size="sm"
+                      className="text-gray-500 line-through font-semibold"
+                    >
+                      $499.99
+                    </Text>
+                    <Text size="xl" weight="bold" className="text-green-600">
+                      $399.99
+                    </Text>
+                  </div>
+                  <Button
+                    variant="outline"
+                    size="md"
+                    disabled
+                    className="w-full"
+                  >
+                    Out of Stock
+                  </Button>
+                </div>
+              </div>
+            </Card>
           </div>
         </section>
 
