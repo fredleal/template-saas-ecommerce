@@ -101,7 +101,11 @@ line 5`
       const mockClipboard = {
         writeText: vi.fn().mockResolvedValue(undefined),
       }
-      Object.assign(navigator, { clipboard: mockClipboard })
+      Object.defineProperty(navigator, 'clipboard', {
+        value: mockClipboard,
+        writable: true,
+        configurable: true,
+      })
 
       render(<CodeBlock {...defaultProps} />)
       const copyButton = screen.getByText('Copy')
@@ -116,7 +120,11 @@ line 5`
       const mockClipboard = {
         writeText: vi.fn().mockResolvedValue(undefined),
       }
-      Object.assign(navigator, { clipboard: mockClipboard })
+      Object.defineProperty(navigator, 'clipboard', {
+        value: mockClipboard,
+        writable: true,
+        configurable: true,
+      })
 
       render(<CodeBlock {...defaultProps} />)
       const copyButton = screen.getByText('Copy')
@@ -131,7 +139,11 @@ line 5`
       const mockClipboard = {
         writeText: vi.fn().mockResolvedValue(undefined),
       }
-      Object.assign(navigator, { clipboard: mockClipboard })
+      Object.defineProperty(navigator, 'clipboard', {
+        value: mockClipboard,
+        writable: true,
+        configurable: true,
+      })
 
       render(<CodeBlock {...defaultProps} />)
       const copyButton = screen.getByText('Copy')
