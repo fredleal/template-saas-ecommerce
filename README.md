@@ -33,7 +33,7 @@ We've successfully built a **production-ready component library** with **15 stan
 ## Features
 
 - **🧩 Atomic Design**: Systematic component architecture (Atoms, Molecules, Organisms)
-- **🧪 Complete Testing**: 127 tests with 80%+ coverage across all components
+- **🧪 Complete Testing**: 338 tests with 89%+ coverage across all components
 - **🎨 Design Tokens**: Consistent spacing, colors, and typography
 - **♿ Accessibility First**: WCAG AA compliant with automated checks
 - **📱 Responsive**: Mobile-first design approach
@@ -41,6 +41,8 @@ We've successfully built a **production-ready component library** with **15 stan
 - **⚡ Performance**: Optimized bundle size and tree-shaking
 - **🎯 E-commerce Ready**: Rating systems, pricing, product cards
 - **✅ Quality Gates**: 80% coverage for atoms, 60% for molecules
+- **🚀 CI/CD**: Automated testing and builds with GitHub Actions
+- **📦 NPM Ready**: Publishable package with proper exports and types
 
 ## Quick Start
 
@@ -104,6 +106,44 @@ npm run test:coverage
 - **Molecules**: 60% minimum coverage ✅
 - **Automated accessibility checks** on all components ✅
 
+## CI/CD Pipeline
+
+### GitHub Actions
+
+Automated workflows run on every push and pull request to the `main` branch:
+
+**Build and Test Workflow** (`.github/workflows/build.yml`):
+
+- ✅ Multi-version testing (Node 18.x and 20.x)
+- ✅ Linting with ESLint
+- ✅ Full test suite execution (338 tests)
+- ✅ Library build verification
+- ✅ Type checking with TypeScript strict mode
+
+### Deployment
+
+The library is configured for NPM publishing with:
+
+- Proper package exports (CommonJS + ESM)
+- TypeScript declaration files
+- Pre-publish checks (tests + lint + build)
+- Semantic versioning
+
+```bash
+# Publish to NPM (requires auth)
+npm publish
+```
+
+### Quality Checks
+
+All PRs must pass:
+
+- ✅ ESLint with TypeScript rules
+- ✅ Prettier code formatting
+- ✅ All tests passing (338 tests)
+- ✅ Type checking with strict mode
+- ✅ Build succeeds without errors
+
 ## Component Library
 
 ### ✅ Atoms (6 components + 9 icons)
@@ -161,12 +201,14 @@ npm run test:coverage
 
 ## Tech Stack
 
-- **Framework**: Next.js 15 with App Router
-- **Styling**: Tailwind CSS 3.0+
-- **Language**: TypeScript 5.0+
-- **Testing**: Vitest 2.1.0 + Testing Library + jest-axe
+- **Framework**: Next.js 15.5.2 with App Router
+- **Styling**: Tailwind CSS 3.4+
+- **Language**: TypeScript 5.0+ (strict mode)
+- **Testing**: Vitest 1.6.1 + Testing Library + jest-axe
 - **Icons**: Custom SVG icon system (9 complete)
-- **Deployment**: Vercel (recommended)
+- **CI/CD**: GitHub Actions (Node 18.x and 20.x)
+- **Code Quality**: ESLint + Prettier + Husky
+- **Deployment**: NPM package + Vercel (recommended)
 
 ## Roadmap
 
