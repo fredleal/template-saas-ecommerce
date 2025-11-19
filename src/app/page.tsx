@@ -1,5 +1,4 @@
 'use client'
-import { useState } from 'react'
 import {
   Button,
   Text,
@@ -10,7 +9,6 @@ import {
   Checkbox,
   Input,
   PriceTag,
-  QuantitySelector,
   StockBadge,
   DiscountLabel,
 } from '@/components/atoms'
@@ -32,121 +30,6 @@ import {
   HeroSection,
   FAQSection,
 } from '@/components/organisms'
-
-// Interactive Demo Components
-function QuantitySelectorDemo() {
-  const [quantity1, setQuantity1] = useState(1)
-  const [quantity2, setQuantity2] = useState(5)
-  const [quantity3, setQuantity3] = useState(1)
-
-  return (
-    <div className="space-y-6">
-      <div>
-        <Text size="sm" weight="semibold" className="mb-3">
-          Controle Básico (min: 1, max: 99)
-        </Text>
-        <div className="flex items-center gap-4">
-          <QuantitySelector value={quantity1} onChange={setQuantity1} />
-          <Text size="sm" color="secondary">
-            Quantidade: {quantity1}
-          </Text>
-        </div>
-      </div>
-
-      <div>
-        <Text size="sm" weight="semibold" className="mb-3">
-          Com Limites Customizados (min: 3, max: 10)
-        </Text>
-        <div className="flex items-center gap-4">
-          <QuantitySelector
-            value={quantity2}
-            onChange={setQuantity2}
-            min={3}
-            max={10}
-          />
-          <Text size="sm" color="secondary">
-            Quantidade: {quantity2}
-          </Text>
-        </div>
-      </div>
-
-      <div>
-        <Text size="sm" weight="semibold" className="mb-3">
-          Tamanhos (sm, md, lg)
-        </Text>
-        <div className="flex flex-wrap gap-3 items-center">
-          <QuantitySelector
-            value={quantity3}
-            onChange={setQuantity3}
-            size="sm"
-          />
-          <QuantitySelector
-            value={quantity3}
-            onChange={setQuantity3}
-            size="md"
-          />
-          <QuantitySelector
-            value={quantity3}
-            onChange={setQuantity3}
-            size="lg"
-          />
-        </div>
-      </div>
-
-      <div>
-        <Text size="sm" weight="semibold" className="mb-3">
-          Estado Disabled
-        </Text>
-        <QuantitySelector value={5} onChange={() => {}} disabled />
-      </div>
-
-      <div className="bg-gray-50 p-4 rounded-lg">
-        <Text size="xs" color="secondary" className="mb-2">
-          Exemplo Real: Carrinho de Compras
-        </Text>
-        <div className="flex items-center justify-between">
-          <div className="flex items-center gap-3">
-            <div className="w-12 h-12 bg-gray-200 rounded" />
-            <div>
-              <Text size="sm" weight="semibold">
-                Product Name
-              </Text>
-              <PriceTag value={49.99} size="sm" />
-            </div>
-          </div>
-          <QuantitySelector value={quantity1} onChange={setQuantity1} />
-        </div>
-      </div>
-    </div>
-  )
-}
-
-function QuantitySelectorProductDemo() {
-  const [quantity, setQuantity] = useState(1)
-
-  return (
-    <div className="space-y-3">
-      <div className="flex items-center justify-between">
-        <QuantitySelector value={quantity} onChange={setQuantity} size="md" />
-        <Text size="sm" color="secondary">
-          Qty: {quantity}
-        </Text>
-      </div>
-      <Button variant="primary" size="md" className="w-full">
-        <Icon name="CartIcon" size="sm" decorative />
-        Add {quantity} to Cart
-      </Button>
-      <div className="pt-2 border-t border-gray-200">
-        <div className="flex justify-between text-sm">
-          <Text size="sm" color="secondary">
-            Subtotal:
-          </Text>
-          <PriceTag value={194.99 * quantity} size="md" variant="discount" />
-        </div>
-      </div>
-    </div>
-  )
-}
 
 export default function Home() {
   const navLinks = [
@@ -614,12 +497,12 @@ export default function Home() {
                 E-commerce Atoms (FASE 1)
               </Text>
               <Text size="sm" color="secondary">
-                4 novos componentes atoms para e-commerce com testes completos
+                3 novos componentes atoms para e-commerce com testes completos
               </Text>
             </div>
             <div className="flex gap-2">
               <Badge variant="info" size="sm">
-                80 tests
+                58 tests
               </Badge>
               <Badge variant="success" size="sm">
                 100% coverage
@@ -702,28 +585,11 @@ export default function Home() {
               </div>
             </Card>
 
-            {/* QuantitySelector Component */}
-            <Card variant="elevated" className="bg-white">
-              <div className="mb-4 pb-4 border-b border-gray-200">
-                <Text size="lg" weight="bold" className="mb-1">
-                  2. QuantitySelector Atom
-                </Text>
-                <Text size="sm" color="secondary">
-                  Controle interativo de quantidade com validação min/max
-                </Text>
-                <Badge variant="info" size="sm" className="mt-2">
-                  22 tests
-                </Badge>
-              </div>
-
-              <QuantitySelectorDemo />
-            </Card>
-
             {/* StockBadge Component */}
             <Card variant="elevated" className="bg-white">
               <div className="mb-4 pb-4 border-b border-gray-200">
                 <Text size="lg" weight="bold" className="mb-1">
-                  3. StockBadge Atom
+                  2. StockBadge Atom
                 </Text>
                 <Text size="sm" color="secondary">
                   Badge de status de estoque com auto-detection
@@ -787,7 +653,7 @@ export default function Home() {
             <Card variant="elevated" className="bg-white">
               <div className="mb-4 pb-4 border-b border-gray-200">
                 <Text size="lg" weight="bold" className="mb-1">
-                  4. DiscountLabel Atom
+                  3. DiscountLabel Atom
                 </Text>
                 <Text size="sm" color="secondary">
                   Label para exibir percentual de desconto
@@ -891,9 +757,12 @@ export default function Home() {
                       variant="strikethrough"
                       size="sm"
                     />
-                    <PriceTag value={194.99} variant="discount" size="xl" />
+                    <PriceTag value={194.99} variant="discount" size="lg" />
                   </div>
-                  <QuantitySelectorProductDemo />
+                  <Button variant="primary" size="md" className="w-full">
+                    <Icon name="CartIcon" size="sm" decorative />
+                    Add to Cart
+                  </Button>
                 </div>
 
                 {/* Product 2 */}
@@ -923,7 +792,7 @@ export default function Home() {
                       variant="strikethrough"
                       size="sm"
                     />
-                    <PriceTag value={399.99} variant="discount" size="xl" />
+                    <PriceTag value={399.99} variant="discount" size="lg" />
                   </div>
                   <Button
                     variant="outline"
