@@ -1,9 +1,6 @@
 import type { StorybookConfig } from '@storybook/react-vite'
 import { mergeConfig } from 'vite'
 import path from 'path'
-import { fileURLToPath } from 'url'
-
-const __dirname = path.dirname(fileURLToPath(import.meta.url))
 
 const config: StorybookConfig = {
   // 📚 Onde o Storybook vai procurar suas stories (arquivos *.stories.tsx)
@@ -35,7 +32,7 @@ const config: StorybookConfig = {
         alias: {
           // Permite usar @ para importar de src/
           // Ex: import { Button } from '@/components/atoms'
-          '@': path.resolve(__dirname, '../src'),
+          '@': path.resolve(process.cwd(), 'src'),
         },
       },
     })
