@@ -10,3 +10,4 @@ export {
   TestimonialCard,
   type TestimonialCardProps,
 } from './TestimonialCard/TestimonialCard'
+export { StepCard, type StepCardProps } from './StepCard/StepCard'
