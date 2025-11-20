@@ -5,17 +5,17 @@ A modern, TypeScript-first design system built with Next.js 15, Tailwind CSS, an
 ![TypeScript](https://img.shields.io/badge/TypeScript-5.0+-blue)
 ![Next.js](https://img.shields.io/badge/Next.js-15.0+-black)
 ![Tailwind](https://img.shields.io/badge/Tailwind-3.0+-06B6D4)
-![Tests](https://img.shields.io/badge/Tests-363_Passing-brightgreen)
-![Coverage](https://img.shields.io/badge/Coverage-89%25+-green)
-![Components](https://img.shields.io/badge/Components-16-blue)
+![Tests](https://img.shields.io/badge/Tests-391_Passing-brightgreen)
+![Coverage](https://img.shields.io/badge/Coverage-90%25+-green)
+![Components](https://img.shields.io/badge/Components-17-blue)
 ![Icons](https://img.shields.io/badge/Icons-10-blue)
-![Phase](https://img.shields.io/badge/Phase-Landing_Migration_1/3-blue)
+![Phase](https://img.shields.io/badge/Phase-Landing_Migration_2/3-blue)
 
-## 🎉 Landing Page Migration - Phase 1 of 3 Complete!
+## 🎉 Landing Page Migration - Phase 2 of 3 Complete!
 
-Successfully created **PricingCard component** (PR #79) as the first of three missing components needed for landing-page migration. Library now has **16 components** with **363 tests passing** and **89%+ average coverage**.
+Successfully created **StepCard component** as the second of three missing components needed for landing-page migration. Library now has **17 components** with **391 tests passing** and **90%+ average coverage**.
 
-**Current Status (Landing Migration 1/3):**
+**Current Status (Landing Migration 2/3):**
 
 - ✅ **PricingCard** component created (PR #79 merged)
   - 25 tests passing, 100% coverage
@@ -23,21 +23,27 @@ Successfully created **PricingCard component** (PR #79) as the first of three mi
   - Supports numeric ($29) and custom pricing ("Contact Sales")
   - Popular badge for recommended plans
   - Primary + optional secondary CTAs
-- ✅ 16 components total (6 Atoms, 7 Molecules, 3 Organisms)
-- ✅ 363 tests passing (89%+ coverage)
+- ✅ **StepCard** component created (current PR)
+  - 28 tests passing, 100% coverage
+  - 11 Storybook stories
+  - Numbered process steps with icons
+  - Vertical and horizontal layouts
+  - Primary, secondary, and success variants
+  - 3 size options (sm, md, lg)
+- ✅ 17 components total (6 Atoms, 8 Molecules, 3 Organisms)
+- ✅ 391 tests passing (90%+ coverage)
 - ✅ Storybook live at: https://fredleal.github.io/template-saas-ecommerce/
 
-**Next Steps: Complete Landing Migration (2/3 and 3/3)**
+**Next Steps: Complete Landing Migration (3/3)**
 
-1. **StepCard** molecule - Numbered process steps ("How It Works" section)
-2. **CTABanner** organism - Final call-to-action banner
-3. Publish new NPM version with all 3 components
-4. Migrate landing-page to use @fredleal/saas-components imports
+1. **CTABanner** organism - Final call-to-action banner
+2. Publish new NPM version with all 3 components
+3. Migrate landing-page to use @fredleal/saas-components imports
 
 ## Features
 
 - **🧩 Atomic Design**: Systematic component architecture (Atoms, Molecules, Organisms)
-- **🧪 Complete Testing**: 338 tests with 89%+ coverage across all components
+- **🧪 Complete Testing**: 391 tests with 90%+ coverage across all components
 - **🎨 Design Tokens**: Consistent spacing, colors, and typography
 - **♿ Accessibility First**: WCAG AA compliant with automated checks
 - **📱 Responsive**: Mobile-first design approach
@@ -159,7 +165,7 @@ All PRs must pass:
 - **Text** - Typography
 - **Icon** - 9 complete icons (Cart, Heart, Search, Menu, Filter, Plus, Star, Check, User)
 
-### ✅ Molecules (6 components)
+### ✅ Molecules (8 components)
 
 - **Card** - Layout containers
 - **Rating** - Star rating system
@@ -167,6 +173,8 @@ All PRs must pass:
 - **TableOfContents** - Article navigation with smooth scroll
 - **CodeBlock** - Syntax highlighting with copy button
 - **Prose** - Markdown content wrapper with typography
+- **PricingCard** - Pricing plans with features and CTAs
+- **StepCard** - Numbered process steps with icons
 
 ### ✅ Organisms (3 components)
 

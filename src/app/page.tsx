@@ -25,6 +25,7 @@ import {
   FeatureCard,
   TestimonialCard,
   PricingCard,
+  StepCard,
 } from '@/components/molecules'
 import {
   Header,
@@ -1759,6 +1760,70 @@ export default function Home() {
                 </Prose>
               </div>
             </div>
+          </div>
+        </section>
+
+        {/* StepCard Showcase - Landing Migration 2/3 */}
+        <section className="max-w-7xl mx-auto px-6 pb-12">
+          <Badge variant="info" size="sm" className="mb-4">
+            Landing Migration 2/3 - StepCard Molecule
+          </Badge>
+          <Text size="2xl" weight="semibold" className="mb-2">
+            How It Works
+          </Text>
+          <Text size="sm" color="secondary" className="mb-8">
+            Numbered process steps for showcasing workflows and user journeys
+          </Text>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
+            <StepCard
+              step={1}
+              title="Sign Up"
+              description="Create your free account in seconds with just an email and password"
+            />
+            <StepCard
+              step={2}
+              title="Configure"
+              description="Set up your preferences and customize your workspace to fit your needs"
+            />
+            <StepCard
+              step={3}
+              title="Launch"
+              description="Start using all features immediately with no setup time required"
+              variant="success"
+              icon="CheckIcon"
+            />
+          </div>
+
+          <Text size="lg" weight="semibold" className="mb-4">
+            Horizontal Layout Timeline
+          </Text>
+          <div className="space-y-4">
+            <StepCard
+              step={1}
+              title="Discovery Phase"
+              description="Understanding your needs and defining project requirements"
+              orientation="horizontal"
+              variant="success"
+              icon="CheckIcon"
+              size="sm"
+            />
+            <StepCard
+              step={2}
+              title="Design & Planning"
+              description="Creating wireframes, mockups, and technical architecture"
+              orientation="horizontal"
+              variant="primary"
+              size="sm"
+            />
+            <StepCard
+              step={3}
+              title="Development"
+              description="Building your application with cutting-edge technologies"
+              orientation="horizontal"
+              variant="secondary"
+              size="sm"
+            />
           </div>
         </section>
 
