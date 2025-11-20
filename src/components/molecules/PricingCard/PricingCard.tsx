@@ -67,7 +67,7 @@ export const PricingCard: React.FC<PricingCardProps> = ({
       {/* Popular Badge */}
       {popular && (
         <div className="absolute -top-4 left-1/2 -translate-x-1/2">
-          <Badge variant="primary" className="px-4 py-1 shadow-md">
+          <Badge variant="info" className="px-4 py-1 shadow-md">
             Most Popular
           </Badge>
         </div>
