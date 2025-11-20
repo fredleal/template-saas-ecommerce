@@ -33,6 +33,7 @@ import {
   BlogHeader,
   HeroSection,
   FAQSection,
+  CTABanner,
 } from '@/components/organisms'
 
 // Interactive Demo Components
@@ -1901,6 +1902,27 @@ export default function Home() {
             />
           </div>
         </section>
+
+        {/* CTABanner Showcase - Landing Migration 3/3 */}
+        <CTABanner
+          title="Ready to get started?"
+          description="Join thousands of developers building amazing products with our design system"
+          badge={{
+            text: '🎉 Landing Migration Complete',
+            variant: 'success',
+          }}
+          variant="centered"
+          background="gradient"
+          size="lg"
+          primaryCTA={{
+            label: 'Get Started Free',
+            onClick: () => alert('Get started clicked'),
+          }}
+          secondaryCTA={{
+            label: 'View Documentation',
+            onClick: () => alert('Docs clicked'),
+          }}
+        />
 
         {/* Site Footer */}
         <Footer

@@ -3,4 +3,5 @@ export { Footer, type FooterProps, type FooterSection, type FooterLink, type Soc
 export { BlogHeader, type BlogHeaderProps } from './BlogHeader/BlogHeader';
 export { HeroSection, type HeroSectionProps } from './HeroSection/HeroSection';
 export { FAQSection, type FAQSectionProps, type FAQItem, } from './FAQSection/FAQSection';
+export { CTABanner, type CTABannerProps } from './CTABanner/CTABanner';
 //# sourceMappingURL=index.d.ts.map

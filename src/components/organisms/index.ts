@@ -13,3 +13,4 @@ export {
   type FAQSectionProps,
   type FAQItem,
 } from './FAQSection/FAQSection'
+export { CTABanner, type CTABannerProps } from './CTABanner/CTABanner'
