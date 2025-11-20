@@ -4,10 +4,8 @@ export { PostCard } from './PostCard/PostCard'
 export { TableOfContents } from './TableOfContents/TableOfContents'
 export { CodeBlock } from './CodeBlock/CodeBlock'
 export { Prose } from './Prose/Prose'
-export {
-  FeatureCard,
-  type FeatureCardProps,
-} from './FeatureCard/FeatureCard'
+export { PricingCard, type PricingCardProps } from './PricingCard/PricingCard'
+export { FeatureCard, type FeatureCardProps } from './FeatureCard/FeatureCard'
 export {
   TestimonialCard,
   type TestimonialCardProps,
