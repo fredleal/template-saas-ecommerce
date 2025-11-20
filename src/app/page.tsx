@@ -24,6 +24,7 @@ import {
   Prose,
   FeatureCard,
   TestimonialCard,
+  PricingCard,
 } from '@/components/molecules'
 import {
   Header,
@@ -1758,6 +1759,81 @@ export default function Home() {
                 </Prose>
               </div>
             </div>
+          </div>
+        </section>
+
+        {/* PricingCard Showcase - PR #79 */}
+        <section className="max-w-7xl mx-auto px-6 pb-12">
+          <Badge variant="info" size="sm" className="mb-4">
+            PR #79 - PricingCard Molecule
+          </Badge>
+          <Text size="2xl" weight="semibold" className="mb-2">
+            Pricing Plans Display
+          </Text>
+          <Text size="sm" color="secondary" className="mb-8">
+            Flexible pricing card component for displaying subscription plans
+            with features, badges, and CTAs
+          </Text>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <PricingCard
+              name="Free"
+              price={0}
+              description="Perfect for getting started"
+              features={[
+                'Up to 3 pages',
+                'Basic templates',
+                'Mobile responsive',
+                'Email support',
+              ]}
+              primaryCTA={{
+                label: 'Get Started',
+                onClick: () => alert('Free plan selected'),
+              }}
+            />
+
+            <PricingCard
+              name="Pro"
+              price={29}
+              description="For professionals and growing businesses"
+              features={[
+                'Up to 10 pages',
+                'Premium templates',
+                'Mobile responsive',
+                'Priority support',
+                'Custom domain',
+                'Analytics dashboard',
+              ]}
+              popular={true}
+              primaryCTA={{
+                label: 'Start Free Trial',
+                onClick: () => alert('Trial started'),
+              }}
+              secondaryCTA={{
+                label: 'Learn More',
+                onClick: () => alert('Learn more clicked'),
+              }}
+            />
+
+            <PricingCard
+              name="Enterprise"
+              price="Custom"
+              description="For large teams with custom needs"
+              features={[
+                'Unlimited pages',
+                'Custom design',
+                'Mobile responsive',
+                '24/7 dedicated support',
+                'Custom domain',
+                'Advanced analytics',
+                'API access',
+                'White-label solution',
+              ]}
+              primaryCTA={{
+                label: 'Contact Sales',
+                onClick: () => alert('Contact sales clicked'),
+              }}
+            />
           </div>
         </section>
 

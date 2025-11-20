@@ -5,30 +5,34 @@ A modern, TypeScript-first design system built with Next.js 15, Tailwind CSS, an
 ![TypeScript](https://img.shields.io/badge/TypeScript-5.0+-blue)
 ![Next.js](https://img.shields.io/badge/Next.js-15.0+-black)
 ![Tailwind](https://img.shields.io/badge/Tailwind-3.0+-06B6D4)
-![Tests](https://img.shields.io/badge/Tests-338_Passing-brightgreen)
+![Tests](https://img.shields.io/badge/Tests-363_Passing-brightgreen)
 ![Coverage](https://img.shields.io/badge/Coverage-89%25+-green)
-![Components](https://img.shields.io/badge/Components-15-blue)
+![Components](https://img.shields.io/badge/Components-16-blue)
 ![Icons](https://img.shields.io/badge/Icons-10-blue)
-![Phase](https://img.shields.io/badge/Phase-4.5_Complete-success)
+![Phase](https://img.shields.io/badge/Phase-Landing_Migration_1/3-blue)
 
-## 🎉 Milestone 3 Complete - Ready for E-commerce Expansion!
+## 🎉 Landing Page Migration - Phase 1 of 3 Complete!
 
-We've successfully built a **production-ready component library** with **15 standardized components**, **338 tests passing** with **89%+ average coverage**, and **zero accessibility violations**. The foundation is now ready for **e-commerce expansion** with a clear 3-phase roadmap to reach **50+ components**.
+Successfully created **PricingCard component** (PR #79) as the first of three missing components needed for landing-page migration. Library now has **16 components** with **363 tests passing** and **89%+ average coverage**.
 
-**Current Status (Phase 4.5 Complete):**
+**Current Status (Landing Migration 1/3):**
 
-- ✅ 15 components (6 Atoms, 6 Molecules, 3 Organisms)
-- ✅ 338 tests passing (89%+ coverage)
-- ✅ All components standardized (named exports, proper typing)
-- ✅ TypeScript strict mode compliant
-- ✅ WCAG AA accessible
-- ✅ Production-ready code
+- ✅ **PricingCard** component created (PR #79 merged)
+  - 25 tests passing, 100% coverage
+  - 9 Storybook stories
+  - Supports numeric ($29) and custom pricing ("Contact Sales")
+  - Popular badge for recommended plans
+  - Primary + optional secondary CTAs
+- ✅ 16 components total (6 Atoms, 7 Molecules, 3 Organisms)
+- ✅ 363 tests passing (89%+ coverage)
+- ✅ Storybook live at: https://fredleal.github.io/template-saas-ecommerce/
 
-**Next Phase: E-commerce Atoms Expansion (Phase 5)**
+**Next Steps: Complete Landing Migration (2/3 and 3/3)**
 
-- Adding 4 new atoms (Image, Link, Skeleton, Label + Italic, Strong, TagText)
-- Expanding existing atoms with more variants
-- Timeline: 3 weeks (~15-18 hours)
+1. **StepCard** molecule - Numbered process steps ("How It Works" section)
+2. **CTABanner** organism - Final call-to-action banner
+3. Publish new NPM version with all 3 components
+4. Migrate landing-page to use @fredleal/saas-components imports
 
 ## Features
 
