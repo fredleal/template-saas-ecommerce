@@ -11,34 +11,6 @@ A modern, TypeScript-first design system built with Next.js 15, Tailwind CSS, an
 ![Icons](https://img.shields.io/badge/Icons-10-blue)
 ![Phase](https://img.shields.io/badge/Phase-Landing_Migration_2/3-blue)
 
-## 🎉 Landing Page Migration - Phase 2 of 3 Complete!
-
-Successfully created **StepCard component** as the second of three missing components needed for landing-page migration. Library now has **17 components** with **391 tests passing** and **90%+ average coverage**.
-
-**Current Status (Landing Migration 2/3):**
-
-- ✅ **PricingCard** component created (PR #79 merged)
-  - 25 tests passing, 100% coverage
-  - 9 Storybook stories
-  - Supports numeric ($29) and custom pricing ("Contact Sales")
-  - Popular badge for recommended plans
-  - Primary + optional secondary CTAs
-- ✅ **StepCard** component created (current PR)
-  - 28 tests passing, 100% coverage
-  - 11 Storybook stories
-  - Numbered process steps with icons
-  - Vertical and horizontal layouts
-  - Primary, secondary, and success variants
-  - 3 size options (sm, md, lg)
-- ✅ 17 components total (6 Atoms, 8 Molecules, 3 Organisms)
-- ✅ 391 tests passing (90%+ coverage)
-- ✅ Storybook live at: https://fredleal.github.io/template-saas-ecommerce/
-
-**Next Steps: Complete Landing Migration (3/3)**
-
-1. **CTABanner** organism - Final call-to-action banner
-2. Publish new NPM version with all 3 components
-3. Migrate landing-page to use @fredleal/saas-components imports
 
 ## Features
 
