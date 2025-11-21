@@ -184,27 +184,6 @@ All PRs must pass:
 
 ## Quality Assurance
 
-### Current Coverage
-
-| Component       | Statements | Branches | Functions | Lines   | Tests   |
-| --------------- | ---------- | -------- | --------- | ------- | ------- |
-| Badge           | 100%       | 100%     | 100%      | 100%    | 8       |
-| Button          | 85%        | 83%      | 87%       | 85%     | 23      |
-| Checkbox        | 90%        | 88%      | 92%       | 90%     | 17      |
-| Input           | 85%        | 83%      | 87%       | 85%     | 30      |
-| Text            | 85%        | 83%      | 87%       | 85%     | 27      |
-| Icon            | 88%        | 88%      | 90%       | 88%     | 17      |
-| Card            | 87%        | 85%      | 89%       | 87%     | 13      |
-| Rating          | 88%        | 86%      | 90%       | 88%     | 17      |
-| PostCard        | 89%        | 87%      | 91%       | 89%     | 24      |
-| Header          | 91%        | 89%      | 93%       | 91%     | 23      |
-| Footer          | 93%        | 91%      | 95%       | 93%     | 32      |
-| BlogHeader      | 92%        | 90%      | 94%       | 92%     | 26      |
-| TableOfContents | 91%        | 89%      | 93%       | 91%     | 23      |
-| CodeBlock       | 90%        | 88%      | 92%       | 90%     | 28      |
-| Prose           | 89%        | 87%      | 91%       | 89%     | 79      |
-| **Total**       | **89%**    | **87%**  | **91%**   | **89%** | **338** |
-
 **✅ All quality gates exceeded!**
 
 - Atoms: 89% average (target: 80%) ✅
