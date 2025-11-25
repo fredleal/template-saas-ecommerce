@@ -1809,33 +1809,54 @@ export default function Home() {
 
           <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
             <ProductCard
-              title="Premium Smartphone"
+              id="product-1"
+              name="Premium Smartphone"
               price={899.99}
               description="5G connectivity, AI camera, 256GB storage"
               image="https://images.unsplash.com/photo-1511707267537-b85faf00021e?w=300&h=300&fit=crop"
-              inStock={true}
+              stock={15}
+              onAddToCart={(id, qty) =>
+                console.log(`Added ${qty}x ${id} to cart`)
+              }
+              onViewDetails={id => console.log(`View details: ${id}`)}
             />
             <ProductCard
-              title="Wireless Earbuds"
+              id="product-2"
+              name="Wireless Earbuds"
               price={179.99}
               originalPrice={229.99}
               description="ANC, 30h battery, premium sound quality"
               image="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=300&h=300&fit=crop"
-              inStock={true}
+              stock={8}
+              variant="featured"
+              onAddToCart={(id, qty) =>
+                console.log(`Added ${qty}x ${id} to cart`)
+              }
+              onViewDetails={id => console.log(`View details: ${id}`)}
             />
             <ProductCard
-              title="Smart Watch"
+              id="product-3"
+              name="Smart Watch"
               price={349.99}
               description="GPS, health monitoring, fitness tracking"
               image="https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=300&h=300&fit=crop"
-              inStock={true}
+              stock={3}
+              onAddToCart={(id, qty) =>
+                console.log(`Added ${qty}x ${id} to cart`)
+              }
+              onViewDetails={id => console.log(`View details: ${id}`)}
             />
             <ProductCard
-              title="Tablet Pro"
+              id="product-4"
+              name="Tablet Pro"
               price={649.99}
               description="12.9 inch display, M2 chip, all-day battery"
               image="https://images.unsplash.com/photo-1561070791-2526d30994b5?w=300&h=300&fit=crop"
-              inStock={true}
+              stock={0}
+              onAddToCart={(id, qty) =>
+                console.log(`Added ${qty}x ${id} to cart`)
+              }
+              onViewDetails={id => console.log(`View details: ${id}`)}
             />
           </div>
         </section>
