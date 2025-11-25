@@ -29,6 +29,13 @@ const meta = {
         type: { summary: 'string' },
       },
     },
+    fallbackSrc: {
+      control: 'text',
+      description: 'URL da imagem fallback quando a principal falha',
+      table: {
+        type: { summary: 'string' },
+      },
+    },
     width: {
       control: 'number',
       description: 'Largura da imagem em pixels',
@@ -59,6 +66,14 @@ const meta = {
       table: {
         type: { summary: 'string' },
         defaultValue: { summary: 'lazy' },
+      },
+    },
+    fetchPriority: {
+      control: 'select',
+      options: ['high', 'low', 'auto'],
+      description: 'Prioridade de carregamento (otimiza LCP)',
+      table: {
+        type: { summary: 'string' },
       },
     },
     className: {
@@ -307,6 +322,82 @@ export const ProductShowcase: Story = {
     docs: {
       description: {
         story: 'Exemplo de showcase de produto com background e padding.',
+      },
+    },
+  },
+}
+
+// Fallback image examples
+export const WithFallback: Story = {
+  args: {
+    src: 'https://invalid-url-that-will-fail.com/image.jpg',
+    alt: 'Image with fallback',
+    fallbackSrc: 'https://placehold.co/400x400/orange/white?text=Fallback',
+    width: 400,
+    height: 400,
+  },
+  parameters: {
+    docs: {
+      description: {
+        story:
+          'Quando a imagem principal falha ao carregar, o fallback é exibido automaticamente.',
+      },
+    },
+  },
+}
+
+export const FallbackExample: Story = {
+  args: {
+    src: 'https://images.unsplash.com/photo-broken-link',
+    alt: 'Product image',
+    fallbackSrc: 'https://placehold.co/400x400/4F46E5/white?text=Produto',
+    width: 400,
+    height: 400,
+    className: 'rounded-lg',
+  },
+  parameters: {
+    docs: {
+      description: {
+        story:
+          'Fallback útil para e-commerce: se imagem do produto falhar, mostra placeholder.',
+      },
+    },
+  },
+}
+
+// Fetch priority examples
+export const HighPriority: Story = {
+  args: {
+    src: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=800&h=600&fit=crop',
+    alt: 'Hero image',
+    width: 800,
+    height: 600,
+    fetchPriority: 'high',
+    loading: 'eager',
+  },
+  parameters: {
+    docs: {
+      description: {
+        story:
+          'Use fetchPriority="high" para imagens above-the-fold (hero, LCP). Melhora Core Web Vitals.',
+      },
+    },
+  },
+}
+
+export const LowPriority: Story = {
+  args: {
+    src: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=400&h=400&fit=crop',
+    alt: 'Thumbnail image',
+    width: 400,
+    height: 400,
+    fetchPriority: 'low',
+  },
+  parameters: {
+    docs: {
+      description: {
+        story:
+          'Use fetchPriority="low" para imagens secundárias (thumbnails, footer). Prioriza recursos mais importantes.',
       },
     },
   },

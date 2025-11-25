@@ -1,5 +1,7 @@
-import React from 'react';
-export const Image = ({ src, alt, width, height, objectFit = 'cover', loading = 'lazy', className = '', ...props }) => {
+import React, { useState } from 'react';
+export const Image = ({ src, alt, fallbackSrc, width, height, objectFit = 'cover', loading = 'lazy', fetchPriority, className = '', onLoad, onError, ...props }) => {
+    const [imgSrc, setImgSrc] = useState(src);
+    const [hasError, setHasError] = useState(false);
     // Base classes
     const baseClasses = 'block max-w-full h-auto';
     // Object-fit classes
@@ -12,6 +14,18 @@ export const Image = ({ src, alt, width, height, objectFit = 'cover', loading = 
     };
     // Combine classes
     const classes = `${baseClasses} ${objectFitClasses[objectFit]} ${className}`;
-    return (<img src={src} alt={alt} width={width} height={height} loading={loading} className={classes} {...props}/>);
+    // Handle image error with fallback
+    const handleError = () => {
+        if (fallbackSrc && !hasError) {
+            setImgSrc(fallbackSrc);
+            setHasError(true);
+        }
+        onError?.();
+    };
+    // Handle image load
+    const handleLoad = () => {
+        onLoad?.();
+    };
+    return (<img src={imgSrc} alt={alt} width={width} height={height} loading={loading} fetchPriority={fetchPriority} className={classes} onLoad={handleLoad} onError={handleError} {...props}/>);
 };
 //# sourceMappingURL=Image.jsx.map

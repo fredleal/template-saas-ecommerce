@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest'
-import { render, screen } from '@testing-library/react'
+import { render, screen, waitFor } from '@testing-library/react'
 import { axe } from 'jest-axe'
 import { Image } from './Image'
 
@@ -169,6 +169,119 @@ describe('Image', () => {
       render(<Image src={dataUrl} alt="Data URL image" />)
       const img = screen.getByRole('img')
       expect(img).toHaveAttribute('src', dataUrl)
+    })
+  })
+
+  describe('Fallback Image', () => {
+    it('uses fallbackSrc when main image fails to load', async () => {
+      render(
+        <Image
+          src="/broken-image.jpg"
+          alt="Image with fallback"
+          fallbackSrc="/fallback-image.jpg"
+        />
+      )
+      const img = screen.getByRole('img')
+
+      // Initially shows main src
+      expect(img).toHaveAttribute('src', '/broken-image.jpg')
+
+      // Simulate error
+      const errorEvent = new window.Event('error')
+      img.dispatchEvent(errorEvent)
+
+      // Should switch to fallback after state update
+      await waitFor(() => {
+        expect(img).toHaveAttribute('src', '/fallback-image.jpg')
+      })
+    })
+
+    it('does not switch to fallback if already using fallback', async () => {
+      render(
+        <Image
+          src="/broken-image.jpg"
+          alt="Image with fallback"
+          fallbackSrc="/fallback-image.jpg"
+        />
+      )
+      const img = screen.getByRole('img')
+
+      // Trigger error twice
+      const errorEvent = new window.Event('error')
+      img.dispatchEvent(errorEvent)
+
+      await waitFor(() => {
+        expect(img).toHaveAttribute('src', '/fallback-image.jpg')
+      })
+
+      img.dispatchEvent(errorEvent)
+
+      // Should still use fallback (not loop)
+      expect(img).toHaveAttribute('src', '/fallback-image.jpg')
+    })
+
+    it('works without fallbackSrc', () => {
+      render(<Image src="/broken-image.jpg" alt="Image without fallback" />)
+      const img = screen.getByRole('img')
+
+      // Trigger error
+      const errorEvent = new window.Event('error')
+      img.dispatchEvent(errorEvent)
+
+      // Should keep original src
+      expect(img).toHaveAttribute('src', '/broken-image.jpg')
+    })
+
+    it('calls onError callback with fallback', async () => {
+      let errorCalled = false
+      const handleError = () => {
+        errorCalled = true
+      }
+
+      render(
+        <Image
+          src="/broken-image.jpg"
+          alt="Image"
+          fallbackSrc="/fallback.jpg"
+          onError={handleError}
+        />
+      )
+      const img = screen.getByRole('img')
+
+      const errorEvent = new window.Event('error')
+      img.dispatchEvent(errorEvent)
+
+      expect(errorCalled).toBe(true)
+
+      await waitFor(() => {
+        expect(img).toHaveAttribute('src', '/fallback.jpg')
+      })
+    })
+  })
+
+  describe('Fetch Priority', () => {
+    it('renders with high fetchPriority', () => {
+      render(<Image {...defaultProps} fetchPriority="high" />)
+      const img = screen.getByRole('img')
+      expect(img).toHaveAttribute('fetchpriority', 'high')
+    })
+
+    it('renders with low fetchPriority', () => {
+      render(<Image {...defaultProps} fetchPriority="low" />)
+      const img = screen.getByRole('img')
+      expect(img).toHaveAttribute('fetchpriority', 'low')
+    })
+
+    it('renders with auto fetchPriority', () => {
+      render(<Image {...defaultProps} fetchPriority="auto" />)
+      const img = screen.getByRole('img')
+      expect(img).toHaveAttribute('fetchpriority', 'auto')
+    })
+
+    it('renders without fetchPriority when not specified', () => {
+      render(<Image {...defaultProps} />)
+      const img = screen.getByRole('img')
+      expect(img).not.toHaveAttribute('fetchpriority')
     })
   })
 
