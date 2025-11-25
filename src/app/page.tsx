@@ -14,6 +14,7 @@ import {
   QuantitySelector,
   StockBadge,
   DiscountLabel,
+  Skeleton,
 } from '@/components/atoms'
 import {
   Card,
@@ -864,12 +865,141 @@ export default function Home() {
                 </div>
               </div>
             </Card>
+
+            {/* Skeleton Component */}
+            <Card variant="elevated" className="bg-white">
+              <div className="mb-4 pb-4 border-b border-gray-200">
+                <Text size="lg" weight="bold" className="mb-1">
+                  5. Skeleton Atom
+                </Text>
+                <Text size="sm" color="secondary">
+                  Loading placeholders para melhor UX e CLS
+                </Text>
+                <Badge variant="info" size="sm" className="mt-2">
+                  28 tests
+                </Badge>
+              </div>
+
+              <div className="space-y-6">
+                {/* Border Radius Variants */}
+                <div>
+                  <Text size="sm" weight="semibold" className="mb-3">
+                    Variantes de Border Radius
+                  </Text>
+                  <div className="space-y-3">
+                    <div>
+                      <Text size="xs" color="secondary" className="mb-1">
+                        none (sem arredondamento)
+                      </Text>
+                      <Skeleton variant="none" height="40px" />
+                    </div>
+                    <div>
+                      <Text size="xs" color="secondary" className="mb-1">
+                        sm (pequeno)
+                      </Text>
+                      <Skeleton variant="sm" height="40px" />
+                    </div>
+                    <div>
+                      <Text size="xs" color="secondary" className="mb-1">
+                        md (médio - padrão)
+                      </Text>
+                      <Skeleton variant="md" height="40px" />
+                    </div>
+                    <div>
+                      <Text size="xs" color="secondary" className="mb-1">
+                        lg (grande)
+                      </Text>
+                      <Skeleton variant="lg" height="40px" />
+                    </div>
+                    <div>
+                      <Text size="xs" color="secondary" className="mb-1">
+                        full (círculo/pill)
+                      </Text>
+                      <Skeleton variant="full" width="48px" height="48px" />
+                    </div>
+                  </div>
+                </div>
+
+                {/* Animation Speed */}
+                <div>
+                  <Text size="sm" weight="semibold" className="mb-3">
+                    Velocidades de Animação
+                  </Text>
+                  <div className="space-y-3">
+                    <div>
+                      <Text size="xs" color="secondary" className="mb-1">
+                        slow (3s)
+                      </Text>
+                      <Skeleton speed="slow" height="40px" />
+                    </div>
+                    <div>
+                      <Text size="xs" color="secondary" className="mb-1">
+                        normal (2s - padrão)
+                      </Text>
+                      <Skeleton speed="normal" height="40px" />
+                    </div>
+                    <div>
+                      <Text size="xs" color="secondary" className="mb-1">
+                        fast (1s)
+                      </Text>
+                      <Skeleton speed="fast" height="40px" />
+                    </div>
+                  </div>
+                </div>
+
+                {/* Real Examples */}
+                <div className="bg-gray-50 p-4 rounded-lg">
+                  <Text size="xs" color="secondary" className="mb-3">
+                    Exemplos Reais de Uso
+                  </Text>
+
+                  {/* Text Lines */}
+                  <div className="mb-4">
+                    <Text size="xs" weight="semibold" className="mb-2">
+                      Loading de Texto (linhas)
+                    </Text>
+                    <div className="space-y-2">
+                      <Skeleton width="100%" height="16px" variant="sm" />
+                      <Skeleton width="90%" height="16px" variant="sm" />
+                      <Skeleton width="85%" height="16px" variant="sm" />
+                    </div>
+                  </div>
+
+                  {/* Card Loading */}
+                  <div className="mb-4">
+                    <Text size="xs" weight="semibold" className="mb-2">
+                      Loading de Card
+                    </Text>
+                    <div className="bg-white p-4 rounded-lg space-y-3">
+                      <Skeleton width="100%" height="200px" variant="md" />
+                      <Skeleton width="60%" height="24px" variant="sm" />
+                      <Skeleton width="100%" height="16px" variant="sm" />
+                      <Skeleton width="80%" height="16px" variant="sm" />
+                    </div>
+                  </div>
+
+                  {/* Avatar + Text */}
+                  <div>
+                    <Text size="xs" weight="semibold" className="mb-2">
+                      Loading de Avatar + Texto
+                    </Text>
+                    <div className="flex items-center gap-3">
+                      <Skeleton width="48px" height="48px" variant="full" />
+                      <div className="flex-1 space-y-2">
+                        <Skeleton width="40%" height="16px" variant="sm" />
+                        <Skeleton width="60%" height="14px" variant="sm" />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </Card>
           </div>
 
           {/* Complete Product Example */}
           <div className="mt-8">
             <Text size="xl" weight="bold" className="mb-4">
-              Exemplo Completo: Todos os 4 Atoms Combinados
+              Exemplo Completo: Todos os Atoms de E-commerce Combinados
             </Text>
             <Card variant="elevated" className="bg-white">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
