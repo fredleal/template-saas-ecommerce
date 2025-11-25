@@ -1,4 +1,4 @@
-export { Card, ProductCard } from './Card/Card';
+export { Card, ProductCard as ProductCardOld } from './Card/Card';
 export { Rating } from './Rating/Rating';
 export { PostCard } from './PostCard/PostCard';
 export { TableOfContents } from './TableOfContents/TableOfContents';
@@ -8,4 +8,5 @@ export { PricingCard, type PricingCardProps } from './PricingCard/PricingCard';
 export { FeatureCard, type FeatureCardProps } from './FeatureCard/FeatureCard';
 export { TestimonialCard, type TestimonialCardProps, } from './TestimonialCard/TestimonialCard';
 export { StepCard, type StepCardProps } from './StepCard/StepCard';
+export { ProductCard, type ProductCardProps } from './ProductCard/ProductCard';
 //# sourceMappingURL=index.d.ts.map

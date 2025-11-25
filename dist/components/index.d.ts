@@ -26,6 +26,8 @@ export { CodeBlock } from './molecules/CodeBlock/CodeBlock';
 export type { CodeBlockProps } from './molecules/CodeBlock/CodeBlock';
 export { TableOfContents } from './molecules/TableOfContents/TableOfContents';
 export type { TableOfContentsProps } from './molecules/TableOfContents/TableOfContents';
+export { ProductCard } from './molecules/ProductCard/ProductCard';
+export type { ProductCardProps } from './molecules/ProductCard/ProductCard';
 export { Header } from './organisms/Header/Header';
 export type { HeaderProps } from './organisms/Header/Header';
 export { Footer } from './organisms/Footer/Footer';

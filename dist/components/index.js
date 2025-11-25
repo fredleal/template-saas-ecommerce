@@ -16,6 +16,7 @@ export { PostCard } from './molecules/PostCard/PostCard';
 export { Prose } from './molecules/Prose/Prose';
 export { CodeBlock } from './molecules/CodeBlock/CodeBlock';
 export { TableOfContents } from './molecules/TableOfContents/TableOfContents';
+export { ProductCard } from './molecules/ProductCard/ProductCard';
 // Organisms
 export { Header } from './organisms/Header/Header';
 export { Footer } from './organisms/Footer/Footer';
