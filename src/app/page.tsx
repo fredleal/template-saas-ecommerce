@@ -9,6 +9,7 @@ import {
   Icon,
   Checkbox,
   Input,
+  Image,
   PriceTag,
   QuantitySelector,
   StockBadge,
@@ -1250,6 +1251,425 @@ export default function Home() {
                       Profile
                     </Button>
                   </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* NEW: Image Component Showcase - PR #83 */}
+        <section className="max-w-7xl mx-auto px-6 pb-12 bg-gradient-to-br from-indigo-50 to-purple-50 rounded-2xl mb-12">
+          <div className="flex items-center justify-between mb-8">
+            <div>
+              <Badge variant="success" size="sm" className="mb-3">
+                NEW - PR #83
+              </Badge>
+              <Text size="3xl" weight="bold" className="mb-2">
+                Image Atom Component
+              </Text>
+              <Text size="sm" color="secondary">
+                Optimized image component with lazy loading, fetch priority, and
+                fallback support
+              </Text>
+            </div>
+            <div className="flex gap-2">
+              <Badge variant="info" size="sm">
+                33 tests
+              </Badge>
+              <Badge variant="success" size="sm">
+                100% coverage
+              </Badge>
+            </div>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            {/* Object-fit Variants */}
+            <Card variant="elevated" className="bg-white">
+              <div className="mb-4 pb-4 border-b border-gray-200">
+                <Text size="lg" weight="bold" className="mb-1">
+                  1. Object-fit Variants
+                </Text>
+                <Text size="sm" color="secondary">
+                  Different object-fit strategies for image layout
+                </Text>
+              </div>
+
+              <div className="space-y-6">
+                <div>
+                  <Text size="sm" weight="semibold" className="mb-3">
+                    Cover (Default) - Fills container
+                  </Text>
+                  <div className="w-full h-48 bg-gray-100 rounded-lg overflow-hidden">
+                    <Image
+                      src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=600&h=400&fit=crop"
+                      alt="Landscape with cover fit"
+                      width={600}
+                      height={400}
+                      objectFit="cover"
+                      className="w-full h-full"
+                    />
+                  </div>
+                </div>
+
+                <div>
+                  <Text size="sm" weight="semibold" className="mb-3">
+                    Contain - Fits inside container
+                  </Text>
+                  <div className="w-full h-48 bg-gray-100 rounded-lg overflow-hidden">
+                    <Image
+                      src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=600&h=400&fit=crop"
+                      alt="Landscape with contain fit"
+                      width={600}
+                      height={400}
+                      objectFit="contain"
+                      className="w-full h-full"
+                    />
+                  </div>
+                </div>
+              </div>
+            </Card>
+
+            {/* Loading Strategies */}
+            <Card variant="elevated" className="bg-white">
+              <div className="mb-4 pb-4 border-b border-gray-200">
+                <Text size="lg" weight="bold" className="mb-1">
+                  2. Loading Strategies & Priority
+                </Text>
+                <Text size="sm" color="secondary">
+                  Optimize performance with lazy loading and fetch priority
+                </Text>
+              </div>
+
+              <div className="space-y-6">
+                <div>
+                  <Text size="sm" weight="semibold" className="mb-3">
+                    High Priority (Above-the-fold)
+                  </Text>
+                  <div className="w-full h-48 bg-gray-100 rounded-lg overflow-hidden">
+                    <Image
+                      src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=600&h=400&fit=crop"
+                      alt="Hero image with high priority"
+                      width={600}
+                      height={400}
+                      fetchPriority="high"
+                      loading="eager"
+                      className="w-full h-full rounded-lg"
+                    />
+                  </div>
+                  <Text size="xs" color="secondary" className="mt-2">
+                    fetchPriority="high" + loading="eager" for LCP optimization
+                  </Text>
+                </div>
+
+                <div>
+                  <Text size="sm" weight="semibold" className="mb-3">
+                    Lazy Loading (Below-the-fold)
+                  </Text>
+                  <div className="w-full h-32 bg-gray-100 rounded-lg overflow-hidden">
+                    <Image
+                      src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=400&h=400&fit=crop"
+                      alt="Lazy loaded thumbnail"
+                      width={400}
+                      height={400}
+                      loading="lazy"
+                      fetchPriority="low"
+                      className="w-full h-full rounded-lg"
+                    />
+                  </div>
+                  <Text size="xs" color="secondary" className="mt-2">
+                    loading="lazy" + fetchPriority="low" for performance
+                  </Text>
+                </div>
+              </div>
+            </Card>
+
+            {/* Image Shapes */}
+            <Card variant="elevated" className="bg-white">
+              <div className="mb-4 pb-4 border-b border-gray-200">
+                <Text size="lg" weight="bold" className="mb-1">
+                  3. Image Shapes & Styling
+                </Text>
+                <Text size="sm" color="secondary">
+                  Custom styling with Tailwind classes
+                </Text>
+              </div>
+
+              <div className="space-y-6">
+                <div>
+                  <Text size="sm" weight="semibold" className="mb-3">
+                    Rounded Corners
+                  </Text>
+                  <div className="flex gap-4">
+                    <Image
+                      src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400&h=400&fit=crop"
+                      alt="Rounded image"
+                      width={120}
+                      height={120}
+                      className="rounded-lg"
+                    />
+                    <Image
+                      src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=400&h=400&fit=crop"
+                      alt="More rounded image"
+                      width={120}
+                      height={120}
+                      className="rounded-2xl"
+                    />
+                    <Image
+                      src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop"
+                      alt="Circle image"
+                      width={120}
+                      height={120}
+                      className="rounded-full"
+                    />
+                  </div>
+                </div>
+
+                <div>
+                  <Text size="sm" weight="semibold" className="mb-3">
+                    With Shadow & Border
+                  </Text>
+                  <div className="flex gap-4">
+                    <Image
+                      src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=400&h=400&fit=crop"
+                      alt="Image with shadow"
+                      width={120}
+                      height={120}
+                      className="rounded-lg shadow-lg"
+                    />
+                    <Image
+                      src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=400&h=400&fit=crop"
+                      alt="Image with border"
+                      width={120}
+                      height={120}
+                      className="rounded-lg border-4 border-blue-500"
+                    />
+                  </div>
+                </div>
+              </div>
+            </Card>
+
+            {/* Fallback Images */}
+            <Card variant="elevated" className="bg-white">
+              <div className="mb-4 pb-4 border-b border-gray-200">
+                <Text size="lg" weight="bold" className="mb-1">
+                  4. Fallback Image Support
+                </Text>
+                <Text size="sm" color="secondary">
+                  Automatic fallback when main image fails to load
+                </Text>
+              </div>
+
+              <div className="space-y-6">
+                <div>
+                  <Text size="sm" weight="semibold" className="mb-3">
+                    E-commerce Product Placeholder
+                  </Text>
+                  <div className="w-full h-48 bg-gray-100 rounded-lg overflow-hidden">
+                    <Image
+                      src="https://invalid-url-that-will-fail.com/product.jpg"
+                      alt="Product with fallback"
+                      fallbackSrc="https://placehold.co/400x400/4F46E5/white?text=Product+Image"
+                      width={400}
+                      height={400}
+                      className="w-full h-full rounded-lg"
+                    />
+                  </div>
+                  <Text size="xs" color="secondary" className="mt-2">
+                    Automatically shows fallback when main image fails
+                  </Text>
+                </div>
+
+                <div>
+                  <Text size="sm" weight="semibold" className="mb-3">
+                    User Avatar Fallback
+                  </Text>
+                  <div className="flex gap-3">
+                    <Image
+                      src="https://broken-link.com/avatar.jpg"
+                      alt="User avatar"
+                      fallbackSrc="https://placehold.co/100x100/10B981/white?text=U"
+                      width={60}
+                      height={60}
+                      className="rounded-full"
+                    />
+                    <Image
+                      src="https://broken-link.com/avatar2.jpg"
+                      alt="User avatar"
+                      fallbackSrc="https://placehold.co/100x100/EF4444/white?text=A"
+                      width={60}
+                      height={60}
+                      className="rounded-full"
+                    />
+                    <Image
+                      src="https://broken-link.com/avatar3.jpg"
+                      alt="User avatar"
+                      fallbackSrc="https://placehold.co/100x100/F59E0B/white?text=B"
+                      width={60}
+                      height={60}
+                      className="rounded-full"
+                    />
+                  </div>
+                </div>
+              </div>
+            </Card>
+          </div>
+
+          {/* Real-World Example: Product Gallery */}
+          <div className="mt-8">
+            <Text size="xl" weight="bold" className="mb-4">
+              Real-World Example: Product Gallery with Image
+            </Text>
+            <Card variant="elevated" className="bg-white">
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                {/* Product 1 */}
+                <div>
+                  <div className="relative mb-4">
+                    <Image
+                      src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=500&h=500&fit=crop"
+                      alt="Wireless Headphones"
+                      width={500}
+                      height={500}
+                      fallbackSrc="https://placehold.co/500x500/4F46E5/white?text=Product"
+                      fetchPriority="high"
+                      className="w-full aspect-square rounded-lg"
+                    />
+                    <DiscountLabel
+                      percentage={25}
+                      size="md"
+                      className="absolute top-3 right-3"
+                    />
+                  </div>
+                  <Text weight="bold" size="lg" className="mb-2">
+                    Wireless Headphones
+                  </Text>
+                  <div className="flex items-center gap-2 mb-3">
+                    <PriceTag
+                      value={299.99}
+                      variant="strikethrough"
+                      size="sm"
+                    />
+                    <PriceTag value={224.99} variant="discount" size="lg" />
+                  </div>
+                  <StockBadge stock={12} size="sm" />
+                </div>
+
+                {/* Product 2 */}
+                <div>
+                  <div className="relative mb-4">
+                    <Image
+                      src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=500&h=500&fit=crop"
+                      alt="Smart Watch"
+                      width={500}
+                      height={500}
+                      fallbackSrc="https://placehold.co/500x500/10B981/white?text=Watch"
+                      loading="lazy"
+                      className="w-full aspect-square rounded-lg"
+                    />
+                    <DiscountLabel
+                      percentage={15}
+                      size="md"
+                      variant="primary"
+                      className="absolute top-3 right-3"
+                    />
+                  </div>
+                  <Text weight="bold" size="lg" className="mb-2">
+                    Smart Watch Pro
+                  </Text>
+                  <div className="flex items-center gap-2 mb-3">
+                    <PriceTag
+                      value={399.99}
+                      variant="strikethrough"
+                      size="sm"
+                    />
+                    <PriceTag value={339.99} variant="discount" size="lg" />
+                  </div>
+                  <StockBadge stock={5} size="sm" />
+                </div>
+
+                {/* Product 3 */}
+                <div>
+                  <div className="relative mb-4">
+                    <Image
+                      src="https://images.unsplash.com/photo-1572635196237-14b3f281503f?w=500&h=500&fit=crop"
+                      alt="Sunglasses"
+                      width={500}
+                      height={500}
+                      fallbackSrc="https://placehold.co/500x500/F59E0B/white?text=Glasses"
+                      loading="lazy"
+                      className="w-full aspect-square rounded-lg"
+                    />
+                    <DiscountLabel
+                      percentage={30}
+                      size="md"
+                      className="absolute top-3 right-3"
+                    />
+                  </div>
+                  <Text weight="bold" size="lg" className="mb-2">
+                    Designer Sunglasses
+                  </Text>
+                  <div className="flex items-center gap-2 mb-3">
+                    <PriceTag
+                      value={199.99}
+                      variant="strikethrough"
+                      size="sm"
+                    />
+                    <PriceTag value={139.99} variant="discount" size="lg" />
+                  </div>
+                  <StockBadge stock={0} size="sm" />
+                </div>
+              </div>
+            </Card>
+          </div>
+
+          {/* Technical Features Summary */}
+          <div className="mt-8 bg-white rounded-xl p-6 border-2 border-blue-200">
+            <Text size="lg" weight="bold" className="mb-4">
+              Technical Features
+            </Text>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div className="flex items-start gap-3">
+                <Icon name="CheckIcon" size="sm" color="success" />
+                <div>
+                  <Text size="sm" weight="semibold">
+                    Native Lazy Loading
+                  </Text>
+                  <Text size="xs" color="secondary">
+                    Uses browser's native loading="lazy" for automatic
+                    performance
+                  </Text>
+                </div>
+              </div>
+              <div className="flex items-start gap-3">
+                <Icon name="CheckIcon" size="sm" color="success" />
+                <div>
+                  <Text size="sm" weight="semibold">
+                    Fetch Priority Control
+                  </Text>
+                  <Text size="xs" color="secondary">
+                    Optimize LCP with fetchPriority="high" for hero images
+                  </Text>
+                </div>
+              </div>
+              <div className="flex items-start gap-3">
+                <Icon name="CheckIcon" size="sm" color="success" />
+                <div>
+                  <Text size="sm" weight="semibold">
+                    Automatic Fallback
+                  </Text>
+                  <Text size="xs" color="secondary">
+                    State-based fallback without HEAD request overhead
+                  </Text>
+                </div>
+              </div>
+              <div className="flex items-start gap-3">
+                <Icon name="CheckIcon" size="sm" color="success" />
+                <div>
+                  <Text size="sm" weight="semibold">
+                    Object-fit Variants
+                  </Text>
+                  <Text size="xs" color="secondary">
+                    5 variants: contain, cover, fill, none, scale-down
+                  </Text>
                 </div>
               </div>
             </div>
