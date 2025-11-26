@@ -9,4 +9,7 @@ export { FeatureCard } from './FeatureCard/FeatureCard';
 export { TestimonialCard, } from './TestimonialCard/TestimonialCard';
 export { StepCard } from './StepCard/StepCard';
 export { ProductCard } from './ProductCard/ProductCard';
+export { CarouselArrows, } from './CarouselArrows/CarouselArrows';
+export { CarouselSlide, } from './CarouselSlide/CarouselSlide';
+export { CarouselDots, } from './CarouselDots/CarouselDots';
 //# sourceMappingURL=index.js.map

@@ -10,4 +10,5 @@ export { QuantitySelector } from './QuantitySelector/QuantitySelector';
 export { StockBadge } from './StockBadge/StockBadge';
 export { DiscountLabel } from './DiscountLabel/DiscountLabel';
 export { Skeleton } from './Skeleton/Skeleton';
+export { Link } from './Link/Link';
 //# sourceMappingURL=index.js.map
