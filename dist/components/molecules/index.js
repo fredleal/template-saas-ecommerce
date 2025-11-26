@@ -12,4 +12,6 @@ export { ProductCard } from './ProductCard/ProductCard';
 export { CarouselArrows, } from './CarouselArrows/CarouselArrows';
 export { CarouselSlide, } from './CarouselSlide/CarouselSlide';
 export { CarouselDots, } from './CarouselDots/CarouselDots';
+export { List } from './List/List';
+export { Wrapper } from './Wrapper/Wrapper';
 //# sourceMappingURL=index.js.map

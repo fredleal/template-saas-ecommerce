@@ -32,6 +32,8 @@ import {
   CarouselArrows,
   CarouselSlide,
   CarouselDots,
+  List,
+  Wrapper,
 } from '@/components/molecules'
 import {
   Header,
@@ -2882,6 +2884,218 @@ export default function Home() {
               These molecules are ready to be composed into a full Carousel
               organism. Future PRs will add the Carousel component with hooks
               for auto-play, infinite scroll, and responsive behavior.
+            </Text>
+          </div>
+        </section>
+
+        {/* List & Wrapper Molecules Showcase - PR #89 */}
+        <section className="max-w-7xl mx-auto px-6 pb-12">
+          <Badge variant="info" size="sm" className="mb-4">
+            PR #89 - List & Wrapper Support Molecules
+          </Badge>
+          <Text size="2xl" weight="semibold" className="mb-2">
+            Structural Components
+          </Text>
+          <Text size="sm" color="secondary" className="mb-8">
+            List and Wrapper molecules for building flexible layouts and
+            carousels
+          </Text>
+
+          {/* List Demo */}
+          <div className="mb-12">
+            <Text size="lg" weight="semibold" className="mb-4">
+              1. List Molecule
+            </Text>
+            <Text size="sm" color="secondary" className="mb-6">
+              Generic list component with ul/ol support, custom rendering, and
+              flex directions
+            </Text>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              {/* Basic ul list */}
+              <Card className="p-6">
+                <Text size="sm" weight="semibold" className="mb-4">
+                  Unordered List (Column)
+                </Text>
+                <List
+                  items={['React', 'TypeScript', 'Tailwind CSS', 'Next.js']}
+                />
+              </Card>
+
+              {/* Ordered list */}
+              <Card className="p-6">
+                <Text size="sm" weight="semibold" className="mb-4">
+                  Ordered List (Column)
+                </Text>
+                <List
+                  as="ol"
+                  items={['Install dependencies', 'Run dev server', 'Build project', 'Deploy']}
+                />
+              </Card>
+
+              {/* Row direction */}
+              <Card className="p-6">
+                <Text size="sm" weight="semibold" className="mb-4">
+                  Horizontal List (Row)
+                </Text>
+                <List
+                  items={['Home', 'About', 'Services', 'Contact']}
+                  direction="row"
+                />
+              </Card>
+
+              {/* Custom rendering */}
+              <Card className="p-6">
+                <Text size="sm" weight="semibold" className="mb-4">
+                  Custom Render Items
+                </Text>
+                <List
+                  items={[
+                    { name: 'Alice', role: 'Developer' },
+                    { name: 'Bob', role: 'Designer' },
+                    { name: 'Charlie', role: 'Manager' },
+                  ]}
+                  renderItem={(item) => (
+                    <div className="flex gap-2">
+                      <Badge variant="success" size="sm">
+                        {item.name}
+                      </Badge>
+                      <Text size="sm" color="secondary">
+                        {item.role}
+                      </Text>
+                    </div>
+                  )}
+                  getKey={(item) => item.name}
+                />
+              </Card>
+            </div>
+          </div>
+
+          {/* Wrapper Demo */}
+          <div className="mb-12">
+            <Text size="lg" weight="semibold" className="mb-4">
+              2. Wrapper Molecule
+            </Text>
+            <Text size="sm" color="secondary" className="mb-6">
+              Container component with width variants, overflow control, and
+              translateX for animations
+            </Text>
+
+            <div className="space-y-6">
+              {/* Primary width */}
+              <Card className="p-6">
+                <Text size="sm" weight="semibold" className="mb-4">
+                  Primary Width (max-w-7xl, centered)
+                </Text>
+                <Wrapper variantWidth="primary" className="bg-blue-50 p-4">
+                  <Text size="sm">
+                    This wrapper has max-width of 7xl and is centered
+                  </Text>
+                </Wrapper>
+              </Card>
+
+              {/* Secondary width */}
+              <Card className="p-6">
+                <Text size="sm" weight="semibold" className="mb-4">
+                  Secondary Width (full width)
+                </Text>
+                <Wrapper variantWidth="secondary" className="bg-green-50 p-4">
+                  <Text size="sm">
+                    This wrapper spans the full available width
+                  </Text>
+                </Wrapper>
+              </Card>
+
+              {/* Overflow hidden */}
+              <Card className="p-6">
+                <Text size="sm" weight="semibold" className="mb-4">
+                  Overflow Hidden (for carousels)
+                </Text>
+                <Wrapper overflowHidden={true} className="bg-purple-50 p-4">
+                  <div className="flex gap-4">
+                    {[1, 2, 3, 4, 5].map((n) => (
+                      <div
+                        key={n}
+                        className="min-w-[200px] h-20 bg-white rounded flex items-center justify-center"
+                      >
+                        Item {n}
+                      </div>
+                    ))}
+                  </div>
+                </Wrapper>
+              </Card>
+
+              {/* TranslateX animation */}
+              <Card className="p-6">
+                <Text size="sm" weight="semibold" className="mb-4">
+                  TranslateX Animation (slide effect)
+                </Text>
+                <Wrapper
+                  overflowHidden={true}
+                  translateX={220}
+                  transition="transform 0.3s ease"
+                  className="bg-orange-50 p-4"
+                >
+                  <div className="flex gap-4">
+                    {[1, 2, 3, 4, 5].map((n) => (
+                      <div
+                        key={n}
+                        className="min-w-[200px] h-20 bg-white rounded flex items-center justify-center"
+                      >
+                        Slide {n}
+                      </div>
+                    ))}
+                  </div>
+                </Wrapper>
+                <Text size="xs" color="secondary" className="mt-2">
+                  Translated -220px to show Slide 2
+                </Text>
+              </Card>
+            </div>
+          </div>
+
+          {/* Combined Example */}
+          <div>
+            <Text size="lg" weight="semibold" className="mb-4">
+              3. List + Wrapper Combined
+            </Text>
+            <Text size="sm" color="secondary" className="mb-6">
+              Using both molecules together for flexible layouts
+            </Text>
+
+            <Card className="p-6">
+              <Wrapper variantWidth="primary">
+                <List
+                  title="Project Tech Stack"
+                  items={[
+                    { tech: 'Next.js 15', category: 'Framework' },
+                    { tech: 'TypeScript 5', category: 'Language' },
+                    { tech: 'Tailwind CSS', category: 'Styling' },
+                    { tech: 'Vitest', category: 'Testing' },
+                  ]}
+                  renderItem={(item) => (
+                    <div className="p-3 border border-gray-200 rounded flex justify-between items-center">
+                      <Text weight="semibold">{item.tech}</Text>
+                      <Badge variant="default" size="sm">
+                        {item.category}
+                      </Badge>
+                    </div>
+                  )}
+                  getKey={(item) => item.tech}
+                  direction="column"
+                />
+              </Wrapper>
+            </Card>
+          </div>
+
+          <div className="mt-6 p-4 bg-green-50 rounded-lg">
+            <Text size="sm" weight="semibold" className="mb-2">
+              ✅ Ready for Carousel:
+            </Text>
+            <Text size="sm" color="secondary">
+              List and Wrapper are now available for building the complete
+              Carousel organism. Next PR will add custom hooks and the final
+              Carousel component.
             </Text>
           </div>
         </section>
