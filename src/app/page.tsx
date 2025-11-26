@@ -14,6 +14,7 @@ import {
   QuantitySelector,
   StockBadge,
   DiscountLabel,
+  Skeleton,
 } from '@/components/atoms'
 import {
   Card,
@@ -864,12 +865,141 @@ export default function Home() {
                 </div>
               </div>
             </Card>
+
+            {/* Skeleton Component */}
+            <Card variant="elevated" className="bg-white">
+              <div className="mb-4 pb-4 border-b border-gray-200">
+                <Text size="lg" weight="bold" className="mb-1">
+                  5. Skeleton Atom
+                </Text>
+                <Text size="sm" color="secondary">
+                  Loading placeholders para melhor UX e CLS
+                </Text>
+                <Badge variant="info" size="sm" className="mt-2">
+                  28 tests
+                </Badge>
+              </div>
+
+              <div className="space-y-6">
+                {/* Border Radius Variants */}
+                <div>
+                  <Text size="sm" weight="semibold" className="mb-3">
+                    Variantes de Border Radius
+                  </Text>
+                  <div className="space-y-3">
+                    <div>
+                      <Text size="xs" color="secondary" className="mb-1">
+                        none (sem arredondamento)
+                      </Text>
+                      <Skeleton variant="none" height="40px" />
+                    </div>
+                    <div>
+                      <Text size="xs" color="secondary" className="mb-1">
+                        sm (pequeno)
+                      </Text>
+                      <Skeleton variant="sm" height="40px" />
+                    </div>
+                    <div>
+                      <Text size="xs" color="secondary" className="mb-1">
+                        md (médio - padrão)
+                      </Text>
+                      <Skeleton variant="md" height="40px" />
+                    </div>
+                    <div>
+                      <Text size="xs" color="secondary" className="mb-1">
+                        lg (grande)
+                      </Text>
+                      <Skeleton variant="lg" height="40px" />
+                    </div>
+                    <div>
+                      <Text size="xs" color="secondary" className="mb-1">
+                        full (círculo/pill)
+                      </Text>
+                      <Skeleton variant="full" width="48px" height="48px" />
+                    </div>
+                  </div>
+                </div>
+
+                {/* Animation Speed */}
+                <div>
+                  <Text size="sm" weight="semibold" className="mb-3">
+                    Velocidades de Animação
+                  </Text>
+                  <div className="space-y-3">
+                    <div>
+                      <Text size="xs" color="secondary" className="mb-1">
+                        slow (3s)
+                      </Text>
+                      <Skeleton speed="slow" height="40px" />
+                    </div>
+                    <div>
+                      <Text size="xs" color="secondary" className="mb-1">
+                        normal (2s - padrão)
+                      </Text>
+                      <Skeleton speed="normal" height="40px" />
+                    </div>
+                    <div>
+                      <Text size="xs" color="secondary" className="mb-1">
+                        fast (1s)
+                      </Text>
+                      <Skeleton speed="fast" height="40px" />
+                    </div>
+                  </div>
+                </div>
+
+                {/* Real Examples */}
+                <div className="bg-gray-50 p-4 rounded-lg">
+                  <Text size="xs" color="secondary" className="mb-3">
+                    Exemplos Reais de Uso
+                  </Text>
+
+                  {/* Text Lines */}
+                  <div className="mb-4">
+                    <Text size="xs" weight="semibold" className="mb-2">
+                      Loading de Texto (linhas)
+                    </Text>
+                    <div className="space-y-2">
+                      <Skeleton width="100%" height="16px" variant="sm" />
+                      <Skeleton width="90%" height="16px" variant="sm" />
+                      <Skeleton width="85%" height="16px" variant="sm" />
+                    </div>
+                  </div>
+
+                  {/* Card Loading */}
+                  <div className="mb-4">
+                    <Text size="xs" weight="semibold" className="mb-2">
+                      Loading de Card
+                    </Text>
+                    <div className="bg-white p-4 rounded-lg space-y-3">
+                      <Skeleton width="100%" height="200px" variant="md" />
+                      <Skeleton width="60%" height="24px" variant="sm" />
+                      <Skeleton width="100%" height="16px" variant="sm" />
+                      <Skeleton width="80%" height="16px" variant="sm" />
+                    </div>
+                  </div>
+
+                  {/* Avatar + Text */}
+                  <div>
+                    <Text size="xs" weight="semibold" className="mb-2">
+                      Loading de Avatar + Texto
+                    </Text>
+                    <div className="flex items-center gap-3">
+                      <Skeleton width="48px" height="48px" variant="full" />
+                      <div className="flex-1 space-y-2">
+                        <Skeleton width="40%" height="16px" variant="sm" />
+                        <Skeleton width="60%" height="14px" variant="sm" />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </Card>
           </div>
 
           {/* Complete Product Example */}
           <div className="mt-8">
             <Text size="xl" weight="bold" className="mb-4">
-              Exemplo Completo: Todos os 4 Atoms Combinados
+              Exemplo Completo: Todos os Atoms de E-commerce Combinados
             </Text>
             <Card variant="elevated" className="bg-white">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
@@ -1809,33 +1939,54 @@ export default function Home() {
 
           <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
             <ProductCard
-              title="Premium Smartphone"
+              id="product-1"
+              name="Premium Smartphone"
               price={899.99}
               description="5G connectivity, AI camera, 256GB storage"
               image="https://images.unsplash.com/photo-1511707267537-b85faf00021e?w=300&h=300&fit=crop"
-              inStock={true}
+              stock={15}
+              onAddToCart={(id, qty) =>
+                console.log(`Added ${qty}x ${id} to cart`)
+              }
+              onViewDetails={id => console.log(`View details: ${id}`)}
             />
             <ProductCard
-              title="Wireless Earbuds"
+              id="product-2"
+              name="Wireless Earbuds"
               price={179.99}
               originalPrice={229.99}
               description="ANC, 30h battery, premium sound quality"
               image="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=300&h=300&fit=crop"
-              inStock={true}
+              stock={8}
+              variant="featured"
+              onAddToCart={(id, qty) =>
+                console.log(`Added ${qty}x ${id} to cart`)
+              }
+              onViewDetails={id => console.log(`View details: ${id}`)}
             />
             <ProductCard
-              title="Smart Watch"
+              id="product-3"
+              name="Smart Watch"
               price={349.99}
               description="GPS, health monitoring, fitness tracking"
               image="https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=300&h=300&fit=crop"
-              inStock={true}
+              stock={3}
+              onAddToCart={(id, qty) =>
+                console.log(`Added ${qty}x ${id} to cart`)
+              }
+              onViewDetails={id => console.log(`View details: ${id}`)}
             />
             <ProductCard
-              title="Tablet Pro"
+              id="product-4"
+              name="Tablet Pro"
               price={649.99}
               description="12.9 inch display, M2 chip, all-day battery"
               image="https://images.unsplash.com/photo-1561070791-2526d30994b5?w=300&h=300&fit=crop"
-              inStock={true}
+              stock={0}
+              onAddToCart={(id, qty) =>
+                console.log(`Added ${qty}x ${id} to cart`)
+              }
+              onViewDetails={id => console.log(`View details: ${id}`)}
             />
           </div>
         </section>

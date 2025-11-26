@@ -1,4 +1,4 @@
-export { Card, ProductCard } from './Card/Card';
+export { Card, ProductCard as ProductCardOld } from './Card/Card';
 export { Rating } from './Rating/Rating';
 export { PostCard } from './PostCard/PostCard';
 export { TableOfContents } from './TableOfContents/TableOfContents';
@@ -8,4 +8,5 @@ export { PricingCard } from './PricingCard/PricingCard';
 export { FeatureCard } from './FeatureCard/FeatureCard';
 export { TestimonialCard, } from './TestimonialCard/TestimonialCard';
 export { StepCard } from './StepCard/StepCard';
+export { ProductCard } from './ProductCard/ProductCard';
 //# sourceMappingURL=index.js.map

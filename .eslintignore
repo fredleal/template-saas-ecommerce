@@ -1,1 +1,4 @@
 dist/
+storybook-static/
+.next/
+node_modules/

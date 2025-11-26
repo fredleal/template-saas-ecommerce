@@ -9,4 +9,5 @@ export { PriceTag } from './PriceTag/PriceTag';
 export { QuantitySelector } from './QuantitySelector/QuantitySelector';
 export { StockBadge } from './StockBadge/StockBadge';
 export { DiscountLabel } from './DiscountLabel/DiscountLabel';
+export { Skeleton } from './Skeleton/Skeleton';
 //# sourceMappingURL=index.d.ts.map
