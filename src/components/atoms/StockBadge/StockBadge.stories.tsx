@@ -3,7 +3,7 @@ import React from 'react'
 import { StockBadge } from './StockBadge'
 
 const meta = {
-  title: 'Design System/Atoms/E-commerce/StockBadge',
+  title: 'Design System/Atoms/StockBadge',
   component: StockBadge,
   parameters: {
     layout: 'centered',

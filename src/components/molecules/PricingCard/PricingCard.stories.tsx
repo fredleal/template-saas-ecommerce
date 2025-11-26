@@ -3,7 +3,7 @@ import type { Meta, StoryObj } from '@storybook/react'
 import { PricingCard } from './PricingCard'
 
 const meta: Meta<typeof PricingCard> = {
-  title: 'Molecules/PricingCard',
+  title: 'Design System/Molecules/PricingCard',
   component: PricingCard,
   parameters: {
     layout: 'centered',
