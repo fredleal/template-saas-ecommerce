@@ -9,4 +9,7 @@ export { FeatureCard, type FeatureCardProps } from './FeatureCard/FeatureCard';
 export { TestimonialCard, type TestimonialCardProps, } from './TestimonialCard/TestimonialCard';
 export { StepCard, type StepCardProps } from './StepCard/StepCard';
 export { ProductCard, type ProductCardProps } from './ProductCard/ProductCard';
+export { CarouselArrows, type CarouselArrowsProps, } from './CarouselArrows/CarouselArrows';
+export { CarouselSlide, type CarouselSlideProps, } from './CarouselSlide/CarouselSlide';
+export { CarouselDots, type CarouselDotsProps, } from './CarouselDots/CarouselDots';
 //# sourceMappingURL=index.d.ts.map
