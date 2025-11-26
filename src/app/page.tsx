@@ -15,6 +15,7 @@ import {
   StockBadge,
   DiscountLabel,
   Skeleton,
+  Link,
 } from '@/components/atoms'
 import {
   Card,
@@ -2396,6 +2397,207 @@ export default function Home() {
               size="sm"
             />
           </div>
+        </section>
+
+        {/* Link Showcase */}
+        <section className="max-w-7xl mx-auto px-6 pb-12">
+          <Badge variant="success" size="sm" className="mb-4">
+            Link Atom
+          </Badge>
+          <Text size="2xl" weight="semibold" className="mb-2">
+            Link Component
+          </Text>
+          <Text size="sm" color="secondary" className="mb-8">
+            Accessible link component with variants, auto-security for external
+            links, and full TypeScript support
+          </Text>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <Card variant="elevated" className="bg-white">
+              <div className="mb-4 pb-4 border-b border-gray-200">
+                <Text size="lg" weight="bold" className="mb-1">
+                  Variants
+                </Text>
+                <Text size="sm" color="secondary">
+                  Primary (underlined) and Secondary (plain)
+                </Text>
+              </div>
+
+              <div className="space-y-4">
+                <div>
+                  <Text size="sm" weight="semibold" className="mb-2">
+                    Primary (underlined)
+                  </Text>
+                  <Link href="#primary" variant="primary">
+                    This is a primary link with underline
+                  </Link>
+                </div>
+
+                <div>
+                  <Text size="sm" weight="semibold" className="mb-2">
+                    Secondary (no underline)
+                  </Text>
+                  <Link href="#secondary" variant="secondary">
+                    This is a secondary link without underline
+                  </Link>
+                </div>
+              </div>
+            </Card>
+
+            <Card variant="elevated" className="bg-white">
+              <div className="mb-4 pb-4 border-b border-gray-200">
+                <Text size="lg" weight="bold" className="mb-1">
+                  External Links
+                </Text>
+                <Text size="sm" color="secondary">
+                  Auto-security with noopener noreferrer
+                </Text>
+              </div>
+
+              <div className="space-y-4">
+                <div>
+                  <Text size="sm" weight="semibold" className="mb-2">
+                    Opens in new tab (secure)
+                  </Text>
+                  <Link
+                    href="https://example.com"
+                    target="_blank"
+                    variant="primary"
+                  >
+                    Visit Example.com →
+                  </Link>
+                  <Text size="xs" color="secondary" className="mt-1">
+                    (rel="noopener noreferrer" added automatically)
+                  </Text>
+                </div>
+
+                <div>
+                  <Text size="sm" weight="semibold" className="mb-2">
+                    Internal link (same window)
+                  </Text>
+                  <Link href="#internal" variant="primary">
+                    Go to section
+                  </Link>
+                </div>
+              </div>
+            </Card>
+
+            <Card variant="elevated" className="bg-white">
+              <div className="mb-4 pb-4 border-b border-gray-200">
+                <Text size="lg" weight="bold" className="mb-1">
+                  Download Links
+                </Text>
+                <Text size="sm" color="secondary">
+                  File download support
+                </Text>
+              </div>
+
+              <div className="space-y-4">
+                <div>
+                  <Text size="sm" weight="semibold" className="mb-2">
+                    Download file
+                  </Text>
+                  <Link
+                    href="/example.pdf"
+                    download="document.pdf"
+                    variant="primary"
+                  >
+                    📄 Download PDF Document
+                  </Link>
+                </div>
+
+                <div>
+                  <Text size="sm" weight="semibold" className="mb-2">
+                    Download (auto filename)
+                  </Text>
+                  <Link href="/image.jpg" download variant="primary">
+                    🖼️ Download Image
+                  </Link>
+                </div>
+              </div>
+            </Card>
+
+            <Card variant="elevated" className="bg-white">
+              <div className="mb-4 pb-4 border-b border-gray-200">
+                <Text size="lg" weight="bold" className="mb-1">
+                  Accessibility
+                </Text>
+                <Text size="sm" color="secondary">
+                  WCAG AA compliant with ARIA support
+                </Text>
+              </div>
+
+              <div className="space-y-4">
+                <div>
+                  <Text size="sm" weight="semibold" className="mb-2">
+                    With custom aria-label
+                  </Text>
+                  <Link
+                    href="#help"
+                    aria-label="Get help and support"
+                    variant="primary"
+                  >
+                    Help
+                  </Link>
+                </div>
+
+                <div>
+                  <Text size="sm" weight="semibold" className="mb-2">
+                    With title tooltip
+                  </Text>
+                  <Link
+                    href="#contact"
+                    title="Contact our support team"
+                    variant="primary"
+                  >
+                    Contact Us
+                  </Link>
+                </div>
+
+                <div>
+                  <Text size="sm" weight="semibold" className="mb-2">
+                    Custom tab order
+                  </Text>
+                  <Link href="#tab" tabIndex={1} variant="primary">
+                    First tab stop
+                  </Link>
+                </div>
+              </div>
+            </Card>
+          </div>
+
+          <Card variant="elevated" className="bg-white mt-6">
+            <div className="mb-4 pb-4 border-b border-gray-200">
+              <Text size="lg" weight="bold" className="mb-1">
+                Real-world Example: Navigation Menu
+              </Text>
+              <Text size="sm" color="secondary">
+                Links in a typical navigation context
+              </Text>
+            </div>
+
+            <nav className="flex flex-wrap gap-6">
+              <Link href="/" variant="secondary">
+                Home
+              </Link>
+              <Link href="/products" variant="secondary">
+                Products
+              </Link>
+              <Link href="/about" variant="secondary">
+                About
+              </Link>
+              <Link href="/blog" variant="secondary">
+                Blog
+              </Link>
+              <Link
+                href="https://github.com/example"
+                target="_blank"
+                variant="secondary"
+              >
+                GitHub ↗
+              </Link>
+            </nav>
+          </Card>
         </section>
 
         {/* PricingCard Showcase - PR #79 */}

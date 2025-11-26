@@ -8,7 +8,7 @@ export default [
   
   // Global ignores
   {
-    ignores: ['node_modules/', '.next/', 'out/', 'dist/', 'coverage/'],
+    ignores: ['node_modules/', '.next/', 'out/', 'dist/', 'coverage/', 'storybook-static/'],
   },
   
   // JavaScript files
@@ -41,6 +41,7 @@ export default [
         alert: 'readonly',
         HTMLButtonElement: 'readonly',
         HTMLInputElement: 'readonly',
+        HTMLAnchorElement: 'readonly',
         document: 'readonly',
         navigator: 'readonly',
         setTimeout: 'readonly',
