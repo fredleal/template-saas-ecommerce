@@ -29,6 +29,9 @@ import {
   TestimonialCard,
   PricingCard,
   StepCard,
+  CarouselArrows,
+  CarouselSlide,
+  CarouselDots,
 } from '@/components/molecules'
 import {
   Header,
@@ -2672,6 +2675,214 @@ export default function Home() {
                 onClick: () => alert('Contact sales clicked'),
               }}
             />
+          </div>
+        </section>
+
+        {/* Carousel Molecules Showcase - PR #88 */}
+        <section className="max-w-7xl mx-auto px-6 pb-12">
+          <Badge variant="success" size="sm" className="mb-4">
+            PR #88 - Carousel Molecules
+          </Badge>
+          <Text size="2xl" weight="semibold" className="mb-2">
+            Carousel Building Blocks
+          </Text>
+          <Text size="sm" color="secondary" className="mb-8">
+            Reusable carousel molecules: arrows, slides, and dots. Ready to
+            compose into a full Carousel organism.
+          </Text>
+
+          {/* CarouselArrows Demo */}
+          <div className="mb-12">
+            <Text size="lg" weight="semibold" className="mb-4">
+              1. CarouselArrows
+            </Text>
+            <Text size="sm" color="secondary" className="mb-6">
+              Navigation buttons with disabled states and custom icons support
+            </Text>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              {/* Both arrows enabled */}
+              <Card className="relative h-48">
+                <div className="absolute inset-0 flex items-center justify-center">
+                  <Text color="secondary">Slide Content</Text>
+                </div>
+                <CarouselArrows
+                  showPrev={true}
+                  showNext={true}
+                  onPrev={() => {}}
+                  onNext={() => {}}
+                />
+              </Card>
+
+              {/* Prev disabled */}
+              <Card className="relative h-48">
+                <div className="absolute inset-0 flex items-center justify-center">
+                  <Text color="secondary">First Slide (Prev Disabled)</Text>
+                </div>
+                <CarouselArrows
+                  showPrev={true}
+                  showNext={true}
+                  onPrev={() => {}}
+                  onNext={() => {}}
+                  disabledPrev={true}
+                />
+              </Card>
+            </div>
+          </div>
+
+          {/* CarouselSlide Demo */}
+          <div className="mb-12">
+            <Text size="lg" weight="semibold" className="mb-4">
+              2. CarouselSlide
+            </Text>
+            <Text size="sm" color="secondary" className="mb-6">
+              Generic slide component with type support and flexible rendering
+            </Text>
+
+            <div className="flex gap-4 overflow-x-auto pb-4">
+              <CarouselSlide
+                item={{ title: 'Slide 1', color: 'bg-blue-100' }}
+                index={0}
+                renderItem={item => (
+                  <Card
+                    className={`${item.color} h-40 flex items-center justify-center`}
+                  >
+                    <Text weight="semibold">{item.title}</Text>
+                  </Card>
+                )}
+                width={300}
+                gap={16}
+              />
+              <CarouselSlide
+                item={{ title: 'Slide 2', color: 'bg-green-100' }}
+                index={1}
+                renderItem={item => (
+                  <Card
+                    className={`${item.color} h-40 flex items-center justify-center`}
+                  >
+                    <Text weight="semibold">{item.title}</Text>
+                  </Card>
+                )}
+                width={300}
+                gap={16}
+              />
+              <CarouselSlide
+                item={{ title: 'Slide 3', color: 'bg-purple-100' }}
+                index={2}
+                renderItem={item => (
+                  <Card
+                    className={`${item.color} h-40 flex items-center justify-center`}
+                  >
+                    <Text weight="semibold">{item.title}</Text>
+                  </Card>
+                )}
+                width={300}
+                isLast={true}
+              />
+            </div>
+          </div>
+
+          {/* CarouselDots Demo */}
+          <div className="mb-12">
+            <Text size="lg" weight="semibold" className="mb-4">
+              3. CarouselDots
+            </Text>
+            <Text size="sm" color="secondary" className="mb-6">
+              Pagination indicators with primary and secondary variants
+            </Text>
+
+            <div className="space-y-8">
+              {/* Primary variant */}
+              <Card className="p-8">
+                <Text size="sm" weight="semibold" className="mb-4">
+                  Primary Variant (Active: Slide 2)
+                </Text>
+                <CarouselDots
+                  total={5}
+                  currentIndex={1}
+                  onDotClick={() => {}}
+                  variant="primary"
+                />
+              </Card>
+
+              {/* Secondary variant */}
+              <Card className="p-8">
+                <Text size="sm" weight="semibold" className="mb-4">
+                  Secondary Variant (Active: Slide 4)
+                </Text>
+                <CarouselDots
+                  total={5}
+                  currentIndex={3}
+                  onDotClick={() => {}}
+                  variant="secondary"
+                />
+              </Card>
+            </div>
+          </div>
+
+          {/* Combined Example */}
+          <div>
+            <Text size="lg" weight="semibold" className="mb-4">
+              4. Combined Example
+            </Text>
+            <Text size="sm" color="secondary" className="mb-6">
+              All three molecules working together (static preview)
+            </Text>
+
+            <Card className="relative overflow-hidden">
+              {/* Slides container */}
+              <div className="flex transition-transform duration-300">
+                <CarouselSlide
+                  item={{
+                    image: '🎨',
+                    title: 'Design',
+                    description: 'Beautiful UI components',
+                  }}
+                  index={0}
+                  renderItem={item => (
+                    <div className="h-64 flex flex-col items-center justify-center gap-4 bg-gradient-to-br from-blue-50 to-blue-100">
+                      <Text size="4xl">{item.image}</Text>
+                      <Text size="xl" weight="bold">
+                        {item.title}
+                      </Text>
+                      <Text size="sm" color="secondary">
+                        {item.description}
+                      </Text>
+                    </div>
+                  )}
+                  width={800}
+                />
+              </div>
+
+              {/* Arrows */}
+              <CarouselArrows
+                showPrev={true}
+                showNext={true}
+                onPrev={() => {}}
+                onNext={() => {}}
+              />
+
+              {/* Dots */}
+              <div className="absolute bottom-4 left-0 right-0">
+                <CarouselDots
+                  total={3}
+                  currentIndex={0}
+                  onDotClick={() => {}}
+                  variant="primary"
+                />
+              </div>
+            </Card>
+          </div>
+
+          <div className="mt-6 p-4 bg-blue-50 rounded-lg">
+            <Text size="sm" weight="semibold" className="mb-2">
+              ℹ️ Next Steps:
+            </Text>
+            <Text size="sm" color="secondary">
+              These molecules are ready to be composed into a full Carousel
+              organism. Future PRs will add the Carousel component with hooks
+              for auto-play, infinite scroll, and responsive behavior.
+            </Text>
           </div>
         </section>
 
