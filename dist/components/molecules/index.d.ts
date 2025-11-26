@@ -12,4 +12,6 @@ export { ProductCard, type ProductCardProps } from './ProductCard/ProductCard';
 export { CarouselArrows, type CarouselArrowsProps, } from './CarouselArrows/CarouselArrows';
 export { CarouselSlide, type CarouselSlideProps, } from './CarouselSlide/CarouselSlide';
 export { CarouselDots, type CarouselDotsProps, } from './CarouselDots/CarouselDots';
+export { List, type ListProps } from './List/List';
+export { Wrapper, type WrapperProps } from './Wrapper/Wrapper';
 //# sourceMappingURL=index.d.ts.map

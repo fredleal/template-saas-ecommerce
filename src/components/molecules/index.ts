@@ -24,3 +24,5 @@ export {
   CarouselDots,
   type CarouselDotsProps,
 } from './CarouselDots/CarouselDots'
+export { List, type ListProps } from './List/List'
+export { Wrapper, type WrapperProps } from './Wrapper/Wrapper'
