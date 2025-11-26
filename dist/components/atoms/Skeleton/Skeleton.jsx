@@ -23,7 +23,9 @@ export const Skeleton = ({ width = '100%', height = '1rem', variant = 'md', spee
     ${variantClasses[variant]}
     ${speedClasses[speed]}
     ${className}
-  `.trim().replace(/\s+/g, ' ');
+  `
+        .trim()
+        .replace(/\s+/g, ' ');
     return (<div className={skeletonClasses} style={{ width: widthValue, height: heightValue }} data-testid={dataTestId} aria-busy="true" aria-live="polite" role="status"/>);
 };
 //# sourceMappingURL=Skeleton.jsx.map

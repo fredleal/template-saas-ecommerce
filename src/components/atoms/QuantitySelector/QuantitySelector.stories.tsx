@@ -3,7 +3,7 @@ import React, { useState } from 'react'
 import { QuantitySelector } from './QuantitySelector'
 
 const meta = {
-  title: 'Design System/Atoms/E-commerce/QuantitySelector',
+  title: 'Design System/Atoms/QuantitySelector',
   component: QuantitySelector,
   parameters: {
     layout: 'centered',

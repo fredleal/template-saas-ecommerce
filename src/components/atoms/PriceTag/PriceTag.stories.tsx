@@ -3,7 +3,7 @@ import React from 'react'
 import { PriceTag } from './PriceTag'
 
 const meta = {
-  title: 'Design System/Atoms/E-commerce/PriceTag',
+  title: 'Design System/Atoms/PriceTag',
   component: PriceTag,
   parameters: {
     layout: 'centered',

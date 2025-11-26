@@ -3,7 +3,7 @@ import React from 'react'
 import { DiscountLabel } from './DiscountLabel'
 
 const meta = {
-  title: 'Design System/Atoms/E-commerce/DiscountLabel',
+  title: 'Design System/Atoms/DiscountLabel',
   component: DiscountLabel,
   parameters: {
     layout: 'centered',

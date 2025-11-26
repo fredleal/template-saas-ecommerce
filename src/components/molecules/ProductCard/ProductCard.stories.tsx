@@ -4,7 +4,7 @@ import { fn } from '@storybook/test'
 import { ProductCard } from './ProductCard'
 
 const meta = {
-  title: 'Molecules/ProductCard',
+  title: 'Design System/Molecules/ProductCard',
   component: ProductCard,
   parameters: {
     layout: 'centered',
