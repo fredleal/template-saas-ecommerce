@@ -19,6 +19,7 @@ import {
 } from '@/components/atoms'
 import {
   Alert,
+  Dropdown,
   Card,
   ProductCard,
   Rating,
@@ -699,8 +700,8 @@ export default function Home() {
               Alert Component
             </Text>
             <Text size="sm" color="secondary" className="mb-8">
-              Display important messages, notifications, and feedback to users with
-              semantic variants and dismissible option.
+              Display important messages, notifications, and feedback to users
+              with semantic variants and dismissible option.
             </Text>
 
             {/* Variant Examples */}
@@ -789,8 +790,8 @@ export default function Home() {
                   ✖️ Dismissible
                 </Text>
                 <Text size="xs" color="secondary">
-                  Optional close button with callback support for user-dismissible
-                  alerts.
+                  Optional close button with callback support for
+                  user-dismissible alerts.
                 </Text>
               </Card>
               <Card className="p-4">
@@ -810,6 +811,46 @@ export default function Home() {
                   Optional title, custom icons, and support for long messages.
                 </Text>
               </Card>
+            </div>
+          </div>
+
+          {/* Dropdown Molecule Showcase */}
+          <div className="max-w-7xl mx-auto px-6 mb-12">
+            <Badge variant="info" size="sm" className="mb-4">
+              PR #93 - Dropdown Molecule
+            </Badge>
+            <Text size="2xl" weight="semibold" className="mb-2">
+              Dropdown Component
+            </Text>
+            <Text size="sm" color="secondary" className="mb-8">
+              Collapsible content sections using native HTML details element for
+              accessibility.
+            </Text>
+
+            <div className="space-y-4 max-w-2xl">
+              <Dropdown label="What is included?">
+                <Text size="sm">
+                  This component uses the native details/summary elements for
+                  built-in accessibility. It supports controlled and
+                  uncontrolled modes, keyboard navigation, and smooth
+                  animations.
+                </Text>
+              </Dropdown>
+
+              <Dropdown label="How do I use it?" defaultOpen>
+                <div className="space-y-2">
+                  <Text size="sm" weight="semibold">
+                    Basic usage:
+                  </Text>
+                  <Text size="xs" className="font-mono bg-gray-50 p-2 rounded">
+                    {'<Dropdown label="Title">Content</Dropdown>'}
+                  </Text>
+                </div>
+              </Dropdown>
+
+              <Dropdown label="Disabled example" disabled>
+                <Text size="sm">This content cannot be accessed.</Text>
+              </Dropdown>
             </div>
           </div>
 
@@ -883,7 +924,7 @@ export default function Home() {
                     rating: 4.9,
                   },
                 ]}
-                renderItem={(product) => (
+                renderItem={product => (
                   <Card className="p-4 h-full">
                     <Image
                       src={product.image}
@@ -908,7 +949,7 @@ export default function Home() {
                     </div>
                   </Card>
                 )}
-                getItemKey={(product) => `product-${product.id}`}
+                getItemKey={product => `product-${product.id}`}
                 slidesToShowMobile={1}
                 slidesToShowTablet={2}
                 slidesToShowDesktop={3}
@@ -957,7 +998,7 @@ export default function Home() {
                     role: 'Tech Lead',
                   },
                 ]}
-                renderItem={(testimonial) => (
+                renderItem={testimonial => (
                   <Card className="p-6 h-full flex flex-col justify-between">
                     <Text size="sm" className="mb-4 italic">
                       &quot;{testimonial.quote}&quot;
@@ -972,7 +1013,7 @@ export default function Home() {
                     </div>
                   </Card>
                 )}
-                getItemKey={(testimonial) => `testimonial-${testimonial.id}`}
+                getItemKey={testimonial => `testimonial-${testimonial.id}`}
                 slidesToShowMobile={1}
                 slidesToShowTablet={1}
                 slidesToShowDesktop={2}
