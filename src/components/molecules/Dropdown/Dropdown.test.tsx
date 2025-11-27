@@ -127,12 +127,18 @@ describe('Dropdown', () => {
         </Dropdown>
       )
 
+      const summary = container.querySelector('summary')
       const details = container.querySelector('details')
-      if (details) {
-        details.open = true
-        fireEvent(details, new Event('toggle', { bubbles: true }))
+
+      // Initially closed
+      expect(details?.open).toBe(false)
+
+      // Try to click summary
+      if (summary) {
+        fireEvent.click(summary)
       }
 
+      // Should still be closed
       expect(details?.open).toBe(false)
     })
 
@@ -144,10 +150,11 @@ describe('Dropdown', () => {
         </Dropdown>
       )
 
-      const details = container.querySelector('details')
-      if (details) {
-        details.open = true
-        fireEvent(details, new Event('toggle', { bubbles: true }))
+      const summary = container.querySelector('summary')
+
+      // Try to click summary
+      if (summary) {
+        fireEvent.click(summary)
       }
 
       expect(onToggle).not.toHaveBeenCalled()

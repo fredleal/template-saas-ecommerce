@@ -45,6 +45,10 @@ export function Dropdown({
   const handleToggle = (event: React.SyntheticEvent<HTMLDetailsElement>) => {
     if (disabled) {
       event.preventDefault()
+      // Manually revert the state change
+      if (detailsRef.current) {
+        detailsRef.current.open = isOpen
+      }
       return
     }
 
@@ -69,6 +73,11 @@ export function Dropdown({
       `}
     >
       <summary
+        onClick={e => {
+          if (disabled) {
+            e.preventDefault()
+          }
+        }}
         className={`
           flex items-center justify-between px-4 py-3
           ${disabled ? 'cursor-not-allowed' : 'cursor-pointer hover:bg-gray-50'}
