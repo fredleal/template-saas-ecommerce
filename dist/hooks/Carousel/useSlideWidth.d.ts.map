@@ -1,0 +1,1 @@
+{"version":3,"file":"useSlideWidth.d.ts","sourceRoot":"","sources":["../../../src/hooks/Carousel/useSlideWidth.ts"],"names":[],"mappings":"AACA,OAAO,EAAuB,SAAS,EAAE,MAAM,OAAO,CAAA;AAEtD,MAAM,WAAW,kBAAkB;IACjC,YAAY,EAAE,SAAS,CAAC,WAAW,CAAC,CAAA;IACpC,YAAY,EAAE,MAAM,CAAA;IACpB,GAAG,EAAE,MAAM,CAAA;CACZ;AAED,eAAO,MAAM,aAAa,GAAI,sCAI3B,kBAAkB,KAAG,MA8BvB,CAAA"}

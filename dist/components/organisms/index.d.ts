@@ -3,4 +3,5 @@ export { Footer, type FooterProps, type FooterSection, type FooterLink, type Soc
 export { BlogHeader, type BlogHeaderProps } from './BlogHeader/BlogHeader';
 export { HeroSection, type HeroSectionProps } from './HeroSection/HeroSection';
 export { FAQSection, type FAQSectionProps, type FAQItem, } from './FAQSection/FAQSection';
+export { Carousel, type CarouselProps } from './Carousel/Carousel';
 //# sourceMappingURL=index.d.ts.map
