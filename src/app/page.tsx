@@ -18,6 +18,7 @@ import {
   Link,
 } from '@/components/atoms'
 import {
+  Alert,
   Card,
   ProductCard,
   Rating,
@@ -686,6 +687,129 @@ export default function Home() {
               ]}
               allowMultipleOpen={true}
             />
+          </div>
+
+          {/* Alert Molecule Showcase */}
+          <div className="max-w-7xl mx-auto px-6 mb-12">
+            <Badge variant="info" size="sm" className="mb-4">
+              PR #92 - Alert Molecule
+            </Badge>
+            <Text size="2xl" weight="semibold" className="mb-2">
+              Alert Component
+            </Text>
+            <Text size="sm" color="secondary" className="mb-8">
+              Display important messages, notifications, and feedback to users with
+              semantic variants and dismissible option.
+            </Text>
+
+            {/* Variant Examples */}
+            <div className="space-y-4 mb-8">
+              <Text size="lg" weight="semibold" className="mb-4">
+                Variant Examples
+              </Text>
+
+              <Alert
+                variant="info"
+                title="Information"
+                message="This is an informational message to keep you updated."
+              />
+
+              <Alert
+                variant="success"
+                title="Success!"
+                message="Your changes have been saved successfully."
+              />
+
+              <Alert
+                variant="warning"
+                title="Warning"
+                message="Please review your settings before continuing."
+              />
+
+              <Alert
+                variant="error"
+                title="Error"
+                message="There was a problem processing your request. Please try again."
+              />
+            </div>
+
+            {/* Dismissible Examples */}
+            <div className="space-y-4 mb-8">
+              <Text size="lg" weight="semibold" className="mb-4">
+                Dismissible Alerts
+              </Text>
+
+              <Alert
+                variant="info"
+                message="Click the X button to dismiss this alert."
+                dismissible
+              />
+
+              <Alert
+                variant="success"
+                title="Saved"
+                message="Your preferences have been updated. You can dismiss this message."
+                dismissible
+                onDismiss={() => console.log('Alert dismissed')}
+              />
+            </div>
+
+            {/* Simple Messages */}
+            <div className="space-y-4 mb-8">
+              <Text size="lg" weight="semibold" className="mb-4">
+                Simple Messages (No Title)
+              </Text>
+
+              <Alert
+                variant="info"
+                message="New features are available in this release."
+              />
+
+              <Alert
+                variant="warning"
+                message="Your session will expire in 5 minutes."
+                dismissible
+              />
+            </div>
+
+            {/* Feature Highlights */}
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-8">
+              <Card className="p-4">
+                <Text size="sm" weight="semibold" className="mb-2">
+                  🎨 4 Semantic Variants
+                </Text>
+                <Text size="xs" color="secondary">
+                  Info, Success, Warning, and Error variants with appropriate
+                  colors and icons.
+                </Text>
+              </Card>
+              <Card className="p-4">
+                <Text size="sm" weight="semibold" className="mb-2">
+                  ✖️ Dismissible
+                </Text>
+                <Text size="xs" color="secondary">
+                  Optional close button with callback support for user-dismissible
+                  alerts.
+                </Text>
+              </Card>
+              <Card className="p-4">
+                <Text size="sm" weight="semibold" className="mb-2">
+                  ♿ Accessible
+                </Text>
+                <Text size="xs" color="secondary">
+                  ARIA attributes (role, aria-live, aria-atomic) for screen
+                  reader support.
+                </Text>
+              </Card>
+              <Card className="p-4">
+                <Text size="sm" weight="semibold" className="mb-2">
+                  🎯 Flexible Content
+                </Text>
+                <Text size="xs" color="secondary">
+                  Optional title, custom icons, and support for long messages.
+                </Text>
+              </Card>
+            </div>
           </div>
         </section>
 

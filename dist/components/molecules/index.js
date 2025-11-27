@@ -1,3 +1,4 @@
+export { Alert } from './Alert/Alert';
 export { Card, ProductCard as ProductCardOld } from './Card/Card';
 export { Rating } from './Rating/Rating';
 export { PostCard } from './PostCard/PostCard';
