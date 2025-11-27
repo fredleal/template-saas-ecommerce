@@ -28,3 +28,4 @@ export {
 } from './CarouselDots/CarouselDots'
 export { List, type ListProps } from './List/List'
 export { Wrapper, type WrapperProps } from './Wrapper/Wrapper'
+export { FormatPrice, type FormatPriceProps } from './FormatPrice/FormatPrice'

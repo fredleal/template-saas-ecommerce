@@ -1,6 +1,6 @@
 'use client';
 import React, { useRef, useState } from 'react';
-import { useDevice, useResponsiveValue, useCarouselNavigation, useVisibilityWithTabCheck, useSlideWidth, useAutoSlide, } from '@/hooks';
+import { useResponsiveValue, useCarouselNavigation, useVisibilityWithTabCheck, useSlideWidth, useAutoSlide, } from '@/hooks';
 import { Wrapper, CarouselSlide, CarouselArrows, CarouselDots } from '@/components/molecules';
 export function Carousel({ items, renderItem, getItemKey, variant = 'primary', slidesToShowMobile = 1, slidesToShowTablet = 2, slidesToShowDesktop = 3, gap = 16, infinite = false, autoplay = false, pauseOnHover = true, showArrows = true, showDots = true, currentIndex: controlledIndex, onSlideChange, className = '', }) {
     const containerRef = useRef(null);
@@ -10,8 +10,6 @@ export function Carousel({ items, renderItem, getItemKey, variant = 'primary', s
     if (!items || items.length === 0)
         return null;
     const isSingleSlide = items.length === 1;
-    // Device detection
-    const { deviceType } = useDevice();
     // Responsive slides to show
     const slidesToShow = useResponsiveValue({
         mobile: slidesToShowMobile,

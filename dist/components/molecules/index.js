@@ -1,4 +1,5 @@
 export { Alert } from './Alert/Alert';
+export { Dropdown } from './Dropdown/Dropdown';
 export { Card, ProductCard as ProductCardOld } from './Card/Card';
 export { Rating } from './Rating/Rating';
 export { PostCard } from './PostCard/PostCard';
@@ -15,4 +16,5 @@ export { CarouselSlide, } from './CarouselSlide/CarouselSlide';
 export { CarouselDots, } from './CarouselDots/CarouselDots';
 export { List } from './List/List';
 export { Wrapper } from './Wrapper/Wrapper';
+export { FormatPrice } from './FormatPrice/FormatPrice';
 //# sourceMappingURL=index.js.map
