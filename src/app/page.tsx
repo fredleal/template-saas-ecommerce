@@ -41,6 +41,7 @@ import {
   BlogHeader,
   HeroSection,
   FAQSection,
+  Carousel,
 } from '@/components/organisms'
 import {
   useDevice,
@@ -686,6 +687,236 @@ export default function Home() {
               ]}
               allowMultipleOpen={true}
             />
+          </div>
+
+          {/* Carousel Organism Showcase */}
+          <div className="max-w-7xl mx-auto px-6 mb-12">
+            <Badge variant="info" size="sm" className="mb-4">
+              PR #91 - Carousel Organism
+            </Badge>
+            <Text size="2xl" weight="semibold" className="mb-2">
+              Carousel Component System
+            </Text>
+            <Text size="sm" color="secondary" className="mb-8">
+              Full-featured carousel with responsive design, autoplay, touch
+              gestures, and infinite loop. Built with 6 custom hooks for maximum
+              flexibility.
+            </Text>
+
+            {/* Product Carousel Example */}
+            <div className="mb-8">
+              <Text size="lg" weight="semibold" className="mb-4">
+                Product Showcase
+              </Text>
+              <Carousel
+                items={[
+                  {
+                    id: 1,
+                    name: 'Premium Headphones',
+                    price: 299.99,
+                    image:
+                      'https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=400&h=400&fit=crop',
+                    rating: 4.8,
+                  },
+                  {
+                    id: 2,
+                    name: 'Wireless Keyboard',
+                    price: 149.99,
+                    image:
+                      'https://images.unsplash.com/photo-1587829741301-dc798b83add3?w=400&h=400&fit=crop',
+                    rating: 4.6,
+                  },
+                  {
+                    id: 3,
+                    name: 'Smart Watch',
+                    price: 399.99,
+                    image:
+                      'https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=400&h=400&fit=crop',
+                    rating: 4.9,
+                  },
+                  {
+                    id: 4,
+                    name: 'Laptop Stand',
+                    price: 79.99,
+                    image:
+                      'https://images.unsplash.com/photo-1527864550417-7fd91fc51a46?w=400&h=400&fit=crop',
+                    rating: 4.7,
+                  },
+                  {
+                    id: 5,
+                    name: 'USB-C Hub',
+                    price: 59.99,
+                    image:
+                      'https://images.unsplash.com/photo-1625948515291-69613efd103f?w=400&h=400&fit=crop',
+                    rating: 4.5,
+                  },
+                  {
+                    id: 6,
+                    name: 'Camera Lens',
+                    price: 799.99,
+                    image:
+                      'https://images.unsplash.com/photo-1606604748118-735e358c9f3f?w=400&h=400&fit=crop',
+                    rating: 4.9,
+                  },
+                ]}
+                renderItem={(product) => (
+                  <Card className="p-4 h-full">
+                    <Image
+                      src={product.image}
+                      alt={product.name}
+                      className="w-full h-48 object-cover rounded-lg mb-3"
+                      width={400}
+                      height={400}
+                    />
+                    <Text size="sm" weight="semibold" className="mb-1">
+                      {product.name}
+                    </Text>
+                    <div className="flex items-center justify-between">
+                      <Text size="lg" weight="bold" className="text-green-600">
+                        ${product.price}
+                      </Text>
+                      <div className="flex items-center gap-1">
+                        <Icon name="StarIcon" size="sm" decorative />
+                        <Text size="xs" color="secondary">
+                          {product.rating}
+                        </Text>
+                      </div>
+                    </div>
+                  </Card>
+                )}
+                getItemKey={(product) => `product-${product.id}`}
+                slidesToShowMobile={1}
+                slidesToShowTablet={2}
+                slidesToShowDesktop={3}
+                gap={16}
+                autoplay={true}
+                pauseOnHover={true}
+                showArrows={true}
+                showDots={true}
+                className="mb-8"
+              />
+            </div>
+
+            {/* Testimonial Carousel Example */}
+            <div className="mb-8">
+              <Text size="lg" weight="semibold" className="mb-4">
+                Customer Testimonials
+              </Text>
+              <Carousel
+                items={[
+                  {
+                    id: 1,
+                    quote:
+                      'This carousel component is exactly what we needed. Easy to use and fully customizable!',
+                    author: 'John Doe',
+                    role: 'Frontend Developer',
+                  },
+                  {
+                    id: 2,
+                    quote:
+                      'The touch gesture support works flawlessly on mobile. Great attention to detail.',
+                    author: 'Jane Smith',
+                    role: 'UX Designer',
+                  },
+                  {
+                    id: 3,
+                    quote:
+                      'Love the autoplay feature with pause on hover. Very professional implementation.',
+                    author: 'Mike Johnson',
+                    role: 'Product Manager',
+                  },
+                  {
+                    id: 4,
+                    quote:
+                      'Generic type support makes it so flexible. Works with any data structure!',
+                    author: 'Sarah Williams',
+                    role: 'Tech Lead',
+                  },
+                ]}
+                renderItem={(testimonial) => (
+                  <Card className="p-6 h-full flex flex-col justify-between">
+                    <Text size="sm" className="mb-4 italic">
+                      &quot;{testimonial.quote}&quot;
+                    </Text>
+                    <div>
+                      <Text size="sm" weight="semibold">
+                        {testimonial.author}
+                      </Text>
+                      <Text size="xs" color="secondary">
+                        {testimonial.role}
+                      </Text>
+                    </div>
+                  </Card>
+                )}
+                getItemKey={(testimonial) => `testimonial-${testimonial.id}`}
+                slidesToShowMobile={1}
+                slidesToShowTablet={1}
+                slidesToShowDesktop={2}
+                gap={24}
+                infinite={true}
+                showArrows={true}
+                showDots={true}
+                variant="secondary"
+              />
+            </div>
+
+            {/* Feature Highlights */}
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-8">
+              <Card className="p-4">
+                <Text size="sm" weight="semibold" className="mb-2">
+                  🎯 Generic Type Support
+                </Text>
+                <Text size="xs" color="secondary">
+                  Works with any data structure using TypeScript generics. Full
+                  type safety guaranteed.
+                </Text>
+              </Card>
+              <Card className="p-4">
+                <Text size="sm" weight="semibold" className="mb-2">
+                  📱 Touch Gestures
+                </Text>
+                <Text size="xs" color="secondary">
+                  Swipe left/right on mobile devices. 50px threshold for smooth
+                  interaction.
+                </Text>
+              </Card>
+              <Card className="p-4">
+                <Text size="sm" weight="semibold" className="mb-2">
+                  ⚡ Auto-Play
+                </Text>
+                <Text size="xs" color="secondary">
+                  Automatic slide transitions with pause on hover and visibility
+                  detection.
+                </Text>
+              </Card>
+              <Card className="p-4">
+                <Text size="sm" weight="semibold" className="mb-2">
+                  🔁 Infinite Loop
+                </Text>
+                <Text size="xs" color="secondary">
+                  Seamless infinite scrolling. Wraps from last to first slide
+                  smoothly.
+                </Text>
+              </Card>
+              <Card className="p-4">
+                <Text size="sm" weight="semibold" className="mb-2">
+                  📐 Responsive
+                </Text>
+                <Text size="xs" color="secondary">
+                  Different slides per view for mobile/tablet/desktop. Fully
+                  adaptive.
+                </Text>
+              </Card>
+              <Card className="p-4">
+                <Text size="sm" weight="semibold" className="mb-2">
+                  🎨 Controlled/Uncontrolled
+                </Text>
+                <Text size="xs" color="secondary">
+                  Supports both controlled state via props or internal state
+                  management.
+                </Text>
+              </Card>
+            </div>
           </div>
         </section>
 
