@@ -1,5 +1,5 @@
 'use client'
-import { useState } from 'react'
+import { useState, useRef } from 'react'
 import {
   Button,
   Text,
@@ -42,6 +42,14 @@ import {
   HeroSection,
   FAQSection,
 } from '@/components/organisms'
+import {
+  useDevice,
+  useResponsiveValue,
+  useSlideWidth,
+  useCarouselNavigation,
+  useAutoSlide,
+  useVisibilityWithTabCheck,
+} from '@/hooks'
 
 // Interactive Demo Components
 function QuantitySelectorDemo() {
@@ -160,6 +168,192 @@ function QuantitySelectorProductDemo() {
         </div>
       </div>
     </div>
+  )
+}
+
+// Custom Hooks Demo Components
+function DeviceDetectionDemo() {
+  const { deviceType, isPhone, isMobile, isTablet, isDesktop } = useDevice()
+  const slidesToShow = useResponsiveValue({ mobile: 1, tablet: 2, desktop: 3 })
+  const message = useResponsiveValue({
+    mobile: 'Mobile View',
+    tablet: 'Tablet View',
+    desktop: 'Desktop View',
+  })
+
+  return (
+    <Card className="p-6">
+      <Text size="sm" weight="semibold" className="mb-4">
+        useDevice + useResponsiveValue Demo
+      </Text>
+      <div className="space-y-3">
+        <div className="flex gap-2">
+          <Badge variant={isPhone ? 'info' : 'default'}>📱 Phone</Badge>
+          <Badge variant={isTablet ? 'info' : 'default'}>💻 Tablet</Badge>
+          <Badge variant={isDesktop ? 'info' : 'default'}>🖥️ Desktop</Badge>
+        </div>
+        <div className="p-3 bg-blue-50 rounded">
+          <Text size="sm">
+            Device Type: <strong>{deviceType}</strong>
+          </Text>
+          <Text size="sm">
+            Is Mobile: <strong>{isMobile ? 'Yes' : 'No'}</strong>
+          </Text>
+          <Text size="sm">
+            Slides to Show: <strong>{slidesToShow}</strong>
+          </Text>
+          <Text size="sm">
+            Message: <strong>{message}</strong>
+          </Text>
+        </div>
+        <Text size="xs" color="secondary">
+          ↕️ Resize your browser window to see values change!
+        </Text>
+      </div>
+    </Card>
+  )
+}
+
+function MiniCarouselDemo() {
+  const containerRef = useRef<HTMLDivElement>(null)
+  const [isHovered, setIsHovered] = useState(false)
+
+  // useSlideWidth demo
+  const slidesToShow = useResponsiveValue({ mobile: 1, tablet: 2, desktop: 3 })
+  const slideWidth = useSlideWidth({
+    containerRef: containerRef as React.RefObject<HTMLElement>,
+    slidesToShow,
+    gap: 16,
+  })
+
+  // useCarouselNavigation demo
+  const { currentIndex, handleNext, handlePrev, maxIndex } =
+    useCarouselNavigation({
+      totalSlides: 6,
+      slidesToShow,
+      infiniteLoop: true,
+    })
+
+  // useVisibilityWithTabCheck demo
+  const {
+    ref: visibilityRef,
+    isVisible,
+    isTabVisible,
+    isElementVisible,
+  } = useVisibilityWithTabCheck()
+
+  // useAutoSlide demo
+  useAutoSlide({
+    isTabVisible,
+    isBannerVisible: isElementVisible,
+    isHovered,
+    goToNextSlide: handleNext,
+    enabled: true,
+    interval: 3000,
+  })
+
+  const slides = [
+    { id: 1, color: 'bg-blue-100', label: 'Slide 1' },
+    { id: 2, color: 'bg-green-100', label: 'Slide 2' },
+    { id: 3, color: 'bg-yellow-100', label: 'Slide 3' },
+    { id: 4, color: 'bg-red-100', label: 'Slide 4' },
+    { id: 5, color: 'bg-purple-100', label: 'Slide 5' },
+    { id: 6, color: 'bg-pink-100', label: 'Slide 6' },
+  ]
+
+  return (
+    <Card className="p-6">
+      <Text size="sm" weight="semibold" className="mb-4">
+        Mini Carousel (All Hooks in Action)
+      </Text>
+
+      {/* Carousel */}
+      <div
+        ref={visibilityRef}
+        className="mb-4"
+        onMouseEnter={() => setIsHovered(true)}
+        onMouseLeave={() => setIsHovered(false)}
+      >
+        <div
+          ref={containerRef}
+          className="overflow-hidden rounded-lg"
+          style={{ marginBottom: '1rem' }}
+        >
+          <div
+            className="flex gap-4 transition-transform duration-300 ease-in-out"
+            style={{
+              transform: `translateX(-${currentIndex * (slideWidth + 16)}px)`,
+            }}
+          >
+            {slides.map(slide => (
+              <div
+                key={slide.id}
+                className={`${slide.color} rounded-lg flex items-center justify-center flex-shrink-0`}
+                style={{ width: slideWidth || '100%', height: '150px' }}
+              >
+                <Text size="lg" weight="bold">
+                  {slide.label}
+                </Text>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Controls */}
+        <div className="flex items-center justify-between">
+          <Button size="sm" variant="outline" onClick={handlePrev}>
+            ← Prev
+          </Button>
+          <div className="flex gap-2">
+            {Array.from({ length: 6 }).map((_, idx) => (
+              <div
+                key={idx}
+                className={`w-2 h-2 rounded-full ${
+                  idx === currentIndex ? 'bg-blue-600' : 'bg-gray-300'
+                }`}
+              />
+            ))}
+          </div>
+          <Button size="sm" variant="outline" onClick={handleNext}>
+            Next →
+          </Button>
+        </div>
+      </div>
+
+      {/* Hook Status */}
+      <div className="space-y-2 p-3 bg-gray-50 rounded text-xs">
+        <div className="grid grid-cols-2 gap-2">
+          <Text size="xs">
+            Slide Width: <strong>{Math.round(slideWidth)}px</strong>
+          </Text>
+          <Text size="xs">
+            Current Index: <strong>{currentIndex}</strong>
+          </Text>
+          <Text size="xs">
+            Max Index: <strong>{maxIndex}</strong>
+          </Text>
+          <Text size="xs">
+            Slides Visible: <strong>{slidesToShow}</strong>
+          </Text>
+          <Text size="xs">
+            Tab Visible: <strong>{isTabVisible ? '✅' : '❌'}</strong>
+          </Text>
+          <Text size="xs">
+            Element Visible: <strong>{isElementVisible ? '✅' : '❌'}</strong>
+          </Text>
+          <Text size="xs">
+            Is Hovered: <strong>{isHovered ? '✅' : '❌'}</strong>
+          </Text>
+          <Text size="xs">
+            Auto-Slide: <strong>{!isHovered && isVisible ? '▶️' : '⏸️'}</strong>
+          </Text>
+        </div>
+        <Text size="xs" color="secondary" className="mt-2">
+          🎯 Hover to pause • Switch tabs to test visibility • Resize to test
+          responsive
+        </Text>
+      </div>
+    </Card>
   )
 }
 
@@ -2929,7 +3123,12 @@ export default function Home() {
                 </Text>
                 <List
                   as="ol"
-                  items={['Install dependencies', 'Run dev server', 'Build project', 'Deploy']}
+                  items={[
+                    'Install dependencies',
+                    'Run dev server',
+                    'Build project',
+                    'Deploy',
+                  ]}
                 />
               </Card>
 
@@ -2955,7 +3154,7 @@ export default function Home() {
                     { name: 'Bob', role: 'Designer' },
                     { name: 'Charlie', role: 'Manager' },
                   ]}
-                  renderItem={(item) => (
+                  renderItem={item => (
                     <div className="flex gap-2">
                       <Badge variant="success" size="sm">
                         {item.name}
@@ -2965,7 +3164,7 @@ export default function Home() {
                       </Text>
                     </div>
                   )}
-                  getKey={(item) => item.name}
+                  getKey={item => item.name}
                 />
               </Card>
             </div>
@@ -3013,7 +3212,7 @@ export default function Home() {
                 </Text>
                 <Wrapper overflowHidden={true} className="bg-purple-50 p-4">
                   <div className="flex gap-4">
-                    {[1, 2, 3, 4, 5].map((n) => (
+                    {[1, 2, 3, 4, 5].map(n => (
                       <div
                         key={n}
                         className="min-w-[200px] h-20 bg-white rounded flex items-center justify-center"
@@ -3037,7 +3236,7 @@ export default function Home() {
                   className="bg-orange-50 p-4"
                 >
                   <div className="flex gap-4">
-                    {[1, 2, 3, 4, 5].map((n) => (
+                    {[1, 2, 3, 4, 5].map(n => (
                       <div
                         key={n}
                         className="min-w-[200px] h-20 bg-white rounded flex items-center justify-center"
@@ -3073,7 +3272,7 @@ export default function Home() {
                     { tech: 'Tailwind CSS', category: 'Styling' },
                     { tech: 'Vitest', category: 'Testing' },
                   ]}
-                  renderItem={(item) => (
+                  renderItem={item => (
                     <div className="p-3 border border-gray-200 rounded flex justify-between items-center">
                       <Text weight="semibold">{item.tech}</Text>
                       <Badge variant="default" size="sm">
@@ -3081,7 +3280,7 @@ export default function Home() {
                       </Badge>
                     </div>
                   )}
-                  getKey={(item) => item.tech}
+                  getKey={item => item.tech}
                   direction="column"
                 />
               </Wrapper>
@@ -3097,6 +3296,160 @@ export default function Home() {
               Carousel organism. Next PR will add custom hooks and the final
               Carousel component.
             </Text>
+          </div>
+        </section>
+
+        {/* Custom Hooks Showcase */}
+        <section id="custom-hooks" className="mb-16">
+          <div className="flex items-center gap-3 mb-6">
+            <div className="bg-purple-100 p-2 rounded">
+              <span className="text-2xl">🪝</span>
+            </div>
+            <div>
+              <Heading level={2} className="mb-1">
+                Custom Hooks (PR #90)
+              </Heading>
+              <Text size="sm" color="secondary">
+                6 React hooks for device detection, responsive values, and
+                carousel functionality
+              </Text>
+            </div>
+          </div>
+
+          {/* Device Detection Demo */}
+          <div className="mb-8">
+            <Text size="lg" weight="semibold" className="mb-4">
+              1. Device Detection Hooks
+            </Text>
+            <Text size="sm" color="secondary" className="mb-6">
+              useDevice detects phone/tablet/desktop • useResponsiveValue
+              returns different values per device
+            </Text>
+            <DeviceDetectionDemo />
+          </div>
+
+          {/* Mini Carousel Demo */}
+          <div className="mb-8">
+            <Text size="lg" weight="semibold" className="mb-4">
+              2. Carousel Hooks (All Working Together)
+            </Text>
+            <Text size="sm" color="secondary" className="mb-6">
+              Live demo showing all 6 hooks in action: useSlideWidth •
+              useCarouselNavigation • useAutoSlide • useVisibilityWithTabCheck
+            </Text>
+            <MiniCarouselDemo />
+          </div>
+
+          {/* Hook Details */}
+          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+            <Card className="p-4">
+              <Badge variant="default" size="sm" className="mb-2">
+                Device
+              </Badge>
+              <Text size="sm" weight="semibold" className="mb-2">
+                useDevice
+              </Text>
+              <Text size="xs" color="secondary">
+                Detects device type (phone/tablet/desktop) with resize listener.
+                SSR compatible.
+              </Text>
+            </Card>
+
+            <Card className="p-4">
+              <Badge variant="default" size="sm" className="mb-2">
+                Responsive
+              </Badge>
+              <Text size="sm" weight="semibold" className="mb-2">
+                useResponsiveValue
+              </Text>
+              <Text size="xs" color="secondary">
+                Returns different values based on device type. Generic type
+                support.
+              </Text>
+            </Card>
+
+            <Card className="p-4">
+              <Badge variant="default" size="sm" className="mb-2">
+                Layout
+              </Badge>
+              <Text size="sm" weight="semibold" className="mb-2">
+                useSlideWidth
+              </Text>
+              <Text size="xs" color="secondary">
+                Calculates slide dimensions using ResizeObserver. Handles gaps
+                and dynamic updates.
+              </Text>
+            </Card>
+
+            <Card className="p-4">
+              <Badge variant="default" size="sm" className="mb-2">
+                Navigation
+              </Badge>
+              <Text size="sm" weight="semibold" className="mb-2">
+                useCarouselNavigation
+              </Text>
+              <Text size="xs" color="secondary">
+                Carousel state management with infinite loop support.
+                Controlled/uncontrolled modes.
+              </Text>
+            </Card>
+
+            <Card className="p-4">
+              <Badge variant="default" size="sm" className="mb-2">
+                Auto-play
+              </Badge>
+              <Text size="sm" weight="semibold" className="mb-2">
+                useAutoSlide
+              </Text>
+              <Text size="xs" color="secondary">
+                Auto-advance functionality with conditional execution based on
+                hover and visibility.
+              </Text>
+            </Card>
+
+            <Card className="p-4">
+              <Badge variant="default" size="sm" className="mb-2">
+                Visibility
+              </Badge>
+              <Text size="sm" weight="semibold" className="mb-2">
+                useVisibilityWithTabCheck
+              </Text>
+              <Text size="xs" color="secondary">
+                IntersectionObserver + Document Visibility API. Pauses carousel
+                when tab is hidden.
+              </Text>
+            </Card>
+          </div>
+
+          <div className="mt-6 p-4 bg-purple-50 rounded-lg">
+            <Text size="sm" weight="semibold" className="mb-2">
+              🎯 Testing the Hooks:
+            </Text>
+            <ul className="space-y-1">
+              <li>
+                <Text size="sm" color="secondary">
+                  • Resize browser to test <strong>useDevice</strong> and{' '}
+                  <strong>useResponsiveValue</strong>
+                </Text>
+              </li>
+              <li>
+                <Text size="sm" color="secondary">
+                  • Hover over carousel to pause <strong>useAutoSlide</strong>
+                </Text>
+              </li>
+              <li>
+                <Text size="sm" color="secondary">
+                  • Switch tabs to test{' '}
+                  <strong>useVisibilityWithTabCheck</strong>
+                </Text>
+              </li>
+              <li>
+                <Text size="sm" color="secondary">
+                  • Use Prev/Next buttons to test{' '}
+                  <strong>useCarouselNavigation</strong>
+                </Text>
+              </li>
+            </ul>
           </div>
         </section>
 
