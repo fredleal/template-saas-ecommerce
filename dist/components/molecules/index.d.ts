@@ -1,4 +1,5 @@
 export { Alert, type AlertProps } from './Alert/Alert';
+export { Dropdown, type DropdownProps } from './Dropdown/Dropdown';
 export { Card, ProductCard as ProductCardOld } from './Card/Card';
 export { Rating } from './Rating/Rating';
 export { PostCard } from './PostCard/PostCard';
@@ -15,4 +16,5 @@ export { CarouselSlide, type CarouselSlideProps, } from './CarouselSlide/Carouse
 export { CarouselDots, type CarouselDotsProps, } from './CarouselDots/CarouselDots';
 export { List, type ListProps } from './List/List';
 export { Wrapper, type WrapperProps } from './Wrapper/Wrapper';
+export { FormatPrice, type FormatPriceProps } from './FormatPrice/FormatPrice';
 //# sourceMappingURL=index.d.ts.map
