@@ -26,13 +26,9 @@ export const InstallmentsPrice = ({ installments, value, currency = 'BRL', local
     const currentSize = sizeClasses[size];
     const interestText = withInterest ? 'com juros' : 'sem juros';
     return (<div className={`inline-flex items-baseline gap-1 text-gray-700 ${className}`} data-testid="installments-price">
-      <span className={currentSize.text}>
-        {installments}x de
-      </span>
+      <span className={currentSize.text}>{installments}x de</span>
       <FormatPrice value={value} currency={currency} locale={locale} currencyClassName={currentSize.currency} integerClassName={currentSize.integer} decimalClassName={currentSize.decimal}/>
-      <span className={currentSize.text}>
-        {interestText}
-      </span>
+      <span className={currentSize.text}>{interestText}</span>
     </div>);
 };
 //# sourceMappingURL=InstallmentsPrice.jsx.map

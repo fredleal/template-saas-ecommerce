@@ -14,3 +14,8 @@ export {
   type FAQItem,
 } from './FAQSection/FAQSection'
 export { Carousel, type CarouselProps } from './Carousel/Carousel'
+export {
+  PriceSummary,
+  type PriceSummaryProps,
+  type InstallmentsConfig,
+} from './PriceSummary/PriceSummary'
