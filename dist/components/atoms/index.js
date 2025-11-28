@@ -11,4 +11,6 @@ export { StockBadge } from './StockBadge/StockBadge';
 export { DiscountLabel } from './DiscountLabel/DiscountLabel';
 export { Skeleton } from './Skeleton/Skeleton';
 export { Link } from './Link/Link';
+export { MainPrice } from './MainPrice/MainPrice';
+export { ListPrice } from './ListPrice/ListPrice';
 //# sourceMappingURL=index.js.map

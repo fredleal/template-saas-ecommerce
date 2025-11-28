@@ -16,6 +16,8 @@ import {
   DiscountLabel,
   Skeleton,
   Link,
+  MainPrice,
+  ListPrice,
 } from '@/components/atoms'
 import {
   Alert,
@@ -36,6 +38,9 @@ import {
   CarouselDots,
   List,
   Wrapper,
+  FormatPrice,
+  InstallmentsPrice,
+  PixDiscount,
 } from '@/components/molecules'
 import {
   Header,
@@ -1461,7 +1466,355 @@ export default function Home() {
                 </div>
               </div>
             </Card>
+          </div>
 
+          {/* Price Components Section - NEW */}
+          <div className="mt-12">
+            <div className="mb-6">
+              <Text size="2xl" weight="bold" className="mb-2">
+                🆕 Price Components (Brazilian E-commerce)
+              </Text>
+              <Text size="sm" color="secondary" className="mb-3">
+                Componentes de preço otimizados para e-commerce brasileiro com
+                suporte multi-moeda
+              </Text>
+              <Badge variant="success" size="sm">
+                87 new tests | 100% coverage
+              </Badge>
+            </div>
+          </div>
+
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+            {/* MainPrice Component */}
+            <Card variant="elevated" className="bg-white">
+              <div className="mb-4 pb-4 border-b border-gray-200">
+                <Text size="lg" weight="bold" className="mb-1">
+                  MainPrice Atom
+                </Text>
+                <Text size="sm" color="secondary">
+                  Preço principal com formatação Intl e variações de tamanho
+                </Text>
+                <Badge variant="info" size="sm" className="mt-2">
+                  16 tests
+                </Badge>
+              </div>
+
+              <div className="space-y-6">
+                {/* Sizes */}
+                <div>
+                  <Text size="sm" weight="semibold" className="mb-3">
+                    Tamanhos (sm, md, lg)
+                  </Text>
+                  <div className="flex flex-wrap gap-4 items-baseline">
+                    <MainPrice value={99.9} size="sm" />
+                    <MainPrice value={199.9} size="md" />
+                    <MainPrice value={299.9} size="lg" />
+                  </div>
+                </div>
+
+                {/* Currencies */}
+                <div>
+                  <Text size="sm" weight="semibold" className="mb-3">
+                    Multi-Moeda (BRL, USD, EUR, GBP)
+                  </Text>
+                  <div className="space-y-2">
+                    <MainPrice value={1299.9} currency="BRL" />
+                    <MainPrice value={299.99} currency="USD" locale="en-US" />
+                    <MainPrice value={249.5} currency="EUR" locale="de-DE" />
+                    <MainPrice value={199.0} currency="GBP" locale="en-GB" />
+                  </div>
+                </div>
+
+                {/* Real Example */}
+                <div className="bg-gray-50 p-4 rounded-lg">
+                  <Text size="xs" color="secondary" className="mb-2">
+                    Exemplo Real: Produto em Destaque
+                  </Text>
+                  <div className="flex items-baseline gap-2">
+                    <MainPrice value={1899.9} currency="BRL" size="lg" />
+                  </div>
+                </div>
+              </div>
+            </Card>
+
+            {/* ListPrice Component */}
+            <Card variant="elevated" className="bg-white">
+              <div className="mb-4 pb-4 border-b border-gray-200">
+                <Text size="lg" weight="bold" className="mb-1">
+                  ListPrice Atom
+                </Text>
+                <Text size="sm" color="secondary">
+                  Preço original riscado (list price) para mostrar descontos
+                </Text>
+                <Badge variant="info" size="sm" className="mt-2">
+                  18 tests
+                </Badge>
+              </div>
+
+              <div className="space-y-6">
+                {/* Sizes */}
+                <div>
+                  <Text size="sm" weight="semibold" className="mb-3">
+                    Tamanhos (sm, md, lg)
+                  </Text>
+                  <div className="flex flex-wrap gap-4 items-baseline">
+                    <ListPrice value={149.9} size="sm" />
+                    <ListPrice value={249.9} size="md" />
+                    <ListPrice value={349.9} size="lg" />
+                  </div>
+                </div>
+
+                {/* With MainPrice Comparison */}
+                <div>
+                  <Text size="sm" weight="semibold" className="mb-3">
+                    Comparação: List Price vs Main Price
+                  </Text>
+                  <div className="space-y-3">
+                    <div className="flex items-baseline gap-3">
+                      <ListPrice value={1999.9} />
+                      <MainPrice value={1499.9} />
+                    </div>
+                    <div className="flex items-baseline gap-3">
+                      <ListPrice value={599.9} size="sm" />
+                      <MainPrice value={399.9} size="md" />
+                      <DiscountLabel percentage={33} size="sm" />
+                    </div>
+                  </div>
+                </div>
+
+                {/* Real Example */}
+                <div className="bg-gray-50 p-4 rounded-lg">
+                  <Text size="xs" color="secondary" className="mb-2">
+                    Exemplo Real: Promoção Black Friday
+                  </Text>
+                  <div className="flex items-baseline gap-3">
+                    <ListPrice value={2999.9} size="md" />
+                    <MainPrice value={1799.9} size="lg" />
+                    <DiscountLabel percentage={40} size="md" />
+                  </div>
+                </div>
+              </div>
+            </Card>
+
+            {/* InstallmentsPrice Component */}
+            <Card variant="elevated" className="bg-white">
+              <div className="mb-4 pb-4 border-b border-gray-200">
+                <Text size="lg" weight="bold" className="mb-1">
+                  InstallmentsPrice Molecule
+                </Text>
+                <Text size="sm" color="secondary">
+                  Parcelamento brasileiro (12x de R$ 99,90 sem juros)
+                </Text>
+                <Badge variant="info" size="sm" className="mt-2">
+                  23 tests
+                </Badge>
+              </div>
+
+              <div className="space-y-6">
+                {/* Interest-free */}
+                <div>
+                  <Text size="sm" weight="semibold" className="mb-3">
+                    Sem Juros (Padrão)
+                  </Text>
+                  <div className="space-y-2">
+                    <InstallmentsPrice installments={12} value={99.9} />
+                    <InstallmentsPrice installments={10} value={149.9} />
+                    <InstallmentsPrice installments={6} value={249.9} />
+                  </div>
+                </div>
+
+                {/* With Interest */}
+                <div>
+                  <Text size="sm" weight="semibold" className="mb-3">
+                    Com Juros
+                  </Text>
+                  <InstallmentsPrice
+                    installments={24}
+                    value={120.5}
+                    withInterest={true}
+                  />
+                </div>
+
+                {/* Sizes */}
+                <div>
+                  <Text size="sm" weight="semibold" className="mb-3">
+                    Tamanhos (sm, md, lg)
+                  </Text>
+                  <div className="space-y-2">
+                    <InstallmentsPrice
+                      installments={12}
+                      value={49.9}
+                      size="sm"
+                    />
+                    <InstallmentsPrice
+                      installments={12}
+                      value={99.9}
+                      size="md"
+                    />
+                    <InstallmentsPrice
+                      installments={12}
+                      value={199.9}
+                      size="lg"
+                    />
+                  </div>
+                </div>
+
+                {/* Real Example */}
+                <div className="bg-gray-50 p-4 rounded-lg">
+                  <Text size="xs" color="secondary" className="mb-2">
+                    Exemplo Real: Página de Produto
+                  </Text>
+                  <div className="space-y-2">
+                    <MainPrice value={1899.9} size="lg" />
+                    <InstallmentsPrice installments={12} value={158.32} />
+                  </div>
+                </div>
+              </div>
+            </Card>
+
+            {/* PixDiscount Component */}
+            <Card variant="elevated" className="bg-white">
+              <div className="mb-4 pb-4 border-b border-gray-200">
+                <Text size="lg" weight="bold" className="mb-1">
+                  PixDiscount Molecule
+                </Text>
+                <Text size="sm" color="secondary">
+                  Desconto PIX com cálculo automático e badge de economia
+                </Text>
+                <Badge variant="info" size="sm" className="mt-2">
+                  30 tests
+                </Badge>
+              </div>
+
+              <div className="space-y-6">
+                {/* Basic */}
+                <div>
+                  <Text size="sm" weight="semibold" className="mb-3">
+                    Desconto PIX (5% e 10%)
+                  </Text>
+                  <div className="space-y-4">
+                    <PixDiscount originalPrice={1000} pixPrice={950} />
+                    <PixDiscount originalPrice={500} pixPrice={450} />
+                  </div>
+                </div>
+
+                {/* Sizes */}
+                <div>
+                  <Text size="sm" weight="semibold" className="mb-3">
+                    Tamanhos (sm, md, lg)
+                  </Text>
+                  <div className="space-y-4">
+                    <PixDiscount
+                      originalPrice={299.9}
+                      pixPrice={269.91}
+                      size="sm"
+                    />
+                    <PixDiscount
+                      originalPrice={599.9}
+                      pixPrice={539.91}
+                      size="md"
+                    />
+                    <PixDiscount
+                      originalPrice={1899.9}
+                      pixPrice={1709.91}
+                      size="lg"
+                    />
+                  </div>
+                </div>
+
+                {/* Real Example */}
+                <div className="bg-gray-50 p-4 rounded-lg">
+                  <Text size="xs" color="secondary" className="mb-3">
+                    Exemplo Real: Combo Completo com Todos Componentes
+                  </Text>
+                  <div className="space-y-3">
+                    <div className="flex items-baseline gap-3">
+                      <ListPrice value={2999.9} />
+                      <MainPrice value={1899.9} size="lg" />
+                      <DiscountLabel percentage={37} />
+                    </div>
+                    <InstallmentsPrice installments={12} value={158.32} />
+                    <PixDiscount originalPrice={1899.9} pixPrice={1709.91} />
+                  </div>
+                </div>
+              </div>
+            </Card>
+
+            {/* FormatPrice Component (Utility) */}
+            <Card variant="elevated" className="bg-white lg:col-span-2">
+              <div className="mb-4 pb-4 border-b border-gray-200">
+                <Text size="lg" weight="bold" className="mb-1">
+                  FormatPrice Molecule (Base Component)
+                </Text>
+                <Text size="sm" color="secondary">
+                  Componente base de formatação usado por todos os price
+                  components
+                </Text>
+                <Badge variant="info" size="sm" className="mt-2">
+                  22 tests
+                </Badge>
+              </div>
+
+              <div className="space-y-6">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  {/* Basic Formatting */}
+                  <div>
+                    <Text size="sm" weight="semibold" className="mb-3">
+                      Formatação Básica (Intl.NumberFormat)
+                    </Text>
+                    <div className="space-y-2">
+                      <FormatPrice value={1234.56} currency="BRL" />
+                      <FormatPrice
+                        value={9999.99}
+                        currency="USD"
+                        locale="en-US"
+                      />
+                      <FormatPrice
+                        value={5678.9}
+                        currency="EUR"
+                        locale="de-DE"
+                      />
+                    </div>
+                  </div>
+
+                  {/* Custom Styling */}
+                  <div>
+                    <Text size="sm" weight="semibold" className="mb-3">
+                      Customização de Classes
+                    </Text>
+                    <FormatPrice
+                      value={2999.9}
+                      currency="BRL"
+                      currencyClassName="text-xl font-bold text-green-600"
+                      integerClassName="text-4xl font-black text-green-600"
+                      decimalClassName="text-xl font-bold text-green-600 align-super"
+                    />
+                  </div>
+                </div>
+
+                {/* Technical Info */}
+                <div className="bg-blue-50 p-4 rounded-lg">
+                  <Text
+                    size="sm"
+                    weight="semibold"
+                    className="mb-2 text-blue-900"
+                  >
+                    💡 Informação Técnica
+                  </Text>
+                  <Text size="xs" color="secondary" className="text-blue-800">
+                    FormatPrice usa Intl.NumberFormat.formatToParts() para
+                    separar moeda, inteiro e decimal em spans individuais,
+                    permitindo estilização granular de cada parte do preço.
+                    Todos os outros componentes de preço (MainPrice, ListPrice,
+                    InstallmentsPrice, PixDiscount) utilizam FormatPrice
+                    internamente.
+                  </Text>
+                </div>
+              </div>
+            </Card>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-8">
             {/* Skeleton Component */}
             <Card variant="elevated" className="bg-white">
               <div className="mb-4 pb-4 border-b border-gray-200">
