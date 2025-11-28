@@ -1,0 +1,111 @@
+'use client'
+import React, { useState } from 'react'
+import { Button } from '../../atoms/Button/Button'
+
+export interface Tab {
+  /** Tab label/title */
+  label: string
+  /** Tab content */
+  content: React.ReactNode
+}
+
+export interface TabLayoutProps extends React.HTMLAttributes<HTMLDivElement> {
+  /** Array of tabs */
+  tabs: Tab[]
+  /** Visual variant */
+  variant?: 'primary' | 'secondary'
+  /** Layout orientation */
+  orientation?: 'horizontal' | 'vertical'
+  /** Initial active tab index */
+  initialIndex?: number
+  /** Callback when tab changes */
+  onTabChange?: (tab: Tab, index: number) => void
+  /** Custom className */
+  className?: string
+}
+
+export const TabLayout = ({
+  tabs,
+  variant = 'primary',
+  orientation = 'horizontal',
+  initialIndex = 0,
+  onTabChange,
+  className = '',
+  ...props
+}: TabLayoutProps) => {
+  const [activeIndex, setActiveIndex] = useState(initialIndex)
+
+  // Handle tab click
+  const handleTabClick = (index: number) => {
+    setActiveIndex(index)
+    onTabChange?.(tabs[index], index)
+  }
+
+  // Container classes based on orientation
+  const containerClasses = `
+    flex ${orientation === 'horizontal' ? 'flex-col' : 'flex-row gap-6'}
+    ${className}
+  `
+
+  // List direction (perpendicular to orientation)
+  const listDirection = orientation === 'horizontal' ? 'row' : 'column'
+
+  // Tab button variant based on TabLayout variant
+  const buttonVariant = variant === 'primary' ? 'outline' : 'ghost'
+
+  return (
+    <div
+      className={containerClasses.trim()}
+      data-testid="tab-layout"
+      {...props}
+    >
+      {/* Tab List */}
+      <div
+        role="tablist"
+        aria-label="Tab navigation"
+        className={`
+          flex ${listDirection === 'row' ? 'flex-row gap-2' : 'flex-col gap-1'}
+          border-b ${orientation === 'vertical' ? 'border-r border-b-0 pr-4' : 'border-gray-200'}
+        `}
+      >
+        {tabs.map((tab, index) => {
+          const isActive = activeIndex === index
+
+          return (
+            <Button
+              key={tab.label}
+              id={`tab-${index}`}
+              role="tab"
+              variant={isActive ? 'primary' : buttonVariant}
+              size="sm"
+              onClick={() => handleTabClick(index)}
+              aria-selected={isActive}
+              aria-controls={`tabpanel-${index}`}
+              tabIndex={isActive ? 0 : -1}
+              className={`
+                ${orientation === 'horizontal' ? 'rounded-b-none' : 'w-full'}
+                ${isActive ? '' : 'border-transparent'}
+              `}
+            >
+              {tab.label}
+            </Button>
+          )
+        })}
+      </div>
+
+      {/* Tab Panels */}
+      {tabs.map((tab, index) => (
+        <div
+          key={index}
+          id={`tabpanel-${index}`}
+          role="tabpanel"
+          aria-labelledby={`tab-${index}`}
+          hidden={activeIndex !== index}
+          className="py-4"
+        >
+          {activeIndex === index && <div>{tab.content}</div>}
+        </div>
+      ))}
+    </div>
+  )
+}

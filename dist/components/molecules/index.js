@@ -19,4 +19,7 @@ export { Wrapper } from './Wrapper/Wrapper';
 export { FormatPrice } from './FormatPrice/FormatPrice';
 export { InstallmentsPrice, } from './InstallmentsPrice/InstallmentsPrice';
 export { PixDiscount } from './PixDiscount/PixDiscount';
+export { RadioOption } from './RadioOption/RadioOption';
+export { ImageLink } from './ImageLink/ImageLink';
+export { TabLayout } from './TabLayout/TabLayout';
 //# sourceMappingURL=index.js.map

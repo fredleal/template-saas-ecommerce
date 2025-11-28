@@ -19,4 +19,7 @@ export { Wrapper, type WrapperProps } from './Wrapper/Wrapper';
 export { FormatPrice, type FormatPriceProps } from './FormatPrice/FormatPrice';
 export { InstallmentsPrice, type InstallmentsPriceProps, } from './InstallmentsPrice/InstallmentsPrice';
 export { PixDiscount, type PixDiscountProps } from './PixDiscount/PixDiscount';
+export { RadioOption, type RadioOptionProps } from './RadioOption/RadioOption';
+export { ImageLink, type ImageLinkProps } from './ImageLink/ImageLink';
+export { TabLayout, type TabLayoutProps, type Tab } from './TabLayout/TabLayout';
 //# sourceMappingURL=index.d.ts.map

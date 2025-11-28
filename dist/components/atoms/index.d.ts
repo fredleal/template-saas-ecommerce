@@ -13,4 +13,6 @@ export { Skeleton } from './Skeleton/Skeleton';
 export { Link } from './Link/Link';
 export { MainPrice } from './MainPrice/MainPrice';
 export { ListPrice } from './ListPrice/ListPrice';
+export { Label } from './Label/Label';
+export { TagText } from './TagText/TagText';
 //# sourceMappingURL=index.d.ts.map
