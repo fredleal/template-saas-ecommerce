@@ -18,6 +18,8 @@ import {
   Link,
   MainPrice,
   ListPrice,
+  Label,
+  TagText,
 } from '@/components/atoms'
 import {
   Alert,
@@ -41,6 +43,9 @@ import {
   FormatPrice,
   InstallmentsPrice,
   PixDiscount,
+  RadioOption,
+  ImageLink,
+  TabLayout,
 } from '@/components/molecules'
 import {
   Header,
@@ -4380,6 +4385,531 @@ export default function Home() {
                 </Text>
               </li>
             </ul>
+          </div>
+        </section>
+
+        {/* New Components Showcase */}
+        <section className="mb-16">
+          <Heading level={2} className="mb-6">
+            🆕 New Components (Label, TagText, RadioOption, ImageLink,
+            TabLayout)
+          </Heading>
+
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+            {/* Label Atom */}
+            <Card variant="elevated" className="bg-white">
+              <div className="mb-4 pb-4 border-b border-gray-200">
+                <Text size="lg" weight="bold" className="mb-1">
+                  1. Label Atom
+                </Text>
+                <Text size="sm" color="secondary">
+                  Semantic label wrapper for form inputs
+                </Text>
+                <Badge variant="success" size="sm" className="mt-2">
+                  28 tests | 100% coverage
+                </Badge>
+              </div>
+
+              <div className="space-y-6">
+                {/* Basic Label */}
+                <div>
+                  <Text size="sm" weight="semibold" className="mb-3">
+                    Basic Labels
+                  </Text>
+                  <div className="space-y-3">
+                    <Label htmlFor="username">Username</Label>
+                    <Label htmlFor="email" required>
+                      Email Address
+                    </Label>
+                    <Label htmlFor="disabled" disabled>
+                      Disabled Field
+                    </Label>
+                  </div>
+                </div>
+
+                {/* With Input */}
+                <div>
+                  <Text size="sm" weight="semibold" className="mb-3">
+                    With Input Field
+                  </Text>
+                  <div className="space-y-2">
+                    <Label htmlFor="full-name" required>
+                      Full Name
+                    </Label>
+                    <Input id="full-name" placeholder="Enter your full name" />
+                  </div>
+                </div>
+              </div>
+            </Card>
+
+            {/* TagText Atom */}
+            <Card variant="elevated" className="bg-white">
+              <div className="mb-4 pb-4 border-b border-gray-200">
+                <Text size="lg" weight="bold" className="mb-1">
+                  2. TagText Atom
+                </Text>
+                <Text size="sm" color="secondary">
+                  Styled text for tags and labels
+                </Text>
+                <Badge variant="success" size="sm" className="mt-2">
+                  31 tests | 100% coverage
+                </Badge>
+              </div>
+
+              <div className="space-y-6">
+                {/* Size Variants */}
+                <div>
+                  <Text size="sm" weight="semibold" className="mb-3">
+                    Size Variants
+                  </Text>
+                  <div className="space-y-2">
+                    <TagText text="Extra Small Text" size="xs" />
+                    <TagText text="Small Text" size="sm" />
+                    <TagText text="Medium Text" size="md" />
+                    <TagText text="Large Text" size="lg" />
+                  </div>
+                </div>
+
+                {/* Weight & Color */}
+                <div>
+                  <Text size="sm" weight="semibold" className="mb-3">
+                    Weight & Color Combinations
+                  </Text>
+                  <div className="space-y-2">
+                    <TagText
+                      text="Normal Primary"
+                      weight="normal"
+                      color="primary"
+                    />
+                    <TagText
+                      text="Medium Secondary"
+                      weight="medium"
+                      color="secondary"
+                    />
+                    <TagText
+                      text="Semibold Muted"
+                      weight="semibold"
+                      color="muted"
+                    />
+                    <TagText
+                      text="Bold Primary"
+                      weight="bold"
+                      color="primary"
+                    />
+                  </div>
+                </div>
+
+                {/* Tag Types */}
+                <div>
+                  <Text size="sm" weight="semibold" className="mb-3">
+                    HTML Tags (span, p, div)
+                  </Text>
+                  <div className="space-y-2">
+                    <TagText text="Span element (inline)" as="span" />
+                    <TagText text="Paragraph element (block)" as="p" />
+                    <TagText text="Div element (block)" as="div" />
+                  </div>
+                </div>
+              </div>
+            </Card>
+
+            {/* RadioOption Molecule */}
+            <Card variant="elevated" className="bg-white">
+              <div className="mb-4 pb-4 border-b border-gray-200">
+                <Text size="lg" weight="bold" className="mb-1">
+                  3. RadioOption Molecule
+                </Text>
+                <Text size="sm" color="secondary">
+                  Radio button with label, image support, and variants
+                </Text>
+                <Badge variant="success" size="sm" className="mt-2">
+                  38 tests | 100% coverage
+                </Badge>
+              </div>
+
+              <div className="space-y-6">
+                {/* Basic Radio Group */}
+                <div>
+                  <Text size="sm" weight="semibold" className="mb-3">
+                    Basic Radio Group (Primary Variant)
+                  </Text>
+                  <div className="grid grid-cols-3 gap-3">
+                    <RadioOption
+                      id="size-s"
+                      name="size"
+                      value="small"
+                      label="Small"
+                      variant="primary"
+                    />
+                    <RadioOption
+                      id="size-m"
+                      name="size"
+                      value="medium"
+                      label="Medium"
+                      variant="primary"
+                      checked
+                    />
+                    <RadioOption
+                      id="size-l"
+                      name="size"
+                      value="large"
+                      label="Large"
+                      variant="primary"
+                    />
+                  </div>
+                </div>
+
+                {/* Secondary Variant */}
+                <div>
+                  <Text size="sm" weight="semibold" className="mb-3">
+                    Secondary Variant
+                  </Text>
+                  <div className="grid grid-cols-2 gap-3">
+                    <RadioOption
+                      id="plan-basic"
+                      name="plan"
+                      value="basic"
+                      label="Basic Plan"
+                      variant="secondary"
+                      checked
+                    />
+                    <RadioOption
+                      id="plan-pro"
+                      name="plan"
+                      value="pro"
+                      label="Pro Plan"
+                      variant="secondary"
+                    />
+                  </div>
+                </div>
+
+                {/* With Images */}
+                <div>
+                  <Text size="sm" weight="semibold" className="mb-3">
+                    With Images
+                  </Text>
+                  <div className="grid grid-cols-3 gap-3">
+                    <RadioOption
+                      id="color-red"
+                      name="color"
+                      value="red"
+                      label="Red"
+                      imageSrc="https://placehold.co/80x80/ef4444/ffffff?text=R"
+                      variant="primary"
+                    />
+                    <RadioOption
+                      id="color-blue"
+                      name="color"
+                      value="blue"
+                      label="Blue"
+                      imageSrc="https://placehold.co/80x80/3b82f6/ffffff?text=B"
+                      variant="primary"
+                      checked
+                    />
+                    <RadioOption
+                      id="color-green"
+                      name="color"
+                      value="green"
+                      label="Green"
+                      imageSrc="https://placehold.co/80x80/22c55e/ffffff?text=G"
+                      variant="primary"
+                    />
+                  </div>
+                </div>
+
+                {/* Disabled State */}
+                <div>
+                  <Text size="sm" weight="semibold" className="mb-3">
+                    Disabled State
+                  </Text>
+                  <div className="grid grid-cols-2 gap-3">
+                    <RadioOption
+                      id="payment-credit"
+                      name="payment"
+                      value="credit"
+                      label="Credit Card"
+                      checked
+                    />
+                    <RadioOption
+                      id="payment-debit"
+                      name="payment"
+                      value="debit"
+                      label="Debit Card (Unavailable)"
+                      disabled
+                    />
+                  </div>
+                </div>
+              </div>
+            </Card>
+
+            {/* ImageLink Molecule */}
+            <Card variant="elevated" className="bg-white">
+              <div className="mb-4 pb-4 border-b border-gray-200">
+                <Text size="lg" weight="bold" className="mb-1">
+                  4. ImageLink Molecule
+                </Text>
+                <Text size="sm" color="secondary">
+                  Responsive image link with device detection and visibility
+                  tracking
+                </Text>
+                <Badge variant="success" size="sm" className="mt-2">
+                  30 tests | 100% coverage
+                </Badge>
+              </div>
+
+              <div className="space-y-6">
+                {/* Basic ImageLink */}
+                <div>
+                  <Text size="sm" weight="semibold" className="mb-3">
+                    Desktop Banner (click to navigate)
+                  </Text>
+                  <ImageLink
+                    title="Summer Sale - Up to 50% Off"
+                    imgDesktop="https://placehold.co/800x200/3b82f6/ffffff?text=Summer+Sale+Desktop"
+                    imgMobile="https://placehold.co/400x200/3b82f6/ffffff?text=Summer+Sale+Mobile"
+                    href="#summer-sale"
+                    loading="eager"
+                  />
+                </div>
+
+                {/* External Link */}
+                <div>
+                  <Text size="sm" weight="semibold" className="mb-3">
+                    External Link (opens in new tab)
+                  </Text>
+                  <ImageLink
+                    title="Visit Our Partner Store"
+                    imgDesktop="https://placehold.co/800x150/8b5cf6/ffffff?text=External+Partner"
+                    imgMobile="https://placehold.co/400x150/8b5cf6/ffffff?text=Partner"
+                    href="https://example.com"
+                    external
+                  />
+                </div>
+
+                {/* With Visibility Tracking */}
+                <div>
+                  <Text size="sm" weight="semibold" className="mb-3">
+                    With Visibility Tracking
+                  </Text>
+                  <Text size="xs" color="secondary" className="mb-2">
+                    This banner triggers analytics when visible
+                  </Text>
+                  <ImageLink
+                    title="New Collection Launch"
+                    imgDesktop="https://placehold.co/800x180/ec4899/ffffff?text=New+Collection"
+                    imgMobile="https://placehold.co/400x180/ec4899/ffffff?text=Collection"
+                    href="#new-collection"
+                    onVisible={() => {}}
+                  />
+                </div>
+              </div>
+
+              <div className="mt-4 p-4 bg-blue-50 rounded-lg">
+                <Text
+                  size="sm"
+                  weight="semibold"
+                  className="mb-2 text-blue-900"
+                >
+                  🎯 Key Features:
+                </Text>
+                <Text size="xs" color="secondary" className="text-blue-800">
+                  <strong>Device-Aware:</strong> Automatically shows mobile or
+                  desktop image using useDevice hook.
+                  <br />
+                  <strong>Visibility Tracking:</strong>{' '}
+                  useVisibilityWithTabCheck for analytics.
+                  <br />
+                  <strong>Performance:</strong> Lazy loading by default,
+                  customizable priority.
+                </Text>
+              </div>
+            </Card>
+
+            {/* TabLayout Molecule */}
+            <Card variant="elevated" className="bg-white lg:col-span-2">
+              <div className="mb-4 pb-4 border-b border-gray-200">
+                <Text size="lg" weight="bold" className="mb-1">
+                  5. TabLayout Molecule
+                </Text>
+                <Text size="sm" color="secondary">
+                  Accessible tab navigation with ARIA support
+                </Text>
+                <Badge variant="success" size="sm" className="mt-2">
+                  36 tests | 100% coverage
+                </Badge>
+              </div>
+
+              <div className="space-y-8">
+                {/* Horizontal Tabs (Default) */}
+                <div>
+                  <Text size="sm" weight="semibold" className="mb-3">
+                    Horizontal Tabs (Primary Variant)
+                  </Text>
+                  <TabLayout
+                    tabs={[
+                      {
+                        label: 'Overview',
+                        content: (
+                          <div className="p-4 bg-gray-50 rounded">
+                            <Text size="sm" weight="semibold" className="mb-2">
+                              Product Overview
+                            </Text>
+                            <Text size="sm" color="secondary">
+                              This is a comprehensive overview of our flagship
+                              product. It includes all the essential information
+                              you need to make an informed decision.
+                            </Text>
+                          </div>
+                        ),
+                      },
+                      {
+                        label: 'Features',
+                        content: (
+                          <div className="p-4 bg-gray-50 rounded">
+                            <Text size="sm" weight="semibold" className="mb-2">
+                              Key Features
+                            </Text>
+                            <ul className="space-y-2">
+                              <li className="text-sm text-gray-700">
+                                ✓ Advanced analytics dashboard
+                              </li>
+                              <li className="text-sm text-gray-700">
+                                ✓ Real-time collaboration
+                              </li>
+                              <li className="text-sm text-gray-700">
+                                ✓ 99.9% uptime guarantee
+                              </li>
+                              <li className="text-sm text-gray-700">
+                                ✓ 24/7 customer support
+                              </li>
+                            </ul>
+                          </div>
+                        ),
+                      },
+                      {
+                        label: 'Pricing',
+                        content: (
+                          <div className="p-4 bg-gray-50 rounded">
+                            <Text size="sm" weight="semibold" className="mb-2">
+                              Pricing Plans
+                            </Text>
+                            <div className="space-y-2">
+                              <Text size="sm">
+                                <strong>Starter:</strong> $9/month
+                              </Text>
+                              <Text size="sm">
+                                <strong>Professional:</strong> $29/month
+                              </Text>
+                              <Text size="sm">
+                                <strong>Enterprise:</strong> Custom pricing
+                              </Text>
+                            </div>
+                          </div>
+                        ),
+                      },
+                      {
+                        label: 'Reviews',
+                        content: (
+                          <div className="p-4 bg-gray-50 rounded">
+                            <Text size="sm" weight="semibold" className="mb-2">
+                              Customer Reviews
+                            </Text>
+                            <Text size="sm" color="secondary">
+                              ⭐⭐⭐⭐⭐ "Excellent product! Highly
+                              recommended."
+                              <br />
+                              ⭐⭐⭐⭐⭐ "Game changer for our team
+                              productivity."
+                              <br />
+                              ⭐⭐⭐⭐ "Great value for money. Support is
+                              responsive."
+                            </Text>
+                          </div>
+                        ),
+                      },
+                    ]}
+                    variant="primary"
+                    orientation="horizontal"
+                  />
+                </div>
+
+                {/* Vertical Tabs */}
+                <div>
+                  <Text size="sm" weight="semibold" className="mb-3">
+                    Vertical Tabs (Secondary Variant)
+                  </Text>
+                  <TabLayout
+                    tabs={[
+                      {
+                        label: 'Account',
+                        content: (
+                          <div className="p-4 bg-purple-50 rounded">
+                            <Text size="sm" weight="semibold" className="mb-2">
+                              Account Settings
+                            </Text>
+                            <Text size="sm" color="secondary">
+                              Manage your account preferences, profile
+                              information, and security settings.
+                            </Text>
+                          </div>
+                        ),
+                      },
+                      {
+                        label: 'Notifications',
+                        content: (
+                          <div className="p-4 bg-purple-50 rounded">
+                            <Text size="sm" weight="semibold" className="mb-2">
+                              Notification Preferences
+                            </Text>
+                            <Text size="sm" color="secondary">
+                              Choose how and when you receive notifications from
+                              us.
+                            </Text>
+                          </div>
+                        ),
+                      },
+                      {
+                        label: 'Privacy',
+                        content: (
+                          <div className="p-4 bg-purple-50 rounded">
+                            <Text size="sm" weight="semibold" className="mb-2">
+                              Privacy & Data
+                            </Text>
+                            <Text size="sm" color="secondary">
+                              Control your data privacy settings and manage who
+                              can see your information.
+                            </Text>
+                          </div>
+                        ),
+                      },
+                    ]}
+                    variant="secondary"
+                    orientation="vertical"
+                    initialIndex={0}
+                  />
+                </div>
+              </div>
+
+              <div className="mt-6 p-4 bg-green-50 rounded-lg">
+                <Text
+                  size="sm"
+                  weight="semibold"
+                  className="mb-2 text-green-900"
+                >
+                  ♿ Accessibility Features:
+                </Text>
+                <Text size="xs" color="secondary" className="text-green-800">
+                  <strong>ARIA Compliant:</strong> Proper tablist, tab, and
+                  tabpanel roles.
+                  <br />
+                  <strong>Keyboard Navigation:</strong> Tab/Shift+Tab to
+                  navigate, Enter/Space to activate.
+                  <br />
+                  <strong>Screen Reader Friendly:</strong> aria-selected,
+                  aria-controls, aria-labelledby attributes.
+                </Text>
+              </div>
+            </Card>
           </div>
         </section>
 
