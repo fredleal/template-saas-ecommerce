@@ -1,32 +1,26 @@
 name: Deploy Storybook to GitHub Pages
 
 on:
-  # Executa quando há push na branch main
   push:
     branches:
       - main
-
-  # Permite executar manualmente pela UI do GitHub
+      - master
   workflow_dispatch:
 
-# Define permissões necessárias para o GitHub Pages
 permissions:
   contents: read
   pages: write
   id-token: write
 
-# Garante que apenas um deploy rode por vez
 concurrency:
   group: "pages"
   cancel-in-progress: false
 
 jobs:
-  # Job de build do Storybook
   build:
     runs-on: ubuntu-latest
-
     steps:
-      - name: Checkout do código
+      - name: Checkout
         uses: actions/checkout@v4
 
       - name: Setup Node.js
@@ -35,29 +29,28 @@ jobs:
           node-version: '20'
           cache: 'npm'
 
-      - name: Instalar dependências
+      - name: Install dependencies
         run: npm ci
 
-      - name: Build do Storybook
+      - name: Build Storybook
+        env:
+          STORYBOOK_BASE_PATH: '/template-saas-ecommerce'
         run: npm run build-storybook
 
-      - name: Setup GitHub Pages
+      - name: Setup Pages
         uses: actions/configure-pages@v4
 
-      - name: Upload artifact para Pages
+      - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
           path: './storybook-static'
 
-  # Job de deploy
   deploy:
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
-
     runs-on: ubuntu-latest
     needs: build
-
     steps:
       - name: Deploy to GitHub Pages
         id: deployment

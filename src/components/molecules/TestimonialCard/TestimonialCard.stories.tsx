@@ -3,7 +3,7 @@ import React from 'react'
 import { TestimonialCard } from './TestimonialCard'
 
 const meta = {
-  title: 'Design System/Molecules/TestimonialCard',
+  title: 'Molecules/TestimonialCard',
   component: TestimonialCard,
   parameters: {
     layout: 'padded',

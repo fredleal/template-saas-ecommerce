@@ -3,7 +3,7 @@ import React from 'react'
 import { Icon, getAvailableIcons } from './Icon'
 
 const meta = {
-  title: 'Design System/Atoms/Icon',
+  title: 'Atoms/Icon',
   component: Icon,
   parameters: {
     layout: 'centered',

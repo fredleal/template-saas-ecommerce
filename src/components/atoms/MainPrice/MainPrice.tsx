@@ -1,6 +1,6 @@
 'use client'
 import React from 'react'
-import { FormatPrice } from '../../molecules/FormatPrice'
+import { FormatPrice } from '../../molecules/FormatPrice/FormatPrice'
 
 export interface MainPriceProps {
   /** Numeric price value */

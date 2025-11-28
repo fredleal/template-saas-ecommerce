@@ -13,10 +13,13 @@ type Story = StoryObj<typeof meta>
 
 export const Default: Story = {
   args: {
-    listPrice: 299.9,
-    mainPrice: 249.9,
-    installments: 10,
-    installmentValue: 24.99,
+    originalPrice: 299.9,
+    currentPrice: 249.9,
+    installments: {
+      count: 10,
+      value: 24.99,
+      withInterest: false,
+    },
     pixPrice: 224.91,
   },
 }

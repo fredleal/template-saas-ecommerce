@@ -2,6 +2,9 @@ import type { StorybookConfig } from '@storybook/react-vite'
 import { mergeConfig } from 'vite'
 import path from 'path'
 
+// Base path para GitHub Pages (será usado apenas em produção)
+const basePath = process.env.STORYBOOK_BASE_PATH || ''
+
 const config: StorybookConfig = {
   // 📚 Onde o Storybook vai procurar suas stories (arquivos *.stories.tsx)
   stories: [
@@ -24,6 +27,12 @@ const config: StorybookConfig = {
 
   // 📝 Gera documentação automaticamente dos componentes
   docs: {},
+
+  // 🌐 Configuração para GitHub Pages
+  // O basePath será configurado automaticamente pelo workflow
+  // Para repositórios do tipo username.github.io/repo-name, use: '/template-saas-ecommerce'
+  // Para repositórios do tipo username.github.io (root), deixe vazio
+  ...(basePath && { basePath }),
 
   // ⚙️ Configuração customizada do Vite
   async viteFinal(config) {

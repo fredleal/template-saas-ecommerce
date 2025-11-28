@@ -3,7 +3,7 @@ import React from 'react'
 import { FeatureCard } from './FeatureCard'
 
 const meta = {
-  title: 'Design System/Molecules/FeatureCard',
+  title: 'Molecules/FeatureCard',
   component: FeatureCard,
   parameters: {
     layout: 'padded',

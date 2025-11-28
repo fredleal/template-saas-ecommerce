@@ -1,6 +1,6 @@
 'use client'
 import React from 'react'
-import { FormatPrice } from '../FormatPrice'
+import { FormatPrice } from '../FormatPrice/FormatPrice'
 import { Badge } from '../../atoms/Badge/Badge'
 
 export interface PixDiscountProps {

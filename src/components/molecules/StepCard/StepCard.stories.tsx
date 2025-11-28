@@ -3,7 +3,7 @@ import type { Meta, StoryObj } from '@storybook/react'
 import { StepCard } from './StepCard'
 
 const meta: Meta<typeof StepCard> = {
-  title: 'Design System/Molecules/StepCard',
+  title: 'Molecules/StepCard',
   component: StepCard,
   parameters: {
     layout: 'centered',
