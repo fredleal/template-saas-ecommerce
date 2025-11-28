@@ -29,3 +29,8 @@ export {
 export { List, type ListProps } from './List/List'
 export { Wrapper, type WrapperProps } from './Wrapper/Wrapper'
 export { FormatPrice, type FormatPriceProps } from './FormatPrice/FormatPrice'
+export {
+  InstallmentsPrice,
+  type InstallmentsPriceProps,
+} from './InstallmentsPrice/InstallmentsPrice'
+export { PixDiscount, type PixDiscountProps } from './PixDiscount/PixDiscount'

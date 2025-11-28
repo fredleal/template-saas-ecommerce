@@ -23,7 +23,7 @@ export const FormatPrice = ({ value, currency = 'BRL', locale = 'pt-BR', showCur
     // Filter parts if currency should be hidden
     const visibleParts = showCurrency
         ? parts
-        : parts.filter((part) => part.type !== 'currency');
+        : parts.filter(part => part.type !== 'currency');
     return (<span className={`inline-flex items-baseline ${className}`}>
       {visibleParts.map((part, index) => (<span key={`${part.type}-${index}`} className={getPartClassName(part.type)} data-part-type={part.type}>
           {part.value === '\u00a0' ? '\u00a0' : part.value}
