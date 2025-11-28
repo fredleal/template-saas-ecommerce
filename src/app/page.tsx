@@ -48,6 +48,7 @@ import {
   BlogHeader,
   HeroSection,
   FAQSection,
+  PriceSummary,
   Carousel,
 } from '@/components/organisms'
 import {
@@ -757,7 +758,7 @@ export default function Home() {
                 title="Saved"
                 message="Your preferences have been updated. You can dismiss this message."
                 dismissible
-                onDismiss={() => console.log('Alert dismissed')}
+                onDismiss={() => {}}
               />
             </div>
 
@@ -1808,6 +1809,194 @@ export default function Home() {
                     Todos os outros componentes de preço (MainPrice, ListPrice,
                     InstallmentsPrice, PixDiscount) utilizam FormatPrice
                     internamente.
+                  </Text>
+                </div>
+              </div>
+            </Card>
+
+            {/* PriceSummary Organism - NEW */}
+            <Card variant="elevated" className="bg-white lg:col-span-2">
+              <div className="mb-4 pb-4 border-b border-gray-200">
+                <Text size="lg" weight="bold" className="mb-1">
+                  🆕 PriceSummary Organism
+                </Text>
+                <Text size="sm" color="secondary">
+                  Componente completo que orquestra todos os price components
+                  para páginas de produto, checkout e carrinho
+                </Text>
+                <Badge variant="success" size="sm" className="mt-2">
+                  36 tests | 100% coverage
+                </Badge>
+              </div>
+
+              <div className="space-y-8">
+                {/* Example 1: Simple Price */}
+                <div>
+                  <Text size="sm" weight="semibold" className="mb-3">
+                    1. Preço Simples (apenas currentPrice)
+                  </Text>
+                  <div className="bg-gray-50 p-6 rounded-lg">
+                    <PriceSummary currentPrice={1899.9} />
+                  </div>
+                  <Text size="xs" color="secondary" className="mt-2">
+                    Caso de uso: Produto sem desconto ou promoções
+                  </Text>
+                </div>
+
+                {/* Example 2: With Discount */}
+                <div>
+                  <Text size="sm" weight="semibold" className="mb-3">
+                    2. Com Desconto (originalPrice + currentPrice)
+                  </Text>
+                  <div className="bg-gray-50 p-6 rounded-lg">
+                    <PriceSummary
+                      originalPrice={2999.9}
+                      currentPrice={1899.9}
+                    />
+                  </div>
+                  <Text size="xs" color="secondary" className="mt-2">
+                    Caso de uso: Produto em promoção mostrando economia
+                  </Text>
+                </div>
+
+                {/* Example 3: With PIX */}
+                <div>
+                  <Text size="sm" weight="semibold" className="mb-3">
+                    3. Com Desconto PIX
+                  </Text>
+                  <div className="bg-gray-50 p-6 rounded-lg">
+                    <PriceSummary currentPrice={1899.9} pixPrice={1709.91} />
+                  </div>
+                  <Text size="xs" color="secondary" className="mt-2">
+                    Caso de uso: Incentivo ao pagamento via PIX (Brasil)
+                  </Text>
+                </div>
+
+                {/* Example 4: With Installments */}
+                <div>
+                  <Text size="sm" weight="semibold" className="mb-3">
+                    4. Com Parcelamento
+                  </Text>
+                  <div className="bg-gray-50 p-6 rounded-lg">
+                    <PriceSummary
+                      currentPrice={1899.9}
+                      installments={{ count: 12, value: 158.32 }}
+                    />
+                  </div>
+                  <Text size="xs" color="secondary" className="mt-2">
+                    Caso de uso: Facilitar compra parcelada sem juros
+                  </Text>
+                </div>
+
+                {/* Example 5: Complete E-commerce (All Features) */}
+                <div>
+                  <Text size="sm" weight="semibold" className="mb-3">
+                    5. 🔥 Completo E-commerce BR (Tudo Junto)
+                  </Text>
+                  <div className="bg-gradient-to-br from-blue-50 to-purple-50 p-6 rounded-lg border-2 border-blue-200">
+                    <Text size="xs" color="secondary" className="mb-4">
+                      Cenário Real: Black Friday - Geladeira Premium
+                    </Text>
+                    <PriceSummary
+                      originalPrice={2999.9}
+                      currentPrice={1899.9}
+                      pixPrice={1709.91}
+                      installments={{
+                        count: 12,
+                        value: 158.32,
+                        withInterest: false,
+                      }}
+                      size="lg"
+                    />
+                    <div className="mt-4 pt-4 border-t border-blue-200">
+                      <Text size="xs" weight="semibold" className="mb-2">
+                        ✅ Features ativas neste exemplo:
+                      </Text>
+                      <ul className="space-y-1">
+                        <li className="text-xs text-gray-600">
+                          • ListPrice: R$ 2.999,90 (original)
+                        </li>
+                        <li className="text-xs text-gray-600">
+                          • MainPrice: R$ 1.899,90 (36% OFF)
+                        </li>
+                        <li className="text-xs text-gray-600">
+                          • PixDiscount: R$ 1.709,91 (10% adicional)
+                        </li>
+                        <li className="text-xs text-gray-600">
+                          • InstallmentsPrice: 12x de R$ 158,32 sem juros
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                  <Text size="xs" color="secondary" className="mt-2">
+                    Caso de uso: Página de produto completa com todas opções de
+                    pagamento
+                  </Text>
+                </div>
+
+                {/* Size Variants */}
+                <div>
+                  <Text size="sm" weight="semibold" className="mb-3">
+                    6. Variações de Tamanho (sm, md, lg)
+                  </Text>
+                  <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                    <div className="bg-gray-50 p-4 rounded-lg">
+                      <Text size="xs" className="mb-2 text-gray-500">
+                        Small
+                      </Text>
+                      <PriceSummary
+                        originalPrice={999.9}
+                        currentPrice={599.9}
+                        size="sm"
+                      />
+                    </div>
+                    <div className="bg-gray-50 p-4 rounded-lg">
+                      <Text size="xs" className="mb-2 text-gray-500">
+                        Medium (default)
+                      </Text>
+                      <PriceSummary
+                        originalPrice={999.9}
+                        currentPrice={599.9}
+                        size="md"
+                      />
+                    </div>
+                    <div className="bg-gray-50 p-4 rounded-lg">
+                      <Text size="xs" className="mb-2 text-gray-500">
+                        Large
+                      </Text>
+                      <PriceSummary
+                        originalPrice={999.9}
+                        currentPrice={599.9}
+                        size="lg"
+                      />
+                    </div>
+                  </div>
+                </div>
+
+                {/* Technical Info */}
+                <div className="bg-green-50 p-4 rounded-lg">
+                  <Text
+                    size="sm"
+                    weight="semibold"
+                    className="mb-2 text-green-900"
+                  >
+                    ✨ Por que PriceSummary é especial?
+                  </Text>
+                  <Text size="xs" color="secondary" className="text-green-800">
+                    <strong>Composição Inteligente:</strong> PriceSummary
+                    orquestra MainPrice, ListPrice, PixDiscount e
+                    InstallmentsPrice com lógica condicional. Mostra apenas o
+                    que é necessário baseado nas props fornecidas.
+                    <br />
+                    <br />
+                    <strong>Zero Configuração:</strong> Passe apenas os preços
+                    relevantes e o componente decide automaticamente o que
+                    exibir.
+                    <br />
+                    <br />
+                    <strong>Flexível:</strong> Funciona desde um simples "R$
+                    99,90" até cenários complexos com desconto + PIX +
+                    parcelamento.
                   </Text>
                 </div>
               </div>
@@ -2894,10 +3083,8 @@ export default function Home() {
               description="5G connectivity, AI camera, 256GB storage"
               image="https://images.unsplash.com/photo-1511707267537-b85faf00021e?w=300&h=300&fit=crop"
               stock={15}
-              onAddToCart={(id, qty) =>
-                console.log(`Added ${qty}x ${id} to cart`)
-              }
-              onViewDetails={id => console.log(`View details: ${id}`)}
+              onAddToCart={() => {}}
+              onViewDetails={() => {}}
             />
             <ProductCard
               id="product-2"
@@ -2908,10 +3095,8 @@ export default function Home() {
               image="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=300&h=300&fit=crop"
               stock={8}
               variant="featured"
-              onAddToCart={(id, qty) =>
-                console.log(`Added ${qty}x ${id} to cart`)
-              }
-              onViewDetails={id => console.log(`View details: ${id}`)}
+              onAddToCart={() => {}}
+              onViewDetails={() => {}}
             />
             <ProductCard
               id="product-3"
@@ -2920,10 +3105,8 @@ export default function Home() {
               description="GPS, health monitoring, fitness tracking"
               image="https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=300&h=300&fit=crop"
               stock={3}
-              onAddToCart={(id, qty) =>
-                console.log(`Added ${qty}x ${id} to cart`)
-              }
-              onViewDetails={id => console.log(`View details: ${id}`)}
+              onAddToCart={() => {}}
+              onViewDetails={() => {}}
             />
             <ProductCard
               id="product-4"
@@ -2932,10 +3115,8 @@ export default function Home() {
               description="12.9 inch display, M2 chip, all-day battery"
               image="https://images.unsplash.com/photo-1561070791-2526d30994b5?w=300&h=300&fit=crop"
               stock={0}
-              onAddToCart={(id, qty) =>
-                console.log(`Added ${qty}x ${id} to cart`)
-              }
-              onViewDetails={id => console.log(`View details: ${id}`)}
+              onAddToCart={() => {}}
+              onViewDetails={() => {}}
             />
           </div>
         </section>

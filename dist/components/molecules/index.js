@@ -17,6 +17,6 @@ export { CarouselDots, } from './CarouselDots/CarouselDots';
 export { List } from './List/List';
 export { Wrapper } from './Wrapper/Wrapper';
 export { FormatPrice } from './FormatPrice/FormatPrice';
-export { InstallmentsPrice } from './InstallmentsPrice/InstallmentsPrice';
+export { InstallmentsPrice, } from './InstallmentsPrice/InstallmentsPrice';
 export { PixDiscount } from './PixDiscount/PixDiscount';
 //# sourceMappingURL=index.js.map

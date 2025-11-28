@@ -4,4 +4,5 @@ export { BlogHeader, type BlogHeaderProps } from './BlogHeader/BlogHeader';
 export { HeroSection, type HeroSectionProps } from './HeroSection/HeroSection';
 export { FAQSection, type FAQSectionProps, type FAQItem, } from './FAQSection/FAQSection';
 export { Carousel, type CarouselProps } from './Carousel/Carousel';
+export { PriceSummary, type PriceSummaryProps, type InstallmentsConfig, } from './PriceSummary/PriceSummary';
 //# sourceMappingURL=index.d.ts.map
