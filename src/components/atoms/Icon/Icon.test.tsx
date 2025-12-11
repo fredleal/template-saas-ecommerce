@@ -62,6 +62,36 @@ describe('Icon', () => {
       render(<Icon name="FilterIcon" />)
       expect(document.querySelector('svg')).toBeInTheDocument()
     })
+
+    it('renders ChevronDownIcon', () => {
+      render(<Icon name="ChevronDownIcon" />)
+      expect(document.querySelector('svg')).toBeInTheDocument()
+    })
+
+    it('renders ChevronUpIcon', () => {
+      render(<Icon name="ChevronUpIcon" />)
+      expect(document.querySelector('svg')).toBeInTheDocument()
+    })
+
+    it('renders ChevronLeftIcon', () => {
+      render(<Icon name="ChevronLeftIcon" />)
+      expect(document.querySelector('svg')).toBeInTheDocument()
+    })
+
+    it('renders ChevronRightIcon', () => {
+      render(<Icon name="ChevronRightIcon" />)
+      expect(document.querySelector('svg')).toBeInTheDocument()
+    })
+
+    it('renders ArrowLeftIcon', () => {
+      render(<Icon name="ArrowLeftIcon" />)
+      expect(document.querySelector('svg')).toBeInTheDocument()
+    })
+
+    it('renders ArrowRightIcon', () => {
+      render(<Icon name="ArrowRightIcon" />)
+      expect(document.querySelector('svg')).toBeInTheDocument()
+    })
   })
 
   describe('Props Delegation', () => {

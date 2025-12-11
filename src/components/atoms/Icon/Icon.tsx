@@ -13,6 +13,12 @@ export type IconName =
   | 'FilterIcon'
   | 'CheckIcon'
   | 'XIcon'
+  | 'ChevronDownIcon'
+  | 'ChevronUpIcon'
+  | 'ChevronLeftIcon'
+  | 'ChevronRightIcon'
+  | 'ArrowLeftIcon'
+  | 'ArrowRightIcon'
 
 export interface IconProps {
   name: IconName
@@ -59,4 +65,10 @@ export const getAvailableIcons = (): IconName[] => [
   'FilterIcon',
   'CheckIcon',
   'XIcon',
+  'ChevronDownIcon',
+  'ChevronUpIcon',
+  'ChevronLeftIcon',
+  'ChevronRightIcon',
+  'ArrowLeftIcon',
+  'ArrowRightIcon',
 ]

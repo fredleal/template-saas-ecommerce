@@ -4,11 +4,6 @@ import { Label } from '../../atoms/Label/Label';
 import { TagText } from '../../atoms/TagText/TagText';
 import { Image } from '../../atoms/Image/Image';
 export const RadioOption = ({ id, name, value, label, imageSrc, imageAlt, variant = 'primary', checked = false, disabled = false, onChange, className = '', ...props }) => {
-    // Variant classes for the container
-    const variantClasses = {
-        primary: 'border-gray-300 hover:border-blue-400 checked:border-blue-500 checked:bg-blue-50',
-        secondary: 'border-gray-300 hover:border-purple-400 checked:border-purple-500 checked:bg-purple-50',
-    };
     // Container classes
     const containerClasses = `
     relative flex flex-col items-center justify-center gap-3 p-4 rounded-lg border-2 transition-all cursor-pointer
