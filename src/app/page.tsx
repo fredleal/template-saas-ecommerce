@@ -9,6 +9,7 @@ import {
   Icon,
   Checkbox,
   Input,
+  Select,
   Image,
   PriceTag,
   QuantitySelector,
@@ -3247,6 +3248,123 @@ export default function Home() {
                     <Input placeholder="Error state" error />
                   </div>
                 </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Select Component - NEW */}
+        <section className="max-w-7xl mx-auto px-6 pb-12">
+          <Heading level={2} className="mb-4">
+            Select Component
+          </Heading>
+          <Text size="sm" color="secondary" className="mb-8">
+            Native select with custom styling - consistent with Input component
+          </Text>
+
+          <div className="bg-white rounded-xl p-8 border">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+              {/* Size Variants */}
+              <div>
+                <Text weight="semibold" className="mb-4">
+                  Size Variants
+                </Text>
+                <div className="space-y-3">
+                  <Select
+                    size="sm"
+                    placeholder="Small select"
+                    options={[
+                      { value: 'opt1', label: 'Option 1' },
+                      { value: 'opt2', label: 'Option 2' },
+                    ]}
+                  />
+                  <Select
+                    size="md"
+                    placeholder="Medium select (default)"
+                    options={[
+                      { value: 'opt1', label: 'Option 1' },
+                      { value: 'opt2', label: 'Option 2' },
+                    ]}
+                  />
+                  <Select
+                    size="lg"
+                    placeholder="Large select"
+                    options={[
+                      { value: 'opt1', label: 'Option 1' },
+                      { value: 'opt2', label: 'Option 2' },
+                    ]}
+                  />
+                </div>
+              </div>
+
+              {/* States */}
+              <div>
+                <Text weight="semibold" className="mb-4">
+                  States
+                </Text>
+                <div className="space-y-3">
+                  <Select
+                    placeholder="Normal select"
+                    options={[
+                      { value: 'cat1', label: 'Category 1' },
+                      { value: 'cat2', label: 'Category 2' },
+                    ]}
+                  />
+                  <Select
+                    placeholder="Disabled select"
+                    disabled
+                    options={[
+                      { value: 'cat1', label: 'Category 1' },
+                      { value: 'cat2', label: 'Category 2' },
+                    ]}
+                  />
+                  <Select
+                    placeholder="Error state"
+                    error
+                    errorMessage="Please select an option"
+                    id="error-select"
+                    options={[
+                      { value: 'cat1', label: 'Category 1' },
+                      { value: 'cat2', label: 'Category 2' },
+                    ]}
+                  />
+                </div>
+              </div>
+            </div>
+
+            {/* E-commerce Use Cases */}
+            <div className="mt-8 p-4 bg-gray-50 rounded-lg">
+              <Text size="sm" weight="semibold" className="mb-3">
+                E-commerce Use Cases
+              </Text>
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                <Select
+                  placeholder="Select size"
+                  options={[
+                    { value: 'p', label: 'P - Pequeno' },
+                    { value: 'm', label: 'M - Médio' },
+                    { value: 'g', label: 'G - Grande' },
+                    { value: 'gg', label: 'GG - Extra Grande' },
+                  ]}
+                />
+                <Select
+                  placeholder="Select color"
+                  options={[
+                    { value: 'black', label: 'Preto' },
+                    { value: 'white', label: 'Branco' },
+                    { value: 'blue', label: 'Azul' },
+                    { value: 'red', label: 'Vermelho', disabled: true },
+                  ]}
+                />
+                <Select
+                  placeholder="Sort by"
+                  options={[
+                    { value: 'relevance', label: 'Relevância' },
+                    { value: 'price_asc', label: 'Menor preço' },
+                    { value: 'price_desc', label: 'Maior preço' },
+                    { value: 'newest', label: 'Mais recentes' },
+                  ]}
+                />
               </div>
             </div>
           </div>
