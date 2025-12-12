@@ -2586,6 +2586,82 @@ export default function Home() {
             </div>
           </div>
 
+          {/* Action Icons - NEW */}
+          <div>
+            <Text size="2xl" weight="semibold" className="mb-6">
+              Action Icons
+            </Text>
+            <div className="bg-white rounded-xl p-8 border">
+              <Text
+                size="sm"
+                weight="semibold"
+                color="secondary"
+                className="mb-4"
+              >
+                Action Icons (New)
+              </Text>
+              <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+                <div className="flex flex-col items-center gap-2">
+                  <div className="w-16 h-16 rounded-lg bg-red-50 flex items-center justify-center">
+                    <Icon name="MinusIcon" size="lg" color="error" />
+                  </div>
+                  <Text size="xs" className="text-center">
+                    Minus
+                  </Text>
+                </div>
+                <div className="flex flex-col items-center gap-2">
+                  <div className="w-16 h-16 rounded-lg bg-red-50 flex items-center justify-center">
+                    <Icon name="TrashIcon" size="lg" color="error" />
+                  </div>
+                  <Text size="xs" className="text-center">
+                    Trash
+                  </Text>
+                </div>
+                <div className="flex flex-col items-center gap-2">
+                  <div className="w-16 h-16 rounded-lg bg-blue-50 flex items-center justify-center">
+                    <Icon name="ShareIcon" size="lg" color="primary" />
+                  </div>
+                  <Text size="xs" className="text-center">
+                    Share
+                  </Text>
+                </div>
+                <div className="flex flex-col items-center gap-2">
+                  <div className="w-16 h-16 rounded-lg bg-blue-50 flex items-center justify-center">
+                    <Icon name="ZoomInIcon" size="lg" color="primary" />
+                  </div>
+                  <Text size="xs" className="text-center">
+                    ZoomIn
+                  </Text>
+                </div>
+              </div>
+
+              {/* Action Icons Use Cases */}
+              <div className="mt-8 p-4 bg-gray-50 rounded-lg">
+                <Text size="sm" weight="semibold" className="mb-3">
+                  Use Cases for Action Icons
+                </Text>
+                <div className="flex flex-wrap gap-4">
+                  <div className="flex items-center gap-2 px-4 py-2 bg-white rounded-lg border hover:bg-red-50 cursor-pointer">
+                    <Icon name="MinusIcon" size="sm" color="error" />
+                    <Text size="sm">Decrease Qty</Text>
+                  </div>
+                  <div className="flex items-center gap-2 px-4 py-2 bg-white rounded-lg border hover:bg-red-50 cursor-pointer">
+                    <Icon name="TrashIcon" size="sm" color="error" />
+                    <Text size="sm">Remove Item</Text>
+                  </div>
+                  <div className="flex items-center gap-2 px-4 py-2 bg-white rounded-lg border hover:bg-blue-50 cursor-pointer">
+                    <Icon name="ShareIcon" size="sm" color="primary" />
+                    <Text size="sm">Share Product</Text>
+                  </div>
+                  <div className="flex items-center gap-2 px-4 py-2 bg-white rounded-lg border hover:bg-blue-50 cursor-pointer">
+                    <Icon name="ZoomInIcon" size="sm" color="primary" />
+                    <Text size="sm">Zoom Image</Text>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
           {/* Button Variants */}
           <div>
             <Text size="2xl" weight="semibold" className="mb-6">

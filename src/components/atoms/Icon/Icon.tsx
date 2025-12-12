@@ -8,6 +8,10 @@ export type IconName =
   | 'SearchIcon'
   | 'MenuIcon'
   | 'PlusIcon'
+  | 'MinusIcon'
+  | 'TrashIcon'
+  | 'ShareIcon'
+  | 'ZoomInIcon'
   | 'StarIcon'
   | 'UserIcon'
   | 'FilterIcon'
@@ -60,6 +64,10 @@ export const getAvailableIcons = (): IconName[] => [
   'SearchIcon',
   'MenuIcon',
   'PlusIcon',
+  'MinusIcon',
+  'TrashIcon',
+  'ShareIcon',
+  'ZoomInIcon',
   'StarIcon',
   'UserIcon',
   'FilterIcon',

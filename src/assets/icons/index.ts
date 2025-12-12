@@ -19,6 +19,10 @@ export { ArrowRightIcon } from './navigation/ArrowRightIcon'
 
 // Action Icons
 export { PlusIcon } from './actions/PlusIcon'
+export { MinusIcon } from './actions/MinusIcon'
+export { TrashIcon } from './actions/TrashIcon'
+export { ShareIcon } from './actions/ShareIcon'
+export { ZoomInIcon } from './actions/ZoomInIcon'
 
 // Feedback Icons
 export { StarIcon } from './feedback/StarIcon'
