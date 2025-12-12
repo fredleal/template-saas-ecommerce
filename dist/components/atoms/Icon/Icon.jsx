@@ -23,5 +23,11 @@ export const getAvailableIcons = () => [
     'FilterIcon',
     'CheckIcon',
     'XIcon',
+    'ChevronDownIcon',
+    'ChevronUpIcon',
+    'ChevronLeftIcon',
+    'ChevronRightIcon',
+    'ArrowLeftIcon',
+    'ArrowRightIcon',
 ];
 //# sourceMappingURL=Icon.jsx.map

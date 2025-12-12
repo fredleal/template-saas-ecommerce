@@ -1,6 +1,6 @@
 'use client';
 import React from 'react';
-import { FormatPrice } from '../FormatPrice';
+import { FormatPrice } from '../FormatPrice/FormatPrice';
 export const InstallmentsPrice = ({ installments, value, currency = 'BRL', locale = 'pt-BR', withInterest = false, size = 'md', className = '', }) => {
     // Size-specific classes
     const sizeClasses = {

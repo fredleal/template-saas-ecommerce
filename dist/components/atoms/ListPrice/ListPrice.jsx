@@ -1,6 +1,6 @@
 'use client';
 import React from 'react';
-import { FormatPrice } from '../../molecules/FormatPrice';
+import { FormatPrice } from '../../molecules/FormatPrice/FormatPrice';
 export const ListPrice = ({ value, currency = 'BRL', locale = 'pt-BR', size = 'md', className = '', }) => {
     // Size-specific classes for each part (smaller than MainPrice)
     const sizeClasses = {

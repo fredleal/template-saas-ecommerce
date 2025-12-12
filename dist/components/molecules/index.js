@@ -22,4 +22,5 @@ export { PixDiscount } from './PixDiscount/PixDiscount';
 export { RadioOption } from './RadioOption/RadioOption';
 export { ImageLink } from './ImageLink/ImageLink';
 export { TabLayout } from './TabLayout/TabLayout';
+export { SearchInput } from './SearchInput/SearchInput';
 //# sourceMappingURL=index.js.map

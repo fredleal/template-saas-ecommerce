@@ -2400,10 +2400,19 @@ export default function Home() {
           {/* Icon System Showcase */}
           <div className="mb-12">
             <Text size="2xl" weight="semibold" className="mb-6">
-              Complete Icon System (9 Icons)
+              Complete Icon System (16 Icons)
             </Text>
             <div className="bg-white rounded-xl p-8 border">
-              <div className="grid grid-cols-3 md:grid-cols-9 gap-6">
+              {/* Original Icons */}
+              <Text
+                size="sm"
+                weight="semibold"
+                color="secondary"
+                className="mb-4"
+              >
+                Core Icons
+              </Text>
+              <div className="grid grid-cols-3 md:grid-cols-5 lg:grid-cols-10 gap-6 mb-8">
                 <div className="flex flex-col items-center gap-2">
                   <div className="w-16 h-16 rounded-lg bg-blue-50 flex items-center justify-center">
                     <Icon name="CartIcon" size="lg" color="primary" />
@@ -2475,6 +2484,103 @@ export default function Home() {
                   <Text size="xs" className="text-center">
                     Check
                   </Text>
+                </div>
+                <div className="flex flex-col items-center gap-2">
+                  <div className="w-16 h-16 rounded-lg bg-red-50 flex items-center justify-center">
+                    <Icon name="XIcon" size="lg" color="error" />
+                  </div>
+                  <Text size="xs" className="text-center">
+                    X/Close
+                  </Text>
+                </div>
+              </div>
+
+              {/* Navigation Icons - NEW */}
+              <Text
+                size="sm"
+                weight="semibold"
+                color="secondary"
+                className="mb-4"
+              >
+                Navigation Icons (New)
+              </Text>
+              <div className="grid grid-cols-3 md:grid-cols-6 gap-6">
+                <div className="flex flex-col items-center gap-2">
+                  <div className="w-16 h-16 rounded-lg bg-indigo-50 flex items-center justify-center">
+                    <Icon name="ChevronDownIcon" size="lg" color="primary" />
+                  </div>
+                  <Text size="xs" className="text-center">
+                    ChevronDown
+                  </Text>
+                </div>
+                <div className="flex flex-col items-center gap-2">
+                  <div className="w-16 h-16 rounded-lg bg-indigo-50 flex items-center justify-center">
+                    <Icon name="ChevronUpIcon" size="lg" color="primary" />
+                  </div>
+                  <Text size="xs" className="text-center">
+                    ChevronUp
+                  </Text>
+                </div>
+                <div className="flex flex-col items-center gap-2">
+                  <div className="w-16 h-16 rounded-lg bg-indigo-50 flex items-center justify-center">
+                    <Icon name="ChevronLeftIcon" size="lg" color="primary" />
+                  </div>
+                  <Text size="xs" className="text-center">
+                    ChevronLeft
+                  </Text>
+                </div>
+                <div className="flex flex-col items-center gap-2">
+                  <div className="w-16 h-16 rounded-lg bg-indigo-50 flex items-center justify-center">
+                    <Icon name="ChevronRightIcon" size="lg" color="primary" />
+                  </div>
+                  <Text size="xs" className="text-center">
+                    ChevronRight
+                  </Text>
+                </div>
+                <div className="flex flex-col items-center gap-2">
+                  <div className="w-16 h-16 rounded-lg bg-purple-50 flex items-center justify-center">
+                    <Icon name="ArrowLeftIcon" size="lg" color="primary" />
+                  </div>
+                  <Text size="xs" className="text-center">
+                    ArrowLeft
+                  </Text>
+                </div>
+                <div className="flex flex-col items-center gap-2">
+                  <div className="w-16 h-16 rounded-lg bg-purple-50 flex items-center justify-center">
+                    <Icon name="ArrowRightIcon" size="lg" color="primary" />
+                  </div>
+                  <Text size="xs" className="text-center">
+                    ArrowRight
+                  </Text>
+                </div>
+              </div>
+
+              {/* Navigation Icons Use Cases */}
+              <div className="mt-8 p-4 bg-gray-50 rounded-lg">
+                <Text size="sm" weight="semibold" className="mb-3">
+                  Use Cases for Navigation Icons
+                </Text>
+                <div className="flex flex-wrap gap-4">
+                  <div className="flex items-center gap-2 px-4 py-2 bg-white rounded-lg border">
+                    <Text size="sm">Dropdown</Text>
+                    <Icon name="ChevronDownIcon" size="sm" color="secondary" />
+                  </div>
+                  <div className="flex items-center gap-2 px-4 py-2 bg-white rounded-lg border">
+                    <Icon name="ChevronLeftIcon" size="sm" color="secondary" />
+                    <Text size="sm">Previous</Text>
+                  </div>
+                  <div className="flex items-center gap-2 px-4 py-2 bg-white rounded-lg border">
+                    <Text size="sm">Next</Text>
+                    <Icon name="ChevronRightIcon" size="sm" color="secondary" />
+                  </div>
+                  <div className="flex items-center gap-2 px-4 py-2 bg-white rounded-lg border">
+                    <Icon name="ArrowLeftIcon" size="sm" color="secondary" />
+                    <Text size="sm">Back</Text>
+                  </div>
+                  <div className="flex items-center gap-2 px-4 py-2 bg-white rounded-lg border">
+                    <Text size="sm">Continue</Text>
+                    <Icon name="ArrowRightIcon" size="sm" color="secondary" />
+                  </div>
                 </div>
               </div>
             </div>
