@@ -1,5 +1,5 @@
 import React from 'react';
-export type IconName = 'CartIcon' | 'HeartIcon' | 'SearchIcon' | 'MenuIcon' | 'PlusIcon' | 'StarIcon' | 'UserIcon' | 'FilterIcon' | 'CheckIcon' | 'XIcon' | 'ChevronDownIcon' | 'ChevronUpIcon' | 'ChevronLeftIcon' | 'ChevronRightIcon' | 'ArrowLeftIcon' | 'ArrowRightIcon';
+export type IconName = 'CartIcon' | 'HeartIcon' | 'SearchIcon' | 'MenuIcon' | 'PlusIcon' | 'MinusIcon' | 'TrashIcon' | 'ShareIcon' | 'ZoomInIcon' | 'StarIcon' | 'UserIcon' | 'FilterIcon' | 'CheckIcon' | 'XIcon' | 'ChevronDownIcon' | 'ChevronUpIcon' | 'ChevronLeftIcon' | 'ChevronRightIcon' | 'ArrowLeftIcon' | 'ArrowRightIcon';
 export interface IconProps {
     name: IconName;
     size?: number | 'xs' | 'sm' | 'md' | 'lg' | 'xl';

@@ -22,5 +22,4 @@ export { PixDiscount, type PixDiscountProps } from './PixDiscount/PixDiscount';
 export { RadioOption, type RadioOptionProps } from './RadioOption/RadioOption';
 export { ImageLink, type ImageLinkProps } from './ImageLink/ImageLink';
 export { TabLayout, type TabLayoutProps, type Tab } from './TabLayout/TabLayout';
-export { SearchInput, type SearchInputProps } from './SearchInput/SearchInput';
 //# sourceMappingURL=index.d.ts.map

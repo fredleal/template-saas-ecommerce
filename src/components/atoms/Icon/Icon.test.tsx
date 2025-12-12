@@ -92,6 +92,26 @@ describe('Icon', () => {
       render(<Icon name="ArrowRightIcon" />)
       expect(document.querySelector('svg')).toBeInTheDocument()
     })
+
+    it('renders MinusIcon', () => {
+      render(<Icon name="MinusIcon" />)
+      expect(document.querySelector('svg')).toBeInTheDocument()
+    })
+
+    it('renders TrashIcon', () => {
+      render(<Icon name="TrashIcon" />)
+      expect(document.querySelector('svg')).toBeInTheDocument()
+    })
+
+    it('renders ShareIcon', () => {
+      render(<Icon name="ShareIcon" />)
+      expect(document.querySelector('svg')).toBeInTheDocument()
+    })
+
+    it('renders ZoomInIcon', () => {
+      render(<Icon name="ZoomInIcon" />)
+      expect(document.querySelector('svg')).toBeInTheDocument()
+    })
   })
 
   describe('Props Delegation', () => {
