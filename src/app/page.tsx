@@ -10,6 +10,7 @@ import {
   Checkbox,
   Input,
   Select,
+  Textarea,
   Image,
   PriceTag,
   QuantitySelector,
@@ -3364,6 +3365,113 @@ export default function Home() {
                     { value: 'price_desc', label: 'Maior preço' },
                     { value: 'newest', label: 'Mais recentes' },
                   ]}
+                />
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Textarea Component - NEW */}
+        <section className="max-w-7xl mx-auto px-6 pb-12">
+          <Heading level={2} className="mb-4">
+            Textarea Component
+          </Heading>
+          <Text size="sm" color="secondary" className="mb-8">
+            Multi-line text input with character count and resize options
+          </Text>
+
+          <div className="bg-white rounded-xl p-8 border">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+              {/* Size Variants */}
+              <div>
+                <Text weight="semibold" className="mb-4">
+                  Size Variants
+                </Text>
+                <div className="space-y-3">
+                  <Textarea size="sm" placeholder="Small textarea" rows={2} />
+                  <Textarea
+                    size="md"
+                    placeholder="Medium textarea (default)"
+                    rows={3}
+                  />
+                  <Textarea size="lg" placeholder="Large textarea" rows={3} />
+                </div>
+              </div>
+
+              {/* States */}
+              <div>
+                <Text weight="semibold" className="mb-4">
+                  States
+                </Text>
+                <div className="space-y-3">
+                  <Textarea placeholder="Normal textarea" rows={2} />
+                  <Textarea placeholder="Disabled textarea" disabled rows={2} />
+                  <Textarea
+                    placeholder="Read-only"
+                    readOnly
+                    defaultValue="Read only content"
+                    rows={2}
+                  />
+                  <Textarea
+                    placeholder="Error state"
+                    error
+                    errorMessage="Please enter a valid message"
+                    id="error-textarea"
+                    rows={2}
+                  />
+                </div>
+              </div>
+            </div>
+
+            {/* Character Count & Resize */}
+            <div className="mt-8 grid grid-cols-1 md:grid-cols-2 gap-8">
+              <div>
+                <Text weight="semibold" className="mb-4">
+                  Character Count
+                </Text>
+                <Textarea
+                  placeholder="Type your message..."
+                  maxLength={200}
+                  showCharCount
+                  rows={4}
+                />
+              </div>
+              <div>
+                <Text weight="semibold" className="mb-4">
+                  Resize Options
+                </Text>
+                <div className="space-y-3">
+                  <Textarea placeholder="No resize" resize="none" rows={2} />
+                  <Textarea
+                    placeholder="Vertical resize (default)"
+                    resize="vertical"
+                    rows={2}
+                  />
+                  <Textarea
+                    placeholder="Both directions"
+                    resize="both"
+                    rows={2}
+                  />
+                </div>
+              </div>
+            </div>
+
+            {/* E-commerce Use Cases */}
+            <div className="mt-8 p-4 bg-gray-50 rounded-lg">
+              <Text size="sm" weight="semibold" className="mb-3">
+                E-commerce Use Cases
+              </Text>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <Textarea
+                  placeholder="Write your product review..."
+                  maxLength={500}
+                  showCharCount
+                  rows={4}
+                />
+                <Textarea
+                  placeholder="Additional delivery instructions (optional)"
+                  rows={4}
+                  resize="none"
                 />
               </div>
             </div>

@@ -30,7 +30,7 @@ export const Select = ({ options, value, defaultValue, placeholder = 'Selecione.
         {placeholder && (<option value="" disabled>
             {placeholder}
           </option>)}
-        {options.map((option) => (<option key={option.value} value={option.value} disabled={option.disabled}>
+        {options.map(option => (<option key={option.value} value={option.value} disabled={option.disabled}>
             {option.label}
           </option>))}
       </select>

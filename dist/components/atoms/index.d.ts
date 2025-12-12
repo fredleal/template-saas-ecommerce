@@ -2,6 +2,8 @@ export { Button } from './Button/Button';
 export { Input } from './Input/Input';
 export { Select } from './Select/Select';
 export type { SelectProps, SelectOption } from './Select/Select';
+export { Textarea } from './Textarea/Textarea';
+export type { TextareaProps } from './Textarea/Textarea';
 export { Text, Heading, Price } from './Text/Text';
 export { Badge } from './Badge/Badge';
 export { Icon } from './Icon/Icon';
