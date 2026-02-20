@@ -1,0 +1,35 @@
+html[data-theme='classic'] {
+  --color-primary-50: #f0f4f8;
+  --color-primary-100: #d9e2ec;
+  --color-primary-200: #bcccdc;
+  --color-primary-300: #9fb3c8;
+  --color-primary-400: #6d8dad;
+  --color-primary-500: #2d3436;
+  --color-primary-600: #243b53;
+  --color-primary-700: #1a2a3a;
+  --color-primary-800: #102a43;
+  --color-primary-900: #0a1929;
+
+  --color-gray-50: #f7f9fc;
+  --color-gray-100: #eef2f6;
+  --color-gray-200: #dce3ed;
+  --color-gray-700: #3e4c5a;
+  --color-gray-800: #27303a;
+  --color-gray-900: #1a2028;
+
+  --color-background: #ffffff;
+  --color-surface: #f7f9fc;
+  --color-foreground: #1a2028;
+
+  --font-family-sans: 'Inter', ui-sans-serif, system-ui, sans-serif;
+
+  --spacing-xs: 4px;
+  --spacing-sm: 8px;
+  --spacing-md: 16px;
+  --spacing-lg: 24px;
+  --spacing-xl: 32px;
+
+  --radius-sm: 0.25rem;
+  --radius-md: 0.375rem;
+  --radius-lg: 0.5rem;
+}
