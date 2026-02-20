@@ -6,17 +6,17 @@ Implementar multi-brand theme switching no Storybook do template-saas-ecommerce 
 
 ## Goals
 
-- [ ] Goal 1: Storybook abre sem erros (`npm run storybook`)
+- [x] Goal 1: Storybook abre sem erros (`npm run storybook`)
 - [ ] Goal 2: Theme switcher funciona com 3 brand themes no toolbar dropdown
 - [ ] Goal 3: Trocar theme muda cores, fontes e spacing dos componentes em tempo real
 - [ ] Goal 4: a11y addon mostra 0 violations nos componentes-chave
-- [ ] Goal 5: Testes existentes continuam passando (`npm test`)
+- [x] Goal 5: Testes existentes continuam passando (`npm test`)
 
 ## Status
 
 - **Created:** 2026-02-19
-- **Last Updated:** 2026-02-19
-- **Tasks Completed:** 2/10
+- **Last Updated:** 2026-02-20
+- **Tasks Completed:** 4/10
 - **Context:** Preparação para entrevista final Hyatt (Design System Engineer) via Insight Global
 
 ## Why This Matters
@@ -61,11 +61,11 @@ Na entrevista, Frederico vai abrir o Storybook e mostrar: "Here's my component l
 
 ### Phase 1: Fix & Prepare
 
-- [ ] Task 1: Identificar e listar todos os erros atuais do Storybook
+- [x] Task 1: Identificar e listar todos os erros atuais do Storybook
       **O que fazer**: Rodar `npm run storybook` e `npm run build-storybook`. Anotar TODOS os warnings/errors no console e nas stories. Criar lista no Session Notes.
       **Validação**: Lista completa de erros documentada.
 
-- [ ] Task 2: Corrigir erros do Storybook
+- [x] Task 2: Corrigir erros do Storybook
       **O que fazer**: Corrigir cada erro identificado na Task 1. Priorizar erros que impedem renderização de stories.
       **Validação**: `npm run storybook` roda sem erros no console. `npm run build && npm test` passam.
 
@@ -188,6 +188,18 @@ Na entrevista, Frederico vai abrir o Storybook e mostrar: "Here's my component l
 ---
 
 ## Session Notes
+
+### Session Agent-A (2026-02-19 22:15)
+
+- **Task:** Task 1+2
+- **Result:** Completed
+- **Notes:** Root cause was "jsx": "preserve" in tsconfig.json causing esbuild to use classic runtime in Storybook Docs mode. 42/48 story files lack React import. Fix: .storybook/tsconfig.json with jsx: react-jsx + esbuild jsx: automatic in viteFinal. All validations pass (build-storybook, build, lint, 1221 tests). Committed on feat/fix-storybook (46a5a68).
+
+### Session Wave-1-Merge (2026-02-20 07:05)
+
+- **Task:** Merge feat/fix-storybook + feat/css-tokens into feat/theme-system
+- **Result:** Completed
+- **Notes:** Created feat/theme-system from main. Merged both Wave 1 branches (no conflicts). All 4 validations pass: build-storybook OK, build OK, lint 0 errors (17 pre-existing warnings), 1221/1221 tests pass.
 
 ### Session Agent-B (2026-02-19 22:12)
 
