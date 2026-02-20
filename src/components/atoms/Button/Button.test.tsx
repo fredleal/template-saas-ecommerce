@@ -7,13 +7,15 @@ describe('Button', () => {
   describe('Rendering', () => {
     it('renders children text correctly', () => {
       render(<Button>Click me</Button>)
-      expect(screen.getByRole('button', { name: /click me/i })).toBeInTheDocument()
+      expect(
+        screen.getByRole('button', { name: /click me/i })
+      ).toBeInTheDocument()
     })
 
     it('renders with default props', () => {
       render(<Button>Default Button</Button>)
       const button = screen.getByRole('button')
-      expect(button).toHaveClass('bg-blue-500') // primary variant
+      expect(button).toHaveClass('bg-[var(--color-primary-500,#3b82f6)]') // primary variant
       expect(button).toHaveClass('px-4') // md size
     })
 
@@ -28,14 +30,14 @@ describe('Button', () => {
     it('renders primary variant correctly', () => {
       render(<Button variant="primary">Primary</Button>)
       const button = screen.getByRole('button')
-      expect(button).toHaveClass('bg-blue-500')
+      expect(button).toHaveClass('bg-[var(--color-primary-500,#3b82f6)]')
       expect(button).toHaveClass('text-white')
     })
 
     it('renders secondary variant correctly', () => {
       render(<Button variant="secondary">Secondary</Button>)
       const button = screen.getByRole('button')
-      expect(button).toHaveClass('bg-gray-500')
+      expect(button).toHaveClass('bg-[var(--color-gray-500,#6b7280)]')
       expect(button).toHaveClass('text-white')
     })
 
@@ -43,15 +45,15 @@ describe('Button', () => {
       render(<Button variant="outline">Outline</Button>)
       const button = screen.getByRole('button')
       expect(button).toHaveClass('border')
-      expect(button).toHaveClass('border-blue-500')
-      expect(button).toHaveClass('text-blue-500')
+      expect(button).toHaveClass('border-[var(--color-primary-500,#3b82f6)]')
+      expect(button).toHaveClass('text-[var(--color-primary-500,#3b82f6)]')
     })
 
     it('renders ghost variant correctly', () => {
       render(<Button variant="ghost">Ghost</Button>)
       const button = screen.getByRole('button')
-      expect(button).toHaveClass('text-blue-500')
-      expect(button).toHaveClass('hover:bg-blue-50')
+      expect(button).toHaveClass('text-[var(--color-primary-500,#3b82f6)]')
+      expect(button).toHaveClass('hover:bg-[var(--color-primary-50,#eff6ff)]')
     })
   })
 
@@ -90,7 +92,7 @@ describe('Button', () => {
 
       render(<Button onClick={handleClick}>Click me</Button>)
       const button = screen.getByRole('button')
-      
+
       button.click()
       expect(clicked).toBe(true)
     })
@@ -107,7 +109,7 @@ describe('Button', () => {
         </Button>
       )
       const button = screen.getByRole('button')
-      
+
       button.click()
       expect(clicked).toBe(false)
     })
@@ -125,10 +127,10 @@ describe('Button', () => {
     it('loading state shows spinner and disables button', () => {
       render(<Button isLoading>Loading</Button>)
       const button = screen.getByRole('button')
-      
+
       // Button should be disabled when loading
       expect(button).toBeDisabled()
-      
+
       // Spinner SVG should be present
       const spinner = button.querySelector('svg.animate-spin')
       expect(spinner).toBeInTheDocument()
@@ -136,7 +138,9 @@ describe('Button', () => {
 
     it('loading state still shows children text', () => {
       render(<Button isLoading>Loading Button</Button>)
-      expect(screen.getByRole('button', { name: /loading button/i })).toBeInTheDocument()
+      expect(
+        screen.getByRole('button', { name: /loading button/i })
+      ).toBeInTheDocument()
     })
   })
 
@@ -149,7 +153,9 @@ describe('Button', () => {
         </Button>
       )
       expect(screen.getByTestId('icon')).toBeInTheDocument()
-      expect(screen.getByRole('button', { name: /search/i })).toBeInTheDocument()
+      expect(
+        screen.getByRole('button', { name: /search/i })
+      ).toBeInTheDocument()
     })
 
     it('renders with multiple children', () => {
@@ -187,9 +193,12 @@ describe('Button', () => {
     })
 
     it('handles very long text without breaking', () => {
-      const longText = 'This is a very long button text that should not break the layout and should be handled gracefully by the component'
+      const longText =
+        'This is a very long button text that should not break the layout and should be handled gracefully by the component'
       render(<Button>{longText}</Button>)
-      expect(screen.getByRole('button', { name: new RegExp(longText) })).toBeInTheDocument()
+      expect(
+        screen.getByRole('button', { name: new RegExp(longText) })
+      ).toBeInTheDocument()
     })
 
     it('handles onClick undefined gracefully', () => {

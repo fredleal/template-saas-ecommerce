@@ -45,12 +45,13 @@ export const Card = ({
   isClickable = false,
 }: CardProps) => {
   const baseClasses =
-    'bg-white rounded-lg overflow-hidden transition-all duration-200'
+    'bg-[var(--color-background,#ffffff)] rounded-lg overflow-hidden transition-all duration-200'
   const variantClasses = {
-    default: 'border border-gray-200',
+    default: 'border border-[var(--color-gray-200,#e5e7eb)]',
     elevated: 'shadow-md hover:shadow-lg',
-    outlined: 'border-2 border-gray-300',
-    filled: 'bg-gray-50 border border-gray-200',
+    outlined: 'border-2 border-[var(--color-gray-300,#d1d5db)]',
+    filled:
+      'bg-[var(--color-surface,#f9fafb)] border border-[var(--color-gray-200,#e5e7eb)]',
   }
   const sizeClasses = { sm: 'p-4', md: 'p-6', lg: 'p-8' }
   const clickableClasses =
@@ -66,7 +67,7 @@ export const Card = ({
   return (
     <div className={cardClasses} onClick={handleClick}>
       {image && (
-        <div className="w-full h-48 bg-gray-200 overflow-hidden relative">
+        <div className="w-full h-48 bg-[var(--color-gray-200,#e5e7eb)] overflow-hidden relative">
           <Image
             src={image}
             alt={imageAlt || title || 'Card image'}

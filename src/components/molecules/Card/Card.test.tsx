@@ -26,7 +26,7 @@ describe('Card', () => {
     it('renders default variant', () => {
       const { container } = render(<Card>Default</Card>)
       const card = container.firstChild as HTMLElement
-      expect(card).toHaveClass('bg-white')
+      expect(card).toHaveClass('bg-[var(--color-background,#ffffff)]')
       expect(card).toHaveClass('border')
     })
 
@@ -96,14 +96,16 @@ describe('Card', () => {
     it('handles long content', () => {
       const longContent = 'Lorem ipsum '.repeat(100)
       render(<Card>{longContent}</Card>)
-      expect(screen.getByText((content) => content.includes('Lorem ipsum'))).toBeInTheDocument()
+      expect(
+        screen.getByText(content => content.includes('Lorem ipsum'))
+      ).toBeInTheDocument()
     })
 
     it('applies custom className', () => {
       const { container } = render(<Card className="custom-card">Content</Card>)
       const card = container.firstChild as HTMLElement
       expect(card).toHaveClass('custom-card')
-      expect(card).toHaveClass('bg-white') // base class preserved
+      expect(card).toHaveClass('bg-[var(--color-background,#ffffff)]') // base class preserved
     })
   })
 })
