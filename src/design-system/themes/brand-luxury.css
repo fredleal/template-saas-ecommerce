@@ -1,0 +1,35 @@
+html[data-theme='luxury'] {
+  --color-primary-50: #faf7f0;
+  --color-primary-100: #f0e6cc;
+  --color-primary-200: #e0cda0;
+  --color-primary-300: #d4b87a;
+  --color-primary-400: #c9a84c;
+  --color-primary-500: #b8952e;
+  --color-primary-600: #9a7a24;
+  --color-primary-700: #7d621d;
+  --color-primary-800: #5f4a16;
+  --color-primary-900: #1a1a2e;
+
+  --color-gray-50: #f7f7f5;
+  --color-gray-100: #eeede9;
+  --color-gray-200: #dddbd4;
+  --color-gray-700: #3d3a34;
+  --color-gray-800: #2a2824;
+  --color-gray-900: #1a1a2e;
+
+  --color-background: #faf9f6;
+  --color-surface: #f0ede6;
+  --color-foreground: #1a1a2e;
+
+  --font-family-sans: 'Playfair Display', Georgia, serif;
+
+  --spacing-xs: 6px;
+  --spacing-sm: 12px;
+  --spacing-md: 20px;
+  --spacing-lg: 32px;
+  --spacing-xl: 48px;
+
+  --radius-sm: 0.125rem;
+  --radius-md: 0.25rem;
+  --radius-lg: 0.375rem;
+}
