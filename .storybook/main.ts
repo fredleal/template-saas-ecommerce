@@ -37,6 +37,10 @@ const config: StorybookConfig = {
   // ⚙️ Configuração customizada do Vite
   async viteFinal(config) {
     return mergeConfig(config, {
+      esbuild: {
+        jsx: 'automatic',
+        jsxImportSource: 'react',
+      },
       resolve: {
         alias: {
           // Permite usar @ para importar de src/
