@@ -22,38 +22,58 @@ describe('Alert', () => {
       const { container } = render(<Alert message="Test message" />)
 
       const alert = container.querySelector('[role="alert"]')
-      expect(alert).toHaveClass('bg-blue-50')
-      expect(alert).toHaveClass('border-blue-200')
+      expect(alert).toHaveClass('bg-[var(--color-info-50,#eff6ff)]')
+      expect(alert).toHaveClass('border-[var(--color-info-200,#bfdbfe)]')
     })
   })
 
   describe('Variants', () => {
     it('should render info variant with correct styling', () => {
-      const { container } = render(<Alert variant="info" message="Info message" />)
+      const { container } = render(
+        <Alert variant="info" message="Info message" />
+      )
 
       const alert = container.querySelector('[role="alert"]')
-      expect(alert).toHaveClass('bg-blue-50', 'border-blue-200')
+      expect(alert).toHaveClass(
+        'bg-[var(--color-info-50,#eff6ff)]',
+        'border-[var(--color-info-200,#bfdbfe)]'
+      )
     })
 
     it('should render success variant with correct styling', () => {
-      const { container } = render(<Alert variant="success" message="Success message" />)
+      const { container } = render(
+        <Alert variant="success" message="Success message" />
+      )
 
       const alert = container.querySelector('[role="alert"]')
-      expect(alert).toHaveClass('bg-green-50', 'border-green-200')
+      expect(alert).toHaveClass(
+        'bg-[var(--color-success-50,#f0fdf4)]',
+        'border-[var(--color-success-100,#dcfce7)]'
+      )
     })
 
     it('should render warning variant with correct styling', () => {
-      const { container } = render(<Alert variant="warning" message="Warning message" />)
+      const { container } = render(
+        <Alert variant="warning" message="Warning message" />
+      )
 
       const alert = container.querySelector('[role="alert"]')
-      expect(alert).toHaveClass('bg-yellow-50', 'border-yellow-200')
+      expect(alert).toHaveClass(
+        'bg-[var(--color-warning-50,#fffbeb)]',
+        'border-[var(--color-warning-100,#fef3c7)]'
+      )
     })
 
     it('should render error variant with correct styling', () => {
-      const { container } = render(<Alert variant="error" message="Error message" />)
+      const { container } = render(
+        <Alert variant="error" message="Error message" />
+      )
 
       const alert = container.querySelector('[role="alert"]')
-      expect(alert).toHaveClass('bg-red-50', 'border-red-200')
+      expect(alert).toHaveClass(
+        'bg-[var(--color-error-50,#fef2f2)]',
+        'border-[var(--color-error-100,#fee2e2)]'
+      )
     })
   })
 
@@ -160,7 +180,7 @@ describe('Alert', () => {
 
       const alert = container.querySelector('[role="alert"]')
       expect(alert).toHaveClass('custom-class')
-      expect(alert).toHaveClass('bg-blue-50') // default variant
+      expect(alert).toHaveClass('bg-[var(--color-info-50,#eff6ff)]') // default variant
     })
   })
 

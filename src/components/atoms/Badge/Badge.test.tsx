@@ -17,13 +17,17 @@ describe('Badge', () => {
       // Testa comportamento visual via classes Tailwind
       const { rerender } = render(<Badge variant="default">Default</Badge>)
       const badge = screen.getByText('Default')
-      expect(badge).toHaveClass('bg-gray-100') // Verifica cor do default
+      expect(badge).toHaveClass('bg-[var(--color-gray-100,#f3f4f6)]') // Verifica cor do default
 
       rerender(<Badge variant="success">Success</Badge>)
-      expect(screen.getByText('Success')).toHaveClass('bg-green-100') // Verde
+      expect(screen.getByText('Success')).toHaveClass(
+        'bg-[var(--color-success-100,#dcfce7)]'
+      ) // Verde
 
       rerender(<Badge variant="error">Error</Badge>)
-      expect(screen.getByText('Error')).toHaveClass('bg-red-100') // Vermelho
+      expect(screen.getByText('Error')).toHaveClass(
+        'bg-[var(--color-error-100,#fee2e2)]'
+      ) // Vermelho
     })
 
     it('renders with different sizes', () => {

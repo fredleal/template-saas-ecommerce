@@ -4,12 +4,12 @@ import React from 'react';
 import Image from 'next/image';
 import { Button, Text, Heading } from '../../atoms';
 export const Card = ({ variant = 'default', size = 'md', title, subtitle, children, image, imageAlt, actions, className = '', onClick, isClickable = false, }) => {
-    const baseClasses = 'bg-white rounded-lg overflow-hidden transition-all duration-200';
+    const baseClasses = 'bg-[var(--color-background,#ffffff)] rounded-lg overflow-hidden transition-all duration-200';
     const variantClasses = {
-        default: 'border border-gray-200',
+        default: 'border border-[var(--color-gray-200,#e5e7eb)]',
         elevated: 'shadow-md hover:shadow-lg',
-        outlined: 'border-2 border-gray-300',
-        filled: 'bg-gray-50 border border-gray-200',
+        outlined: 'border-2 border-[var(--color-gray-300,#d1d5db)]',
+        filled: 'bg-[var(--color-surface,#f9fafb)] border border-[var(--color-gray-200,#e5e7eb)]',
     };
     const sizeClasses = { sm: 'p-4', md: 'p-6', lg: 'p-8' };
     const clickableClasses = isClickable || onClick ? 'cursor-pointer hover:shadow-md' : '';
@@ -20,7 +20,7 @@ export const Card = ({ variant = 'default', size = 'md', title, subtitle, childr
         }
     };
     return (<div className={cardClasses} onClick={handleClick}>
-      {image && (<div className="w-full h-48 bg-gray-200 overflow-hidden relative">
+      {image && (<div className="w-full h-48 bg-[var(--color-gray-200,#e5e7eb)] overflow-hidden relative">
           <Image src={image} alt={imageAlt || title || 'Card image'} fill className="object-cover" sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"/>
         </div>)}
       <div className={image ? sizeClasses[size] : `${sizeClasses[size]} pb-4`}>

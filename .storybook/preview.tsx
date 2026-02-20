@@ -1,6 +1,14 @@
 import type { Preview } from '@storybook/react'
+import { withThemeByDataAttribute } from '@storybook/addon-themes'
 import React from 'react'
-import '../src/app/globals.css' // Importa Tailwind CSS
+
+// Import global styles (includes base.css via globals.css)
+import '../src/app/globals.css'
+
+// Import brand theme CSS files (loaded in parallel, activated by data-theme attribute)
+import '../src/design-system/themes/brand-luxury.css'
+import '../src/design-system/themes/brand-modern.css'
+import '../src/design-system/themes/brand-classic.css'
 
 /**
  * 🎨 PREVIEW CONFIGURATION
@@ -10,6 +18,7 @@ import '../src/app/globals.css' // Importa Tailwind CSS
  * - Estilos globais
  * - Decorators (wrappers que envolvem todas as stories)
  * - Parâmetros padrão (backgrounds, viewports, etc)
+ * - Theme switching via toolbar dropdown
  */
 
 const preview: Preview = {
@@ -71,6 +80,19 @@ const preview: Preview = {
 
   // 🎭 DECORATORS: Wrappers que envolvem todas as stories
   decorators: [
+    // Theme switching decorator — adds toolbar dropdown for brand themes
+    // Sets data-theme attribute on <html> element to activate brand CSS overrides
+    withThemeByDataAttribute({
+      themes: {
+        Default: '',
+        Luxury: 'luxury',
+        Modern: 'modern',
+        Classic: 'classic',
+      },
+      defaultTheme: 'Default',
+      attributeName: 'data-theme',
+    }),
+    // Padding wrapper for all stories
     Story => (
       <div className="p-8">
         <Story />

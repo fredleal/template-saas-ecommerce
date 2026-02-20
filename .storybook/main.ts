@@ -17,6 +17,7 @@ const config: StorybookConfig = {
     '@storybook/addon-essentials', // Pacote com addons essenciais (Controls, Actions, Docs, etc)
     '@storybook/addon-a11y', // Testa acessibilidade automaticamente
     '@storybook/addon-interactions', // Para testar interações do usuário
+    '@storybook/addon-themes', // Multi-brand theme switching via toolbar dropdown
   ],
 
   // ⚛️ Framework: estamos usando React com Vite

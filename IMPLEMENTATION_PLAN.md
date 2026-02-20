@@ -7,8 +7,8 @@ Implementar multi-brand theme switching no Storybook do template-saas-ecommerce 
 ## Goals
 
 - [x] Goal 1: Storybook abre sem erros (`npm run storybook`)
-- [ ] Goal 2: Theme switcher funciona com 3 brand themes no toolbar dropdown
-- [ ] Goal 3: Trocar theme muda cores, fontes e spacing dos componentes em tempo real
+- [x] Goal 2: Theme switcher funciona com 3 brand themes no toolbar dropdown
+- [x] Goal 3: Trocar theme muda cores, fontes e spacing dos componentes em tempo real
 - [ ] Goal 4: a11y addon mostra 0 violations nos componentes-chave
 - [x] Goal 5: Testes existentes continuam passando (`npm test`)
 
@@ -16,7 +16,7 @@ Implementar multi-brand theme switching no Storybook do template-saas-ecommerce 
 
 - **Created:** 2026-02-19
 - **Last Updated:** 2026-02-20
-- **Tasks Completed:** 4/10
+- **Tasks Completed:** 7/10
 - **Context:** Preparação para entrevista final Hyatt (Design System Engineer) via Insight Global
 
 ## Why This Matters
@@ -112,7 +112,7 @@ Na entrevista, Frederico vai abrir o Storybook e mostrar: "Here's my component l
 
 ### Phase 3: Storybook Theme Switcher
 
-- [ ] Task 5: Instalar e configurar @storybook/addon-themes (theme switcher)
+- [x] Task 5: Instalar e configurar @storybook/addon-themes (theme switcher)
       **O que fazer**:
   1. `npm install --save-dev @storybook/addon-themes`
   2. Adicionar addon em `.storybook/main.ts` (array addons)
@@ -134,7 +134,7 @@ Na entrevista, Frederico vai abrir o Storybook e mostrar: "Here's my component l
 
 ### Phase 4: Migrate Components to CSS Variables
 
-- [ ] Task 7: Migrar Button e Badge para CSS variables
+- [x] Task 7: Migrar Button e Badge para CSS variables
       **O que fazer**: Substituir Tailwind hardcoded por CSS variables nos 2 componentes mais visíveis.
 
   **Button** (`src/components/atoms/Button/Button.tsx`):
@@ -152,7 +152,7 @@ Na entrevista, Frederico vai abrir o Storybook e mostrar: "Here's my component l
   **Fallback**: `bg-[var(--color-primary-500,#3b82f6)]` — fallback no var() para segurança.
   **Validação**: `npm run build && npm test` passam. Trocar theme no Storybook muda visual do Button e Badge.
 
-- [ ] Task 8: Migrar Alert, Card e Header para CSS variables
+- [x] Task 8: Migrar Alert, Card e Header para CSS variables
       **O que fazer**: Mesmo padrão da Task 7 para os 3 componentes restantes.
 
   **Alert** (`src/components/molecules/Alert/Alert.tsx`):
@@ -194,6 +194,12 @@ Na entrevista, Frederico vai abrir o Storybook e mostrar: "Here's my component l
 - **Task:** Task 1+2
 - **Result:** Completed
 - **Notes:** Root cause was "jsx": "preserve" in tsconfig.json causing esbuild to use classic runtime in Storybook Docs mode. 42/48 story files lack React import. Fix: .storybook/tsconfig.json with jsx: react-jsx + esbuild jsx: automatic in viteFinal. All validations pass (build-storybook, build, lint, 1221 tests). Committed on feat/fix-storybook (46a5a68).
+
+### Session Wave-2 (2026-02-20 07:16)
+
+- **Task:** Task 5+7+8
+- **Result:** Completed
+- **Notes:** Installed @storybook/addon-themes@8.6.14. Configured withThemeByDataAttribute in preview.tsx with 4 themes (Default, Luxury, Modern, Classic). Migrated 5 components (Button, Badge, Alert, Card, Header) from hardcoded Tailwind classes to CSS variables with fallbacks (e.g. bg-[var(--color-primary-500,#3b82f6)]). Updated 5 test files to match new class names. All validations pass: build-storybook OK, build OK, lint 0 errors (17 pre-existing warnings), 1221/1221 tests pass.
 
 ### Session Wave-1-Merge (2026-02-20 07:05)
 

@@ -24,13 +24,16 @@ export const Button = ({
   const baseClasses =
     'inline-flex items-center justify-center font-medium rounded-md transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed'
 
-  // Variantes de cor
+  // Variantes de cor (CSS variables for theme switching)
   const variantClasses = {
-    primary: 'bg-blue-500 text-white hover:bg-blue-600 focus:ring-blue-500',
-    secondary: 'bg-gray-500 text-white hover:bg-gray-600 focus:ring-gray-500',
+    primary:
+      'bg-[var(--color-primary-500,#3b82f6)] text-white hover:bg-[var(--color-primary-600,#2563eb)] focus:ring-[var(--color-primary-500,#3b82f6)]',
+    secondary:
+      'bg-[var(--color-gray-500,#6b7280)] text-white hover:bg-[var(--color-gray-600,#4b5563)] focus:ring-[var(--color-gray-500,#6b7280)]',
     outline:
-      'border border-blue-500 text-blue-500 hover:bg-blue-50 focus:ring-blue-500',
-    ghost: 'text-blue-500 hover:bg-blue-50 focus:ring-blue-500',
+      'border border-[var(--color-primary-500,#3b82f6)] text-[var(--color-primary-500,#3b82f6)] hover:bg-[var(--color-primary-50,#eff6ff)] focus:ring-[var(--color-primary-500,#3b82f6)]',
+    ghost:
+      'text-[var(--color-primary-500,#3b82f6)] hover:bg-[var(--color-primary-50,#eff6ff)] focus:ring-[var(--color-primary-500,#3b82f6)]',
   }
 
   // Tamanhos
