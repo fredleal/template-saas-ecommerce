@@ -120,7 +120,7 @@ describe('Select', () => {
     it('applies error styling', () => {
       render(<Select options={mockOptions} error />)
       const select = screen.getByRole('combobox')
-      expect(select).toHaveClass('border-red-500')
+      expect(select).toHaveClass('border-[var(--color-error-500,#ef4444)]')
     })
 
     it('renders error message', () => {

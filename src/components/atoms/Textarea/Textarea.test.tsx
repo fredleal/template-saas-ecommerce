@@ -106,7 +106,7 @@ describe('Textarea', () => {
     it('applies error styling', () => {
       render(<Textarea error />)
       const textarea = screen.getByRole('textbox')
-      expect(textarea).toHaveClass('border-red-500')
+      expect(textarea).toHaveClass('border-[var(--color-error-500,#ef4444)]')
     })
 
     it('renders error message', () => {
@@ -210,7 +210,7 @@ describe('Textarea', () => {
       const textarea = screen.getByRole('textbox')
       fireEvent.change(textarea, { target: { value: '12345' } })
       const counter = screen.getByText('5/5')
-      expect(counter).toHaveClass('text-red-600')
+      expect(counter).toHaveClass('text-[var(--color-error-600,#dc2626)]')
     })
   })
 

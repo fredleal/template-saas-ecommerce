@@ -15,7 +15,7 @@ describe('Text', () => {
       const text = screen.getByText('Default Text')
       expect(text).toHaveClass('text-base')
       expect(text).toHaveClass('font-normal')
-      expect(text).toHaveClass('text-gray-900')
+      expect(text).toHaveClass('text-[var(--color-gray-900,#111827)]')
       expect(text.tagName).toBe('P')
     })
   })
@@ -70,22 +70,30 @@ describe('Text', () => {
   describe('Color Variants', () => {
     it('renders primary color (default)', () => {
       render(<Text color="primary">Primary</Text>)
-      expect(screen.getByText('Primary')).toHaveClass('text-gray-900')
+      expect(screen.getByText('Primary')).toHaveClass(
+        'text-[var(--color-gray-900,#111827)]'
+      )
     })
 
     it('renders secondary color', () => {
       render(<Text color="secondary">Secondary</Text>)
-      expect(screen.getByText('Secondary')).toHaveClass('text-gray-600')
+      expect(screen.getByText('Secondary')).toHaveClass(
+        'text-[var(--color-gray-600,#4b5563)]'
+      )
     })
 
     it('renders muted color', () => {
       render(<Text color="muted">Muted</Text>)
-      expect(screen.getByText('Muted')).toHaveClass('text-gray-500')
+      expect(screen.getByText('Muted')).toHaveClass(
+        'text-[var(--color-gray-500,#6b7280)]'
+      )
     })
 
     it('renders error color', () => {
       render(<Text color="error">Error</Text>)
-      expect(screen.getByText('Error')).toHaveClass('text-red-600')
+      expect(screen.getByText('Error')).toHaveClass(
+        'text-[var(--color-error-600,#dc2626)]'
+      )
     })
   })
 
