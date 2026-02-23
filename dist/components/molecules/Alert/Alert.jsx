@@ -3,28 +3,28 @@ import React, { useState } from 'react';
 import { Text, Icon } from '@/components/atoms';
 const variantConfig = {
     info: {
-        bgColor: 'bg-blue-50',
-        borderColor: 'border-blue-200',
-        iconColor: 'text-blue-600',
-        textColor: 'text-blue-900',
+        bgColor: 'bg-[var(--color-info-50,#eff6ff)]',
+        borderColor: 'border-[var(--color-info-200,#bfdbfe)]',
+        iconColor: 'text-[var(--color-info-600,#2563eb)]',
+        textColor: 'text-[var(--color-info-900,#1e3a8a)]',
     },
     success: {
-        bgColor: 'bg-green-50',
-        borderColor: 'border-green-200',
-        iconColor: 'text-green-600',
-        textColor: 'text-green-900',
+        bgColor: 'bg-[var(--color-success-50,#f0fdf4)]',
+        borderColor: 'border-[var(--color-success-100,#dcfce7)]',
+        iconColor: 'text-[var(--color-success-600,#16a34a)]',
+        textColor: 'text-[var(--color-success-900,#14532d)]',
     },
     warning: {
-        bgColor: 'bg-yellow-50',
-        borderColor: 'border-yellow-200',
-        iconColor: 'text-yellow-600',
-        textColor: 'text-yellow-900',
+        bgColor: 'bg-[var(--color-warning-50,#fffbeb)]',
+        borderColor: 'border-[var(--color-warning-100,#fef3c7)]',
+        iconColor: 'text-[var(--color-warning-600,#d97706)]',
+        textColor: 'text-[var(--color-warning-900,#78350f)]',
     },
     error: {
-        bgColor: 'bg-red-50',
-        borderColor: 'border-red-200',
-        iconColor: 'text-red-600',
-        textColor: 'text-red-900',
+        bgColor: 'bg-[var(--color-error-50,#fef2f2)]',
+        borderColor: 'border-[var(--color-error-100,#fee2e2)]',
+        iconColor: 'text-[var(--color-error-600,#dc2626)]',
+        textColor: 'text-[var(--color-error-900,#7f1d1d)]',
     },
 };
 export function Alert({ variant = 'info', title, message, icon, dismissible = false, onDismiss, className = '', }) {

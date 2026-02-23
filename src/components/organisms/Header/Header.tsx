@@ -30,7 +30,7 @@ export const Header = ({
             <Text
               weight="bold"
               size="xl"
-              className="text-[var(--color-gray-900,#111827)]"
+              className="text-[var(--color-foreground,#171717)]"
             >
               {logoText}
             </Text>

@@ -24,7 +24,7 @@ export const Button = ({
   const baseClasses =
     'inline-flex items-center justify-center font-medium rounded-md transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed'
 
-  // Variantes de cor
+  // Variantes de cor (CSS variables for theme switching)
   const variantClasses = {
     primary:
       'bg-[var(--color-primary-500,#3b82f6)] text-white hover:bg-[var(--color-primary-600,#2563eb)] focus:ring-[var(--color-primary-500,#3b82f6)]',
