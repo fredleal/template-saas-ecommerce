@@ -1,15 +1,15 @@
 # @fredleal/saas-components
 
-A comprehensive React component library built with TypeScript, Tailwind CSS, and Atomic Design principles. This library provides a complete set of reusable components for building modern SaaS and e-commerce applications.
+A React component library built with TypeScript, Tailwind CSS, and Atomic Design principles. This library provides a set of reusable components for building modern SaaS and e-commerce applications.
 
 ## Features
 
-✨ **Atomic Design System** - Components organized in atoms, molecules, and organisms
-🎨 **Customizable Schemas** - JSON Schema definitions for each component
-📱 **Fully Responsive** - Mobile-first design approach
-♿ **Accessible** - WCAG 2.1 AA compliant
-🔒 **Type Safe** - Built with TypeScript
-🎯 **Zero Dependencies** - Only React and React DOM as peer dependencies
+- **Atomic Design System** - Components organized in atoms, molecules, and organisms
+- **Customizable Schemas** - JSON Schema definitions for each component
+- **Fully Responsive** - Mobile-first design approach
+- **Accessible** - WCAG 2.1 AA compliant
+- **Type Safe** - Built with TypeScript
+- **Zero Dependencies** - Only React and React DOM as peer dependencies
 
 ## Installation
 
@@ -209,7 +209,3 @@ MIT © 2025 Fred Leal
 
 - [GitHub Repository](https://github.com/fredleal/template-saas-ecommerce)
 - [Documentation](https://github.com/fredleal/template-saas-ecommerce/docs)
-
----
-
-Built with ❤️ using React, TypeScript, and Tailwind CSS

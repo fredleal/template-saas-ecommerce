@@ -1,8 +1,8 @@
-# 🚀 Deploy do Storybook
+# Deploy do Storybook
 
 Existem duas formas de deployar o Storybook:
 
-## 1. GitHub Pages (Recomendado) ✅
+## 1. GitHub Pages (Recomendado)
 
 O deploy no GitHub Pages é **automático**. Quando você faz push na branch `main`, o GitHub Actions executa o workflow e deploya o Storybook.
 
@@ -97,13 +97,13 @@ npm run build-storybook
 
 ---
 
-## 🎯 Qual método usar?
+## Qual metodo usar?
 
-| Método                | Prós                                                         | Contras                         |
-| --------------------- | ------------------------------------------------------------ | ------------------------------- |
-| **GitHub Pages**      | ✅ Grátis<br>✅ Deploy automático<br>✅ Integrado com GitHub | ⚠️ URL pública                  |
-| **Vercel (separado)** | ✅ Grátis<br>✅ Performance excelente<br>✅ Analytics        | ⚠️ Requer configuração separada |
-| **Manual**            | ✅ Controle total<br>✅ Qualquer servidor                    | ❌ Deploy manual                |
+| Método                | Prós                                            | Contras                      |
+| --------------------- | ----------------------------------------------- | ---------------------------- |
+| **GitHub Pages**      | Gratis, Deploy automatico, Integrado com GitHub | URL publica                  |
+| **Vercel (separado)** | Gratis, Performance excelente, Analytics        | Requer configuracao separada |
+| **Manual**            | Controle total, Qualquer servidor               | Deploy manual                |
 
 ### Recomendação
 
@@ -113,7 +113,7 @@ npm run build-storybook
 
 ---
 
-## 📊 Monitoramento
+## Monitoramento
 
 ### GitHub Pages
 
@@ -127,7 +127,7 @@ npm run build-storybook
 
 ---
 
-## 🔒 Storybook Privado
+## Storybook Privado
 
 Se você quiser que o Storybook seja **privado** (não público):
 
@@ -151,7 +151,7 @@ Ou configure no Dashboard da Vercel:
 
 ---
 
-## 🛠️ Troubleshooting
+## Troubleshooting
 
 ### Erro: "Page build failed"
 
