@@ -75,13 +75,13 @@ export const Input = ({
 
   // 4. State classes (conditional)
   const stateClasses = error
-    ? 'border-red-500 focus:ring-red-500 focus:border-red-500'
-    : 'border-gray-300 focus:ring-blue-500 focus:border-blue-500'
+    ? 'border-[var(--color-error-500,#ef4444)] focus:ring-[var(--color-error-500,#ef4444)] focus:border-[var(--color-error-500,#ef4444)]'
+    : 'border-[var(--color-gray-300,#d1d5db)] focus:ring-[var(--color-primary-500,#3b82f6)] focus:border-[var(--color-primary-500,#3b82f6)]'
 
   const disabledClass =
     disabled || readOnly
-      ? 'bg-gray-100 cursor-not-allowed opacity-60'
-      : 'bg-white'
+      ? 'bg-[var(--color-gray-100,#f3f4f6)] cursor-not-allowed opacity-60'
+      : 'bg-[var(--color-background,#ffffff)]'
 
   // 5. Combine with template literal
   const classes = `${baseClasses} ${sizeClasses[size]} ${stateClasses} ${disabledClass} ${className}`
@@ -110,7 +110,10 @@ export const Input = ({
         }
       />
       {error && errorMessage && (
-        <p id={`${id}-error`} className="mt-1 text-sm text-red-600">
+        <p
+          id={`${id}-error`}
+          className="mt-1 text-sm text-[var(--color-error-600,#dc2626)]"
+        >
           {errorMessage}
         </p>
       )}

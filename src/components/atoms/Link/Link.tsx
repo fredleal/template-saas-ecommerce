@@ -22,12 +22,14 @@ export const Link = ({
 }: LinkProps) => {
   // Base classes
   const baseClasses =
-    'transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500'
+    'transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[var(--color-primary-500,#3b82f6)]'
 
   // Variant classes
   const variantClasses = {
-    primary: 'text-blue-600 hover:text-blue-800 underline',
-    secondary: 'text-blue-600 hover:text-blue-800 no-underline',
+    primary:
+      'text-[var(--color-primary-600,#2563eb)] hover:text-[var(--color-primary-800,#1e40af)] underline',
+    secondary:
+      'text-[var(--color-primary-600,#2563eb)] hover:text-[var(--color-primary-800,#1e40af)] no-underline',
   }
 
   // Auto-add security attributes for external links

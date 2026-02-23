@@ -15,7 +15,7 @@ describe('Link', () => {
     it('renders with default props', () => {
       render(<Link href="/test">Default Link</Link>)
       const link = screen.getByRole('link')
-      expect(link).toHaveClass('text-blue-600') // primary variant
+      expect(link).toHaveClass('text-[var(--color-primary-600,#2563eb)]') // primary variant
       expect(link).toHaveClass('underline')
       expect(link).toHaveAttribute('target', '_self')
     })
@@ -41,7 +41,7 @@ describe('Link', () => {
         </Link>
       )
       const link = screen.getByRole('link')
-      expect(link).toHaveClass('text-blue-600')
+      expect(link).toHaveClass('text-[var(--color-primary-600,#2563eb)]')
       expect(link).toHaveClass('underline')
     })
 
@@ -52,7 +52,7 @@ describe('Link', () => {
         </Link>
       )
       const link = screen.getByRole('link')
-      expect(link).toHaveClass('text-blue-600')
+      expect(link).toHaveClass('text-[var(--color-primary-600,#2563eb)]')
       expect(link).toHaveClass('no-underline')
     })
   })
@@ -266,7 +266,7 @@ describe('Link', () => {
       expect(link).toHaveClass('custom-class')
       // Should also have base classes
       expect(link).toHaveClass('transition-colors')
-      expect(link).toHaveClass('text-blue-600')
+      expect(link).toHaveClass('text-[var(--color-primary-600,#2563eb)]')
     })
 
     it('combines custom className with variant classes', () => {
@@ -278,7 +278,7 @@ describe('Link', () => {
       const link = screen.getByRole('link')
       expect(link).toHaveClass('font-bold')
       expect(link).toHaveClass('no-underline')
-      expect(link).toHaveClass('text-blue-600')
+      expect(link).toHaveClass('text-[var(--color-primary-600,#2563eb)]')
     })
   })
 

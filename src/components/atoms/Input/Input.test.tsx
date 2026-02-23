@@ -97,7 +97,7 @@ describe('Input', () => {
     it('applies disabled styling', () => {
       render(<Input disabled />)
       expect(screen.getByRole('textbox')).toHaveClass(
-        'bg-gray-100',
+        'bg-[var(--color-gray-100,#f3f4f6)]',
         'cursor-not-allowed',
         'opacity-60'
       )
@@ -112,7 +112,7 @@ describe('Input', () => {
     it('applies readOnly styling', () => {
       render(<Input readOnly />)
       expect(screen.getByRole('textbox')).toHaveClass(
-        'bg-gray-100',
+        'bg-[var(--color-gray-100,#f3f4f6)]',
         'cursor-not-allowed',
         'opacity-60'
       )
@@ -121,16 +121,16 @@ describe('Input', () => {
     it('applies error styling', () => {
       render(<Input error />)
       expect(screen.getByRole('textbox')).toHaveClass(
-        'border-red-500',
-        'focus:ring-red-500'
+        'border-[var(--color-error-500,#ef4444)]',
+        'focus:ring-[var(--color-error-500,#ef4444)]'
       )
     })
 
     it('applies normal styling when not in error state', () => {
       render(<Input />)
       expect(screen.getByRole('textbox')).toHaveClass(
-        'border-gray-300',
-        'focus:ring-blue-500'
+        'border-[var(--color-gray-300,#d1d5db)]',
+        'focus:ring-[var(--color-primary-500,#3b82f6)]'
       )
     })
 

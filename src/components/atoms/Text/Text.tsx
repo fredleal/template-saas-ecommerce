@@ -49,12 +49,12 @@ export const Text = ({
     extrabold: 'font-extrabold',
   }
   const colorClasses = {
-    primary: 'text-gray-900',
-    secondary: 'text-gray-600',
-    muted: 'text-gray-500',
-    success: 'text-green-600',
-    warning: 'text-yellow-600',
-    error: 'text-red-600',
+    primary: 'text-[var(--color-gray-900,#111827)]',
+    secondary: 'text-[var(--color-gray-600,#4b5563)]',
+    muted: 'text-[var(--color-gray-500,#6b7280)]',
+    success: 'text-[var(--color-success-600,#16a34a)]',
+    warning: 'text-[var(--color-warning-600,#d97706)]',
+    error: 'text-[var(--color-error-600,#dc2626)]',
   }
   const alignClasses = {
     left: 'text-left',
