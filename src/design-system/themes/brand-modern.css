@@ -1,0 +1,36 @@
+html[data-theme='modern'] {
+  --color-primary-50: #fff1f2;
+  --color-primary-100: #ffe4e6;
+  --color-primary-200: #fecdd3;
+  --color-primary-300: #fca5af;
+  --color-primary-400: #f87181;
+  --color-primary-500: #e63946;
+  --color-primary-600: #d31e2d;
+  --color-primary-700: #b91c28;
+  --color-primary-800: #9a1b25;
+  --color-primary-900: #801d25;
+
+  --color-gray-50: #f8fafc;
+  --color-gray-100: #f1f5f9;
+  --color-gray-200: #e2e8f0;
+  --color-gray-700: #334155;
+  --color-gray-800: #1e293b;
+  --color-gray-900: #0f172a;
+
+  --color-background: #ffffff;
+  --color-surface: #f8fafc;
+  --color-foreground: #0f172a;
+
+  --font-family-sans: 'Montserrat', ui-sans-serif, system-ui, sans-serif;
+
+  --spacing-xs: 3px;
+  --spacing-sm: 6px;
+  --spacing-md: 12px;
+  --spacing-lg: 20px;
+  --spacing-xl: 28px;
+
+  --radius-sm: 0.5rem;
+  --radius-md: 0.75rem;
+  --radius-lg: 1rem;
+  --radius-full: 9999px;
+}

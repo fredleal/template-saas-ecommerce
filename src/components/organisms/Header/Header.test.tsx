@@ -97,7 +97,7 @@ describe('Header', () => {
 
       const blogLink = screen.getByText('Blog')
       // Text component should have the color class
-      expect(blogLink).toHaveClass('text-blue-600')
+      expect(blogLink).toHaveClass('text-[var(--color-primary-600,#2563eb)]')
     })
 
     it('does not highlight inactive links', () => {
@@ -107,7 +107,7 @@ describe('Header', () => {
 
       const homeLink = screen.getByText('Home')
       // Inactive links have gray color
-      expect(homeLink).toHaveClass('text-gray-700')
+      expect(homeLink).toHaveClass('text-[var(--color-gray-700,#374151)]')
     })
 
     it('highlights different link when currentPath changes', () => {
@@ -116,7 +116,7 @@ describe('Header', () => {
       )
 
       let homeLink = screen.getByText('Home')
-      expect(homeLink).toHaveClass('text-blue-600')
+      expect(homeLink).toHaveClass('text-[var(--color-primary-600,#2563eb)]')
 
       // Change currentPath
       rerender(
@@ -124,11 +124,11 @@ describe('Header', () => {
       )
 
       const aboutLink = screen.getByText('About')
-      expect(aboutLink).toHaveClass('text-blue-600')
+      expect(aboutLink).toHaveClass('text-[var(--color-primary-600,#2563eb)]')
 
       // Home should no longer be highlighted
       homeLink = screen.getByText('Home')
-      expect(homeLink).toHaveClass('text-gray-700')
+      expect(homeLink).toHaveClass('text-[var(--color-gray-700,#374151)]')
     })
   })
 
@@ -205,7 +205,11 @@ describe('Header', () => {
         <Header logoText="My Blog" links={mockLinks} />
       )
       const header = container.querySelector('header')
-      expect(header).toHaveClass('bg-white', 'border-b', 'border-gray-200')
+      expect(header).toHaveClass(
+        'bg-[var(--color-background,#ffffff)]',
+        'border-b',
+        'border-[var(--color-gray-200,#e5e7eb)]'
+      )
     })
   })
 
@@ -229,7 +233,9 @@ describe('Header', () => {
 
       const desktopLinks = container.querySelectorAll('.hidden.md\\:flex a')
       desktopLinks.forEach(link => {
-        expect(link).toHaveClass('hover:text-blue-600')
+        expect(link).toHaveClass(
+          'hover:text-[var(--color-primary-600,#2563eb)]'
+        )
       })
     })
 
@@ -249,7 +255,7 @@ describe('Header', () => {
 
       const mobileLinks = mobileMenu?.querySelectorAll('a')
       mobileLinks?.forEach(link => {
-        expect(link).toHaveClass('hover:bg-gray-50')
+        expect(link).toHaveClass('hover:bg-[var(--color-surface,#f9fafb)]')
       })
     })
   })
