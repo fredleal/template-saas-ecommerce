@@ -1,8 +1,8 @@
-# 📚 Storybook - Design System
+# Storybook - Design System
 
 Este diretório contém a configuração do Storybook para o projeto.
 
-## 🌐 Acesso ao Storybook
+## Acesso ao Storybook
 
 ### Local (Desenvolvimento)
 
@@ -24,18 +24,19 @@ O Storybook é automaticamente deployado no GitHub Pages quando há push na bran
 > 2. Source: "GitHub Actions"
 > 3. Fazer push na branch main (o workflow será executado automaticamente)
 
-## 📁 Arquivos
+## Arquivos
 
 - **main.ts** - Configuração principal do Storybook
 - **preview.tsx** - Configuração visual (backgrounds, viewports, etc)
 
-## 🔌 Addons Instalados
+## Addons Instalados
 
 - **@storybook/addon-essentials** - Controles, Actions, Docs, Viewport, Backgrounds
 - **@storybook/addon-a11y** - Testes de acessibilidade
 - **@storybook/addon-interactions** - Testes de interações
+- **@storybook/addon-themes** - Multi-brand theme switching (data-theme attribute)
 
-## 📖 Como Criar uma Nova Story
+## Como Criar uma Nova Story
 
 1. Crie um arquivo `NomeDoComponente.stories.tsx` ao lado do componente
 2. Importe o Meta e StoryObj do Storybook
@@ -64,7 +65,7 @@ export const Default: Story = {
 }
 ```
 
-## 🚀 Build para Produção
+## Build para Produção
 
 ```bash
 npm run build-storybook
@@ -72,7 +73,6 @@ npm run build-storybook
 
 Gera uma versão estática em `storybook-static/`
 
-## 📚 Documentação Completa
+## Documentação Completa
 
-Para documentação detalhada sobre como usar o Storybook, consulte:
-`/Users/fredleal/Documents/ObsidianVault/VTEX-Projects/Whirlpool/Storybook-Guide.md`
+Para documentação detalhada sobre como usar o Storybook, consulte a documentacao oficial em https://storybook.js.org/docs

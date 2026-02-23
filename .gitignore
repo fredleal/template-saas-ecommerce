@@ -42,3 +42,9 @@ next-env.d.ts
 
 # storybook
 storybook-static
+
+# ai session files (local only)
+IMPLEMENTATION_PLAN.md
+MULTI-AI-PROMPTS.md
+*.plan.md
+.claude/
